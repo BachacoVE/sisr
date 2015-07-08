@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_for_pis_mae_asistencias,for.pis.mae_asistencias,model_for_pis_mae_asistencias,base.group_user,1,0,0,0
+access_for_pis_mae_motivos_falta,for.pis.mae_motivos_falta,model_for_pis_mae_motivos_falta,base.group_user,0,0,0,0
+access_for_pis_mae_valor_hora,for.pis.mae_valor_hora,model_for_pis_mae_valor_hora,base.group_user,0,0,0,0
+access_for_pis_mae_cuentas_nomina,for.pis.mae_cuentas_nomina,model_for_pis_mae_cuentas_nomina,base.group_user,0,0,0,0
+access_for_pis_mae_misiona01,for.pis.mae_misiona01,model_for_pis_mae_misiona01,base.group_user,0,0,0,0
+access_for_pis_mae_misiona05,for.pis.mae_misiona05,model_for_pis_mae_misiona05,base.group_user,0,0,0,0

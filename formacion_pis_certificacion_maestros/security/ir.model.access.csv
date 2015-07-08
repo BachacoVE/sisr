@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_for_pis_acsea_certificaciones_maestros","for.pis.acsea_certificaciones_maestros","model_for_pis_acsea_certificaciones_maestros","base.group_user",1,0,0,0
+"access_for_pis_acsea_estados_ine","for.pis.acsea_estados_ine","model_for_pis_acsea_estados_ine","base.group_user",1,0,0,0
+"access_for_pis_acsea_certificados_maestros","for.pis.acsea_certificados_maestros","model_for_pis_acsea_certificados_maestros","base.group_user",1,0,0,0
+"access_for_pis_acsea_certificados_estatus","for.pis.acsea_certificados_estatus","model_for_pis_acsea_certificados_estatus","base.group_user",1,0,0,0

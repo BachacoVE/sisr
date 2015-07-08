@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Cadenas Formativas INCES  -->
+	<record id="cadena_1" model="for.pis.cadenas_formativas">
+		<field name="nombre">TURISMO</field>
+		<field name="descripcion">Turismo</field>
+		<field name="motores_economicos_id" ref="motor_eco_TUR"/>
+	</record>
+
+	<record id="cadena_2" model="for.pis.cadenas_formativas">
+		<field name="nombre">HIDROCARBUROS</field>
+		<field name="descripcion">Petróleo y Gas</field>
+		<field name="motores_economicos_id" ref="motor_eco_PET"/>
+	</record>
+
+	<record id="cadena_10" model="for.pis.cadenas_formativas">
+		<field name="nombre">HIDROCARBUROS</field>
+		<field name="descripcion">Petroquímica</field>
+		<field name="motores_economicos_id" ref="motor_eco_PTQ"/>
+	</record>
+
+	<record id="cadena_3" model="for.pis.cadenas_formativas">
+		<field name="nombre">CONSTRUCCIÓN</field>
+		<field name="descripcion">Construcción</field>
+		<field name="motores_economicos_id" ref="motor_eco_CON"/>
+	</record>
+
+	<record id="cadena_4" model="for.pis.cadenas_formativas">
+		<field name="nombre">TECNOLOGÍA</field>
+		<field name="descripcion">Software, Mecatrónica, Robótica, Instrumentación</field>
+		<field name="motores_economicos_id" ref="motor_eco_TEC"/>
+	</record>
+	
+	<record id="cadena_5" model="for.pis.cadenas_formativas">
+		<field name="nombre">AGRICOLA</field>
+		<field name="descripcion">Agropecuaria, agroindustria</field>
+		<field name="motores_economicos_id" ref="motor_eco_AGR"/>
+	</record>
+
+	<record id="cadena_6" model="for.pis.cadenas_formativas">
+		<field name="nombre">TEXTIL</field>
+		<field name="descripcion">Calzado y Marroquinería</field>
+		<field name="motores_economicos_id" ref="motor_eco_TEX"/>
+	</record>
+	
+	<record id="cadena_7" model="for.pis.cadenas_formativas">
+		<field name="nombre">MINERÍA</field>
+		<field name="descripcion">Minería</field>
+		<field name="motores_economicos_id" ref="motor_eco_MIN"/>
+	</record>
+
+	<record id="cadena_8" model="for.pis.cadenas_formativas">
+		<field name="nombre">INDUSTRIAS</field>
+		<field name="descripcion">Metalmecánica y manufactura, cemento, hierro, acero, plastico,, cartón, industrias básicas, agua, energia, electricidad nuevas fuentes</field>
+		<field name="motores_economicos_id" ref="motor_eco_IND"/>
+	</record>
+    
+    <record id="cadena_11" model="for.pis.cadenas_formativas">
+		<field name="nombre">INDUSTRIAS</field>
+		<field name="descripcion">Automotriz</field>
+		<field name="motores_economicos_id" ref="motor_eco_AUT"/>
+	</record>
+
+	<record id="cadena_9" model="for.pis.cadenas_formativas">
+		<field name="nombre">COMUNICACIONES</field>
+		<field name="descripcion">Comunicaciones</field>
+		<field name="motores_economicos_id" ref="motor_eco_COM"/>
+	</record>
+	
+	</data>
+</openerp>

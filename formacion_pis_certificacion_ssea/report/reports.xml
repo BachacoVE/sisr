@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report auto="False" id="certificado_sujetos_report" model="for.acsea_certificados_sujetos" name="certificado_ssea.report" rml="formacion_pis_certificacion_ssea/report/certificado_sujetos.rml" string="Certificado SSeA Fin de PIS" />
+    </data>
+</openerp>

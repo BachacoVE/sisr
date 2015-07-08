@@ -1,0 +1,433 @@
+codigo,carrera_universitaria
+001,Medicina Veterinaria
+002,Farmacia
+003,Estudios Ambientales
+004,Ingeniería Química
+005,Química
+006,Bioanálisis
+007,Medicina
+008,Educación Mención Ciencias Físico Naturales
+009,Educación Mención Biología y Química
+010,Educación Mención Biología
+011,Biología Marina
+012,Educación Mención Física
+013,Ciencias Estadísticas
+014,Educación Mención Matemática
+015,Ciencias Actuariales
+016,Farmacia
+017,Educación Mención Química
+018,Matemática Mención Docencia en Matemática 
+019,Manejo de Emergencias y Acción Contra Desastres 
+020,Tecnología de Incendios
+021,Arquitectura 
+022,Diseño Gráfico
+023,Diseño Industrial
+024,Ingeniería Civil
+025,Ingeniería en Diseño Industrial
+026,Urbanismo 
+027,Ingeniería en Equipos Ferroviarios 
+028,Diseño Integral
+029,Electricidad (Técnica) 
+030,Ingeniería Aeronáutica 
+031,Ingeniería de Administración de Obras 
+032,Ingeniería de Mantenimiento 
+033,Ingeniería en Mantenimiento Mecánico 
+034,Ingeniería Eléctrica 
+035,Ingeniería Electrónica 
+036,Ingeniería Electrónica de Computación 
+037,Ingeniería Electrónica Mención Telecomunicaciones 
+038,Ingeniería en Mantenimiento de Obras 
+039,Ingeniería Mecánica 
+040,Ingeniería Mecánica Mención Mantenimiento 
+041,Ingeniería Naval 
+042,Mecánica (Técnica) 
+043,Ingeniería Marítima 
+044,Ingeniería Mecatrónica 
+045,Ingeniería Electrónica Mención Automatización y Control 
+046,Ingeniería Electrónica Mención Mecatrónica 
+047,Ingeniería Biomédica 
+048,Informática para La Gestión Social 
+049,Ingeniería en Comunicaciones y Electrónica 
+050,Metalurgia (Técnica) 
+051,Metalurgia y Ciencias de los Materiales
+052,Tecnología de los Materiales (Técnica) 
+053,Ingeniería de Materiales 
+054,Ingeniería Metalúrgica 
+055,Petróleo 
+056,Procesos de Refinación de Petróleo
+057,Tecnología de Gas 
+058,Tecnología Petrolera 
+059,Ingeniería de Petróleo 
+060,Ingeniería de Gas 
+061,Ingeniería Petroquímica 
+062,Ingeniería en Refinación y Petroquímica 
+063,"Ingeniería en Hidrocarburos, mención: Petróleo "
+064,"Ingeniería en Hidrocarburos, mención: Gas "
+065,Calidad Integral (Técnica) 
+066,Control de Calidad 
+067,Higiene y Seguridad Industrial 
+068,Producción Industrial (Técnica) 
+069,Producción y Supervisión Industrial
+070,Química Industrial 
+071,Seguridad Industrial 
+072,Seguridad Integral (Técnica) 
+073,Servicios Industriales 
+074,Tecnología en Procesos Industriales 
+075,Tecnología de Seguridad Industrial 
+076,Tecnología en Sistemas Industriales 
+077,Química (Técnica) 
+078,Geoquímica 
+079,Ingeniería en Producción Industrial 
+080,Ingeniería Industrial 
+081,Ingeniería Química 
+082,Producción Industrial (Técnica) 
+083,Ingeniería de Producción 
+084,Ingeniería de Procesos Industriales 
+085,Análisis de Sistemas (Técnica) 
+086,Análisis y Diseño de Sistemas (Técnica) 
+087,Informática (Técnica) 
+088,Sistemas de Información 
+089,Computación (Técnica) 
+090,Análisis y Diseño de Sistemas (Técnica) 
+091,Computación 
+092,Informática 
+093,Ingeniería en Computación 
+094,Ingeniería en Información 
+095,Ingeniería de Sistemas 
+096,Ingeniería de Telecomunicaciones 
+097,Ingeniería en Informática 
+098,Ingeniería en Telecomunicaciones 
+099,Ingeniería de Redes y Comunicaciones 
+100,Redes y Comunicaciones (Técnica) 
+101,Informática (C.B.) 
+102,Geología y Minas 
+103,Minería 
+104,Tecnología Minera 
+105,Topografía (Técnica) 
+106,Geología (Técnica) 
+107,Geología 
+108,Ingeniería de Minas 
+109,Ingeniería Geodésica 
+110,Ingeniería Geofísica 
+111,Ingeniería Geológica 
+112,Ingeniería Hidrometeorológica 
+113,Administración de Salud y Hospitales 
+114,Administración de Servicios de la Salud 
+115,Gerencia de Procesos Hospitalarios 
+116,Emergencia Prehospitalaria (Técnica) 
+117,Registros y Estadísticas de Salud (Técnica) 
+118,Inspección de Salud Pública (Técnica) 
+119,Información de la Salud 
+120,Tecnología Superior en Estadística de Salud 
+121,Inspección de Salud Pública 
+122,Enfermería (Técnica)
+123,Histotecnología (Técnica) 
+124,Bioanálisis 
+125,Enfermería 
+126,Farmacia 
+127,Fisioterapia 
+128,Medicina 
+129,Nutrición y Dietética 
+130,Odontología 
+131,Citotecnología 
+132,Histotecnología 
+133,Terapia Ocupacional 
+134,Gerontología 
+135,Medicina Integral Comunitaria 
+136,Citotecnología (Técnica) 
+137,Electromedicina (Técnica) 
+138,Imagenología (Técnica) 
+139,Radiología e Imagenología 
+140,Tecnología Cardiopulmonar 
+141,Terapia del Lenguaje 
+142,Mecánica Dental (Técnica) 
+143,Radiodiagnóstico (Técnica) 
+144,Radiología e Imagenología 
+145,Salud Bucal: Higiene Bucal 
+146,Salud Bucal: Mecánica Dental 
+147,Tecnología Cardiopulmonar 
+148,Gestión de Salud Pública 
+149,Radioterapia 
+150,Educación Integral (Técnica)
+151,Educación Integral
+152,Educación Básica Integral 
+153,Educación Biología 
+154,Educación Biología y Química 
+155,Educación Ciencias Pedagógicas 
+156,Educación Computación 
+157,Educación Matemática y Física 
+158,Educación Informática 
+159,Educación Informática y Matemática 
+160,Educación Matemática 
+161,Educación Química 
+162,Educación Preescolar 
+163,Educación Preescolar (Técnica) 
+164,Educación Ciencias de la Tierra 
+165,Educación Ciencias Físico Naturales 
+166,Educación Pedagogía Social 
+167,Educación (EUS) 
+168,Educación Mención Física 
+169,Educación Preescolar 
+170,Educación Comercial 
+171,Educación Historia (Técnica) 
+172,Educación Geografía e Historia 
+173,Educación Lengua y Literatura 
+174,Educación: Educación Física 
+175,Educación Inglés 
+176,Educación Mención Educación Física y Deportes 
+177,Maestro de Niños Sordos y de Niños con Trastornos del Lenguaje 
+178,Psicopedagogía (Técnica) 
+179,Educación Mención Ciencias Religiosas (Técnica) 
+180,Educación Especial Mención Retardo Mental (Técnica) 
+181,Educación Mención Pedagogía Religiosa (Técnica) 
+182,Educación 
+183,Educación Comercial 
+184,Educación Industrial Mención Electricidad 
+185,Educación Industrial Mención Mecánica 
+186,Educación Intercultural Bilingüe. 
+187,Educación Mención Agropecuaria 
+188,Educación Mención Artes Industriales 
+189,Educación Mención Ciencias de la Religión 
+190,Educación Mención Ciencias Sociales 
+191,Educación Mención Filosofía 
+192,Educación Mención Geografía 
+193,Educación Mención Historia 
+194,Educación Mención Inglés 
+195,Educación Mención Lenguas Extranjeras 
+196,Educacion Mención Lenguas Modernas 
+197,Educación Mención Orientación 
+198,Educación Mención Pedagogía Religiosa 
+199,Educación Mención Técnica Mercantil 
+200,Educación Mención Teología 
+201,Educación. Especialidad: Educación Musical 
+202,Educación. Especialidad: Educación Rural 
+203,Educación. Especialidad: Artes Plásticas 
+204,Educación Mención Ciencias y Tecnología de la Educación 
+205,Educación. Especialidad: Dibujo Técnico 
+206,Educación: Electricidad Industrial 
+207,Educación. Especialidad: Electrónica Industrial 
+208,Educación Mención Idiomas Modernos 
+209,"Educación Mención Lengua, Literatura y Latín "
+210,Educación. Especialidad: Mecánica Industrial 
+211,Educación. Especialidad: Artes Escénicas 
+212,Educación Preescolar (Técnica) 
+213,Educación Mención Lengua y Literatura 
+214,Educación Mención Integral 
+215,Educación Mención Básica Integral 
+216,Educación Mención Preescolar 
+217,"Educación Mención Educación Física ,Deporte y Recreación "
+218,Educación Especialidad: Electricidad Industrial 
+219,"Educación Especialidad: Castellano, Literatura y latín "
+220,Educación Mención Historia y Geografía 
+221,Educación Mención Artes 
+222,Educación Mención Preescolar (Técnica) 
+223,Educación Lenguas Extranjeras Mención Inglés 
+224,Educacíon Especialidad: Francés 
+225,Educación Mención Técnica Industrial 
+226,Educación Mención Educación Física 
+227,Educación Ciencias Sociales Mención Turismo 
+228,Educación Mención Música 
+229,"Educación Física,Recreación y Entrenamiento Deportivo "
+230,"Educación mención Ciencias Sociales, área Geografía, área Historia "
+231,Educación Especial
+232,Educación Especial (Técnica) 
+233,"Educación Física, Deportes y Recreación para Personas con Necesidades Especiales "
+234,Educación Especial en Retardo Mental 
+235,Educación Especial en Dificultades del Aprendizaje 
+236,Educación Especial en Deficiencias Auditivas 
+237,Deportes (Técnica) 
+238,Entrenamiento Deportivo (Técnica) 
+239,Ciencias del Deporte 
+240,Actividad Física y Salud 
+241,Entrenamiento Deportivo 
+242,Gestión Tecnológica del Deporte 
+243,Administración Bancaria y Financiera (Técnica) 
+244,Administración de Empresas (Técnica) 
+245,Administración de Empresas Petroleras 
+246,Administración en Informática 
+247,Administración de Personal (Técnica) 
+248,Administración de Recursos Físicos y Financieros 
+249,Administración de Recursos Humanos (Técnica) 
+250,Administración de Sistemas de Mantenimiento 
+251,Administración de Recursos Humanos 
+252,Administración y Ciencias Comerciales 
+253,Administración y Gerencia 
+254,Administración Contabilidad de Costos 
+255,Administración Mención Contabilidad y Finanzas 
+256,Administración y Gestión de Industrias Energéticas 
+257,Administración: Sistemas Administrativos y Contables 
+258,Banca y Finanzas (Técnica) 
+259,Contabilidad 
+260,Contabilidad Computarizada 
+261,Contabilidad y Finanzas 
+262,Contador General 
+263,Contaduría (Técnica) 
+264,Gerencia de Condominios 
+265,Gerencia de Oficinas 
+266,Gerencia Financiera 
+267,Gerencia Pública 
+268,Logística Industrial 
+269,Organización Empresarial (Técnica) 
+270,Secretaría 
+271,Secretariado Administrativo (Técnica) 
+272,Tecnología en Administración Industrial 
+273,Administración Mención Finanzas 
+274,Administración Industrial (Técnica) 
+275,Relaciones Industriales (Técnica) 
+276,Administración (Técnica) 
+277,Gerencia Industrial 
+278,Administración Bancaria Mención Banca 
+279,Administración de Empresas mención Personal 
+280,Administración Mención Costos 
+281,Administración Mención Banca y Finanzas (Técnica) 
+282,Contaduría Pública (Técnica) 
+283,Administración 
+284,Administración Comercial 
+285,Administración de Empresas 
+286,Administración Mención Banca y Finanzas 
+287,Administración Mención Gerencia Industrial 
+288,Ciencias Administrativas 
+289,Ciencias Administrativas (Técnica) 
+290,Ciencias Administrativas y Gerenciales 
+291,Contaduría 
+292,Contaduría Pública 
+293,Economía 
+294,Economía Empresarial 
+295,Gerencia de Recursos Humanos 
+296,Relaciones Industriales 
+297,Procesos Gerenciales 
+298,Administración Pública 
+299,Administración y Gestión Municipal 
+300,Economía Social 
+301,Desarrollo Empresarial 
+302,Administración Mención Gerencia y Mercadeo 
+303,Administración Mención Relaciones Industriales 
+304,Administración. Mención Tributación
+305,Administración Aduanera (Técnica) 
+306,Administración del Transporte (Técnica) 
+307,Administración Mención Transporte y Distribución de Bienes 
+308,Administración Tributaria 
+309,Ciencias Fiscales (Técnica) 
+310,Comercio Exterior (Técnica) 
+311,Gestión Fiscal y Tributaria 
+312,Administración Mención Comercio Exterior 
+313,Administracion de Aduanas 
+314,Mercadeo Mención Comercio Exterior 
+315,Administración Mención Aduanas 
+316,Comercio Internacional 
+317,"Ciencias Fiscales Menciones: Rentas, Aduanas y Comercio Exterior, Finanzas Públicas "
+318,Administración Mención Aduanas 
+319,Ciencias Fiscales 
+320,Asistencia Especializada 
+321,Ciencias Penales y Criminalísticas (Técnica) 
+322,Ciencias Políticas 
+323,Criminología 
+324,Derecho 
+325,Derecho Canónico 
+326,Estudios Internacionales 
+327,Estudios Políticos y Administrativos 
+328,Estudios Liberales 
+329,Estudios Jurídicos 
+330,Estudios Políticos y Gobierno 
+331,Estudios Políticos 
+332,Ciencias Forenses 
+333,Economía Política 
+334,Administración Mención Riesgos y Seguros (Técnica) 
+335,Administración Mención Seguros Mercantiles 
+336,Riesgos y Seguros 
+337,Seguros 
+338,Tecnología en Estadística 
+339,Administración de Empresas: Riesgos y Seguros 
+340,Ciencias Actuariales 
+341,Ciencias Estadísticas 
+342,Estadística 
+343,Administración de Desastres 
+344,Administración de Compras 
+345,Administración de Ventas 
+346,Administración: Mercadeo (Técnica) 
+347,Administración: Mercadotecnia 
+348,Mercadotecnia 
+349,Publicidad (Técnica) 
+350,Publicidad y Mercadeo (Técnica) 
+351,Publicidad y Relaciones Públicas (Técnica) 
+352,Ventas 
+353,Mercadeo (Técnica) 
+354,Mercadeo Mención Publicidad 
+355,Administración de Empresas de Diseño 
+356,Administración Mención Mercadeo 
+357,Mercadeo 
+358,Publicidad 
+359,Publicidad y Relaciones Públicas 
+360,Relaciones Públicas (Técnica) 
+361,Trabajo Social (Técnica) 
+362,"Prevención, Orientación y Acción Social "
+363,Terapia Psicosocial (Técnica) 
+364,Administración Mención Programas Sociales 
+365,Terapia Psicosocial 
+366,Antropología 
+367,Comunicación Social 
+368,Geografía 
+369,Planificación 
+370,Psicología 
+371,Sociología 
+372,Trabajo Social 
+373,Gestión Social del Desarrollo Local 
+374,Relaciones Públicas (Licenciatura) 
+375,Desarrollo Humano 
+376,Antropología Mención Antropología Social y Cultural 
+377,Comunicación 
+378,Administración de Empresas Hoteleras (Técnica) 
+379,Administración del Turismo (Técnica) 
+380,Administración Hotelera 
+381,Empresas Turísticas 
+382,Gerencia Hotelera 
+383,Gestión Hotelera 
+384,Hotelería y Servicios de la Hospitalidad 
+385,Recreación 
+386,Servicios de la Hospitalidad 
+387,Turismo (Técnica) 
+388,Administración de Empresas Turísticas (Técnica) 
+389,Hotelería (Técnica) 
+390,Turismo y Hotelería 
+391,Gestión Hotelera y Turística 
+392,Ecoturismo 
+393,Empresas y Alojamiento Turístico 
+394,Administración de Empresas Turísticas 
+395,Hotelería 
+396,Turismo 
+397,Gestión de la Hospitalidad 
+398,Artes Audiovisuales Mención Televisión (Técnica) 
+399,Ciencias Audiovisuales y Fotografía 
+400,Artes Audiovisuales (Técnica) 
+401,Artes 
+402,Artes Mención Diseño Gráfico 
+403,Artes Mención Museología 
+404,Artes Plásticas 
+405,Artes Visuales 
+406,Historia de Las Artes Plásticas y Museología 
+407,Medios Audiovisuales 
+408,Música 
+409,Música Mención Musicología 
+410,Actuación 
+411,Artes Escénicas Mención Danza 
+412,Artes Mención Música 
+413,Conservación y Restauración de Bienes Culturales Muebles 
+414,Filosofía
+415,Teología
+416,Bibliotecología y Archivología 
+417,Historia 
+418,Información y Documentación
+419,Idiomas Mención Inglés 
+420,Idiomas Modernos (Técnica) 
+421,Idiomas Modernos 
+422,Letras 
+423,Letras Hispánicas 
+424,Letras Mención Historia del Arte 
+425,Letras Mención Lengua y Literaturas Clásicas 
+426,Letras Mención Lengua y Literatura Hispanoamericana y Venezolana 
+427,Idiomas Modernos mencion Inglés 
+428,Ciencias Navales 
+429,Ciencias y Artes Militares Opción Aeronáutica 
+430,Ciencias y Artes Militares Opción Terrestre 
+431,Ciencias y Artes Militares (según Mención) 
+432,Ciencias y Artes Militares Opción Guardia Nacional Bolivariana 

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Estados -->
+	<record id="geo_est_AMA" model="for.pis.estados">
+		<field name="codigo">AMA</field>
+		<field name="estado">Amazonas</field>
+	</record>
+
+	<record id="geo_est_ANZ" model="for.pis.estados">
+		<field name="codigo">ANZ</field>
+		<field name="estado">Anzoátegui</field>
+	</record>
+	
+	<record id="geo_est_APU" model="for.pis.estados">
+		<field name="codigo">APU</field>
+		<field name="estado">Apure</field>
+	</record>
+	
+	<record id="geo_est_ARA" model="for.pis.estados">
+		<field name="codigo">ARA</field>
+		<field name="estado">Aragua</field>
+	</record>
+	
+	<record id="geo_est_BAR" model="for.pis.estados">
+		<field name="codigo">BAR</field>
+		<field name="estado">Barinas</field>
+	</record>
+
+	<record id="geo_est_BAR" model="for.pis.estados">
+		<field name="codigo">BAR</field>
+		<field name="estado">Barinas</field>
+	</record>
+
+	<record id="geo_est_BOL" model="for.pis.estados">
+		<field name="codigo">BOL</field>
+		<field name="estado">Bolívar</field>
+	</record>
+	
+	<record id="geo_est_CAR" model="for.pis.estados">
+		<field name="codigo">CAR</field>
+		<field name="estado">Carabobo</field>
+	</record>
+	
+	<record id="geo_est_COJ" model="for.pis.estados">
+		<field name="codigo">COJ</field>
+		<field name="estado">Cojedes</field>
+	</record>
+	
+	<record id="geo_est_DEA" model="for.pis.estados">
+		<field name="codigo">DEA</field>
+		<field name="estado">Delta Amacuro</field>
+	</record>
+
+	<record id="geo_est_DTO" model="for.pis.estados">
+		<field name="codigo">DTO</field>
+		<field name="estado">Distrito Capital</field>
+	</record>
+
+	<record id="geo_est_FAL" model="for.pis.estados">
+		<field name="codigo">FAL</field>
+		<field name="estado">Falcón</field>
+	</record>
+
+	<record id="geo_est_GUA" model="for.pis.estados">
+		<field name="codigo">GUA</field>
+		<field name="estado">Guárico</field>
+	</record>
+
+	<record id="geo_est_LAR" model="for.pis.estados">
+		<field name="codigo">LAR</field>
+		<field name="estado">Lara</field>
+	</record>
+
+	<record id="geo_est_MER" model="for.pis.estados">
+		<field name="codigo">MER</field>
+		<field name="estado">Mérida</field>
+	</record>
+	
+	<record id="geo_est_MIR" model="for.pis.estados">
+		<field name="codigo">MIR</field>
+		<field name="estado">Miranda</field>
+	</record>
+
+	<record id="geo_est_MON" model="for.pis.estados">
+		<field name="codigo">MON</field>
+		<field name="estado">Monagas</field>
+	</record>
+
+	<record id="geo_est_NVA" model="for.pis.estados">
+		<field name="codigo">NVA</field>
+		<field name="estado">Nueva Esparta</field>
+	</record>
+
+	<record id="geo_est_POR" model="for.pis.estados">
+		<field name="codigo">POR</field>
+		<field name="estado">Portuguesa</field>
+	</record>
+
+	<record id="geo_est_SUC" model="for.pis.estados">
+		<field name="codigo">SUC</field>
+		<field name="estado">Sucre</field>
+	</record>
+
+	<record id="geo_est_TAC" model="for.pis.estados">
+		<field name="codigo">TAC</field>
+		<field name="estado">Táchira</field>
+	</record>
+
+	<record id="geo_est_TRU" model="for.pis.estados">
+		<field name="codigo">TRU</field>
+		<field name="estado">Trujillo</field>
+	</record>
+	
+	<record id="geo_est_VAR" model="for.pis.estados">
+		<field name="codigo">VAR</field>
+		<field name="estado">Vargas</field>
+	</record>
+
+	<record id="geo_est_YAR" model="for.pis.estados">
+		<field name="codigo">YAR</field>
+		<field name="estado">Yaracuy</field>
+	</record>
+
+	<record id="geo_est_ZUL" model="for.pis.estados">
+		<field name="codigo">ZUL</field>
+		<field name="estado">Zulia</field>
+	</record>
+
+	</data>
+</openerp>

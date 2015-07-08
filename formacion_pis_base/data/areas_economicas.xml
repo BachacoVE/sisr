@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Áreas Económicas -->
+	<record id="eco_are_1" model="for.pis.areas_economicas">
+		<field name="codigo">1</field>
+		<field name="area_economica">Cultivo, crianza, aprovechamiento y procesamiento agropecuario, agroindustrial y forestal</field>
+		<field name="sector_id" ref="eco_sec_AGR"/>
+	</record>
+
+	<record id="eco_are_2" model="for.pis.areas_economicas">
+		<field name="codigo">2</field>
+		<field name="area_economica">Extracción y Beneficio</field>
+		<field name="sector_id" ref="eco_sec_AGR"/>
+	</record>
+	
+	<record id="eco_are_3" model="for.pis.areas_economicas">
+		<field name="codigo">3</field>
+		<field name="area_economica">Construcción</field>
+		<field name="sector_id" ref="eco_sec_IND"/>
+	</record>
+
+	<record id="eco_are_4" model="for.pis.areas_economicas">
+		<field name="codigo">4</field>
+		<field name="area_economica">Tecnología mecánica, eléctrica y electrónica</field>
+		<field name="sector_id" ref="eco_sec_IND"/>
+	</record>
+	
+	<record id="eco_are_5" model="for.pis.areas_economicas">
+		<field name="codigo">5</field>
+		<field name="area_economica">Telecomunicaciones</field>
+		<field name="sector_id" ref="eco_sec_IND"/>
+	</record>
+
+	<record id="eco_are_6" model="for.pis.areas_economicas">
+		<field name="codigo">6</field>
+		<field name="area_economica">Manufactura</field>
+		<field name="sector_id" ref="eco_sec_IND"/>
+	</record>
+	
+	<record id="eco_are_7" model="for.pis.areas_economicas">
+		<field name="codigo">7</field>
+		<field name="area_economica">Transporte</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_8" model="for.pis.areas_economicas">
+		<field name="codigo">8</field>
+		<field name="area_economica">Ventas de bienes y servicios</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_9" model="for.pis.areas_economicas">
+		<field name="codigo">9</field>
+		<field name="area_economica">Ventas de servicios de turismo</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_10" model="for.pis.areas_economicas">
+		<field name="codigo">10</field>
+		<field name="area_economica">Servicios Financieros</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_11" model="for.pis.areas_economicas">
+		<field name="codigo">11</field>
+		<field name="area_economica">Apoyo y soporte administrativo</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_12" model="for.pis.areas_economicas">
+		<field name="codigo">12</field>
+		<field name="area_economica">Salud y Protección Social</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_13" model="for.pis.areas_economicas">
+		<field name="codigo">13</field>
+		<field name="area_economica">Desarrollo y extensión del conocimiento</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	<record id="eco_are_14" model="for.pis.areas_economicas">
+		<field name="codigo">14</field>
+		<field name="area_economica">Comunicación Social</field>
+		<field name="sector_id" ref="eco_sec_SYC"/>
+	</record>
+
+	</data>
+</openerp>

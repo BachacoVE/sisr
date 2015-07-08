@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Subareas Económicas -->
+	<record id="eco_sub_1_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Agricultura</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+
+	<record id="eco_sub__1_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Ganadería</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+	
+	<record id="eco_sub_1_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Pesca y acuicultura</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+
+	<record id="eco_sub_1_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Forestal, silvicultura, aserrio y tratamiento de la madera</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+	
+	<record id="eco_sub_1_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Agroindustrial y empaque (materia prima agrícola para procesamiento industrial)</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+
+	<record id="eco_sub_1_6" model="for.pis.subareas_economicas">
+		<field name="codigo">6</field>
+		<field name="subarea_economica">Producción Biotecnológica</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+	
+	<record id="eco_sub_1_7" model="for.pis.subareas_economicas">
+		<field name="codigo">7</field>
+		<field name="subarea_economica">Caza</field>
+		<field name="area_id" ref="eco_are_1"/>
+	</record>
+	
+	<record id="eco_sub_2_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Exploración</field>
+		<field name="area_id" ref="eco_are_2"/>
+	</record>
+	
+	<record id="eco_sub_2_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Extraacción</field>
+		<field name="area_id" ref="eco_are_2"/>
+	</record>
+	
+	<record id="eco_sub_2_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Refinación y beneficio</field>
+		<field name="area_id" ref="eco_are_2"/>
+	</record>
+	
+	<record id="eco_sub_2_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Extracción y provisión de energía y agua</field>
+		<field name="area_id" ref="eco_are_2"/>
+	</record>
+	
+	<record id="eco_sub_3_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Planeación y supervisión de obras</field>
+		<field name="area_id" ref="eco_are_3"/>
+	</record>
+	
+	<record id="eco_sub_3_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Edificación</field>
+		<field name="area_id" ref="eco_are_3"/>
+	</record>
+	
+	<record id="eco_sub_3_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Acabados</field>
+		<field name="area_id" ref="eco_are_3"/>
+	</record>
+	
+	<record id="eco_sub_3_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Instalación, mantenimiento, electricidad domiciliar</field>
+		<field name="area_id" ref="eco_are_3"/>
+	</record>
+	
+	<record id="eco_sub_3_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Carreteras</field>
+		<field name="area_id" ref="eco_are_3"/>
+	</record>
+	
+	<record id="eco_sub_4_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Tecnología mecánica</field>
+		<field name="area_id" ref="eco_are_4"/>
+	</record>
+	
+	<record id="eco_sub_4_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Tecnología eléctrica y electrónica</field>
+		<field name="area_id" ref="eco_are_4"/>
+	</record>
+	
+	<record id="eco_sub_4_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Tecnología Marina</field>
+		<field name="area_id" ref="eco_are_4"/>
+	</record>
+	
+	<record id="eco_sub_4_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Tecnología Aeronáutica</field>
+		<field name="area_id" ref="eco_are_4"/>
+	</record>
+	
+	<record id="eco_sub_4_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Tecnología de Procesos Industriales</field>
+		<field name="area_id" ref="eco_are_4"/>
+	</record>
+	
+	<record id="eco_sub_5_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Telefonía</field>
+		<field name="area_id" ref="eco_are_5"/>
+	</record>
+	
+	<record id="eco_sub_5_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Televisión (instalaciones, antenas, cableado, acometidas)</field>
+		<field name="area_id" ref="eco_are_5"/>
+	</record>
+	
+	<record id="eco_sub_5_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Radio Transmisión</field>
+		<field name="area_id" ref="eco_are_5"/>
+	</record>
+	
+	<record id="eco_sub_5_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Comunicación Satelital (Instalación de Antena, Cableado)</field>
+		<field name="area_id" ref="eco_are_5"/>
+	</record>
+
+	<record id="eco_sub_6_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Procesamiento de Minerales</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Metalurgia (Fundido, Metal y Mineral)</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Procesamiento de Materia Orgánica (Papel, Curtiembre, Jabón, otros)</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Manufactura de Textiles y Prendas de Vestir</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Manufactura de Productos Alimenticios</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_6" model="for.pis.subareas_economicas">
+		<field name="codigo">6</field>
+		<field name="subarea_economica">Manufactura de Productos Químicos (Hule, Plástico, Farmacia, Cosmético)</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+	
+	<record id="eco_sub_6_7" model="for.pis.subareas_economicas">
+		<field name="codigo">7</field>
+		<field name="subarea_economica">Manufactura de Productos Mecánicos (Metalmecánica)</field>
+		<field name="area_id" ref="eco_are_6"/>
+	</record>
+
+	<record id="eco_sub_7_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Transporte Terrestre</field>
+		<field name="area_id" ref="eco_are_7"/>
+	</record>
+	
+	<record id="eco_sub_7_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Transporte Aéreo</field>
+		<field name="area_id" ref="eco_are_7"/>
+	</record>
+	
+	<record id="eco_sub_7_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Transporte Marítimo</field>
+		<field name="area_id" ref="eco_are_7"/>
+	</record>
+
+	<record id="eco_sub_8_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Servicio de Comercio Internacional</field>
+		<field name="area_id" ref="eco_are_8"/>
+	</record>
+	
+	<record id="eco_sub_8_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Servicio de Comercio Nacional</field>
+		<field name="area_id" ref="eco_are_8"/>
+	</record>
+	
+	<record id="eco_sub_8_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Servicio de Limpieza y Vigilancia</field>
+		<field name="area_id" ref="eco_are_8"/>
+	</record>
+	
+	<record id="eco_sub_8_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Servicio de Belleza</field>
+		<field name="area_id" ref="eco_are_8"/>
+	</record>
+	
+	<record id="eco_sub_8_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Servicios Técnicos Personales</field>
+		<field name="area_id" ref="eco_are_8"/>
+	</record>
+	
+	<record id="eco_sub_9_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Servicio de Alimentación y Bebidas</field>
+		<field name="area_id" ref="eco_are_9"/>
+	</record>
+	
+	<record id="eco_sub_9_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Servicio de Hospedaje</field>
+		<field name="area_id" ref="eco_are_9"/>
+	</record>
+	
+	<record id="eco_sub_9_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Servicio de Recreación</field>
+		<field name="area_id" ref="eco_are_9"/>
+	</record>
+	
+	<record id="eco_sub_9_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Servicio de Viaje</field>
+		<field name="area_id" ref="eco_are_9"/>
+	</record>
+
+	<record id="eco_sub_10_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Servicio de Bolsa</field>
+		<field name="area_id" ref="eco_are_10"/>
+	</record>
+	
+	<record id="eco_sub_10_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Servicio de Banca</field>
+		<field name="area_id" ref="eco_are_10"/>
+	</record>
+	
+	<record id="eco_sub_10_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Servicio de Seguros</field>
+		<field name="area_id" ref="eco_are_10"/>
+	</record>
+	
+	<record id="eco_sub_10_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Finanzas</field>
+		<field name="area_id" ref="eco_are_10"/>
+	</record>
+	
+	<record id="eco_sub_11_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Planificación Empresarial</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Administración de Recursos Humanos</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Desarrollo de Sistemas</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Servicios Legales</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Compras e Inventarios</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_6" model="for.pis.subareas_economicas">
+		<field name="codigo">6</field>
+		<field name="subarea_economica">Trabajo de Oficina</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+	
+	<record id="eco_sub_11_7" model="for.pis.subareas_economicas">
+		<field name="codigo">7</field>
+		<field name="subarea_economica">Servicio Postal y Mensajería</field>
+		<field name="area_id" ref="eco_are_11"/>
+	</record>
+
+	<record id="eco_sub_12_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Servicio Médico</field>
+		<field name="area_id" ref="eco_are_12"/>
+	</record>
+	
+	<record id="eco_sub_12_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Protección Sanitaria</field>
+		<field name="area_id" ref="eco_are_12"/>
+	</record>
+	
+	<record id="eco_sub_12_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Seguridad Social</field>
+		<field name="area_id" ref="eco_are_12"/>
+	</record>
+	
+	<record id="eco_sub_12_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Seguridad Pública</field>
+		<field name="area_id" ref="eco_are_12"/>
+	</record>
+	
+	<record id="eco_sub_12_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Protección al Medio Ambiente</field>
+		<field name="area_id" ref="eco_are_12"/>
+	</record>
+
+	<record id="eco_sub_13_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Investigación</field>
+		<field name="area_id" ref="eco_are_13"/>
+	</record>
+	
+	<record id="eco_sub_13_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Educación</field>
+		<field name="area_id" ref="eco_are_13"/>
+	</record>
+
+	<record id="eco_sub_14_1" model="for.pis.subareas_economicas">
+		<field name="codigo">1</field>
+		<field name="subarea_economica">Radio, Cine y Televisión</field>
+		<field name="area_id" ref="eco_are_14"/>
+	</record>
+	
+	<record id="eco_sub_14_2" model="for.pis.subareas_economicas">
+		<field name="codigo">2</field>
+		<field name="subarea_economica">Interpretación Artística</field>
+		<field name="area_id" ref="eco_are_14"/>
+	</record>
+	
+	<record id="eco_sub_14_3" model="for.pis.subareas_economicas">
+		<field name="codigo">3</field>
+		<field name="subarea_economica">Traducción</field>
+		<field name="area_id" ref="eco_are_14"/>
+	</record>
+	
+	<record id="eco_sub_14_4" model="for.pis.subareas_economicas">
+		<field name="codigo">4</field>
+		<field name="subarea_economica">Publicidad y Propaganda (Diseño y Artes Gráficas)</field>
+		<field name="area_id" ref="eco_are_14"/>
+	</record>
+	
+	<record id="eco_sub_14_5" model="for.pis.subareas_economicas">
+		<field name="codigo">5</field>
+		<field name="subarea_economica">Servicios Bibliotecarios</field>
+		<field name="area_id" ref="eco_are_14"/>
+	</record>
+	
+	</data>
+</openerp>

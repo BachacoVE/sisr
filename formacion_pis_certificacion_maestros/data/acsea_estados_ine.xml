@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Estados segun el Instituto Nacional de Estadistica -->
+	<record id="ine_est_AMA" model="for.pis.acsea_estados_ine">
+		<field name="codigo">A02</field>
+		<field name="estado">Amazonas</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_AMA"/>
+	</record>
+
+	<record id="ine_est_ANZ" model="for.pis.acsea_estados_ine">
+		<field name="codigo">03</field>
+		<field name="estado">Anzoátegui</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_ANZ"/>
+	</record>
+	
+	<record id="ine_est_APU" model="for.pis.acsea_estados_ine">
+		<field name="codigo">04</field>
+		<field name="estado">Apure</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_APU"/>
+	</record>
+	
+	<record id="ine_est_ARA" model="for.pis.acsea_estados_ine">
+		<field name="codigo">05</field>
+		<field name="estado">Aragua</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_ARA"/>
+	</record>
+	
+	<record id="ine_est_BAR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">06</field>
+		<field name="estado">Barinas</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_BAR"/>
+	</record>
+
+	<record id="ine_est_BOL" model="for.pis.acsea_estados_ine">
+		<field name="codigo">0</field>
+		<field name="estado">Bolívar</field>7
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_BOL"/>
+	</record>
+	
+	<record id="ine_est_CAR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">08</field>
+		<field name="estado">Carabobo</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_CAR"/>
+	</record>
+	
+	<record id="ine_est_COJ" model="for.pis.acsea_estados_ine">
+		<field name="codigo">09</field>
+		<field name="estado">Cojedes</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_COJ"/>
+	</record>
+	
+	<record id="ine_est_DEA" model="for.pis.acsea_estados_ine">
+		<field name="codigo">10</field>
+		<field name="estado">Delta Amacuro</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_DEA"/>
+	</record>
+
+	<record id="ine_est_DTO" model="for.pis.acsea_estados_ine">
+		<field name="codigo">01</field>
+		<field name="estado">Distrito Capital</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_DTO"/>
+	</record>
+
+	<record id="ine_est_FAL" model="for.pis.acsea_estados_ine">
+		<field name="codigo">11</field>
+		<field name="estado">Falcón</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_FAL"/>
+	</record>
+
+	<record id="ine_est_GUA" model="for.pis.acsea_estados_ine">
+		<field name="codigo">12</field>
+		<field name="estado">Guárico</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_GUA"/>
+	</record>
+
+	<record id="ine_est_LAR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">13</field>
+		<field name="estado">Lara</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_LAR"/>
+	</record>
+
+	<record id="ine_est_MER" model="for.pis.acsea_estados_ine">
+		<field name="codigo">14</field>
+		<field name="estado">Mérida</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_MER"/>
+	</record>
+	
+	<record id="ine_est_MIR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">15</field>
+		<field name="estado">Miranda</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_MIR"/>
+	</record>
+
+	<record id="ine_est_MON" model="for.pis.acsea_estados_ine">
+		<field name="codigo">16</field>
+		<field name="estado">Monagas</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_MON"/>
+	</record>
+
+	<record id="ine_est_NVA" model="for.pis.acsea_estados_ine">
+		<field name="codigo">17</field>
+		<field name="estado">Nueva Esparta</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_NVA"/>
+	</record>
+
+	<record id="ine_est_POR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">18</field>
+		<field name="estado">Portuguesa</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_POR"/>
+	</record>
+
+	<record id="ine_est_SUC" model="for.pis.acsea_estados_ine">
+		<field name="codigo">19</field>
+		<field name="estado">Sucre</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_SUC"/>
+	</record>
+
+	<record id="ine_est_TAC" model="for.pis.acsea_estados_ine">
+		<field name="codigo">20</field>
+		<field name="estado">Táchira</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_TAC"/>
+	</record>
+
+	<record id="ine_est_TRU" model="for.pis.acsea_estados_ine">
+		<field name="codigo">21</field>
+		<field name="estado">Trujillo</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_TRU"/>
+	</record>
+	
+	<record id="ine_est_VAR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">24</field>
+		<field name="estado">Vargas</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_VAR"/>
+	</record>
+
+	<record id="ine_est_YAR" model="for.pis.acsea_estados_ine">
+		<field name="codigo">22</field>
+		<field name="estado">Yaracuy</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_YAR"/>
+	</record>
+
+	<record id="ine_est_ZUL" model="for.pis.acsea_estados_ine">
+		<field name="codigo">23</field>
+		<field name="estado">Zulia</field>
+		<field name="codigo_sisr" ref="formacion_pis_base.geo_est_ZUL"/>
+	</record>
+
+	</data>
+</openerp>

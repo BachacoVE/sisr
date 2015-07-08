@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Sectores Económicos -->
+	<record id="eco_sec_AGR" model="for.pis.sectores_economicos">
+		<field name="codigo">1</field>
+		<field name="sector_economico">Agrícola</field>
+	</record>
+
+	<record id="eco_sec_IND" model="for.pis.sectores_economicos">
+		<field name="codigo">2</field>
+		<field name="sector_economico">Industria</field>
+	</record>
+	
+	<record id="eco_sec_SYC" model="for.pis.sectores_economicos">
+		<field name="codigo">3</field>
+		<field name="sector_economico">Servicio y Comercio</field>
+	</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_for_acsea_certificaciones_sujetos_form">
+        <field name="name">for.acsea_certificaciones_sujetos.form</field>
+        <field name="model">for.acsea_certificaciones_sujetos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.acsea_certificaciones_participantes">
+                <field name="codigo" select="1"/>
+                <field name="estado_id" select="2"/>
+                <field name="pis_inicio" select="0"/>
+                <field name="pis_cierre" select="0"/>
+                <field name="fecha_generacion" select="0"/>
+                <field name="saber" select="0"/>
+                <field name="lugar_fecha" select="0"/>
+                <field name="firmante_1" select="0"/>
+                <field name="firmante_2" select="0"/>
+                <field name="proyecto_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+                <separator string="'Observaciones'" colspan="4"/>
+                <field name="observaciones" colspan="4" nolabel="1" select="0"/>
+                <separator string=" 'Certificados'" colspan="4"/>
+                <field name="certificados_ids" colspan="4" nolabel="1" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_acsea_certificaciones_sujetos_tree">
+        <field name="name">for.acsea_certificaciones_sujetos.tree</field>
+        <field name="model">for.acsea_certificaciones_sujetos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.acsea_certificaciones_participantes">
+                <field name="codigo"/>
+                <field name="estado_id"/>
+                <field name="pis_inicio"/>
+                <field name="pis_cierre"/>
+                <field name="fecha_generacion"/>
+                <field name="saber"/>
+                <field name="lugar_fecha"/>
+                <field name="firmante_1"/>
+                <field name="firmante_2"/>
+                <field name="observaciones"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_acsea_certificaciones_sujetos">
+        <field name="name">Procesos ACSEA Participantes</field>
+        <field name="res_model">for.acsea_certificaciones_sujetos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_acsea_certificados_sujetos_form">
+        <field name="name">for.acsea_certificados_sujetos.form</field>
+        <field name="model">for.acsea_certificados_sujetos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.acsea_certificados_participantes">
+                <field name="proceso_id" select="1"/>
+                <field name="correlativo" select="2"/>
+                <field name="estado_id" select="0"/>
+                <field name="estado" select="0"/>
+                <field name="sujeto_id" select="0"/>
+                <field name="cedula" select="0"/>
+                <field name="nombres" select="0"/>
+                <field name="apellidos" select="0"/>
+                <field name="libro" select="0"/>
+                <field name="hoja" select="0"/>
+                <field name="consecutivo" select="0"/>
+                <field name="duracion" select="0"/>
+                <field name="fecha_emision" select="0"/>
+                <field name="fecha_consignacion" select="0"/>
+                <field name="estatus_certificado" select="0"/>
+                <field name="proyecto_id" select="0"/>
+                <field name="denominacion_pis" select="0"/>
+                <!-- separator string=" 'Estructura Curricular'" colspan="4"/ -->
+                <!-- field name="estructura_curricular_ids" colspan="4" nolabel="1" select="0"/ -->
+                <separator string="'Perfil de Egreso'" colspan="4"/>
+                <field name="perfil_egreso" colspan="4" nolabel="1" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_acsea_certificados_sujetos_tree">
+        <field name="name">for.acsea_certificados_sujetos.tree</field>
+        <field name="model">for.acsea_certificados_sujetos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.acsea_certificados_participantes">
+                <field name="proceso_id"/>
+                <field name="correlativo"/>
+                <!-- field name="estado_id"/ -->
+                <field name="estado"/>
+                <!-- field name="sujeto_id"/ -->
+                <field name="cedula"/>
+                <field name="nombres"/>
+                <field name="apellidos"/>
+                <field name="libro"/>
+                <field name="hoja"/>
+                <field name="consecutivo"/>
+                <field name="duracion"/>
+                <field name="fecha_emision"/>
+                <field name="fecha_consignacion"/>
+                <field name="estatus_certificado"/>
+                <!-- field name="proyecto_id"/ -->
+                <field name="denominacion_pis"/>
+                <field name="perfil_egreso"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_acsea_certificados_sujetos">
+        <field name="name">Certificados Participantes</field>
+        <field name="res_model">for.acsea_certificados_sujetos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menuitem name="Formación" id="menu_for_base" web_icon="images/formacion.png" web_icon_hover="images/formacion-hover.png" / -->
+
+    <!-- menuitem name="Inicio PIS" id="menu_for_pis_inicio" parent="menu_for_base" sequence="1"/ -->
+    <!-- menuitem name="Registro Inicial de PIS" id="menu_for_pis_registro" parent="menu_for_pis_inicio" action="action_for_pis_registro_inicial"/ -->
+
+	<!-- menuitem name="Informes" id="menu_for_informes" parent="menu_for_base" sequence="19"/ -->
+	<!-- menuitem name="Configuración" id="menu_for_configuracion" parent="menu_for_base" sequence="20"/ -->
+	    
+    <!-- menuitem name="Acreditación y Certificación" id="menu_for_pis_acsea" parent="formacion_pis_base.menu_for_base" sequence="5"/ -->
+		<!-- menuitem name="Comisión de Registro y Control" id="menu_for_pis_acsea_comision" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="0"/ -->
+		<!-- menuitem name="Lista de Chequeo" id="menu_for_pis_acsea_chequeo" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="1"/ -->
+		<!-- menuitem name="Fichas de Solicitud ACSEA" id="menu_for_pis_acsea_solicitudes" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="2"/ -->
+		<!-- menuitem name="Actas Acreditación y Certificación" id="menu_for_pis_acsea_actas_acsea" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="3"/ -->
+		
+		<!-- menuitem name="Generar Certificados" id="menu_for_pis_acsea_generar" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="4"/ -->
+		<!-- menuitem name="Registros Maestros de Certificados" id="menu_for_pis_acsea_reg" parent="menu_for_pis_acsea" sequence="5"/ -->
+			<!-- menuitem name="Maestros" id="menu_for_pis_acsea_reg_mae" parent="menu_for_pis_acsea_reg" sequence="0"/ -->
+				<!-- menuitem name="Libros (Procesos de Certificación)" id="menu_for_pis_acsea_certificaciones_maestros" parent="menu_for_pis_acsea_reg_mae" action="action_for_pis_acsea_certificaciones_maestros" sequence="0"/ -->
+				<!-- menuitem name="Certificados (Cartones)" id="menu_for_pis_acsea_certificados_maestros" parent="menu_for_pis_acsea_reg_mae" action="action_for_pis_acsea_certificados_maestros" sequence="1"/ -->
+			<menuitem name="Participantes (Formación)" id="menu_for_pis_acsea_reg_ssea_pis" parent="formacion_pis_certificacion_maestros.menu_for_pis_acsea_reg" sequence="1"/>
+				<menuitem name="Libros (Procesos de Certificación)" id="menu_for_acsea_certificaciones_sujetos" parent="menu_for_pis_acsea_reg_ssea_pis" action="action_for_acsea_certificaciones_sujetos" sequence="0"/>
+				<menuitem name="Certificados (Cartones)" id="menu_for_acsea_certificados_sujetos" parent="menu_for_pis_acsea_reg_ssea_pis" action="action_for_acsea_certificados_sujetos" sequence="1"/>
+
+			<!-- menuitem name="Sujetos (Saberes)" id="menu_for_pis_acsea_reg_ssea_sab" parent="formacion_pis_certificacion_maestros.menu_for_pis_acsea_reg" sequence="2"/ -->
+			<!-- menuitem name="PNA (Aprendices)" id="menu_for_pis_acsea_reg_pna" parent="formacion_pis_certificacion_maestros.menu_for_pis_acsea_reg" sequence="3"/ -->
+
+		<!-- menuitem name="Imprimir Certificados" id="menu_for_pis_acsea_imprimir" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="6"/ -->
+		<!-- menuitem name="Validar Certificados Emitidos" id="menu_for_pis_cer_validar" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="7"/ -->
+		<!-- menuitem name="Configurar WS MIO" id="menu_for_pis_cer_ws_mio" parent="menu_for_pis_acsea" action="formacion_pis_indagacion.action_for_pis_sujetos_aprendizaje" sequence="8"/ -->
+
+	<!-- menuitem name="Acreditación y Certificación" id="menu_for_pis_acsea_conf" parent="formacion_pis_base.menu_for_configuracion" sequence="100"/ -->
+		<!-- menuitem name="Estados (INE)" id="menu_for_pis_acsea_estados_ine" parent="menu_for_pis_acsea_conf" action="action_for_pis_acsea_estados_ine" sequence="0"/ -->
+		<!-- menuitem name="Estatus de Certificados" id="menu_for_pis_acsea_certificados_estatus" parent="menu_for_pis_acsea_conf" action="action_for_pis_acsea_certificados_estatus" sequence="1"/ -->
+
+</data>
+</openerp>

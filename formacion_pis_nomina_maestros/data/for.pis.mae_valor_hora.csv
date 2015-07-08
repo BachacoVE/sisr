@@ -1,0 +1,10 @@
+cargo,grado_academico,horas,nivel,salidas_ocupa,tiempo_servicio,valor_hora
+Artesanal,Certificación INCES,4 y 8,1,Ocupacional y Contratados,0 a 5 años,23.8
+Artesanal,Certificación INCES,4 y 8,2,Ocupacional y Contratados,5 años o más,26.6
+Artesanal,Certificación INCES,4 y 8,3,Ocupacional y Contratados,10 años o más,28.0
+Asistente Integral,Tecnico Superior Universitario,4 y 8,4,Ocupacional y Contratados,0 a 5 años,29.4
+Asistente Integral,Tecnico Superior Universitario,4 y 8,5,Ocupacional y Contratados,5 años o más,32.2
+Asistente Integral,Tecnico Superior Universitario,4 y 8,6,Ocupacional y Contratados,10 años o más,33.6
+Integral,Profesional Universitario,4 y 8,7,Ocupacional y Contratados,0 a 5 años,35.0
+Integral,Profesional Universitario,4 y 8,8,Ocupacional y Contratados,5 años o más,37.8
+Integral,Profesional Universitario,4 y 8,9,Ocupacional y Contratados,10 años o más,39.2

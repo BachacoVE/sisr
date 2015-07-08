@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_for_categorias_contenidos,for.categorias_contenidos,model_for_categorias_contenidos,base.group_user,1,0,0,0
+access_for_estructura_curricular,for.estructura_curricular,model_for_estructura_curricular,base.group_user,1,0,0,0

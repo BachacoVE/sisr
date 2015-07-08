@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    <record model="for.pis.clasificacion_procedencia" id="clasif_pna">
+        <field name="codigo">PNA</field>
+        <field name="nombre">Programa Nacional de Aprendizaje</field>
+        </record>
+        
+        <record model="for.pis.clasificacion_procedencia" id="clasif_fdl">
+        <field name="codigo">FDL</field>
+        <field name="nombre">Formación Delegada</field>
+        </record>
+        
+        <record model="for.pis.clasificacion_procedencia" id="clasif_mtis">
+        <field name="codigo">MTIS</field>
+        <field name="nombre">Mesas Técnicas de Intercambio de Saberes</field>
+        </record>
+        
+        <record model="for.pis.clasificacion_procedencia" id="cla_acu">
+        <field name="codigo">ACU</field>
+        <field name="nombre">Acuerdos y Convenios</field>
+        </record>
+        
+        <record model="for.pis.clasificacion_procedencia" id="cla_ronca">
+        <field name="codigo">RONCA</field>
+        <field name="nombre">Empresas Recuperadas, Ocupadas,  Nacionalizas y Creadas (RONCA)</field>
+        </record>
+        
+     </data>
+</openerp>

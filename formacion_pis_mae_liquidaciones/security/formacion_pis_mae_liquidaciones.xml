@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp><data>
+
+    <record model="ir.module.category" id="module_category_formacion">
+        <field name="name">Formacion</field>
+        <field name="description">Agrupa modulos para la Gestión de Formación</field>
+        <field name="sequence">16</field>
+    </record>
+    
+    <record id="group_for_pis_mae_gerente_liquidaciones" model="res.groups">
+        <field name="name">Gerente de Liquidaciones de Maestros</field>
+        <field name="category_id" ref="module_category_formacion"/>
+    </record>
+    <record id="group_for_pis_mae_analista_liquidaciones" model="res.groups">
+        <field name="name">Analista de Liquidaciones de Maestros</field>
+        <field name="category_id" ref="module_category_formacion"/>
+    </record>
+    <record id="group_for_pis_mae_revisor_liquidaciones" model="res.groups">
+        <field name="name">Revisor de Liquidaciones de Maestros</field>
+        <field name="category_id" ref="module_category_formacion"/>
+    </record>
+
+</data></openerp>

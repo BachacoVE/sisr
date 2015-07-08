@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    <record model="for.pis.modalidad" id="mod_taller">
+        <field name="nombre">Taller</field>
+        <field name="descripcion">Tiempo de Ejecución: 06 a 30 horas. Cantidad de Participantes: 12 a 15</field>
+        </record>
+        
+        <record model="for.pis.modalidad" id="mod_curso">
+        <field name="nombre">Curso</field>
+        <field name="descripcion">Tiempo de Ejecución: 40 a 800 horas. Cantidad de Participantes: 15 a 20</field>
+        </record>
+        
+        <record model="for.pis.modalidad" id="mod_diplomado">
+        <field name="nombre">Diplomado</field>
+        <field name="descripcion">Tiempo de Ejecución: 120 a 200 horas. Cantidad de Participantes: 15 a 20</field>
+        </record>
+        
+        <record model="for.pis.modalidad" id="mod_seminario">
+        <field name="nombre">Seminario</field>
+        <field name="descripcion">Tiempo de Ejecución: 16 a 42 horas. Cantidad de Participantes: 30 a 40 </field>
+        </record>
+        
+        <record model="for.pis.modalidad" id="mod_proyecto">
+        <field name="nombre">Proyecto Integral Socialista</field>
+        <field name="descripcion">Tiempo de Ejecución:  de acuerdo al proyecto. Cantidad de Participantes: de acuerdo al proyecto.</field>
+        </record>
+     </data>
+</openerp>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report auto="False" id="planilla_liquidacion_report" model="for.pis.mae_liquidaciones" name="planilla.report" rml="formacion_pis_mae_liquidaciones/report/planilla_liquidacion.rml" string="Planilla de Liquidacion" />
+    </data>
+</openerp>

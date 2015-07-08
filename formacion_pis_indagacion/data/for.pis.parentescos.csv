@@ -1,0 +1,39 @@
+codigo,parentesco
+TTA,Tatatarabuelo(a)
+BAB,Bisabuelo(a)
+TBA,Tío(a) Bisabuelo(a)
+TAS,Tío(a) Abuelo(a) Segundo(a)
+TIT,Tío(a) Tercero(a)
+PRT,Primo(a) Tercero(a)
+TIS,Tío(a) Segundo(a)
+PRS,Primo(a) Segundo(a)
+SBT,Sobrino(a) Tercero(a)
+TAB,Tío(a) Abuelo(a)
+ABU,Abuelo(a)
+TIO,"Tío(a) ""Carnal"""
+PAD,"Padre ""carnal"""
+MAD,"Madre ""carnal"""
+PRI,"Primo(a) ""carnal"""
+HER,"Hermano(a) ""carnal"""
+SOB,"Sobrino(a) ""carnal"""
+SOS,Sobrino(a) Segundo(a)
+SNI,Sobrino(a) Nieto(a)
+SNS,Sobrino(a) Nieto(a) Segundo(a)
+SBN,Sobrino(a) Bisnieto(a)
+SBT,Sobrino(a) Tataranieto(a)
+HIJ,Hijo(a)
+CON,Conyugue (esposo o esposa)
+NIE,Nieto(a)
+BIN,Bisnieto(a)
+TTN,Tataranieto(a)
+YER,Yerno
+NUE,Nuera
+CUN,Cuñado(a)
+SUE,Suegro(a)
+APO,Abuelo(a) Político(a)
+TPO,Tío(a) Político(a)
+SPO,Sobrino(a) Político(a)
+PAS,Padrastro
+MAS,Madrastra
+PNO,Padrino
+MNA,Madrina

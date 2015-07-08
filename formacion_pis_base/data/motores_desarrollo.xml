@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!-- Motores Económicos -->
+	<record id="motor_eco_AGR" model="for.pis.motores_economicos">
+		<field name="nombre">AGR</field>
+		<field name="descripcion">Agropecuaria y Agroindustria(Alimentos)</field>
+	</record>
+
+	<record id="motor_eco_IND" model="for.pis.motores_economicos">
+		<field name="nombre">IND</field>
+		<field name="descripcion">Industrias(Manufactura)</field>
+	</record>
+	
+	<record id="motor_eco_TUR" model="for.pis.motores_economicos">
+		<field name="nombre">TUR</field>
+		<field name="descripcion">Turismo</field>
+	</record>
+	<record id="motor_eco_AUT" model="for.pis.motores_economicos">
+		<field name="nombre">AUT</field>
+		<field name="descripcion">Automotríz</field>
+	</record>
+
+	<record id="motor_eco_PET" model="for.pis.motores_economicos">
+		<field name="nombre">PET</field>
+		<field name="descripcion">Petróleo</field>
+	</record>
+	
+	<record id="motor_eco_CON" model="for.pis.motores_economicos">
+		<field name="nombre">CON</field>
+		<field name="descripcion">Construcción</field>
+	</record>
+	<record id="motor_eco_TEC" model="for.pis.motores_economicos">
+		<field name="nombre">TEC</field>
+		<field name="descripcion">Tecnología</field>
+	</record>
+
+	<record id="motor_eco_TEX" model="for.pis.motores_economicos">
+		<field name="nombre">TEX</field>
+		<field name="descripcion">Textíl</field>
+	</record>
+	
+	<record id="motor_eco_MIN" model="for.pis.motores_economicos">
+		<field name="nombre">MIN</field>
+		<field name="descripcion">Minería</field>
+	</record>
+	<record id="motor_eco_PTQ" model="for.pis.motores_economicos">
+		<field name="nombre">PTQ</field>
+		<field name="descripcion">Petroquímica</field>
+	</record>
+	<record id="motor_eco_COM" model="for.pis.motores_economicos">
+		<field name="nombre">COM</field>
+		<field name="descripcion">Comunicaciones</field>
+	</record>
+
+	</data>
+</openerp>
+
