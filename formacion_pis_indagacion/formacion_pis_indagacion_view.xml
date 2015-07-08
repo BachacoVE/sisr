@@ -176,7 +176,29 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-        
+    
+<!-- Acá inicia la clase heredada -->
+     <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+        <field name="name">for.pis.registro_inicial.form.inherit</field>
+        <field name="model">for.pis.registro_inicial</field>
+        <field name="inherit_id" ref="for_pis_base.view_for_pis_registro_inicial_form"/>
+        <field name="arch" type="xml">
+            <field name="matriz_curricular_ids" position="after">
+                <separator string="Participantes la formación" colspan="4"/>
+                    <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
+                        <form string="Participación">
+                            <field name="sujeto_id"/>
+                            <!--field name="numero_id"/-->
+                        </form>
+                        <tree string="Participación">
+                            <field name="sujeto_id"/>
+                            <!--field name="numero_id"/-->
+                        </tree>
+                    </field>
+            </field>
+        </field>
+    </record>
+    
     <record model="ir.ui.view" id="view_for_pis_estados_civiles_form">
         <field name="name">for.pis.estados_civiles.form</field>
         <field name="model">for.pis.estados_civiles</field>
