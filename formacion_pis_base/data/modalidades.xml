@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <openerp>
-    <data>
+    <data noupdate="1">
     <record model="for.pis.modalidad" id="mod_taller">
         <field name="nombre">Taller</field>
         <field name="descripcion">Tiempo de Ejecución: 06 a 30 horas. Cantidad de Participantes: 12 a 15</field>

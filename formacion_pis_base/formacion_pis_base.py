@@ -167,7 +167,7 @@ class for_pis_registro_inicial(osv.osv):
         
         #agregando las lineas de motores economicos del modulo arranque2015
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
-        'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Cadenas Formativas', required=True, help='Cadena Formativa'),
+        'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Cadenas Priorizadas', required=True, help='Cadena Priorizada'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=True, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
         #hasta aqui llegan las lineas agregadas
 
