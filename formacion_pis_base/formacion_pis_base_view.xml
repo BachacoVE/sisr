@@ -259,20 +259,24 @@
                     <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
                     <field name="cadenas_formativas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
                     <field name="modalidad_id" select="0" />
-
-				    <separator string="Matriz Curricular" colspan="4"/>
-					<field name="matriz_curricular_ids" string="Matriz Curricular" nolabel="1" colspan="4" select="0"/>
-                <separator string="Participantes la formación" colspan="4"/>
+<!--los siguientes campos son creados como herencia en formacion_pis_indagacion_matrices-->
+				    <!--separator string="Matriz Curricular" colspan="4"/>
+					<field name="matriz_curricular_ids" string="Matriz Curricular" nolabel="1" colspan="4" select="0"/-->
+<!--hasta acá se hizo herencia en formacion_pis_indagacion_matrices-->
+<!--los sigueintes campos son creados en formacion_pis_indagacion como herencia-->
+                <!--separator string="Participantes la formación" colspan="4"/>
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
                             <field name="sujeto_id"/>
-                            <!--field name="numero_id"/-->
+                            <field name="numero_id"/>
                         </form>
                         <tree string="Participación">
                             <field name="sujeto_id"/>
-                            <!--field name="numero_id"/-->
+                            <field name="numero_id"/>
                         </tree>
-                    </field>
+                    </field-->
+<!--hasta acá fue creada la herencia en formacion_pis_indagacion-->
+
 				<!--Se agregan los notebook para mejorar la vista FORM-->
                 <!--Modificacion del Sabado-->
                 

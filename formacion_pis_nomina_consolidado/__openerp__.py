@@ -26,7 +26,7 @@
         "website" : "http://www.inces.gob.ve",
         "category" : "Formacion",
         "description": """  Módulo para la generación y administración de Reportes Consolidados de Asistencia y Pago de Maestros """,
-        "depends" : ['base', 'formacion_pis_base'],
+        "depends" : ['base', 'formacion_pis_base', 'formacion_pis_indagacion_maestros'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
         "update_xml" : ['formacion_pis_nomina_consolidado_view.xml', 'security/ir.model.access.csv'],

@@ -1,6 +1,22 @@
 <?xml version="1.0"?>
 <openerp>
 <data>
+
+
+<!--aca inicia la herencia desde formacion_pis_base-->
+    <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+        <field name="name">for.pis.registro_inicial.form.inherit</field>
+        <field name="model">for.pis.registro_inicial</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_pis_base.view_for_pis_registro_inicial_form"/>
+        <field name="arch" type="xml">
+            <field name="modalidad_id" position="after">
+                <separator string="Matriz Curricular" colspan="4"/>
+                <field name="matriz_curricular_ids" nolabel="1" colspan="4" select="0"/>
+            </field>
+        </field>
+    </record>
+<!--aca finaliza la herencia desde formacion_pis_base-->
         
     <record model="ir.ui.view" id="view_for_categorias_contenidos_form">
         <field name="name">for.categorias_contenidos.form</field>
@@ -74,6 +90,8 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+
     
     <!-- menuitem name="Formación" id="menu_for_base" web_icon="images/formacion.png" web_icon_hover="images/formacion-hover.png" / -->
 

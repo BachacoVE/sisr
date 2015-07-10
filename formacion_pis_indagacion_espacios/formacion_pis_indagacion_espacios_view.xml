@@ -2,6 +2,21 @@
 <openerp>
 <data>
 
+
+    <!--aca inicia una herencia de formacion_pis_base-->
+    <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+        <field name="name">for.pis.registro_inicial.form.inherit</field>
+        <field name="model">for.pis.registro_inicial</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_pis_base.view_for_pis_registro_inicial_form"/>
+        <field name="arch" type="xml">
+            <field name="modalidad_id" position="after">
+                <field name="turno_id" select="0"/>
+            </field>
+        </field>
+    </record>    
+    <!--aca termina la herencia de formacion_pis_base-->
+
     <record model="ir.ui.view" id="view_for_pis_espacios_form">
         <field name="name">for.pis.espacios.form</field>
         <field name="model">for.pis.espacios</field>

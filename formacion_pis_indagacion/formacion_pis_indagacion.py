@@ -104,7 +104,7 @@ for_pis_sujetos_aprendizaje()
 class for_pis_registro_inicial_extended(osv.osv):
     """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
     _name = 'for.pis.registro_inicial'
-    _rec_name = 'denominacion_pis'
+    #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
         'participacion_pis_ids': fields.one2many('for.pis.participacion_pis', 'numero_id', 'Participantes', help='Participantes de la Formación'),

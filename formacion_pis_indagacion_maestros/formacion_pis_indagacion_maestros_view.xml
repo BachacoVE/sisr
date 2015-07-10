@@ -2,6 +2,33 @@
 <openerp>
 <data>
 
+<!--campos creados por herencia desde formacion_pis_nomina_maestros-->
+    <record model="ir.ui.view" id="view_for_pis_mae_asistencias_form_inherit">
+        <field name="name">for.pis.mae_asistencias.form.inherit</field>
+        <field name="model">for.pis.mae_asistencias</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_pis_nomina_maestros.view_for_pis_mae_asistencias_form"/>
+        <field name="arch" type="xml">
+            <field name="horas_lunes" position="before">
+                <field name="maestro_id" select="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_asistencias_tree_inherit">
+        <field name="name">for.pis.mae_asistencias.tree.inherit</field>
+        <field name="model">for.pis.mae_asistencias</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="formacion_pis_nomina_maestros.view_for_pis_mae_asistencias_tree"/>
+        <field name="arch" type="xml">
+            <field name="horas_lunes" position="before">
+                <field name="maestro_id"/>
+            </field>
+        </field>
+    </record>
+<!--fin de campos creados por herencia desde formacion_pis_nomina_maestros-->
+
+
     <record model="ir.ui.view" id="view_for_pis_maestros_form">
         <field name="name">for.pis.maestros.form</field>
         <field name="model">for.pis.maestros</field>

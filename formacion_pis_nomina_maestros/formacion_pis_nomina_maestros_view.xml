@@ -9,11 +9,14 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.fac_asistencias">
+                <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id" select="1"/>
+                <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
                 <field name="numero_id" select="2"/>
                 <field name="semana_desde" select="0"/>
                 <field name="semana_hasta" select="0"/>
                 
+
                 <!-- field name="horas_lunes" select="0"/ -->
                 <field name="horas_lunes" select="0" on_change="onchange_max_horas_lunes(horas_lunes, context)"/>
                 <field name="motivo_falta_lunes_id" select="0"/>
@@ -58,7 +61,10 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.fac_asistencias">
+                <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id"/>
+                <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
+                
                 <field name="numero_id"/>
                 <field name="semana_desde"/>
                 <field name="semana_hasta"/>

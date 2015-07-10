@@ -132,7 +132,7 @@
 						<field name="ded_concepto2" select="0"/>
 									<field name="ded_monto_a_deducir2" readonly="0" select="0"/>
 						<field name="ded_concepto3" select="0"/>
-									<field name="ded_monto_astring="for_pis_deducir3" readonly="0" select="0"/>
+									<field name="ded_monto_a_deducir3" readonly="0" select="0"/>
 							</page>
 
 					</notebook>
