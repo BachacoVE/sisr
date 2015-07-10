@@ -1,10 +1,20 @@
-cargo,grado_academico,horas,nivel,salidas_ocupa,tiempo_servicio,valor_hora
-Artesanal,Certificación INCES,4 y 8,1,Ocupacional y Contratados,0 a 5 años,23.8
-Artesanal,Certificación INCES,4 y 8,2,Ocupacional y Contratados,5 años o más,26.6
-Artesanal,Certificación INCES,4 y 8,3,Ocupacional y Contratados,10 años o más,28.0
-Asistente Integral,Tecnico Superior Universitario,4 y 8,4,Ocupacional y Contratados,0 a 5 años,29.4
-Asistente Integral,Tecnico Superior Universitario,4 y 8,5,Ocupacional y Contratados,5 años o más,32.2
-Asistente Integral,Tecnico Superior Universitario,4 y 8,6,Ocupacional y Contratados,10 años o más,33.6
-Integral,Profesional Universitario,4 y 8,7,Ocupacional y Contratados,0 a 5 años,35.0
-Integral,Profesional Universitario,4 y 8,8,Ocupacional y Contratados,5 años o más,37.8
-Integral,Profesional Universitario,4 y 8,9,Ocupacional y Contratados,10 años o más,39.2
+"id","cargo","fecha_resolucion","grado_academico","horas","nivel","nro_resolucion","salidas_ocupa","tiempo_servicio","valor_hora"
+"__export__.for_pis_mae_valor_hora_19","Artesanal","2014-02-17","Certificación INCES","4 y 8","1","","Ocupacional y Contratados","0 a 5 años","23.8"
+"__export__.for_pis_mae_valor_hora_20","Artesanal","2014-02-17","Certificación INCES","4 y 8","2","","Ocupacional y Contratados","5 años o más","26.6"
+"__export__.for_pis_mae_valor_hora_21","Artesanal","2014-04-17","Certificación INCES","4 y 8","3","","Ocupacional y Contratados","10 años o más","28.0"
+"__export__.for_pis_mae_valor_hora_22","Asistente Integral","2014-02-17","Tecnico Superior Universitario","4 y 8","4","","Ocupacional y Contratados","0 a 5 años","29.4"
+"__export__.for_pis_mae_valor_hora_23","Asistente Integral","2014-02-17","Tecnico Superior Universitario","4 y 8","5","","Ocupacional y Contratados","5 años o más","32.2"
+"__export__.for_pis_mae_valor_hora_24","Asistente Integral","2014-02-17","Tecnico Superior Universitario","4 y 8","6","","Ocupacional y Contratados","10 años o más","33.6"
+"__export__.for_pis_mae_valor_hora_25","Integral","2014-02-17","Profesional Universitario","4 y 8","7","","Ocupacional y Contratados","0 a 5 años","35.0"
+"__export__.for_pis_mae_valor_hora_26","Integral","2014-02-17","Profesional Universitario","4 y 8","8","","Ocupacional y Contratados","5 años o más","37.8"
+"__export__.for_pis_mae_valor_hora_27","Integral","2014-02-17","Profesional Universitario","4 y 8","9","","Ocupacional y Contratados","10 años o más","39.2"
+"__export__.for_pis_mae_valor_hora_37","Artesanal","2015-05-01","Certificación INCES","4 y 8","1","","Ocupacional y Contratados","3 a 5 años","64.5"
+"__export__.for_pis_mae_valor_hora_38","Artesanal","2015-05-01","Certificación INCES","4 y 8","2","","Ocupacional y Contratados","5 a 10 años ","72.0"
+"__export__.for_pis_mae_valor_hora_39","Artesanal","2015-05-01","Certificación INCES","4 y 8","3","","Ocupacional y Contratados","10 a 15 años","75.0"
+"__export__.for_pis_mae_valor_hora_40","Artesanal","2015-05-01","Certificación INCES","4 y 8","4","","Ocupacional y Contratados","+ 15 años","78.0"
+"__export__.for_pis_mae_valor_hora_41","Asistente Integral","2015-05-01","Tecnico Superior Universitario","4 y 8","1","","Ocupacional y Contratados","1 a 4 años","64.5"
+"__export__.for_pis_mae_valor_hora_42","Asistente Integral","2015-05-01","Tecnico Superior Universitario","4 y 8","2","","Ocupacional y Contratados","4 a 8 años","68.0"
+"__export__.for_pis_mae_valor_hora_43","Asistente Integral","2015-05-01","Tecnico Superior Universitario","4 y 8","3","","Ocupacional y Contratados","+ 8 años","71.5"
+"__export__.for_pis_mae_valor_hora_44","Integral","2015-05-01","Profesional Universitario","4 y 8","1","","Ocupacional y Contratados","1 a 4 años","72.0"
+"__export__.for_pis_mae_valor_hora_45","Integral","2015-05-01","Profesional Universitario","4 y 8","2","","Ocupacional y Contratados","4 a 8 años","79.0"
+"__export__.for_pis_mae_valor_hora_46","Integral","2015-05-01","Profesional Universitario","4 y 8","3","","Ocupacional y Contratados","+ 8 años","86.0"
