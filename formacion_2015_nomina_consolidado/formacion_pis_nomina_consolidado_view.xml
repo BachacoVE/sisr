@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_form">
+        <field name="name">for.pis.mae_consolidado.form</field>
+        <field name="model">for.pis.mae_consolidado</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.fac_consolidado">
+                <field name="codigo" select="1"/>
+                <field name="estado_id" select="2"/>
+                <!-- field name="cfs_id" select="0" string="CFS" domain="[('estado_id','=',[estado_id])]"/ -->
+                <!-- field name="maestro_id" select="0"/ -->     
+                <!-- field name="numero_id" select="0" colspan="4" domain="[('estado_id','=',[estado_id])]"/ -->
+                <field name="consolidado_desde" select="0"/>
+                <field name="consolidado_hasta" select="0"/>
+
+                <notebook colspan="4">
+					<page string="Detalle">
+						   <field name="detalle_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Conformidades">
+						   <group colspan="6" col="6">
+						   <separator string="Responsable 1" colspan="2"/>
+						   <separator string="Responsable 2" colspan="2"/>
+						   <separator string="Responsable 3" colspan="2"/>
+						   <field name="responsable_1" select="0"/>
+						   <field name="responsable_2" select="0"/>
+						   <field name="responsable_3" select="0"/>
+						   <field name="responsable_1_aval" select="0"/>
+						   <field name="responsable_2_aval" select="0"/>
+						   <field name="responsable_3_aval" select="0"/>
+						   <field name="responsable_1_fecha" select="0"/>
+						   <field name="responsable_2_fecha" select="0"/>
+						   <field name="responsable_3_fecha" select="0"/>
+						   </group>
+					</page>
+					<page string="Observaciones">
+						   <!-- separator string="'Observaciones'" colspan="4"/ -->
+						   <field name="estatus" select="0"/>
+						   <field name="observaciones" colspan="4" nolabel="0" select="0"/>
+					</page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_tree">
+        <field name="name">for.pis.mae_consolidado.tree</field>
+        <field name="model">for.pis.mae_consolidado</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.fac_consolidado">
+                <field name="codigo"/>
+                <field name="estado_id"/>
+                <field name="cfs_id" string="CFS"/>
+                <!-- field name="numero_id"/ -->
+                <!-- field name="maestro_id"/ -->
+                <field name="consolidado_desde"/>
+                <field name="consolidado_hasta"/>
+                <!-- field name="observaciones"/ -->
+                <!-- field name="responsable_1"/ -->
+                <field name="responsable_1_aval"/>
+                <!-- field name="responsable_1_fecha"/ -->
+                <!-- field name="responsable_2"/ -->
+                <field name="responsable_2_aval"/>
+                <!-- field name="responsable_2_fecha"/ -->
+                <!-- field name="responsable_3"/ -->
+                <field name="responsable_3_aval"/>
+                <!-- field name="responsable_3_fecha"/ -->
+                <field name="estatus"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado">
+        <field name="name">Consolidados</field>
+        <field name="res_model">for.pis.mae_consolidado</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_detalle_form">
+        <field name="name">for.pis.mae_consolidado_detalle.form</field>
+        <field name="model">for.pis.mae_consolidado_detalle</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.fac_consolidado_detalle">
+                <!-- field name="consolidado_id" select="1"/ -->
+                <field name="activo" select="0"/>
+                <field name="estado_id" select="2"/>
+                <field name="cfs_id" select="0"/>
+                <field name="maestro_id" select="0"/>
+                <field name="desde" select="0"/>
+                <field name="hasta" select="0"/>
+                <field name="cedula" select="0"/>
+                <field name="nombres" select="0"/>
+                <field name="apellidos" select="0"/>
+                <field name="cuenta_tipo" select="0"/>
+                <field name="cuenta_numero" select="0"/>
+                <field name="entidad_bancaria" select="0"/>
+                <field name="valor_hora" select="0"/>
+                <field name="pis_id" select="0" colspan="4"/>
+                <!-- field name="pis_nombre" select="0"/ -->
+                <field name="total_horas" select="0"/>
+                <field name="monto_pago" select="0"/>
+                <!-- separator string="'Observaciones'" colspan="4"/ -->
+                <field name="observaciones" colspan="4" nolabel="0" select="0"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_detalle_tree">
+        <field name="name">for.pis.mae_consolidado_detalle.tree</field>
+        <field name="model">for.pis.mae_consolidado_detalle</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.fac_consolidado_detalle">
+                <field name="consolidado_id"/>
+                <field name="estado_id"/>
+                <field name="cfs_id"/>
+
+                <field name="desde"/>
+                <field name="hasta"/>
+
+                <field name="cedula"/>        
+                <field name="maestro_id"/>
+                <!-- field name="nombres"/ -->
+                <!-- field name="apellidos"/ -->
+                <field name="cuenta_tipo"/>
+                <field name="cuenta_numero"/>
+                <field name="entidad_bancaria"/>
+                <field name="valor_hora"/>
+                <field name="pis_id"/>
+                <!-- field name="pis_nombre"/ -->
+                <field name="total_horas"/>
+                <field name="monto_pago"/>
+                <field name="activo"/>
+                <!-- field name="observaciones"/ -->
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado_detalle">
+        <field name="name">Detalles de Consolidados</field>
+        <field name="res_model">for.pis.mae_consolidado_detalle</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Formación/Pago de Maestros -->
+    <!-- menuitem name="Pago de Maestros" id="menu_for_pis_mae_pago" parent="formacion_2015_base.menu_for_base" sequence="4"/ -->
+    
+    <!-- menuitem name="Asistencias Maestros" id="menu_for_pis_mae_asistencias" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_asistencias" sequence="0"/ -->
+    <!-- menuitem name="Valor Pago Hora Maestros" id="menu_for_pis_mae_valor_hora" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_valor_hora" sequence="1"/ -->
+    <!-- menuitem name="Cuentas Nomina Maestros" id="menu_for_pis_mae_cuentas_nomina" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_cuentas_nomina" sequence="2"/ -->
+    <!-- menuitem name="Misiona01" id="menu_for_pis_mae_misiona01" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona01" sequence="3"/ -->
+    <!-- menuitem name="Misiona05" id="menu_for_pis_mae_misiona05" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona05" sequence="4"/ --> 
+
+    <menuitem name="Consolidados" id="menu_for_pis_mae_consolidado" parent="formacion_2015_nomina_maestros.menu_for_pis_mae_pago" action="action_for_pis_mae_consolidado" sequence="10"/>
+    <menuitem name="Detalles de Consolidados" id="menu_for_pis_mae_consolidado_detalle" parent="formacion_2015_nomina_maestros.menu_for_pis_mae_pago" action="action_for_pis_mae_consolidado_detalle" sequence="20"/>
+
+
+</data>
+</openerp>

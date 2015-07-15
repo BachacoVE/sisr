@@ -1,0 +1,1469 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_for_pis_sujetos_aprendizaje_form">
+        <field name="name">for.pis.sujetos_aprendizaje.form</field>
+        <field name="model">for.pis.sujetos_aprendizaje</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+			<form string="for.Participante">
+				<separator string="Datos Básicos" colspan="4"/>
+				<field name="cedula" select="1"/>
+				<field name="nombres" select="2"/>
+				<field name="apellidos" select="0"/>
+				<field name="nacionalidad" select="0"/>
+				<field name="fecha_nacimiento" select="0" on_change="onchange_calcular_edad(fecha_nacimiento, context)"/>
+				<field name="edad" select="0" string="Años"/>
+				<field name="genero_id" select="0"/>
+				<field name="pueblo_indigena_id" select="0"/>
+				<field name="estado_civil_id" select="0"/>
+				<notebook colspan="4">
+					<page string="Diversidad Funcional">
+						<field name="discapacidad_ids" string="Diversidades Funcionales" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Familiares">
+						<field name="hijos_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Ubicación">
+						<field name="estado_id" select="0"/>
+						<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+						<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+						<field name="comunidad_id" select="0"/>
+						<field name="direccion_habitacion" select="0"/>
+						<field name="telefono_fijo" select="0"/>
+						<field name="telefono_celular" select="0"/>
+						<field name="correo_electronico" select="0"/>
+					</page>
+					<page string="Redes Sociales">
+						<field name="redes_sociales_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Deportes">
+						<separator string="'Deporte(s) que practica" colspan="4"/>
+						<field name="deportes_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Culturales">
+						<separator string="Actividad(es) Cultural(es) que practica" colspan="4"/>
+						<field name="actividades_culturales_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Misiones">
+						<separator string="'Mision(es) a la(s) que pertenece'" colspan="4"/>
+						<field name="misiones_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Organizaciones">
+						<field name="organizaciones_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+				</notebook>
+				<notebook colspan="4">
+					<page string="Formación">
+						<separator string="Formación Académica" colspan="4"/>
+						<field name="formacion_ids" colspan="4" nolabel="1" select="0"/>
+						<field name="ultimo_cursado" select="0" string="Último año cursado"/>
+						<field name="especialidad_id" select="0"/>
+					</page>
+					<page string="Otras formaciones">
+						<field name="otras_formaciones" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Experiencias Empíricas">
+						<field name="experiencias_empiricas" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Experiencias Docentes">
+						<field name="experiencias_docentes" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Experiencias Laborales">
+						<field name="experiencias_laborales" colspan="4" nolabel="1" select="0"/>
+					</page>
+				</notebook>                
+				<notebook colspan="4">
+					<page string="Condición Laboral">
+						<field name="condicion_laboral" select="0"/>
+					   <field name="trabaja_actualmente" select="0"/>
+					   <field name="fecha_ingreso" select="0"/>
+					   <field name="tiempo_experiencia" string="Años de Experiencia" select="0"/>
+					</page>
+					<page string="CASEA">
+						<separator string="Areas de Conocimiento para CASEA" colspan="4"/>
+						<field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Participación en Formación">
+						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
+						<field name="pis_participado" colspan="4" nolabel="1" select="0">
+                            <form string="Participación">
+                                <!--field name="sujeto_id"/-->
+                                <field name="numero_id"/>
+                            </form>
+                            <tree string="Participación">
+                                <!--field name="sujeto_id"/-->
+                                <field name="numero_id"/>
+                            </tree>
+
+
+                        </field>
+					</page>
+					<page string="Actividad Formación">
+						<field name="frecuencia_colectivos_aprendizaje_id" select="0"/>
+						<field name="frecuencia_matriz_planificacion_id" select="0"/>
+						<field name="frecuencia_cuaderno_sistematizacion_id" select="0"/>
+						<field name="frecuencia_intercambio_saberes_id" select="0"/>
+						<field name="frecuencia_encuentros_socializacion_id" select="0"/>
+					</page>
+					<page string="Intereses Formativos">
+						<separator string="'Intereses Formativos'" colspan="4"/>
+						<field name="intereses_formativos_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="TICs">
+						<separator string="Tecnologías (TIC) que utiliza" colspan="4"/>
+						<field name="tecnologias_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					<page string="Actividad Fases">
+						<field name="frecuencia_fase_I" select="0"/>
+						<field name="frecuencia_fase_II" select="0"/>
+						<field name="frecuencia_fase_III" select="0"/>
+						<separator string="'Observaciones'" colspan="4"/>
+						<field name="observaciones" colspan="4" nolabel="1" select="0"/>
+					</page>
+				</notebook>
+			</form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_sujetos_aprendizaje_tree">
+        <field name="name">for.pis.sujetos_aprendizaje.tree</field>
+        <field name="model">for.pis.sujetos_aprendizaje</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.Participantes">
+                <field name="cedula" string="Nº Cédula"/>
+                <field name="nombres" string="Nombres"/>
+                <field name="apellidos" string ="Apellidos"/>
+                <!-- field name="nacionalidad"/ -->
+                <!-- field name="fecha_nacimiento"/ -->
+                <field name="edad" string="edad" />
+                <field name="genero_id" string="Género" />
+                <!-- field name="pueblo_indigena_id"/ -->
+                <!-- field name="estado_civil_id"/ -->
+                <!-- field name="estado_id"/ -->
+                <!-- field name="municipio_id"/ -->
+                <!-- field name="parroquia_id"/ -->
+                <!-- field name="comunidad_id"/ -->
+                <!-- field name="direccion_habitacion"/ -->
+                <!-- field name="telefono_fijo"/ -->
+                <!-- field name="telefono_celular"/ -->
+                <!-- field name="correo_electronico"/ -->
+                <!-- field name="organizaciones_ids"/ -->
+                <!-- field name="ultimo_cursado"/ -->
+                <!-- field name="especialidad_id"/ -->
+                <!-- field name="otras_formaciones"/ -->
+                <!-- field name="experiencias_empiricas"/ -->
+                <field name="condicion_laboral"/>
+                <!-- field name="trabaja_actualmente"/ -->
+                <!-- field name="fecha_ingreso"/ -->
+                <!-- field name="tiempo_experiencia"/ -->
+                <!-- field name="frecuencia_colectivos_aprendizaje_id"/ -->
+                <!-- field name="frecuencia_matriz_planificacion_id"/ -->
+                <!-- field name="frecuencia_cuaderno_sistematizacion_id"/ -->
+                <!-- field name="frecuencia_intercambio_saberes_id"/ -->
+                <!-- field name="frecuencia_encuentros_socializacion_id"/ -->
+                <!-- field name="frecuencia_fase_I"/ -->
+                <!-- field name="frecuencia_fase_II"/ -->
+                <!-- field name="frecuencia_fase_III"/ -->
+                <!-- field name="observaciones"/ -->
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_sujetos_aprendizaje">
+        <field name="name">Participantes</field>
+        <field name="res_model">for.pis.sujetos_aprendizaje</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+<!-- Acá inicia la clase heredada de formacion_pis_base-->
+     <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+        <field name="name">for.pis.registro_inicial.form.inherit</field>
+        <field name="model">for.pis.registro_inicial</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
+        <field name="arch" type="xml">
+            <field name="modalidad_id" position="after">
+                <separator string="Participantes la formación" colspan="4"/>
+                    <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
+                        <form string="Participación">
+                            <field name="sujeto_id" select="0"/>
+                            <!--field name="numero_id"/-->
+                        </form>
+                        <tree string="Participación">
+                            <field name="sujeto_id"/>
+                            <!--field name="numero_id"/-->
+                        </tree>
+                    </field>
+            </field>
+        </field>
+    </record>
+<!--fin de la herencia desde formacion_pis_base-->
+    
+    <record model="ir.ui.view" id="view_for_pis_estados_civiles_form">
+        <field name="name">for.pis.estados_civiles.form</field>
+        <field name="model">for.pis.estados_civiles</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.estados_civiles">
+                <field name="codigo" select="1"/>
+                <field name="estado_civil" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_estados_civiles_tree">
+        <field name="name">for.pis.estados_civiles.tree</field>
+        <field name="model">for.pis.estados_civiles</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.estados_civiles">
+                <field name="codigo"/>
+                <field name="estado_civil"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_estados_civiles">
+        <field name="name">Estados Civiles</field>
+        <field name="res_model">for.pis.estados_civiles</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_tipos_comunidades_form">
+        <field name="name">for.pis.tipos_comunidades.form</field>
+        <field name="model">for.pis.tipos_comunidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.tipos_comunidades">
+                <field name="codigo" select="1"/>
+                <field name="tipos_comunidades" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_tipos_comunidades_tree">
+        <field name="name">for.pis.tipos_comunidades.tree</field>
+        <field name="model">for.pis.tipos_comunidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.tipos_comunidades">
+                <field name="codigo"/>
+                <field name="tipos_comunidades"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_tipos_comunidades">
+        <field name="name">Tipos de Comunidades</field>
+        <field name="res_model">for.pis.tipos_comunidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_parentescos_form">
+        <field name="name">for.pis.parentescos.form</field>
+        <field name="model">for.pis.parentescos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.parentescos">
+                <field name="codigo" select="1"/>
+                <field name="parentesco" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_parentescos_tree">
+        <field name="name">for.pis.parentescos.tree</field>
+        <field name="model">for.pis.parentescos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.parentescos">
+                <field name="codigo"/>
+                <field name="parentesco"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_parentescos">
+        <field name="name">Parentescos</field>
+        <field name="res_model">for.pis.parentescos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_generos_form">
+        <field name="name">for.pis.generos.form</field>
+        <field name="model">for.pis.generos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.generos">
+                <field name="codigo" select="1"/>
+                <field name="genero" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_generos_tree">
+        <field name="name">for.pis.generos.tree</field>
+        <field name="model">for.pis.generos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.generos">
+                <field name="codigo"/>
+                <field name="genero"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_generos">
+        <field name="name">Generos</field>
+        <field name="res_model">for.pis.generos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_rangos_edades_form">
+        <field name="name">for.pis.rangos_edades.form</field>
+        <field name="model">for.pis.rangos_edades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.rangos_edades">
+                <field name="codigo" select="1"/>
+                <field name="grupo_rango" select="2"/>
+                <field name="edad_desde" select="0"/>
+                <field name="edad_hasta" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_rangos_edades_tree">
+        <field name="name">for.pis.rangos_edades.tree</field>
+        <field name="model">for.pis.rangos_edades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.rangos_edades">
+                <field name="codigo"/>
+                <field name="grupo_rango"/>
+                <field name="edad_desde"/>
+                <field name="edad_hasta"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_rangos_edades">
+        <field name="name">Rangos de Edades</field>
+        <field name="res_model">for.pis.rangos_edades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_categorias_discapacidades_form">
+        <field name="name">for.pis.categorias_discapacidades.form</field>
+        <field name="model">for.pis.categorias_discapacidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.categorias_discapacidades">
+                <field name="codigo" select="1"/>
+                <field name="categoria_discapacidad" string="Diversidad Funcional" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_categorias_discapacidades_tree">
+        <field name="name">for.pis.categorias_discapacidades.tree</field>
+        <field name="model">for.pis.categorias_discapacidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.categorias_discapacidades">
+                <field name="codigo"/>
+                <field name="categoria_discapacidad" string="Diversidad Funcional" />
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_categorias_discapacidades">
+        <field name="name">Diversidades Funcionales</field>
+        <field name="res_model">for.pis.categorias_discapacidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_tipos_redes_sociales_form">
+        <field name="name">for.pis.tipos_redes_sociales.form</field>
+        <field name="model">for.pis.tipos_redes_sociales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.tipos_redes_sociales">
+                <field name="codigo" select="1"/>
+                <field name="red_social" select="2"/>
+                <field name="tipo_red" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_tipos_redes_sociales_tree">
+        <field name="name">for.pis.tipos_redes_sociales.tree</field>
+        <field name="model">for.pis.tipos_redes_sociales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.tipos_redes_sociales">
+                <field name="codigo"/>
+                <field name="red_social"/>
+                <field name="tipo_red"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_tipos_redes_sociales">
+        <field name="name">Tipos de Redes Sociales</field>
+        <field name="res_model">for.pis.tipos_redes_sociales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_nacionalidades_form">
+        <field name="name">for.pis.nacionalidades.form</field>
+        <field name="model">for.pis.nacionalidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.nacionalidades">
+                <field name="codigo" select="1"/>
+                <field name="nacionalidad" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_nacionalidades_tree">
+        <field name="name">for.pis.nacionalidades.tree</field>
+        <field name="model">for.pis.nacionalidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.nacionalidades">
+                <field name="codigo"/>
+                <field name="nacionalidad"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_nacionalidades">
+        <field name="name">Nacionalidades</field>
+        <field name="res_model">for.pis.nacionalidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_deportes_form">
+        <field name="name">for.pis.deportes.form</field>
+        <field name="model">for.pis.deportes</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.deportes">
+                <field name="codigo" select="1"/>
+                <field name="deporte" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_deportes_tree">
+        <field name="name">for.pis.deportes.tree</field>
+        <field name="model">for.pis.deportes</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.deportes">
+                <field name="codigo"/>
+                <field name="deporte"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_deportes">
+        <field name="name">Deportes</field>
+        <field name="res_model">for.pis.deportes</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_organizaciones_form">
+        <field name="name">for.pis.organizaciones.form</field>
+        <field name="model">for.pis.organizaciones</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.organizaciones">
+                <field name="codigo" select="1"/>
+                <field name="organizacion" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_organizaciones_tree">
+        <field name="name">for.pis.organizaciones.tree</field>
+        <field name="model">for.pis.organizaciones</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.organizaciones">
+                <field name="codigo"/>
+                <field name="organizacion"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_organizaciones">
+        <field name="name">Organizaciones Sociales</field>
+        <field name="res_model">for.pis.organizaciones</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_carreras_universitarias_form">
+        <field name="name">for.pis.carreras_universitarias.form</field>
+        <field name="model">for.pis.carreras_universitarias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.carreras_universitarias">
+                <field name="codigo" select="1"/>
+                <field name="carrera_universitaria" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_carreras_universitarias_tree">
+        <field name="name">for.pis.carreras_universitarias.tree</field>
+        <field name="model">for.pis.carreras_universitarias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.carreras_universitarias">
+                <field name="codigo"/>
+                <field name="carrera_universitaria"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_carreras_universitarias">
+        <field name="name">Carreras Universitarias</field>
+        <field name="res_model">for.pis.carreras_universitarias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_actividades_culturales_form">
+        <field name="name">for.pis.actividades_culturales.form</field>
+        <field name="model">for.pis.actividades_culturales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.actividades_culturales">
+                <field name="codigo" select="1"/>
+                <field name="actividad_cultural" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_actividades_culturales_tree">
+        <field name="name">for.pis.actividades_culturales.tree</field>
+        <field name="model">for.pis.actividades_culturales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.actividades_culturales">
+                <field name="codigo"/>
+                <field name="actividad_cultural"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_actividades_culturales">
+        <field name="name">Actividades Culturales</field>
+        <field name="res_model">for.pis.actividades_culturales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_niveles_academicos_form">
+        <field name="name">for.pis.niveles_academicos.form</field>
+        <field name="model">for.pis.niveles_academicos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.niveles_academicos">
+                <field name="codigo" select="1"/>
+                <field name="nivel_educativo" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_niveles_academicos_tree">
+        <field name="name">for.pis.niveles_academicos.tree</field>
+        <field name="model">for.pis.niveles_academicos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.niveles_academicos">
+                <field name="codigo"/>
+                <field name="nivel_educativo"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_niveles_academicos">
+        <field name="name">Niveles Educativos</field>
+        <field name="res_model">for.pis.niveles_academicos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_areas_conocimientos_form">
+        <field name="name">for.pis.areas_conocimientos.form</field>
+        <field name="model">for.pis.areas_conocimientos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.areas_conocimientos">
+                <field name="codigo" select="1"/>
+                <field name="area_conocimiento" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_areas_conocimientos_tree">
+        <field name="name">for.pis.areas_conocimientos.tree</field>
+        <field name="model">for.pis.areas_conocimientos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.areas_conocimientos">
+                <field name="codigo"/>
+                <field name="area_conocimiento"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_areas_conocimientos">
+        <field name="name">Areas de Conocimiento</field>
+        <field name="res_model">for.pis.areas_conocimientos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_oficios_form">
+        <field name="name">for.pis.oficios.form</field>
+        <field name="model">for.pis.oficios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.oficios">
+                <field name="codigo" select="1"/>
+                <field name="oficio" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_oficios_tree">
+        <field name="name">for.pis.oficios.tree</field>
+        <field name="model">for.pis.oficios</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.oficios">
+                <field name="codigo"/>
+                <field name="oficio"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_oficios">
+        <field name="name">Oficios</field>
+        <field name="res_model">for.pis.oficios</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_especialidades_form">
+        <field name="name">for.pis.especialidades.form</field>
+        <field name="model">for.pis.especialidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.especialidades">
+                <field name="codigo" select="1"/>
+                <field name="especialidad" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_especialidades_tree">
+        <field name="name">for.pis.especialidades.tree</field>
+        <field name="model">for.pis.especialidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.especialidades">
+                <field name="codigo"/>
+                <field name="especialidad"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_especialidades">
+        <field name="name">Especialidades</field>
+        <field name="res_model">for.pis.especialidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_misiones_form">
+        <field name="name">for.pis.misiones.form</field>
+        <field name="model">for.pis.misiones</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.misiones">
+                <field name="codigo" select="1"/>
+                <field name="mision" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_misiones_tree">
+        <field name="name">for.pis.misiones.tree</field>
+        <field name="model">for.pis.misiones</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.misiones">
+                <field name="codigo"/>
+                <field name="mision"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_misiones">
+        <field name="name">Misiones</field>
+        <field name="res_model">for.pis.misiones</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_frecuencias_participacion_form">
+        <field name="name">for.pis.frecuencias_participacion.form</field>
+        <field name="model">for.pis.frecuencias_participacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.frecuencias_participacion">
+                <field name="codigo" select="1"/>
+                <field name="frecuencia_participacion" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_frecuencias_participacion_tree">
+        <field name="name">for.pis.frecuencias_participacion.tree</field>
+        <field name="model">for.pis.frecuencias_participacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.frecuencias_participacion">
+                <field name="codigo"/>
+                <field name="frecuencia_participacion"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_frecuencias_participacion">
+        <field name="name">Frecuencias de Participacion</field>
+        <field name="res_model">for.pis.frecuencias_participacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_pueblos_indigenas_form">
+        <field name="name">for.pis.pueblos_indigenas.form</field>
+        <field name="model">for.pis.pueblos_indigenas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.pueblos_indigenas">
+                <field name="codigo" select="1"/>
+                <field name="pueblo_indigena" select="2"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_pueblos_indigenas_tree">
+        <field name="name">for.pis.pueblos_indigenas.tree</field>
+        <field name="model">for.pis.pueblos_indigenas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.pueblos_indigenas">
+                <field name="codigo"/>
+                <field name="pueblo_indigena"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_pueblos_indigenas">
+        <field name="name">Pueblos Indigenas</field>
+        <field name="res_model">for.pis.pueblos_indigenas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_familiares_form">
+        <field name="name">for.pis.familiares.form</field>
+        <field name="model">for.pis.familiares</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.familiares">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="cedula" select="2"/>
+                <field name="nombres" select="0"/>
+                <field name="apellidos" select="0"/>
+                <field name="fecha_nacimiento" select="0"/>
+                <field name="genero_id" select="0"/>
+                <field name="parentesco_id" select="0"/>
+                <field name="discapacidad_id" string="Diversidad Funcional" select="0"/>
+                <field name="estado_civil_id" select="0"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_familiares_tree">
+        <field name="name">for.pis.familiares.tree</field>
+        <field name="model">for.pis.familiares</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.familiares">
+                <!-- field name="sujeto_id"/ -->
+                <field name="cedula"/>
+                <field name="nombres"/>
+                <field name="apellidos"/>
+                <field name="fecha_nacimiento"/>
+                <field name="genero_id"/>
+                <field name="parentesco_id"/>
+                <field name="discapacidad_id" string="Diversidad Funcional" />
+                <field name="estado_civil_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_familiares">
+        <field name="name">Familiares</field>
+        <field name="res_model">for.pis.familiares</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_redes_sociales_form">
+        <field name="name">for.pis.redes_sociales.form</field>
+        <field name="model">for.pis.redes_sociales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.redes_sociales">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="tipo_red_social_id" select="2"/>
+                <field name="cuenta" select="0"/>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_redes_sociales_tree">
+        <field name="name">for.pis.redes_sociales.tree</field>
+        <field name="model">for.pis.redes_sociales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.redes_sociales">
+                <!-- field name="sujeto_id"/ -->
+                <field name="tipo_red_social_id"/>
+                <field name="cuenta"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_redes_sociales">
+        <field name="name">Redes Sociales</field>
+        <field name="res_model">for.pis.redes_sociales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_deportes_practicados_form">
+        <field name="name">for.pis.deportes_practicados.form</field>
+        <field name="model">for.pis.deportes_practicados</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.deportes_practicados">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="deporte_id" select="2"/>
+                <field name="desde" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_deportes_practicados_tree">
+        <field name="name">for.pis.deportes_practicados.tree</field>
+        <field name="model">for.pis.deportes_practicados</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.deportes_practicados">
+                <!-- field name="sujeto_id"/ -->
+                <field name="deporte_id"/>
+                <field name="desde"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_deportes_practicados">
+        <field name="name">Deportes Practicados</field>
+        <field name="res_model">for.pis.deportes_practicados</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_actividades_practicadas_form">
+        <field name="name">for.pis.actividades_practicadas.form</field>
+        <field name="model">for.pis.actividades_practicadas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.actividades_practicadas">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="actividad_cultural_id" select="2"/>
+                <field name="desde" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_actividades_practicadas_tree">
+        <field name="name">for.pis.actividades_practicadas.tree</field>
+        <field name="model">for.pis.actividades_practicadas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.actividades_practicadas">
+                <!-- field name="sujeto_id"/ -->
+                <field name="actividad_cultural_id"/>
+                <field name="desde"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_actividades_practicadas">
+        <field name="name">Actividades Culturales</field>
+        <field name="res_model">for.pis.actividades_practicadas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_organizaciones_milita_form">
+        <field name="name">for.pis.organizaciones_milita.form</field>
+        <field name="model">for.pis.organizaciones_milita</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.organizaciones_milita">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="organizacion_id" select="2"/>
+                <field name="desde" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_organizaciones_milita_tree">
+        <field name="name">for.pis.organizaciones_milita.tree</field>
+        <field name="model">for.pis.organizaciones_milita</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.organizaciones_milita">
+                <!-- field name="sujeto_id"/ -->
+                <field name="organizacion_id"/>
+                <field name="desde"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_organizaciones_milita">
+        <field name="name">Organizaciones Socio-Políticas</field>
+        <field name="res_model">for.pis.organizaciones_milita</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_misiones_pertenece_form">
+        <field name="name">for.pis.misiones_pertenece.form</field>
+        <field name="model">for.pis.misiones_pertenece</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.misiones_pertenece">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="mision_id" select="2"/>
+                <field name="desde" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_misiones_pertenece_tree">
+        <field name="name">for.pis.misiones_pertenece.tree</field>
+        <field name="model">for.pis.misiones_pertenece</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.misiones_pertenece">
+                <!-- field name="sujeto_id"/ -->
+                <field name="mision_id"/>
+                <field name="desde"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_misiones_pertenece">
+        <field name="name">Misiones Sociales</field>
+        <field name="res_model">for.pis.misiones_pertenece</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_formacion_academica_form">
+        <field name="name">for.pis.formacion_academica.form</field>
+        <field name="model">for.pis.formacion_academica</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.formacion_academica">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="nivel_educativo_id" select="2"/>
+                <field name="estatus_educativo_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_formacion_academica_tree">
+        <field name="name">for.pis.formacion_academica.tree</field>
+        <field name="model">for.pis.formacion_academica</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.formacion_academica">
+                <!-- field name="sujeto_id"/ -->
+                <field name="nivel_educativo_id"/>
+                <field name="estatus_educativo_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_formacion_academica">
+        <field name="name">Formación Académica</field>
+        <field name="res_model">for.pis.formacion_academica</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_tecnologias_tic_form">
+        <field name="name">for.pis.tecnologias_tic.form</field>
+        <field name="model">for.pis.tecnologias_tic</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.tecnologias_tic">
+                <field name="codigo" select="1"/>
+                <field name="tecnologia" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_tecnologias_tic_tree">
+        <field name="name">for.pis.tecnologias_tic.tree</field>
+        <field name="model">for.pis.tecnologias_tic</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.tecnologias_tic">
+                <field name="codigo"/>
+                <field name="tecnologia"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_tecnologias_tic">
+        <field name="name">Tecnologías (TIC)</field>
+        <field name="res_model">for.pis.tecnologias_tic</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_intereses_formativos_form">
+        <field name="name">for.pis.intereses_formativos.form</field>
+        <field name="model">for.pis.intereses_formativos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.intereses_formativos">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="sector_economico_id" select="2"/>
+                <field name="area_economica_id" select="0"/>
+                <field name="requerimiento" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_intereses_formativos_tree">
+        <field name="name">for.pis.intereses_formativos.tree</field>
+        <field name="model">for.pis.intereses_formativos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.intereses_formativos">
+                <!-- field name="sujeto_id"/ -->
+                <field name="sector_economico_id"/>
+                <field name="area_economica_id"/>
+                <field name="requerimiento"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_intereses_formativos">
+        <field name="name">Intereses Formativos</field>
+        <field name="res_model">for.pis.intereses_formativos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_tecnologias_utilizadas_form">
+        <field name="name">for.pis.tecnologias_utilizadas.form</field>
+        <field name="model">for.pis.tecnologias_utilizadas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.tecnologias_utilizadas">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="tecnologia" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_tecnologias_utilizadas_tree">
+        <field name="name">for.pis.tecnologias_utilizadas.tree</field>
+        <field name="model">for.pis.tecnologias_utilizadas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.tecnologias_utilizadas">
+                <!-- field name="sujeto_id"/ -->
+                <field name="tecnologia"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_tecnologias_utilizadas">
+        <field name="name">Tecnologias (TIC)</field>
+        <field name="res_model">for.pis.tecnologias_utilizadas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_participacion_pis_form">
+        <field name="name">for.pis.participacion_pis.form</field>
+        <field name="model">for.pis.participacion_pis</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Participación">
+                <field name="sujeto_id" select="1"/>
+                <field name="numero_id" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_participacion_pis_tree">
+        <field name="name">for.pis.participacion_pis.tree</field>
+        <field name="model">for.pis.participacion_pis</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Participación">
+                <field name="sujeto_id"/>
+                <field name="numero_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_participacion_pis">
+        <field name="name">Participación en PIS</field>
+        <field name="res_model">for.pis.participacion_pis</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_experiencias_empiricas_form">
+        <field name="name">for.pis.experiencias_empiricas.form</field>
+        <field name="model">for.pis.experiencias_empiricas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.experiencias_empiricas">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="area_conocimiento_id" select="2"/>
+                <field name="tiempo_experiencias" select="0"/>
+                <field name="portafolio_evidencias" select="0"/>
+                <field name="protafolio_enlace" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_experiencias_empiricas_tree">
+        <field name="name">for.pis.experiencias_empiricas.tree</field>
+        <field name="model">for.pis.experiencias_empiricas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.experiencias_empiricas">
+                <!-- field name="sujeto_id"/ -->
+                <field name="area_conocimiento_id"/>
+                <field name="tiempo_experiencias"/>
+                <field name="portafolio_evidencias"/>
+                <field name="protafolio_enlace"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_experiencias_empiricas">
+        <field name="name">Experiencias Empíricas</field>
+        <field name="res_model">for.pis.experiencias_empiricas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_experiencias_docentes_form">
+        <field name="name">for.pis.experiencias_docentes.form</field>
+        <field name="model">for.pis.experiencias_docentes</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.experiencias_docentes">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="entidad_educativa" select="2"/>
+                <field name="tiempo_experiencia" select="0"/>
+                <field name="area_conocimiento_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_experiencias_docentes_tree">
+        <field name="name">for.pis.experiencias_docentes.tree</field>
+        <field name="model">for.pis.experiencias_docentes</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.experiencias_docentes">
+                <!-- field name="sujeto_id"/ -->
+                <field name="entidad_educativa"/>
+                <field name="tiempo_experiencia"/>
+                <field name="area_conocimiento_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_experiencias_docentes">
+        <field name="name">Experiencias Docentes</field>
+        <field name="res_model">for.pis.experiencias_docentes</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_experiencias_laborales_form">
+        <field name="name">for.pis.experiencias_laborales.form</field>
+        <field name="model">for.pis.experiencias_laborales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.experiencias_laborales">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="profesion_ocupacion_id" select="2"/>
+                <field name="tiempo_experiencia" select="0"/>
+                <field name="lugar" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_experiencias_laborales_tree">
+        <field name="name">for.pis.experiencias_laborales.tree</field>
+        <field name="model">for.pis.experiencias_laborales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.experiencias_laborales">
+                <!-- field name="sujeto_id"/ -->
+                <field name="profesion_ocupacion_id"/>
+                <field name="tiempo_experiencia"/>
+                <field name="lugar"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_experiencias_laborales">
+        <field name="name">Experiencias Laborales</field>
+        <field name="res_model">for.pis.experiencias_laborales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_casea_conocimientos_form">
+        <field name="name">for.pis.casea_conocimientos.form</field>
+        <field name="model">for.pis.casea_conocimientos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.casea_conocimientos">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="area_conocimiento_id" select="2"/>
+                <field name="tiempo_experiencia" select="0"/>
+                <field name="donde" select="0"/>
+                <field name="portafolio_evidencias" select="0"/>
+                <field name="portafolio_enlace" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_casea_conocimientos_tree">
+        <field name="name">for.pis.casea_conocimientos.tree</field>
+        <field name="model">for.pis.casea_conocimientos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.casea_conocimientos">
+                <!-- field name="sujeto_id"/ -->
+                <field name="area_conocimiento_id"/>
+                <field name="tiempo_experiencia"/>
+                <field name="donde"/>
+                <field name="portafolio_evidencias"/>
+                <field name="portafolio_enlace"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_casea_conocimientos">
+        <field name="name">Conocimientos para CASEA</field>
+        <field name="res_model">for.pis.casea_conocimientos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_profesiones_ocupaciones_form">
+        <field name="name">for.pis.profesiones_ocupaciones.form</field>
+        <field name="model">for.pis.profesiones_ocupaciones</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.profesiones_ocupaciones">
+                <field name="codigo" select="1"/>
+                <field name="nombre" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_profesiones_ocupaciones_tree">
+        <field name="name">for.pis.profesiones_ocupaciones.tree</field>
+        <field name="model">for.pis.profesiones_ocupaciones</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.profesiones_ocupaciones">
+                <field name="codigo"/>
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_profesiones_ocupaciones">
+        <field name="name">Profesiones u Ocupaciones</field>
+        <field name="res_model">for.pis.profesiones_ocupaciones</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_estatus_niveles_educativos_form">
+        <field name="name">for.pis.estatus_niveles_educativos.form</field>
+        <field name="model">for.pis.estatus_niveles_educativos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.estatus_niveles_educativos">
+                <field name="codigo" select="1"/>
+                <field name="estatus" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_estatus_niveles_educativos_tree">
+        <field name="name">for.pis.estatus_niveles_educativos.tree</field>
+        <field name="model">for.pis.estatus_niveles_educativos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.estatus_niveles_educativos">
+                <field name="codigo"/>
+                <field name="estatus"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_estatus_niveles_educativos">
+        <field name="name">Estatus Niveles Educativos</field>
+        <field name="res_model">for.pis.estatus_niveles_educativos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <record model="ir.ui.view" id="view_for_pis_discapacidades_form">
+        <field name="name">for.pis.discapacidades.form</field>
+        <field name="model">for.pis.discapacidades</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.discapacidades">
+                <!-- field name="sujeto_id" select="1"/ -->
+                <field name="categoria_discapacidad_id" string="Diversidad Funcional" select="2"/>
+                <separator string="'Observaciones'" colspan="4"/>
+                <field name="observaciones" colspan="4" nolabel="1" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_discapacidades_tree">
+        <field name="name">for.pis.discapacidades.tree</field>
+        <field name="model">for.pis.discapacidades</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.discapacidades">
+                <!-- field name="sujeto_id"/ -->
+                <field name="categoria_discapacidad_id" string="Diversidad Funcional" />
+                <field name="observaciones"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_discapacidades">
+        <field name="name">Diversidades Funcionales</field>
+        <field name="res_model">for.pis.discapacidades</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_for_pis_condiciones_laborales_form">
+        <field name="name">for.pis.condiciones_laborales.form</field>
+        <field name="model">for.pis.condiciones_laborales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.condiciones_laborales">
+                <field name="codigo" select="1"/>
+                <field name="condicion_laboral" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_condiciones_laborales_tree">
+        <field name="name">for.pis.condiciones_laborales.tree</field>
+        <field name="model">for.pis.condiciones_laborales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.condiciones_laborales">
+                <field name="codigo"/>
+                <field name="condicion_laboral"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_condiciones_laborales">
+        <field name="name">Condiciones Laborales</field>
+        <field name="res_model">for.pis.condiciones_laborales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Menu Formación/Indagación -->
+    <menuitem name="Indagación" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/>
+    <menuitem name="Participantes" id="menu_for_pis_sa" parent="menu_for_pis_indagacion" action="action_for_pis_sujetos_aprendizaje" sequence="1"/>
+    <!-- menuitem name="Discapacidades" id="menu_for_pis_discapacidades" parent="menu_for_pis_indagacion" action="action_for_pis_discapacidades" sequence="2"/ -->
+    <!-- menuitem name="Familiares" id="menu_for_pis_familiares"  parent="menu_for_pis_indagacion" action="action_for_pis_familiares" sequence="3"/ -->
+    <!-- menuitem name="Redes Sociales" id="menu_for_pis_redes_sociales" parent="menu_for_pis_indagacion" action="action_for_pis_redes_sociales" sequence="4"/ -->
+    <!-- menuitem name="Deportes Practicados" id="menu_for_pis_deportes_practicados" parent="menu_for_pis_indagacion" action="action_for_pis_deportes_practicados" sequence="5"/ -->
+    <!-- menuitem name="Actividades Culturales" id="menu_for_pis_actividades_practicadas" parent="menu_for_pis_indagacion" action="action_for_pis_actividades_practicadas" sequence="6"/ -->
+    <!-- menuitem name="Organizaciones Socio-Políticas" id="menu_for_pis_organizaciones_milita" parent="menu_for_pis_indagacion" action="action_for_pis_organizaciones_milita" sequence="7"/ -->
+    <!-- menuitem name="Misiones Sociales" id="menu_for_pis_misiones_pertenece" parent="menu_for_pis_indagacion" action="action_for_pis_misiones_pertenece" sequence="8"/ -->
+    <!-- menuitem name="Formación Académica" id="menu_for_pis_formacion_academica" parent="menu_for_pis_indagacion" action="action_for_pis_formacion_academica" sequence="9"/ -->
+    <!-- menuitem name="Intereses Formativos" id="menu_for_pis_intereses_formativos" parent="menu_for_pis_indagacion" action="action_for_pis_intereses_formativos" sequence="10"/ -->
+    <!-- menuitem name="Tecnologias (TIC)" id="menu_for_pis_tecnologias_utilizadas" parent="menu_for_pis_indagacion" action="action_for_pis_tecnologias_utilizadas" sequence="11"/ -->
+    <!-- menuitem name="Participación en PIS" id="menu_for_pis_participacion_pis" parent="menu_for_pis_indagacion" action="action_for_pis_participacion_pis" sequence="12"/ -->
+    <!-- menuitem name="Experiencias Empíricas" id="menu_for_pis_experiencias_empiricas" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_empiricas" sequence="13"/ -->
+    <!-- menuitem name="Experiencias Docentes" id="menu_for_pis_experiencias_docentes" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_docentes" sequence="14"/ -->
+    <!-- menuitem name="Experiencias Laborales" id="menu_for_pis_experiencias_laborales" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_laborales" sequence="15"/ -->
+    <!-- menuitem name="Conocimientos para CASEA" id="menu_for_pis_casea_conocimientos" parent="menu_for_pis_indagacion" action="action_for_pis_casea_conocimientos" sequence="16"/ -->
+
+    <!-- Menu Configuración/Indagación -->
+    <menuitem name="Indagación" id="menu_for_pis_conf_indag" parent="formacion_2015_base.menu_for_configuracion" sequence="40"/>
+    <menuitem name="Estados Civíles" id="menu_for_pis_estados_civiles" parent="menu_for_pis_conf_indag" action="action_for_pis_estados_civiles" sequence="1"/>
+    <menuitem name="Tipos de Comunidades" id="menu_for_pis_tipos_comunidades" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_comunidades" sequence="2"/>
+    <menuitem name="Parentescos" id="menu_for_pis_parentescos" parent="menu_for_pis_conf_indag" action="action_for_pis_parentescos" sequence="3"/>
+    <menuitem name="Géneros" id="menu_for_pis_generos" parent="menu_for_pis_conf_indag" action="action_for_pis_generos" sequence="4"/>
+    <menuitem name="Rangos de Edades" id="menu_for_pis_rangos_edades" parent="menu_for_pis_conf_indag" action="action_for_pis_rangos_edades" sequence="5"/>
+    <menuitem name="Categorías Diversidad Funcional" id="menu_for_pis_categorias_discapacidades" parent="menu_for_pis_conf_indag" action="action_for_pis_categorias_discapacidades" sequence="6"/>
+    <menuitem name="Tipos de Redes Sociales" id="menu_for_pis_tipos_redes_sociales" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_redes_sociales" sequence="7"/>
+    <menuitem name="Nacionalidades" id="menu_for_pis_nacionalidades" parent="menu_for_pis_conf_indag" action="action_for_pis_nacionalidades" sequence="8"/>
+    <menuitem name="Deportes" id="menu_for_pis_deportes" parent="menu_for_pis_conf_indag" action="action_for_pis_deportes" sequence="9"/>
+    <menuitem name="Organizaciones Sociales" id="menu_for_pis_organizaciones" parent="menu_for_pis_conf_indag" action="action_for_pis_organizaciones" sequence="10"/>
+    <menuitem name="Carreras Universitarias" id="menu_for_pis_carreras_universitarias" parent="menu_for_pis_conf_indag" action="action_for_pis_carreras_universitarias" sequence="11"/>
+    <menuitem name="Actividades Culturales" id="menu_for_pis_actividades_culturales" parent="menu_for_pis_conf_indag" action="action_for_pis_actividades_culturales" sequence="12"/>
+    <menuitem name="Niveles Educativos" id="menu_for_pis_niveles_academicos" parent="menu_for_pis_conf_indag" action="action_for_pis_niveles_academicos" sequence="13"/>
+    <menuitem name="Areas de Conocimiento" id="menu_for_pis_areas_conocimientos" parent="menu_for_pis_conf_indag" action="action_for_pis_areas_conocimientos" sequence="14"/>
+    <menuitem name="Oficios" id="menu_for_pis_oficios" parent="menu_for_pis_conf_indag" action="action_for_pis_oficios" sequence="15"/>
+    <menuitem name="Especialidades" id="menu_for_pis_especialidades" parent="menu_for_pis_conf_indag" action="action_for_pis_especialidades" sequence="16"/>
+    <menuitem name="Misiones" id="menu_for_pis_misiones" parent="menu_for_pis_conf_indag" action="action_for_pis_misiones" sequence="17"/>
+    <menuitem name="Frecuencias de Participación" id="menu_for_pis_frecuencias_participacion" parent="menu_for_pis_conf_indag" action="action_for_pis_frecuencias_participacion" sequence="18"/>
+    <menuitem name="Pueblos Indígenas" id="menu_for_pis_pueblos_indigenas" parent="menu_for_pis_conf_indag" action="action_for_pis_pueblos_indigenas" sequence="19"/>
+	<menuitem name="Profesiones u Ocupaciones" id="menu_for_pis_profesiones_ocupaciones" parent="menu_for_pis_conf_indag" action="action_for_pis_profesiones_ocupaciones" sequence="20"/>
+    <menuitem name="Estatus Niveles Educativos" id="menu_for_pis_estatus_niveles_educativos" parent="menu_for_pis_conf_indag" action="action_for_pis_estatus_niveles_educativos" sequence="21"/>
+    <menuitem name="Tecnologías (TIC)" id="menu_for_pis_tecnologias_tic" parent="menu_for_pis_conf_indag" action="action_for_pis_tecnologias_tic" sequence="22"/>
+    <menuitem name="Condiciones Laborales" id="menu_for_pis_condiciones_laborales" parent="menu_for_pis_conf_indag" action="action_for_pis_condiciones_laborales" sequence="23"/>
+
+</data>
+</openerp>
