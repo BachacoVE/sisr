@@ -29,6 +29,6 @@
         "depends" : ['base',  'formacion_2015_base'],
         "init_xml" : ['data/for.pis.mae_cuentas_nomina.csv', 'data/for.pis.mae_valor_hora.csv', 'data/for.pis.mae_motivos_falta.csv'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_2015_nomina_maestros.view.xml', 'security/ir.model.access.csv'],
+        "update_xml" : ['formacion_pis_nomina_maestros_view.xml', 'security/ir.model.access.csv'],
         "installable": True
 }
