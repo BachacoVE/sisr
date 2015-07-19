@@ -35,37 +35,45 @@ class for_pis_mae_asistencias(osv.osv):
 ##################################################################################################################################################
 ##################################################################################################################################################
 
-        'numero_id': fields.many2one('for.pis.registro_inicial','PIS donde participa', help='Proyecto Integral Socialista donde participa o ha participado'),
-        'semana_desde': fields.datetime('Semana desde', help='Fecha de inicio de la Semana'),
-        'semana_hasta': fields.datetime('Semana hasta', help='Fecha de culminación de la Semana'),
+        'numero_id': fields.many2one('for.pis.registro_inicial','Formación donde participa', help='Formación donde participa o ha participado'),
+        'calendario_id' : fields.many2one('for.pis.calendario', 'Semana Nro', help="Número de la Semana en la que trabajó el Facilitador"),
+        'semana_desde': fields.related('calendario_id', 'inicio_semana', type='date', relation='for.pis.calendario', help='Fecha de inicio de la Semana', store=True, string="Desde"),
+        'semana_hasta': fields.related('calendario_id', 'final_semana', type='date', relation='for.pis.calendario', help='Fecha de inicio de la Semana', store=True, string="Hasta"),
         
-        'horas_lunes': fields.integer('Horas Lunes', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día lunes de la semana y proyecto indicados'),
+        'horas_lunes': fields.integer('Horas Lunes', size=2,  help='Total de horas trabajadas por el Facilitador el día lunes de la semana y proyecto indicados'),
         'motivo_falta_lunes_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Lunes', help='Motivo de Falta el día lunes'),
-        'observaciones_lunes': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día lunes'),
+        'observaciones_lunes': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día lunes'),
+        'lunes_laborable': fields.boolean('¿Lunes Laborable?'),
         
-        'horas_martes': fields.integer('Horas Martes', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día martes de la semana y proyecto indicados'),
+        'horas_martes': fields.integer('Horas Martes', size=2,  help='Total de horas trabajadas por el Facilitador el día martes de la semana y proyecto indicados'),
         'motivo_falta_martes_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Martes', help='Motivo de Falta el día martes'),
-        'observaciones_martes': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día martes'),
+        'observaciones_martes': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día martes'),
+        'martes_laborable': fields.boolean('¿Martes Laborable?'),        
                 
-        'horas_miercoles': fields.integer('Horas Miercoles', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día miercoles de la semana y proyecto indicados'),
+        'horas_miercoles': fields.integer('Horas Miercoles', size=2,  help='Total de horas trabajadas por el Facilitador el día miercoles de la semana y proyecto indicados'),
         'motivo_falta_miercoles_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Miercoles', help='Motivo de Falta el día miercoles'),
-        'observaciones_miercoles': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día miercoles'),
-                
-        'horas_jueves': fields.integer('Horas Jueves', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día jueves de la semana y proyecto indicados'),
-        'motivo_falta_jueves_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Jueves', help='Motivo de Falta el día jueves'),
-        'observaciones_jueves': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día jueves'),
-                
-        'horas_viernes': fields.integer('Horas Viernes', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día viernes de la semana y proyecto indicados'),
-        'motivo_falta_viernes_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Viernes', help='Motivo de Falta el día viernes'),
-        'observaciones_viernes': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día viernes'),
-                
-        'horas_sabado': fields.integer('Horas Sabado', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día sabado de la semana y proyecto indicados'),
-        'motivo_falta_sabado_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Sabado', help='Motivo de Falta el día sabado'),
-        'observaciones_sabado': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día sabado'),
+        'observaciones_miercoles': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día miercoles'),
+        'miercoles_laborable': fields.boolean('¿Miércoles Laborable?'),
         
-        'horas_domingo': fields.integer('Horas Domingo', size=2, required=True, help='Total de horas trabajadas por el Facilitador el día domingo de la semana y proyecto indicados'),
+        'horas_jueves': fields.integer('Horas Jueves', size=2,  help='Total de horas trabajadas por el Facilitador el día jueves de la semana y proyecto indicados'),
+        'motivo_falta_jueves_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Jueves', help='Motivo de Falta el día jueves'),
+        'observaciones_jueves': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día jueves'),
+        'jueves_laborable': fields.boolean('¿Jueves Laborable?'),
+        
+        'horas_viernes': fields.integer('Horas Viernes', size=2,  help='Total de horas trabajadas por el Facilitador el día viernes de la semana y proyecto indicados'),
+        'motivo_falta_viernes_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Viernes', help='Motivo de Falta el día viernes'),
+        'observaciones_viernes': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día viernes'),
+        'viernes_laborable': fields.boolean('¿Viernes Laborable?'),
+
+        'horas_sabado': fields.integer('Horas Sabado', size=2,  help='Total de horas trabajadas por el Facilitador el día sabado de la semana y proyecto indicados'),
+        'motivo_falta_sabado_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Sabado', help='Motivo de Falta el día sabado'),
+        'observaciones_sabado': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día sabado'),
+        'sabado_laborable': fields.boolean('¿Sábado Laborable?'),
+        
+        'horas_domingo': fields.integer('Horas Domingo', size=2,  help='Total de horas trabajadas por el Facilitador el día domingo de la semana y proyecto indicados'),
         'motivo_falta_domingo_id': fields.many2one('for.pis.mae_motivos_falta', 'Motivo Falta Domingo', help='Motivo de Falta el día domingo'),
-        'observaciones_domingo': fields.char('Observaciones', size=200, required=True, help='Comentarios adicionales sobre novedades de asistencia el día domingo'),
+        'observaciones_domingo': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día domingo'),
+        'domingo_laborable': fields.boolean('¿Domingo Laborable?'),
 
 	}
         
@@ -103,6 +111,23 @@ class for_pis_mae_asistencias(osv.osv):
         if (horas > 8):
 		    val = {'horas_domingo' : 8}
 		    return {'value': val}
+            
+    def on_change_calendario_id(self, cr, uid, ids, calendario_id):
+        
+        v={}
+        if calendario_id:
+
+            calendario_obj=self.pool.get('for.pis.calendario').browse(cr, uid, calendario_id)
+            v['lunes_laborable']=calendario_obj.lunes
+            v['martes_laborable']=calendario_obj.martes
+            v['miercoles_laborable']=calendario_obj.miercoles
+            v['jueves_laborable']=calendario_obj.jueves
+            v['viernes_laborable']=calendario_obj.viernes
+            v['sabado_laborable']=calendario_obj.sabado
+            v['domingo_laborable']=calendario_obj.domingo
+            v['semana_desde']=calendario_obj.inicio_semana
+            v['semana_hasta']=calendario_obj.final_semana
+        return {'value':v}    
 
 for_pis_mae_asistencias()
 
@@ -126,7 +151,7 @@ for_pis_mae_valor_hora()
 class for_pis_mae_motivos_falta(osv.osv):
     """Tabla Referencia de Motivos de Faltas de Asistencias de Facilitadores"""
     _name = 'for.pis.mae_motivos_falta'
-    _rec_name = 'codigo'
+    _rec_name = 'motivo_falta'
     _columns = {
         'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación del Motivo de Falta'),
         'motivo_falta': fields.char('Motivo de Falta', size=120, required=True, help='Descripción del Motivo de la Falta'),

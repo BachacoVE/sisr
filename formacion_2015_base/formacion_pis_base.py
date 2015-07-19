@@ -221,3 +221,23 @@ class for_pis_cadenas_formativas(osv.osv):
     'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
     }
 for_pis_cadenas_formativas()
+
+class for_pis_calendario(osv.osv):
+    """Calendario de días hábiles"""
+    _name = 'for.pis.calendario'
+    _rec_name = 'nro_semana'
+    _columns = {
+        'ano': fields.integer('Año del Calendario', help='Año del Calendario a Mostrar'),
+        'nro_semana': fields.integer('Nro de la Semana', help='Número de la Semana'),
+        'inicio_semana': fields.date('Inicio de Semana', help='Fecha de Inicio de la Semana'),
+        'final_semana': fields.date('Final de Semana', help='Fecha de Finalización de la Semana'),
+        'lunes': fields.boolean('Lunes', help='Campo de verificación para determinar si el Lunes es Laborable. (True = Sí)'),
+        'martes': fields.boolean('Martes', help='Campo de verificación para determinar si el Martes es Laborable. (True = Sí)'),
+        'miercoles': fields.boolean('Miércoles', help='Campo de verificación para determinar si el Miércoles es Laborable. (True = Sí)'),
+        'jueves': fields.boolean('Jueves', help='Campo de verificación para determinar si el Jueves es Laborable. (True = Sí)'),
+        'viernes': fields.boolean('Viernes', help='Campo de verificación para determinar si el Viernes es Laborable. (True = Sí)'),
+        'sabado': fields.boolean('Sábado', help='Campo de verificación para determinar si el Sábado es Laborable. (True = Sí)'),
+        'domingo': fields.boolean('Domingo', help='Campo de verificación para determinar si el Domingo es Laborable. (True = Sí)'),
+        'active': fields.boolean('¿Semana Activa?', help="Campo de Activación o Desactivación de la Semana"),
+    }
+for_pis_calendario()

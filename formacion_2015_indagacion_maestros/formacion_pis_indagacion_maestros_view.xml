@@ -9,7 +9,7 @@
         <field name="type">form</field>
         <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_asistencias_form"/>
         <field name="arch" type="xml">
-            <field name="horas_lunes" position="before">
+            <field name="numero_id" position="after">
                 <field name="maestro_id" select="1"/>
             </field>
         </field>

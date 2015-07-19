@@ -477,6 +477,67 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
+    <record model="ir.ui.view" id="view_for_pis_calendario_form">
+        <field name="name">for.pis.calendario.form</field>
+        <field name="model">for.pis.calendario</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <form string="for.pis.calendario">
+            
+                <field name="active" select="0"/>
+                
+                <group col="8" colspan ="4">
+                    <field name="ano" select="0"/>
+                    <field name="nro_semana" select="1"/>
+                    <field name="inicio_semana" select="1"/>
+                    <field name="final_semana" select="1"/>
+                </group>
+                <separator string="Días Laborables" colspan="4" />
+                <group col="2" colspan ="4">
+                    <field name="lunes" select="0"/>
+                    <field name="martes" select="0"/>
+                    <field name="miercoles" select="0"/>
+                    <field name="jueves" select="0"/>
+                    <field name="viernes" select="0"/>
+                    <field name="sabado" select="0"/>
+                    <field name="domingo" select="0"/>
+                </group>
+            </form>
+            
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_for_pis_calendario_tree">
+        <field name="name">for.pis.calendario.tree</field>
+        <field name="model">for.pis.calendario</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.pis.calendario">
+                <field name="ano"/>
+                <field name="nro_semana"/>
+                <field name="inicio_semana"/>
+                <field name="final_semana"/>
+                <field name="lunes"/>
+                <field name="martes"/>
+                <field name="miercoles"/>
+                <field name="jueves"/>
+                <field name="viernes"/>
+                <field name="sabado"/>
+                <field name="domingo"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_calendario">
+        <field name="name">Calendario</field>
+        <field name="res_model">for.pis.calendario</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
     <menuitem name="Formación" id="menu_for_base"
             web_icon="images/formacion.png"
             web_icon_hover="images/formacion-hover.png" />
@@ -498,6 +559,7 @@
     <menuitem name="Modalidad Formativa" id="menu_for_pis_modalidad" action="action_for_pis_modalidad" parent="menu_for_pis_configuracion" sequence="9"/>
     <menuitem name="Motores Económicos" id="menu_for_pis_motores_economicos" action="action_for_pis_motores_economicos" parent="menu_for_pis_configuracion" sequence="10"/>
     <menuitem name="Cadenas Formativas" id="menu_for_pis_cadenas_formativas" action="action_for_pis_cadenas_formativas" parent="menu_for_pis_configuracion" sequence="11"/>
+    <menuitem name="Calendario" id="menu_for_pis_calendario" action="action_for_pis_calendario" parent="menu_for_pis_configuracion" sequence="12"/>
    
 <!--notebook colpsan="4">
  <page string= "Geografica">

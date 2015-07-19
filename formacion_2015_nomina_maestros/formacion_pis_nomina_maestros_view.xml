@@ -12,45 +12,51 @@
                 <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id" select="1"/>
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
+                <separator colspan="4" />
                 <field name="numero_id" select="2"/>
-                <field name="semana_desde" select="0"/>
-                <field name="semana_hasta" select="0"/>
                 
+                <group col="6" colspan="4">
+                <separator colspan="6" string="Información de la Fecha"/>
+                <field name="calendario_id" select="2" on_change="on_change_calendario_id(calendario_id)"/>
+                <field name="semana_desde" select="0" readonly="1" />
+                <field name="semana_hasta" select="0" readonly="1"/>
+                
+                <separator string="Reporte de Horas por Día" colspan="6" />
+                <field name="horas_lunes" select="0" on_change="onchange_max_horas_lunes(horas_lunes, context)" attrs="{'readonly':[('lunes_laborable','!=','1')], 'required':[('lunes_laborable','=','1')]}"/>
+                <field name="motivo_falta_lunes_id" select="0" attrs="{'readonly':[('lunes_laborable','!=','1')]}"/>
+                <field name="observaciones_lunes" select="0" attrs="{'readonly':[('lunes_laborable','!=','1')], 'required':[('lunes_laborable','=','1')]}"/>
+                <field name="lunes_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_lunes" select="0"/ -->
-                <field name="horas_lunes" select="0" on_change="onchange_max_horas_lunes(horas_lunes, context)"/>
-                <field name="motivo_falta_lunes_id" select="0"/>
-                <field name="observaciones_lunes" select="0"/>
-                                
-                <!-- field name="horas_martes" select="0"/ -->
-                <field name="horas_martes" select="0" on_change="onchange_max_horas_martes(horas_martes, context)"/>
-                <field name="motivo_falta_martes_id" select="0"/>
-                <field name="observaciones_martes" select="0"/>
+                <field name="horas_martes" select="0" on_change="onchange_max_horas_martes(horas_martes, context)" attrs="{'readonly':[('martes_laborable','!=','1')], 'required':[('martes_laborable','=','1')]}"/>
+                <field name="motivo_falta_martes_id" select="0" attrs="{'readonly':[('martes_laborable','!=','1')]}"/>
+                <field name="observaciones_martes" select="0" attrs="{'readonly':[('martes_laborable','!=','1')], 'required':[('martes_laborable','=','1')]}"/>
+                <field name="martes_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_miercoles" select="0"/ -->
-                <field name="horas_miercoles" select="0" on_change="onchange_max_horas_miercoles(horas_miercoles, context)"/>
-                <field name="motivo_falta_miercoles_id" select="0"/>
-                <field name="observaciones_miercoles" select="0"/>
+                <field name="horas_miercoles" select="0" on_change="onchange_max_horas_miercoles(horas_miercoles, context)" attrs="{'readonly':[('miercoles_laborable','!=','1')], 'required':[('miercoles_laborable','=','1')]}"/>
+                <field name="motivo_falta_miercoles_id" select="0" attrs="{'readonly':[('miercoles_laborable','!=','1')]}"/>
+                <field name="observaciones_miercoles" select="0" attrs="{'readonly':[('miercoles_laborable','!=','1')], 'required':[('miercoles_laborable','=','1')]}"/>
+                <field name="miercoles_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_jueves" select="0"/ -->
-                <field name="horas_jueves" select="0" on_change="onchange_max_horas_jueves(horas_jueves, context)"/>
-                <field name="motivo_falta_jueves_id" select="0"/>
-                <field name="observaciones_jueves" select="0"/>
+                <field name="horas_jueves" select="0" on_change="onchange_max_horas_jueves(horas_jueves, context)" attrs="{'readonly':[('jueves_laborable','!=','1')], 'required':[('jueves_laborable','=','1')]}"/>
+                <field name="motivo_falta_jueves_id" select="0" attrs="{'readonly':[('jueves_laborable','!=','1')]}"/>
+                <field name="observaciones_jueves" select="0" attrs="{'readonly':[('jueves_laborable','!=','1')], 'required':[('jueves_laborable','=','1')]}"/>
+                <field name="jueves_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_viernes" select="0"/ -->
-                <field name="horas_viernes" select="0" on_change="onchange_max_horas_viernes(horas_viernes, context)"/>
-                <field name="motivo_falta_viernes_id" select="0"/>
-                <field name="observaciones_viernes" select="0"/>
+                <field name="horas_viernes" select="0" on_change="onchange_max_horas_viernes(horas_viernes, context)" attrs="{'readonly':[('viernes_laborable','!=','1')], 'required':[('viernes_laborable','=','1')]}" />
+                <field name="motivo_falta_viernes_id" select="0" attrs="{'readonly':[('viernes_laborable','!=','1')]}"/>
+                <field name="observaciones_viernes" select="0" attrs="{'readonly':[('viernes_laborable','!=','1')], 'required':[('viernes_laborable','=','1')]}"/>
+                <field name="viernes_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_sabado" select="0"/ -->
-                <field name="horas_sabado" select="0" on_change="onchange_max_horas_sabado(horas_sabado, context)"/>
-                <field name="motivo_falta_sabado_id" select="0"/>
-                <field name="observaciones_sabado" select="0"/>
+                <field name="horas_sabado" select="0" on_change="onchange_max_horas_sabado(horas_sabado, context)" attrs="{'readonly':[('sabado_laborable','!=','1')], 'required':[('sabado_laborable','=','1')]}"/>
+                <field name="motivo_falta_sabado_id" select="0" attrs="{'readonly':[('sabado_laborable','!=','1')]}"/>
+                <field name="observaciones_sabado" select="0" attrs="{'readonly':[('sabado_laborable','!=','1')], 'required':[('sabado_laborable','=','1')]}"/>
+                <field name="sabado_laborable" select="0" invisible="True"/>
 
-                <!-- field name="horas_domingo" select="0"/ -->
-                <field name="horas_domingo" select="0" on_change="onchange_max_horas_domingo(horas_domingo, context)"/>
-                <field name="motivo_falta_domingo_id" select="0"/>
-                <field name="observaciones_domingo" select="0"/>
+                <field name="horas_domingo" select="0" on_change="onchange_max_horas_domingo(horas_domingo, context)" attrs="{'readonly':[('domingo_laborable','!=','1')], 'required':[('domingo_laborable','=','1')]}"/>
+                <field name="motivo_falta_domingo_id" select="0" attrs="{'readonly':[('domingo_laborable','!=','1')]}"/>
+                <field name="observaciones_domingo" select="0" attrs="{'readonly':[('domingo_laborable','!=','1')], 'required':[('domingo_laborable','=','1')]}"/>
+                <field name="domingo_laborable" select="0" invisible="True"/>
+                </group>
                 
             </form>
         </field>
