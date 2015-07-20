@@ -251,7 +251,7 @@
 					<field name="cantidad_maestros" select="0"/>
 					<field name="fecha_inicio" select="0"/>
 					<field name="fecha_cierre" select="0"/>
-					<field name="lapso_ejecucion" select="0"/>
+					<field name="lapso_ejecucion" string="Duración" select="0"/>
                     <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
                     
 				<notebook colspan="4">
@@ -299,7 +299,7 @@
 
 
     <record model="ir.actions.act_window" id="action_for_pis_registro_inicial">
-        <field name="name">Registro Inicial de la Formación</field>
+        <field name="name">Registro Inicial de la Formación y Autoformación</field>
         <field name="res_model">for.pis.registro_inicial</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -565,7 +565,7 @@
             web_icon_hover="images/formacion-hover.png" />
 
     <menuitem name="Inicio de la Formación" id="menu_for_pis_inicio" parent="menu_for_base" sequence="1"/>
-    <menuitem name="Registro Inicial de la Formación" id="menu_for_pis_registro" parent="menu_for_pis_inicio" action="action_for_pis_registro_inicial"/>
+    <menuitem name="Registro Inicial" id="menu_for_pis_registro" parent="menu_for_pis_inicio" action="action_for_pis_registro_inicial"/>
 	
 	<menuitem name="Informes" id="menu_for_informes" parent="menu_for_base" sequence="19"/>
 	<menuitem name="Configuración" id="menu_for_configuracion" parent="menu_for_base" sequence="20"/>	

@@ -118,6 +118,21 @@ for_pis_mae_asistencias_extended()
 ##############################fin herencia asistencia en formacion_pis_nomina_maestros####################################################
 
 
+##########################################################################################################################################################################3
+##########################################################################################################################################################################3
+############################herencia de formacion_pis_base##################################################################################################################3
+class for_pis_maestros_registro_inicial_extended(osv.osv):
+    """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
+    _name = 'for.pis.registro_inicial'
+    #_rec_name = 'denominacion_pis'
+    _inherit= 'for.pis.registro_inicial'
+    _columns = {
+        'pis_maestro_formacion_ids': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'Facilitadores en esta Formación', help='Facilitadores que participan en la Formación'),
+    }
+for_pis_maestros_registro_inicial_extended()
+##########################################################################################################################################################################3
+##########################################################################################################################################################################3
+
 
 class for_pis_mae_familiares(osv.osv):
     """Registro Maestro de Familiares de los Facilitadores"""
