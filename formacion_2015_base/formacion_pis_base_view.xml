@@ -235,52 +235,34 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
 			<form string="for.registro_inicial">
-				<separator string="Datos Básicos del Proyecto" colspan="4"/>
+				
+                <separator string="Ubicación Administrativa de la Formación" colspan="4"/>
+					<field name="estado_id" select="0"/>
+					<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+					<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+					<field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+                
+                <separator string="Datos Básicos del Proyecto" colspan="4"/>
 					<field name="nro_preimpreso" select="1"/>
 					<field name="accion_especifica" select="0"/>
-					<field name="denominacion_pis" select="2" colspan="4"/>
+					<field name="modalidad_id" select="0" />
+                    <field name="denominacion_pis" select="2" colspan="4"/>
 					<field name="cantidad_sujetos" select="0"/>
 					<field name="cantidad_maestros" select="0"/>
 					<field name="fecha_inicio" select="0"/>
 					<field name="fecha_cierre" select="0"/>
 					<field name="lapso_ejecucion" select="0"/>
-				<separator string="Ubicación Geográfica" colspan="4"/>
-					<field name="estado_id" select="0"/>
-					<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
-					<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
-					<field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
-				<separator string="Contexto Económico" colspan="4"/>
+                    <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
+                    
+				<notebook>
+				<page string="Contexto Económico">
 					<field name="sector_id" select="0"/>
 					<field name="area_id" select="0" domain="[('sector_id','=',[sector_id])]"/>
 					<field name="subarea_id" select="0" domain="[('area_id','=',[area_id])]"/>
 					<field name="tipo_procedencia_id" select="0"/>
-                    
-                    <!--vista de la linea motores, cadenas y modalidad-->
-                    <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
-                    <field name="cadenas_formativas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
-                    <field name="modalidad_id" select="0" />
-<!--los siguientes campos son creados como herencia en formacion_pis_indagacion_matrices-->
-				    <!--separator string="Matriz Curricular" colspan="4"/>
-					<field name="matriz_curricular_ids" string="Matriz Curricular" nolabel="1" colspan="4" select="0"/-->
-<!--hasta acá se hizo herencia en formacion_pis_indagacion_matrices-->
-<!--los sigueintes campos son creados en formacion_pis_indagacion como herencia-->
-                <!--separator string="Participantes la formación" colspan="4"/>
-                    <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
-                        <form string="Participación">
-                            <field name="sujeto_id"/>
-                            <field name="numero_id"/>
-                        </form>
-                        <tree string="Participación">
-                            <field name="sujeto_id"/>
-                            <field name="numero_id"/>
-                        </tree>
-                    </field-->
-<!--hasta acá fue creada la herencia en formacion_pis_indagacion-->
-
-				<!--Se agregan los notebook para mejorar la vista FORM-->
-                <!--Modificacion del Sabado-->
-                
-                <!--Fin del NOTE BOOK-->
+                    <field name="cadenas_formativas_id" select="0" string="areas priorizadas" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
+                </page>
+                </notebook>
             </form>
         </field>
     </record>
@@ -537,6 +519,46 @@
     </record>
 
 
+    <record model="ir.ui.view" id="view_for_pis_opciones_formativas_form">
+        <field name="name">for.pis.opciones_formativas.form</field>
+        <field name="model">for.pis.opciones_formativas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="for.pis.opciones_formativas">
+                <field name="estado_id" select="1"/>
+                <field name="cfs_id" select="1" domain="[('estado_id','=',[estado_id])]"/>
+                <field name="motores_economicos_id" select="0"/>
+                <field name="identificador" select="1"/>
+                <field name="denominacion" select="1"/>
+                <field name="horas" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_opciones_formativas_tree">
+        <field name="name">for.pis.opciones_formativas.tree</field>
+        <field name="model">for.pis.opciones_formativas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="for.pis.opciones_formativas">
+                <field name="estado_id"/>
+                <field name="cfs_id"/>
+                <field name="motores_economicos_id"/>
+                <field name="identificador"/>
+                <field name="denominacion"/>
+                <field name="horas"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_opciones_formativas">
+        <field name="name">Opciones Formativa</field>
+        <field name="res_model">for.pis.opciones_formativas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
 
     <menuitem name="Formación" id="menu_for_base"
             web_icon="images/formacion.png"
@@ -560,6 +582,7 @@
     <menuitem name="Motores Económicos" id="menu_for_pis_motores_economicos" action="action_for_pis_motores_economicos" parent="menu_for_pis_configuracion" sequence="10"/>
     <menuitem name="Cadenas Formativas" id="menu_for_pis_cadenas_formativas" action="action_for_pis_cadenas_formativas" parent="menu_for_pis_configuracion" sequence="11"/>
     <menuitem name="Calendario" id="menu_for_pis_calendario" action="action_for_pis_calendario" parent="menu_for_pis_configuracion" sequence="12"/>
+    <menuitem name="Opciones Formativas" id="menu_for_pis_opciones_formativas" action="action_for_pis_opciones_formativas" parent="menu_for_pis_configuracion" sequence="13"/>
    
 <!--notebook colpsan="4">
  <page string= "Geografica">
