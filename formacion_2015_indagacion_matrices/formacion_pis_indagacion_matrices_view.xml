@@ -10,10 +10,12 @@
         <field name="type">form</field>
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
-            <field name="modalidad_id" position="after">
+            <notebook position="inside">
+                <page string="Matriz Curricular">
                 <separator string="Matriz Curricular" colspan="4"/>
                 <field name="matriz_curricular_ids" nolabel="1" colspan="4" select="0"/>
-            </field>
+                </page>
+            </notebook>
         </field>
     </record>
 <!--aca finaliza la herencia desde formacion_pis_base-->

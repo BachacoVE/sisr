@@ -241,3 +241,16 @@ class for_pis_calendario(osv.osv):
         'active': fields.boolean('¿Semana Activa?', help="Campo de Activación o Desactivación de la Semana"),
     }
 for_pis_calendario()
+
+class for_pis_opciones_formativas(osv.osv):
+    """Maestra de Cursos Disponibles por CFS"""
+    _name = 'for.pis.opciones_formativas'
+    _columns = {
+        'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
+        'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=True, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
+        'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
+        'identificador': fields.integer('Identificador',size=30, help='Código Único Identificador de la Formación'),
+        'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
+        'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
+    }
+for_pis_opciones_formativas()
