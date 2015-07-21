@@ -10,7 +10,7 @@
 
 	<record id="motor_eco_IND" model="for.pis.motores_economicos">
 		<field name="nombre">IND</field>
-		<field name="descripcion">Industrias(Manufactura)</field>
+		<field name="descripcion">Industrias</field>
 	</record>
 	
 	<record id="motor_eco_TUR" model="for.pis.motores_economicos">
@@ -52,6 +52,10 @@
 	<record id="motor_eco_COM" model="for.pis.motores_economicos">
 		<field name="nombre">COM</field>
 		<field name="descripcion">Comunicaciones</field>
+	</record>
+	<record id="motor_eco_MGS" model="for.pis.motores_economicos">
+		<field name="nombre">MGS</field>
+		<field name="descripcion">Modelos de Gestión</field>
 	</record>
 
 	</data>
