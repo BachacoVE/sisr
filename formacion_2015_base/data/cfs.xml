@@ -302,7 +302,7 @@
 
 	<record id="cfs_DOR" model="for.pis.cfs">
 		<field name="codigo">DOR</field>
-		<field name="nombre">C. F.S. Diego De Ordaz</field>
+		<field name="nombre">C.F.S. Diego De Ordaz</field>
 		<field name="ubicacion">El Roble San Félix</field>
 		<field name="telefono">0286-9311048</field>
 		<field name="observaciones"></field>
@@ -401,7 +401,7 @@
 
 	<record id="cfs_BSA" model="for.pis.cfs">
 		<field name="codigo">BSA</field>
-		<field name="nombre">C.F.S.  Bartolome Salom</field>
+		<field name="nombre">C.F.S. Bartolome Salom</field>
 		<field name="ubicacion">Valle de Santa  Lucia. Vía Borburata, frente  a Dianca, al lado de La UNEFA</field>
 		<field name="telefono">0242-3611047</field>
 		<field name="observaciones"></field>
@@ -454,8 +454,8 @@
 		<field name="parroquia_id" ref="geo_par_COJ_TIQ_TIQ"/>
 	</record>
 
-	<record id="cfs_MSA" model="for.pis.cfs">
-		<field name="codigo">MSA</field>
+	<record id="cfs_MSL" model="for.pis.cfs">
+		<field name="codigo">MSL</field>
 		<field name="nombre">C.F.S. Matias Salazar</field>
 		<field name="ubicacion">C/Colina Entre Carabobo y Miranda</field>
 		<field name="telefono">0258-7662591</field>
@@ -630,8 +630,8 @@
 		<field name="parroquia_id" ref="geo_par_DTO_LIB_SRO"/>
 	</record>
 
-	<record id="cfs_MAR" model="for.pis.cfs">
-		<field name="codigo">MAR</field>
+	<record id="cfs_MRA" model="for.pis.cfs">
+		<field name="codigo">MRA</field>
 		<field name="nombre">C.F.S. Maracapana</field>
 		<field name="ubicacion">Comuna Cacique Tiuna De La Rinconada</field>
 		<field name="telefono"></field>
@@ -1037,8 +1037,8 @@
 		<field name="parroquia_id" ref="geo_par_NVA_SMA_POR"/>
 	</record>
 
-	<record id="cfs_GUA" model="for.pis.cfs">
-		<field name="codigo">GUA</field>
+	<record id="cfs_GUR" model="for.pis.cfs">
+		<field name="codigo">GUR</field>
 		<field name="nombre">C.F.S. Guaraguo</field>
 		<field name="ubicacion">Final Paseo Rómulo Gallegos. Sector  Guaraguao</field>
 		<field name="telefono">0295-2635977</field>
@@ -1171,7 +1171,7 @@
 
 	<record id="cfs_ATU" model="for.pis.cfs">
 		<field name="codigo">ATU</field>
-		<field name="nombre">C.F.S. Agrícola  Tunapuy</field>
+		<field name="nombre">C.F.S. Agrícola Tunapuy</field>
 		<field name="ubicacion">Sector Tunapuy. Carretera Nacional vía Güiria</field>
 		<field name="telefono">0294-6669110</field>
 		<field name="observaciones"></field>
@@ -1435,7 +1435,7 @@
 
 	<record id="cfs_BVL" model="for.pis.cfs">
 		<field name="codigo">BVL</field>
-		<field name="nombre">C.F.S.  Bella Vista II</field>
+		<field name="nombre">C.F.S. Bella Vista II</field>
 		<field name="ubicacion">Av. 4 Calle 87 y 88 (Av. Bella Vista)</field>
 		<field name="telefono">0261-7227145</field>
 		<field name="observaciones"></field>
