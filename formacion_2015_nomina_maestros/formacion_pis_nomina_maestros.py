@@ -78,38 +78,38 @@ class for_pis_mae_asistencias(osv.osv):
 	}
         
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_lunes' : 8}
+        if (horas > 4):
+		    val = {'horas_lunes' : 4}
 		    return {'value': val}
     
     def onchange_max_horas_martes(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_martes' : 8}
+        if (horas > 4):
+		    val = {'horas_martes' : 4}
 		    return {'value': val}
 
     def onchange_max_horas_miercoles(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_miercoles' : 8}
+        if (horas > 4):
+		    val = {'horas_miercoles' : 4}
 		    return {'value': val}
 
     def onchange_max_horas_jueves(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_jueves' : 8}
+        if (horas > 4):
+		    val = {'horas_jueves' : 4}
 		    return {'value': val}
 
     def onchange_max_horas_viernes(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_viernes' : 8}
+        if (horas > 4):
+		    val = {'horas_viernes' : 4}
 		    return {'value': val}
 
     def onchange_max_horas_sabado(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_sabado' : 8}
+        if (horas > 4):
+		    val = {'horas_sabado' : 4}
 		    return {'value': val}
 
     def onchange_max_horas_domingo(self, cr, uid, ids, horas, context=None):
-        if (horas > 8):
-		    val = {'horas_domingo' : 8}
+        if (horas > 4):
+		    val = {'horas_domingo' : 4}
 		    return {'value': val}
             
     def on_change_calendario_id(self, cr, uid, ids, calendario_id):
