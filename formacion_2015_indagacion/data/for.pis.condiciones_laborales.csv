@@ -1,3 +1,4 @@
 condicion_laboral,codigo
-Fijo,FIJ
-Contratado,CON
+Empleado (Fijo),EFJ
+Contratado Dedicación Exclusiva (Tiempo Completo),CDE
+Contratado Tiempo Convencional (Por Horas),CTC

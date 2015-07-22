@@ -2,65 +2,12 @@
 <openerp>
 <data>
 
-<!--campos creados por herencia desde formacion_pis_nomina_maestros-->
-    <record model="ir.ui.view" id="view_for_pis_mae_asistencias_form_inherit">
-        <field name="name">for.pis.mae_asistencias.form.inherit</field>
-        <field name="model">for.pis.mae_asistencias</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_asistencias_form"/>
-        <field name="arch" type="xml">
-            <field name="numero_id" position="after">
-                <field name="maestro_id" select="1"/>
-            </field>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_for_pis_mae_asistencias_tree_inherit">
-        <field name="name">for.pis.mae_asistencias.tree.inherit</field>
-        <field name="model">for.pis.mae_asistencias</field>
-        <field name="type">tree</field>
-        <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_asistencias_tree"/>
-        <field name="arch" type="xml">
-            <field name="horas_lunes" position="before">
-                <field name="maestro_id"/>
-            </field>
-        </field>
-    </record>
-<!--fin de campos creados por herencia desde formacion_pis_nomina_maestros-->
-
-<!-- Acá inicia la clase heredada de formacion_pis_base-->
-     <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
-        <field name="name">for.pis.maestro.registro_inicial.form.inherit</field>
-        <field name="model">for.pis.registro_inicial</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Facilitadores">
-                <separator string="Facilitadores en la Formación" colspan="4"/>
-                    <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0">
-                        <form string="Facilitadores">
-                            <field name="maestro_id" select="0"/>
-                            <!--field name="numero_id"/-->
-                        </form>
-                        <tree string="Facilitadores">
-                            <field name="maestro_id"/>
-                            <!--field name="numero_id"/-->
-                        </tree>
-                    </field>
-                </page>
-            </notebook>
-        </field>
-    </record>
-<!--fin de la herencia desde formacion_pis_base-->
-
-
     <record model="ir.ui.view" id="view_for_pis_maestros_form">
         <field name="name">for.pis.maestros.form</field>
         <field name="model">for.pis.maestros</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-			<form string="for.Facilitadores">
+			<form string="for.pis.maestros">
 				<separator string="Datos Básicos" colspan="4"/>
 				<field name="cedula" select="1"/>
 				<field name="nombres" select="2"/>
@@ -135,22 +82,22 @@
 					   <field name="tiempo_experiencia" string="Años de Experiencia" select="0"/>
 					   
 					   <!-- Modificaciones para Nomina de Maestros -->
-					   <field name="horas_trabajadas" select="0"/>
-					   <field name="nivel_id" select="0"/>
-					   <field name="entidad_id" select="0"/>
-					   <field name="cuenta_id" select="0"/>
-					   <field name="tipo_cuenta_id" select="0"/>
+					   <!-- field name="horas_trabajadas" select="0"/ -->
+					   <!-- field name="nivel_id" select="0"/ -->
+					   <!-- field name="entidad_id" select="0"/ -->
+					   <!-- field name="cuenta_id" select="0"/ -->
+					   <!-- field name="tipo_cuenta_id" select="0"/ -->
 					   
 					</page>
 					<page string="CASEA">
 						<separator string="Areas de Conocimiento para CASEA" colspan="4"/>
 						<field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
 					</page>
-					<page string="Participación en Formaciones">
-						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
+					<page string="Participación en PIS">
+						<separator string="En cuántos PIS ha participado" colspan="4"/>
 						<field name="pis_participado" colspan="4" nolabel="1" select="0"/>
 					</page>
-					<page string="Actividad Formacitiva">
+					<page string="Actividad PIS">
 						<field name="frecuencia_colectivos_aprendizaje_id" select="0"/>
 						<field name="frecuencia_colectivo_cfs_id" select="0"/>
 						<field name="frecuencia_matriz_planificacion_id" select="0"/>
@@ -183,7 +130,7 @@
         <field name="model">for.pis.maestros</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.Facilitadores">
+            <tree string="for.pis.maestros">
                 <field name="cedula" string="Nº Cédula"/>
                 <field name="nombres" string="Nombres"/>
                 <field name="apellidos" string ="Apellidos"/>
@@ -223,7 +170,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_maestros">
-        <field name="name">Facilitadores (Facilitadores)</field>
+        <field name="name">Maestros (Maestros)</field>
         <field name="res_model">for.pis.maestros</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -234,7 +181,7 @@
         <field name="model">for.pis.mae_familiares</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_familiares">
+            <form string="for.pis.mae_familiares">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="cedula" select="2"/>
                 <field name="nombres" select="0"/>
@@ -252,7 +199,7 @@
         <field name="model">for.pis.mae_familiares</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_familiares">
+            <tree string="for.pis.mae_familiares">
                 <!-- field name="maestro_id"/ -->
                 <field name="cedula"/>
                 <field name="nombres"/>
@@ -266,7 +213,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_familiares">
-        <field name="name">Familiares (Facilitadores)</field>
+        <field name="name">Familiares (Maestros)</field>
         <field name="res_model">for.pis.mae_familiares</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -277,7 +224,7 @@
         <field name="model">for.pis.mae_redes_sociales</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_redes_sociales">
+            <form string="for.pis.mae_redes_sociales">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="tipo_red_social_id" select="2"/>
                 <field name="cuenta" select="0"/>
@@ -289,7 +236,7 @@
         <field name="model">for.pis.mae_redes_sociales</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_redes_sociales">
+            <tree string="for.pis.mae_redes_sociales">
                 <!-- field name="maestro_id"/ -->
                 <field name="tipo_red_social_id"/>
                 <field name="cuenta"/>
@@ -297,7 +244,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_redes_sociales">
-        <field name="name">Redes Sociales (Facilitadores)</field>
+        <field name="name">Redes Sociales (Maestros)</field>
         <field name="res_model">for.pis.mae_redes_sociales</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -308,7 +255,7 @@
         <field name="model">for.pis.mae_deportes_practicados</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_deportes_practicados">
+            <form string="for.pis.mae_deportes_practicados">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="deporte_id" select="2"/>
                 <field name="desde" select="0"/>
@@ -321,7 +268,7 @@
         <field name="model">for.pis.mae_deportes_practicados</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_deportes_practicados">
+            <tree string="for.pis.mae_deportes_practicados">
                 <!-- field name="maestro_id"/ -->
                 <field name="deporte_id"/>
                 <field name="desde"/>
@@ -330,7 +277,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_deportes_practicados">
-        <field name="name">Deportes Practicados (Facilitadores)</field>
+        <field name="name">Deportes Practicados (Maestros)</field>
         <field name="res_model">for.pis.mae_deportes_practicados</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -341,7 +288,7 @@
         <field name="model">for.pis.mae_actividades_practicadas</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_actividades_practicadas">
+            <form string="for.pis.mae_actividades_practicadas">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="actividad_cultural_id" select="2"/>
                 <field name="desde" select="0"/>
@@ -354,7 +301,7 @@
         <field name="model">for.pis.mae_actividades_practicadas</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_actividades_practicadas">
+            <tree string="for.pis.mae_actividades_practicadas">
                 <!-- field name="maestro_id"/ -->
                 <field name="actividad_cultural_id"/>
                 <field name="desde"/>
@@ -363,7 +310,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_actividades_practicadas">
-        <field name="name">Actividades Culturales (Facilitadores)</field>
+        <field name="name">Actividades Culturales (Maestros)</field>
         <field name="res_model">for.pis.mae_actividades_practicadas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -374,7 +321,7 @@
         <field name="model">for.pis.mae_organizaciones_milita</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_organizaciones_milita">
+            <form string="for.pis.mae_organizaciones_milita">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="organizacion_id" select="2"/>
                 <field name="desde" select="0"/>
@@ -387,7 +334,7 @@
         <field name="model">for.pis.mae_organizaciones_milita</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_organizaciones_milita">
+            <tree string="for.pis.mae_organizaciones_milita">
                 <!-- field name="maestro_id"/ -->
                 <field name="organizacion_id"/>
                 <field name="desde"/>
@@ -396,7 +343,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_organizaciones_milita">
-        <field name="name">Organizaciones Socio-Políticas (Facilitadores)</field>
+        <field name="name">Organizaciones Socio-Políticas (Maestros)</field>
         <field name="res_model">for.pis.mae_organizaciones_milita</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -407,7 +354,7 @@
         <field name="model">for.pis.mae_misiones_pertenece</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_misiones_pertenece">
+            <form string="for.pis.mae_misiones_pertenece">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="mision_id" select="2"/>
                 <field name="desde" select="0"/>
@@ -420,7 +367,7 @@
         <field name="model">for.pis.mae_misiones_pertenece</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_misiones_pertenece">
+            <tree string="for.pis.mae_misiones_pertenece">
                 <!-- field name="maestro_id"/ -->
                 <field name="mision_id"/>
                 <field name="desde"/>
@@ -429,7 +376,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_misiones_pertenece">
-        <field name="name">Misiones Sociales (Facilitadores)</field>
+        <field name="name">Misiones Sociales (Maestros)</field>
         <field name="res_model">for.pis.mae_misiones_pertenece</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -440,7 +387,7 @@
         <field name="model">for.pis.mae_formacion_academica</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_formacion_academica">
+            <form string="for.pis.mae_formacion_academica">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="nivel_educativo_id" select="2"/>
                 <field name="estatus_educativo_id" select="0"/>
@@ -453,7 +400,7 @@
         <field name="model">for.pis.mae_formacion_academica</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_formacion_academica">
+            <tree string="for.pis.mae_formacion_academica">
                 <!-- field name="maestro_id"/ -->
                 <field name="nivel_educativo_id"/>
                 <field name="estatus_educativo_id"/>
@@ -462,7 +409,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_formacion_academica">
-        <field name="name">Formación Académica (Facilitadores)</field>
+        <field name="name">Formación Académica (Maestros)</field>
         <field name="res_model">for.pis.mae_formacion_academica</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -473,7 +420,7 @@
         <field name="model">for.pis.mae_intereses_formativos</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_intereses_formativos">
+            <form string="for.pis.mae_intereses_formativos">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="sector_economico_id" select="2"/>
                 <field name="area_economica_id" select="0"/>
@@ -487,7 +434,7 @@
         <field name="model">for.pis.mae_intereses_formativos</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_intereses_formativos">
+            <tree string="for.pis.mae_intereses_formativos">
                 <!-- field name="maestro_id"/ -->
                 <field name="sector_economico_id"/>
                 <field name="area_economica_id"/>
@@ -497,7 +444,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_intereses_formativos">
-        <field name="name">Intereses Formativos (Facilitadores)</field>
+        <field name="name">Intereses Formativos (Maestros)</field>
         <field name="res_model">for.pis.mae_intereses_formativos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -508,7 +455,7 @@
         <field name="model">for.pis.mae_tecnologias_utilizadas</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_tecnologias_utilizadas">
+            <form string="for.pis.mae_tecnologias_utilizadas">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="tecnologia" select="2"/>
 
@@ -520,7 +467,7 @@
         <field name="model">for.pis.mae_tecnologias_utilizadas</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_tecnologias_utilizadas">
+            <tree string="for.pis.mae_tecnologias_utilizadas">
                 <!-- field name="maestro_id"/ -->
                 <field name="tecnologia"/>
 
@@ -528,7 +475,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_tecnologias_utilizadas">
-        <field name="name">Tecnologias (TIC: Facilitadores)</field>
+        <field name="name">Tecnologias (TIC: Maestros)</field>
         <field name="res_model">for.pis.mae_tecnologias_utilizadas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -539,7 +486,7 @@
         <field name="model">for.pis.mae_participacion_pis</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_participacion_pis">
+            <form string="for.pis.mae_participacion_pis">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="numero_id" select="2"/>
 
@@ -551,7 +498,7 @@
         <field name="model">for.pis.mae_participacion_pis</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_participacion_formacion">
+            <tree string="for.pis.mae_participacion_pis">
                 <!-- field name="maestro_id"/ -->
                 <field name="numero_id"/>
 
@@ -559,7 +506,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_participacion_pis">
-        <field name="name">Participación en Formación (Facilitadores)</field>
+        <field name="name">Participación en PIS (Maestros)</field>
         <field name="res_model">for.pis.mae_participacion_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -570,7 +517,7 @@
         <field name="model">for.pis.mae_experiencias_empiricas</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_experiencias_empiricas">
+            <form string="for.pis.mae_experiencias_empiricas">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="area_conocimiento_id" select="2"/>
                 <field name="tiempo_experiencias" select="0"/>
@@ -585,7 +532,7 @@
         <field name="model">for.pis.mae_experiencias_empiricas</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_experiencias_empiricas">
+            <tree string="for.pis.mae_experiencias_empiricas">
                 <!-- field name="maestro_id"/ -->
                 <field name="area_conocimiento_id"/>
                 <field name="tiempo_experiencias"/>
@@ -596,7 +543,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_empiricas">
-        <field name="name">Experiencias Empíricas (Facilitadores)</field>
+        <field name="name">Experiencias Empíricas (Maestros)</field>
         <field name="res_model">for.pis.mae_experiencias_empiricas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -607,7 +554,7 @@
         <field name="model">for.pis.mae_experiencias_docentes</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_experiencias_docentes">
+            <form string="for.pis.mae_experiencias_docentes">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="entidad_educativa" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
@@ -621,7 +568,7 @@
         <field name="model">for.pis.mae_experiencias_docentes</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_experiencias_docentes">
+            <tree string="for.pis.mae_experiencias_docentes">
                 <!-- field name="maestro_id"/ -->
                 <field name="entidad_educativa"/>
                 <field name="tiempo_experiencia"/>
@@ -631,7 +578,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_docentes">
-        <field name="name">Experiencias Docentes (Facilitadores)</field>
+        <field name="name">Experiencias Docentes (Maestros)</field>
         <field name="res_model">for.pis.mae_experiencias_docentes</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -642,7 +589,7 @@
         <field name="model">for.pis.mae_experiencias_laborales</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_experiencias_laborales">
+            <form string="for.pis.mae_experiencias_laborales">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="profesion_ocupacion_id" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
@@ -656,7 +603,7 @@
         <field name="model">for.pis.mae_experiencias_laborales</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_experiencias_laborales">
+            <tree string="for.pis.mae_experiencias_laborales">
                 <!-- field name="maestro_id"/ -->
                 <field name="profesion_ocupacion_id"/>
                 <field name="tiempo_experiencia"/>
@@ -666,7 +613,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_laborales">
-        <field name="name">Experiencias Laborales (Facilitadores)</field>
+        <field name="name">Experiencias Laborales (Maestros)</field>
         <field name="res_model">for.pis.mae_experiencias_laborales</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -677,7 +624,7 @@
         <field name="model">for.pis.mae_casea_conocimientos</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_casea_conocimientos">
+            <form string="for.pis.mae_casea_conocimientos">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="area_conocimiento_id" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
@@ -693,7 +640,7 @@
         <field name="model">for.pis.mae_casea_conocimientos</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_casea_conocimientos">
+            <tree string="for.pis.mae_casea_conocimientos">
                 <!-- field name="maestro_id"/ -->
                 <field name="area_conocimiento_id"/>
                 <field name="tiempo_experiencia"/>
@@ -705,7 +652,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_casea_conocimientos">
-        <field name="name">Conocimientos para CASEA (Facilitadores)</field>
+        <field name="name">Conocimientos para CASEA (Maestros)</field>
         <field name="res_model">for.pis.mae_casea_conocimientos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -716,7 +663,7 @@
         <field name="model">for.pis.mae_discapacidades</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_discapacidades">
+            <form string="for.pis.mae_discapacidades">
                 <!-- field name="maestro_id" select="1"/ -->
                 <field name="categoria_discapacidad_id" string="Diversidad Funcional" select="2"/>
                 <separator string="'Observaciones'" colspan="4"/>
@@ -730,7 +677,7 @@
         <field name="model">for.pis.mae_discapacidades</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_discapacidades">
+            <tree string="for.pis.mae_discapacidades">
                 <!-- field name="maestro_id"/ -->
                 <field name="categoria_discapacidad_id" string="Diversidad Funcional" />
                 <field name="observaciones"/>
@@ -739,7 +686,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_discapacidades">
-        <field name="name">Diversidades Funcionales (Facilitadores)</field>
+        <field name="name">Diversidades Funcionales (Maestros)</field>
         <field name="res_model">for.pis.mae_discapacidades</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -750,7 +697,7 @@
         <field name="model">for.pis.mae_tipos_cuenta</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_tipos_cuenta">
+            <form string="for.pis.mae_tipos_cuenta">
                 <field name="codigo" select="0"/>
                 <field name="tipo_cuenta" string="Tipo de Cuenta" select="1"/>
                 <field name="codigo_ext" select="2"/>
@@ -763,7 +710,7 @@
         <field name="model">for.pis.mae_tipos_cuenta</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_tipos_cuenta">
+            <tree string="for.pis.mae_tipos_cuenta">
                 <field name="codigo"/>
                 <field name="tipo_cuenta"/>
                 <field name="codigo_ext"/>
@@ -779,9 +726,9 @@
     </record>
 		
     <!-- Menu Formación/Indagación -->
-    <!-- menuitem name="Indagacion" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
-    <!-- menuitem name="Caracterización de Maestros" id="menu_for_pis_mae" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="formacion_pis_indagacion.action_for_pis_maestros" sequence="2"/ -->
-    <menuitem name="Formadores" id="menu_for_pis_mae" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_maestros" sequence="2"/>
+    <!-- menuitem name="Indagacion" id="menu_for_pis_indagacion" parent="formacion_pis_base.menu_for_base" sequence="2"/ -->
+    <!-- menuitem name="Caracterización de Maestros" id="menu_for_pis_mae" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="formacion_pis_indagacion.action_for_pis_maestros" sequence="2"/ -->
+    <menuitem name="Caracterización de Maestros" id="menu_for_pis_mae" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_maestros" sequence="2"/>
     <!-- menuitem name="Discapacidades (Maestros)" id="menu_for_pis_mae_discapacidades" parent="menu_for_pis_indagacion" action="action_for_pis_mae_discapacidades" sequence="2"/ -->
     <!-- menuitem name="Familiares (Maestros)" id="menu_for_pis_mae_familiares"  parent="menu_for_pis_indagacion" action="action_for_pis_mae_familiares" sequence="3"/ -->
     <!-- menuitem name="Redes Sociales (Maestros)" id="menu_for_pis_mae_redes_sociales" parent="menu_for_pis_indagacion" action="action_for_pis_mae_redes_sociales" sequence="4"/ -->
@@ -799,13 +746,17 @@
     <!-- menuitem name="Conocimientos para CASEA (Maestros)" id="menu_for_pis_mae_casea_conocimientos" parent="menu_for_pis_indagacion" action="action_for_pis_mae_casea_conocimientos" sequence="16"/ -->
 
     <!-- Menu Configuración/Indagación -->
-    <!-- menuitem name="Indagacion" id="menu_for_pis_conf_indag" parent="formacion_2015_base.menu_for_configuracion" sequence="40"/ -->
+    <!-- menuitem name="Indagacion" id="menu_for_pis_conf_indag" parent="formacion_pis_base.menu_for_configuracion" sequence="40"/ -->
     <!-- menuitem name="Estados Civiles" id="menu_for_pis_estados_civiles" parent="menu_for_pis_conf_indag" action="action_for_pis_estados_civiles" sequence="1"/ -->
     <!-- menuitem name="Tipos de Comunidades" id="menu_for_pis_tipos_comunidades" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_comunidades" sequence="2"/ -->
     <!-- menuitem name="Parentescos" id="menu_for_pis_parentescos" parent="menu_for_pis_conf_indag" action="action_for_pis_parentescos" sequence="3"/ -->
     <!-- menuitem name="Generos" id="menu_for_pis_generos" parent="menu_for_pis_conf_indag" action="action_for_pis_generos" sequence="4"/ -->
     <!-- menuitem name="Rangos de Edades" id="menu_for_pis_rangos_edades" parent="menu_for_pis_conf_indag" action="action_for_pis_rangos_edades" sequence="5"/ -->
-    <menuitem name="Tipos de Cuenta" id="menu_for_pis_tipos_cuenta" parent="formacion_2015_indagacion.menu_for_pis_conf_indag" action="action_for_pis_mae_tipos_cuenta" sequence="24"/>
+    <menuitem name="Tipos de Cuenta" id="menu_for_pis_tipos_cuenta" parent="formacion_pis_indagacion.menu_for_pis_conf_indag" action="action_for_pis_mae_tipos_cuenta" sequence="24"/>
+
+	
+    <!-- Configuracion/Clasificación de Prodencias -->
+
     
 </data>
 </openerp>

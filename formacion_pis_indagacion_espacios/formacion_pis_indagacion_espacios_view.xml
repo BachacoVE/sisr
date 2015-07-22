@@ -2,27 +2,12 @@
 <openerp>
 <data>
 
-
-    <!--aca inicia una herencia de formacion_pis_base-->
-    <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
-        <field name="name">for.pis.registro_inicial.form.inherit</field>
-        <field name="model">for.pis.registro_inicial</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
-        <field name="arch" type="xml">
-            <field name="modalidad_id" position="after">
-                <field name="turno_id" select="0"/>
-            </field>
-        </field>
-    </record>    
-    <!--aca termina la herencia de formacion_pis_base-->
-
     <record model="ir.ui.view" id="view_for_pis_espacios_form">
         <field name="name">for.pis.espacios.form</field>
         <field name="model">for.pis.espacios</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.espacios">
+            <form string="for.pis.espacios">
                 <field name="nombre_espacio" select="1"/>
                 <field name="tipo_espacio_id" select="2"/>
                 <field name="estado_id" select="0"/>
@@ -129,7 +114,7 @@
                              <field name="ambiental_ids" colspan="4" nolabel="1" select="0"/>
                          </page>
                          <page string="Proyectos IS">
-                             <separator string="Formaciones que usan el, o se desarrolan en, el Espacio" colspan="4"/>
+                             <separator string="PIS que usan el, o se desarrolan en, el Espacio" colspan="4"/>
                              <field name="pis_ids" colspan="4" nolabel="1" select="0"/>
                          </page>
                  </notebook>            
@@ -141,7 +126,7 @@
         <field name="model">for.pis.espacios</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.espacios">
+            <tree string="for.pis.espacios">
                 <field name="nombre_espacio"/>
                 <field name="tipo_espacio_id"/>
                 <field name="estado_id"/>
@@ -177,7 +162,7 @@
         <field name="model">for.pis.tipos_espacios</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.tipos_espacios">
+            <form string="for.pis.tipos_espacios">
                 <field name="codigo" select="1"/>
                 <field name="tipo_espacio" select="2"/>
 
@@ -189,7 +174,7 @@
         <field name="model">for.pis.tipos_espacios</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.tipos_espacios">
+            <tree string="for.pis.tipos_espacios">
                 <field name="codigo"/>
                 <field name="tipo_espacio"/>
 
@@ -208,7 +193,7 @@
         <field name="model">for.pis.turnos</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.turnos">
+            <form string="for.pis.turnos">
                 <field name="codigo" select="1"/>
                 <field name="turno" select="2"/>
 
@@ -220,7 +205,7 @@
         <field name="model">for.pis.turnos</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.turnos">
+            <tree string="for.pis.turnos">
                 <field name="codigo"/>
                 <field name="turno"/>
 
@@ -239,7 +224,7 @@
         <field name="model">for.pis.niveles_innovacion_tecnologica</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.niveles_innovacion_tecnologica">
+            <form string="for.pis.niveles_innovacion_tecnologica">
                 <field name="codigo" select="1"/>
                 <field name="nivel_innovacion" select="2"/>
 
@@ -251,7 +236,7 @@
         <field name="model">for.pis.niveles_innovacion_tecnologica</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.niveles_innovacion_tecnologica">
+            <tree string="for.pis.niveles_innovacion_tecnologica">
                 <field name="codigo"/>
                 <field name="nivel_innovacion"/>
 
@@ -270,7 +255,7 @@
         <field name="model">for.pis.esp_contextos</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_contextos">
+            <form string="for.pis.esp_contextos">
                 <!-- field name="espacio_id" select="1"/ -->
                 <field name="tipo_contexto_id" select="2"/>
                 <field name="observaciones" select="0"/>
@@ -283,7 +268,7 @@
         <field name="model">for.pis.esp_contextos</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_contextos">
+            <tree string="for.pis.esp_contextos">
                 <!-- field name="espacio_id"/ -->
                 <field name="tipo_contexto_id"/>
                 <field name="observaciones"/>
@@ -303,7 +288,7 @@
         <field name="model">for.pis.esp_innovacion</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_innovacion">
+            <form string="for.pis.esp_innovacion">
                 <!-- field name="espacio_id" select="1"/ -->
                 <field name="innovacion_tecnologica_id" select="2"/>
                 <field name="observaciones" select="0"/>
@@ -316,7 +301,7 @@
         <field name="model">for.pis.esp_innovacion</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_innovacion">
+            <tree string="for.pis.esp_innovacion">
                 <!-- field name="espacio_id"/ -->
                 <field name="innovacion_tecnologica_id"/>
                 <field name="observaciones"/>
@@ -336,7 +321,7 @@
         <field name="model">for.pis.esp_pis</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_for">
+            <form string="for.pis.esp_pis">
                 <!-- field name="espacio_id" select="1"/ -->
                 <group colspan="4" col="4">
                 <field name="pis_id" select="2" colspan="4"/>
@@ -364,7 +349,7 @@
         <field name="model">for.pis.esp_pis</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_for">
+            <tree string="for.pis.esp_pis">
                 <!-- field name="espacio_id"/ -->
                 <field name="pis_id"/>
                 <field name="lunes_uso"/>
@@ -386,7 +371,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_esp_pis">
-        <field name="name">Formaciones ejecutadas en los Espacios SI</field>
+        <field name="name">PIS ejecutados en los Espacios SI</field>
         <field name="res_model">for.pis.esp_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -397,7 +382,7 @@
         <field name="model">for.pis.esp_dotacion</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_dotacion">
+            <form string="for.pis.esp_dotacion">
                 <!-- field name="espacio_id" select="1"/ -->
                 <field name="recurso" select="2"/>
                 <field name="capacidad_instalada" select="0"/>
@@ -412,7 +397,7 @@
         <field name="model">for.pis.esp_dotacion</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_dotacion">
+            <tree string="for.pis.esp_dotacion">
                 <!-- field name="espacio_id"/ -->
                 <field name="recurso"/>
                 <field name="capacidad_instalada"/>
@@ -434,7 +419,7 @@
         <field name="model">for.pis.esp_seguridad_laboral</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_seguridad_laboral">
+            <form string="for.pis.esp_seguridad_laboral">
                 <!-- field name="espacio_id" select="1"/ -->
                 <field name="seguridad_id" select="2"/>
                 <field name="condicion" select="0"/>
@@ -447,7 +432,7 @@
         <field name="model">for.pis.esp_seguridad_laboral</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_seguridad_laboral">
+            <tree string="for.pis.esp_seguridad_laboral">
                 <!-- field name="espacio_id"/ -->
                 <field name="seguridad_id"/>
                 <field name="condicion"/>
@@ -467,7 +452,7 @@
         <field name="model">for.pis.esp_equilibrio_ambiental</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.esp_equilibrio_ambiental">
+            <form string="for.pis.esp_equilibrio_ambiental">
                 <!-- field name="espacio_id" select="1"/ -->
                 <field name="ambiental_id" select="2"/>
                 <field name="observaciones" select="0"/>
@@ -480,7 +465,7 @@
         <field name="model">for.pis.esp_equilibrio_ambiental</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.esp_equilibrio_ambiental">
+            <tree string="for.pis.esp_equilibrio_ambiental">
                 <!-- field name="espacio_id"/ -->
                 <field name="ambiental_id"/>
                 <field name="observaciones"/>
@@ -500,7 +485,7 @@
         <field name="model">for.pis.tipos_contextos</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.tipos_contextos">
+            <form string="for.pis.tipos_contextos">
                 <field name="codigo" select="1"/>
                 <field name="tipo_contexto" select="2"/>
 
@@ -512,7 +497,7 @@
         <field name="model">for.pis.tipos_contextos</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.tipos_contextos">
+            <tree string="for.pis.tipos_contextos">
                 <field name="codigo"/>
                 <field name="tipo_contexto"/>
 
@@ -531,7 +516,7 @@
         <field name="model">for.pis.criterios_seguridad_laboral</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.criterios_seguridad_laboral">
+            <form string="for.pis.criterios_seguridad_laboral">
                 <field name="codigo" select="1"/>
                 <field name="criterio_seguridad" select="2"/>
 
@@ -543,7 +528,7 @@
         <field name="model">for.pis.criterios_seguridad_laboral</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.criterios_seguridad_laboral">
+            <tree string="for.pis.criterios_seguridad_laboral">
                 <field name="codigo"/>
                 <field name="criterio_seguridad"/>
 
@@ -562,7 +547,7 @@
         <field name="model">for.pis.criterios_equilibrio_ambiental</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.criterios_equilibrio_ambiental">
+            <form string="for.pis.criterios_equilibrio_ambiental">
                 <field name="codigo" select="1"/>
                 <field name="criterio_ambiental" select="2"/>
 
@@ -574,7 +559,7 @@
         <field name="model">for.pis.criterios_equilibrio_ambiental</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.criterios_equilibrio_ambiental">
+            <tree string="for.pis.criterios_equilibrio_ambiental">
                 <field name="codigo"/>
                 <field name="criterio_ambiental"/>
 
@@ -590,17 +575,17 @@
 
   
     <!-- Menu Formación/Indagación -->
-    <!-- menuitem name="Indagacion" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
-    <menuitem name="Espacios Formativos" id="menu_for_pis_esp" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_espacios" sequence="3"/>
-    <!-- menuitem name="Contextos de los Espacios SI" id="menu_for_pis_esp_contextos" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_contextos" sequence="20"/ -->
-    <!-- menuitem name="Niveles de Innovación de los Espacios SI" id="menu_for_pis_esp_innovacion" parent="formacion_2015_indagacion.menu_for_pis_indagacion"action="action_for_pis_esp_innovacion" sequence="21"/ -->
-    <!-- menuitem name="PIS ejecutados en los Espacios SI" id="menu_for_pis_esp_pis" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_pis" sequence="22"/ -->
-    <!-- menuitem name="Niveles de Dotación de los Espacios SI" id="menu_for_pis_esp_dotacion" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_dotacion" sequence="23"/ -->
-    <!-- menuitem name="Niveles de Seguridad Laboral (ESI)" id="menu_for_pis_esp_seguridad_laboral" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_seguridad_laboral" sequence="24"/ -->
-    <!-- menuitem name="Niveles de Equilibrio Ambiental (ESI)" id="menu_for_pis_esp_equilibrio_ambiental" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_equilibrio_ambiental" sequence="25"/ -->
+    <!-- menuitem name="Indagacion" id="menu_for_pis_indagacion" parent="formacion_pis_base.menu_for_base" sequence="2"/ -->
+    <menuitem name="Caracterización de Espacios" id="menu_for_pis_esp" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_espacios" sequence="3"/>
+    <!-- menuitem name="Contextos de los Espacios SI" id="menu_for_pis_esp_contextos" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_contextos" sequence="20"/ -->
+    <!-- menuitem name="Niveles de Innovación de los Espacios SI" id="menu_for_pis_esp_innovacion" parent="formacion_pis_indagacion.menu_for_pis_indagacion"action="action_for_pis_esp_innovacion" sequence="21"/ -->
+    <!-- menuitem name="PIS ejecutados en los Espacios SI" id="menu_for_pis_esp_pis" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_pis" sequence="22"/ -->
+    <!-- menuitem name="Niveles de Dotación de los Espacios SI" id="menu_for_pis_esp_dotacion" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_dotacion" sequence="23"/ -->
+    <!-- menuitem name="Niveles de Seguridad Laboral (ESI)" id="menu_for_pis_esp_seguridad_laboral" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_seguridad_laboral" sequence="24"/ -->
+    <!-- menuitem name="Niveles de Equilibrio Ambiental (ESI)" id="menu_for_pis_esp_equilibrio_ambiental" parent="formacion_pis_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_equilibrio_ambiental" sequence="25"/ -->
 
     <!-- Menu Configuración/Indagación -->
-    <menuitem name="Indagacion de Espacios" id="menu_for_pis_conf_indag_esp" parent="formacion_2015_base.menu_for_configuracion" sequence="50"/>
+    <menuitem name="Indagacion de Espacios" id="menu_for_pis_conf_indag_esp" parent="formacion_pis_base.menu_for_configuracion" sequence="50"/>
     <menuitem name="Tipos de Espacios Socialistas I." id="menu_for_pis_tipos_espacios" parent="menu_for_pis_conf_indag_esp" action="action_for_pis_tipos_espacios" sequence="0"/>
     <menuitem name="Turnos" id="menu_for_pis_turnos" parent="menu_for_pis_conf_indag_esp" action="action_for_pis_turnos" sequence="1"/>    
     <menuitem name="Niveles de Innovación Tecnológica" id="menu_for_pis_niveles_innovacion_tecnologica" parent="menu_for_pis_conf_indag_esp" action="action_for_pis_niveles_innovacion_tecnologica" sequence="2"/>
