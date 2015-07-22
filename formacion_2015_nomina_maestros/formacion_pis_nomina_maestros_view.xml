@@ -342,6 +342,74 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+<!-- Inicio Contratos Abril -->
+
+    <record model="ir.ui.view" id="view_for_pis_contratos_form">
+        <field name="name">for.pis.contratos.form</field>
+        <field name="model">for.pis.contratos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <form string="Contratos">
+            <field name="nombres" select="1" readonly="True"/>
+            <field name="apellidos" select="1" readonly="True"/>
+            <field name="cedula" select="1" readonly="True"/>
+            <field name="nacionalidad" select="0" readonly="True"/>
+            <field name="estado_civil" select="0" readonly="True"/>
+            <separator string="Domicilio" colspan="4"/>
+            <field name="domicilio" colspan="4" nolabel="True" select="0" readonly="True"/>
+            <field name="municipio" select="0" readonly="True"/>
+            <field name="estado" select="0" readonly="True"/>
+            <field name="total_horas" select="0" readonly="True"/>
+            <field name="fecha_inicio" select="0" readonly="True"/>
+            <field name="fecha_cierre" select="0" readonly="True"/>
+            <field name="cfs" select="0" readonly="True"/>
+            <field name="total_pagar" select="0" readonly="True"/>
+            <field name="total_formaciones" select="0" readonly="True"/>
+            <field name="valor_hora" select="0" readonly="True"/>
+            <field name="condicion_laboral" select="0" readonly="True"/>
+            <field name="active" select="0" readonly="False"/>
+            <field name="fecha_generado" readonly="True" select="0"/>
+            
+        </form>          
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_contratos_abril_tree">
+        <field name="name">for.pis.contratos.tree</field>
+        <field name="model">for.pis.contratos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Contratos">
+            <field name="nombres"/>
+            <field name="apellidos"/>
+            <field name="cedula"/>
+            <field name="nacionalidad"/>
+            <field name="estado_civil"/>
+            <field name="domicilio"/>
+            <field name="municipio"/>
+            <field name="estado"/>
+            <field name="total_horas"/>
+            <field name="fecha_inicio"/>
+            <field name="fecha_cierre"/>
+            <field name="cfs"/>
+            <field name="total_pagar"/>
+            <field name="total_formaciones"/>
+            <field name="valor_hora"/>
+            <field name="condicion_laboral"/>
+            <field name="fecha_generado"/>
+            </tree>
+        </field>
+    </record>
+       <record model="ir.actions.act_window" id="action_for_pis_contratos">
+        <field name="name">Contratos</field>
+        <field name="res_model">for.pis.contratos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Contratos" id="contratos" parent="menu_for_pis_mae_pago" action="action_for_pis_contratos" sequence="4"/>   
+<!-- Fin contratos Abril -->
+
+
 
     <!-- Menu Formación/Pago de Maestros -->
     <menuitem name="Pago de Facilitadores" id="menu_for_pis_mae_pago" parent="formacion_2015_base.menu_for_base" sequence="6"/>
@@ -353,6 +421,6 @@
     <menuitem name="Misiona01" id="menu_for_pis_mae_misiona01" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona01" sequence="3"/>
     <menuitem name="Misiona05" id="menu_for_pis_mae_misiona05" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona05" sequence="4"/>    
 
-        
+
 </data>
 </openerp>
