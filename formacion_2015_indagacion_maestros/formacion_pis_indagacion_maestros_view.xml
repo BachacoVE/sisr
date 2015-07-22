@@ -129,13 +129,14 @@
 				</notebook>                
 				<notebook colspan="4">
 					<page string="Condición Laboral">
+						<separator string="Condición Laboral relacionada con INCES" colspan="4"/>
 						<field name="condicion_laboral" select="0"/>
-					   <field name="trabaja_actualmente" select="0"/>
-					   <!-- field name="fecha_ingreso" select="0"/ -->
-					   <field name="tiempo_experiencia" string="Años de Experiencia" select="0"/>
+						<field name="trabaja_actualmente" select="0"/>
+						<!-- field name="fecha_ingreso" select="0"/ -->
+						<field name="tiempo_experiencia" string="Años de Experiencia" select="0"/>
 					   
 					   <!-- Modificaciones para Nomina de Maestros -->
-					   <field name="horas_trabajadas" select="0"/>
+					   <!--<field name="horas_trabajadas" select="0"/>-->
 					   <field name="nivel_id" select="0"/>
 					   <field name="entidad_id" select="0"/>
 					   <field name="cuenta_id" select="0"/>
