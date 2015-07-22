@@ -254,7 +254,7 @@
 					<field name="nro_preimpreso" select="1"/>
 					<field name="accion_especifica" select="0"/>
 					<field name="modalidad_id" select="0" />
-                    <field name="denominacion_pis" select="2" colspan="4"/>
+                    <field name="denominacion_pis_id" select="2" colspan="4" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
 					<field name="cantidad_sujetos" select="0"/>
 					<field name="cantidad_maestros" select="0"/>
 					<field name="fecha_inicio" select="0"/>
@@ -268,7 +268,7 @@
 					<field name="area_id" select="0" domain="[('sector_id','=',[sector_id])]"/>
 					<field name="subarea_id" select="0" domain="[('area_id','=',[area_id])]"/>
 					<field name="tipo_procedencia_id" select="0"/>
-                    <field name="cadenas_formativas_id" select="0" string="areas priorizadas" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
+                    <field name="cadenas_formativas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
                 </page>
                 </notebook>
             </form>
@@ -282,7 +282,7 @@
         <field name="arch" type="xml">
             <tree string="for.registro_inicial">
                 <field name="nro_preimpreso" string="Nº"/>
-                <field name="denominacion_pis" string="Denominación"/>
+                <field name="denominacion_pis_id" string="Denominación"/>
                 <field name="lapso_ejecucion" string="Lapso"/>
                 <field name="fecha_inicio" string="Inicio"/>
                 <field name="fecha_cierre" string="Cierre"/>
@@ -536,6 +536,7 @@
                 <field name="estado_id" select="1"/>
                 <field name="cfs_id" select="1" domain="[('estado_id','=',[estado_id])]"/>
                 <field name="motores_economicos_id" select="0"/>
+                <field name="modalidad_id" select="0"/>
                 <field name="identificador" select="1"/>
                 <field name="denominacion" select="1"/>
                 <field name="horas" select="0"/>
@@ -552,6 +553,7 @@
                 <field name="estado_id"/>
                 <field name="cfs_id"/>
                 <field name="motores_economicos_id"/>
+                <field name="modalidad_id"/>
                 <field name="identificador"/>
                 <field name="denominacion"/>
                 <field name="horas"/>

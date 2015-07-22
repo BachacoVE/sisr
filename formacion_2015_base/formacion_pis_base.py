@@ -102,8 +102,8 @@ class for_pis_registro_inicial(osv.osv):
     _rec_name = 'denominacion_pis'
     _columns = {
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=True, help='Número de Preimpreso de la Formación'),
-        'denominacion_pis': fields.char('Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Proyecto'),
-        'lapso_ejecucion': fields.integer('Lapso de Ejecución',size=6,required=False, help='Cantidad Total de Horas del Proyecto'),
+        'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Proyecto'),
+        'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecución',store=True, readonly=True),
         'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio del Proyecto'),
         'fecha_cierre': fields.datetime('Fecha de Cierre',required=False, help='Fecha de cierre del Proyecto'),
         'cantidad_sujetos': fields.integer('Cantidad de Participantes',required=False, help='Cantidad de Participantes que integran el Colectivo que desarrolla el Proyecto'),
@@ -166,9 +166,9 @@ class for_pis_registro_inicial(osv.osv):
         'entidad': fields.char('Entidad', size=200, help='Nombre de la Entidad de procedencia de la Formación'), 
         
         #agregando las lineas de motores economicos del modulo arranque2015
-        'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
-        'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Cadenas Priorizadas', required=True, help='Cadena Priorizada'),
-        'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=True, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
+        'motores_economicos_id': fields.related('denominacion_pis_id','motores_economicos_id', type='many2one',relation='for.pis.motores_economicos', string='Motores Económicos', readonly=True, store=True),
+        'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Áreas Priorizadas', required=True, help='Cadena Priorizada'),
+        'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
 
        }
@@ -179,6 +179,16 @@ class for_pis_registro_inicial(osv.osv):
             v['value'][campo] = ''
 
         return v
+        
+    def on_change_modalidad_id(self, cr, uid, ids, denominacion_pis_id):
+        v={}
+        if denominacion_pis_id:
+            opciones_formativas_obj=self.pool.get('for.pis.opciones_formativas').browse(cr, uid, denominacion_pis_id)
+            v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
+            v['lapso_ejecucion']=opciones_formativas_obj.horas
+            v['motores_economicos_id']=opciones_formativas_obj.motores_economicos_id.id
+        return {'value':v}
+
         
 for_pis_registro_inicial()
 
@@ -253,6 +263,7 @@ for_pis_calendario()
 class for_pis_opciones_formativas(osv.osv):
     """Maestra de Cursos Disponibles por CFS"""
     _name = 'for.pis.opciones_formativas'
+    _rec_name='denominacion'
     _columns = {
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=True, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
@@ -260,5 +271,6 @@ class for_pis_opciones_formativas(osv.osv):
         'identificador': fields.integer('Identificador',size=30, help='Código Único Identificador de la Formación'),
         'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
+        'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
     }
 for_pis_opciones_formativas()
