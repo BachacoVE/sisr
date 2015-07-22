@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data>
 
@@ -235,12 +235,20 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
 			<form string="for.registro_inicial">
+                
+                <!--separator string="Ubicación Administrativa de la Formación" colspan="4"/>
+                    <field name="estado_id" select="0"/>
+                    <field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+                    <field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+                    <field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/-->
 				
-                <separator string="Ubicación Administrativa de la Formación" colspan="4"/>
-					<field name="estado_id" select="0"/>
-					<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
-					<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+                <!--Buscar ubicacion geografica-->
+                <separator string="Ubicación Administrativa de la Formación" colspan="4"/>					
+                    <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0"/>
+                    <field name="municipio_id" on_change="on_change_limpiar_campo('parroquia_id')" domain="[('estado_id','=',[estado_id])]" select="0"/>
+					<field name="parroquia_id" domain="[('municipio_id','=',[municipio_id])]" select="0"/>
 					<field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
+
                 
                 <separator string="Datos Básicos del Proyecto" colspan="4"/>
 					<field name="nro_preimpreso" select="1"/>

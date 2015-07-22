@@ -172,6 +172,14 @@ class for_pis_registro_inicial(osv.osv):
         #hasta aqui llegan las lineas agregadas
 
        }
+
+    def on_change_limpiar_campo(self, cr, uid, ids, *args):
+        v = {'value':{}}
+        for campo in args:
+            v['value'][campo] = ''
+
+        return v
+        
 for_pis_registro_inicial()
 
 class for_pis_cfs(osv.osv):
