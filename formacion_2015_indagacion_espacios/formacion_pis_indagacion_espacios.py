@@ -83,7 +83,7 @@ for_pis_espacios()
 ############################################################################################################################################################################
 ################esta clase hereda de formacion_pis_base#####################################################################################################################
 class for_pis_registro_inicial_extended(osv.osv):
-    """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
+    """Registro Inicial de la Formación"""
     _name = 'for.pis.registro_inicial'
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
@@ -174,8 +174,8 @@ class for_pis_esp_pis(osv.osv):
     #_rec_name = 'domingo_uso'
     #_rec_name = 'domingo_horas'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral donde se dan los Proyectos Integrales Socialistas referidos'),
-        'pis_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Proyecto Integral Socialista que se desarrolla en, o hace uso de; el espacio referido'),
+        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral donde se dan las Formación referidas'),
+        'pis_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Formación que se desarrolla en, o hace uso de; el espacio referido'),
         'lunes_uso': fields.boolean('Uso Lunes', required=False, help='¿El espacio es usado para la Formación referida, los días lunes?'),
         'lunes_horas': fields.integer('Horas Lunes', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Lunes, para la Formación referida'),
         'martes_uso': fields.boolean('Uso Martes', required=False, help='¿El espacio es usado para la Formación referida, los días martes?'),
