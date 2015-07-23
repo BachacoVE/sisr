@@ -5,3 +5,4 @@ access_for_pis_mae_valor_hora,for.pis.mae_valor_hora,model_for_pis_mae_valor_hor
 access_for_pis_mae_cuentas_nomina,for.pis.mae_cuentas_nomina,model_for_pis_mae_cuentas_nomina,base.group_user,0,0,0,0
 access_for_pis_mae_misiona01,for.pis.mae_misiona01,model_for_pis_mae_misiona01,base.group_user,0,0,0,0
 access_for_pis_mae_misiona05,for.pis.mae_misiona05,model_for_pis_mae_misiona05,base.group_user,0,0,0,0
+access_for_pis_contratos,for.pis.contratos,model_for_pis_contratos,base.group_user,1,1,0,0

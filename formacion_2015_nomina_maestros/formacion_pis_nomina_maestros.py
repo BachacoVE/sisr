@@ -228,3 +228,37 @@ class for_pis_mae_misiona05(osv.osv):
     }
 for_pis_mae_misiona05()
 
+#Contratos Abril
+
+class for_pis_contratos(osv.osv):
+    """Objeto definido para importar el query de generación con los contratos abril 2015"""
+    _name = 'for.pis.contratos'
+    _rec_name = ''
+    _columns = {
+        'nombres': fields.char('Nombres', size=60, help='Nombres del Facilitador'),
+        'apellidos': fields.char('Apellidos', size=60, help='Apellidos del Facilitador'),
+        'cedula': fields.integer('Cédula', help='Cédula del Facilitador'),
+        'nacionalidad': fields.char('Nacionalidad', size=60, help='Nacionalidad  del Facilitador'),
+        'estado_civil': fields.char('Estado Civil', size=60, help='Estado Civil del Facilitador'),
+        'domicilio': fields.text('Domicilio', help='Domicilio  del Facilitador'),
+        'municipio': fields.char('Municipio', size=120, help='Municipio del Facilitador'),
+        'estado': fields.char('Estado', size=120, help='Estado del Facilitador'),
+        'total_horas': fields.integer('Total Horas', help='Total Horas de Formación del Facilitador'),
+        'fecha_inicio': fields.date('Fecha Inicio', help='Fecha de Inicio de la primera Formación  del Facilitador'),
+        'fecha_cierre': fields.date('Fecha de Cierre', help='Fecha de Cierra de la última Formación  del Facilitador'),
+        'cfs': fields.char('C.F.S.', size=120, help='Centro de Formación Socialista del Facilitador'),
+        'total_pagar': fields.float('Total a Pagar', help='Total a Pagar al Facilitador (total_horas*valor_hora)'),
+        #Campos adicionales para referencias
+        'total_formaciones': fields.integer('Total Formaciones', help='Total de Formaciones del Facilitador'),
+        'valor_hora': fields.float('Valor Hora', help='Valor Hora del Facilitador'),
+        'condicion_laboral': fields.char('Condición Laboral', size=120, help='Condición Laboral del Facilitador'),
+        'active': fields.boolean('Aprobado para generar', help="¿Aprobado para generarse el contrato?"), 
+        'fecha_generado': fields.date('Fecha Generado', help='Fecha en la que se generó el contrato'),
+    }
+    
+    _defaults = {
+        'active' : True,
+    }
+    
+for_pis_contratos()
+
