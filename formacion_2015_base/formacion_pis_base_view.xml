@@ -525,8 +525,8 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.pis.opciones_formativas">
-                <field name="estado_id" select="1"/>
-                <field name="cfs_id" select="1" domain="[('estado_id','=',[estado_id])]"/>
+                <!--field name="estado_id" select="1"/>
+                <field name="cfs_id" select="1" domain="[('estado_id','=',[estado_id])]"/-->
                 <field name="motores_economicos_id" select="0"/>
                 <field name="modalidad_id" select="0"/>
                 <field name="identificador" select="1"/>
@@ -542,8 +542,8 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.pis.opciones_formativas">
-                <field name="estado_id"/>
-                <field name="cfs_id"/>
+                <!--field name="estado_id"/>
+                <field name="cfs_id"/-->
                 <field name="motores_economicos_id"/>
                 <field name="modalidad_id"/>
                 <field name="identificador"/>
