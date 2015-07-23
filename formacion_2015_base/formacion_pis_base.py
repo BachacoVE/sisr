@@ -97,17 +97,17 @@ class for_pis_tipos_procedencias(osv.osv):
 for_pis_tipos_procedencias()
 
 class for_pis_registro_inicial(osv.osv):
-    """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
+    """Registro Inicial de la Formación"""
     _name = 'for.pis.registro_inicial'
     _rec_name = 'denominacion_pis'
     _columns = {
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=True, help='Número de Preimpreso de la Formación'),
-        'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Proyecto'),
+        'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecución',store=True, readonly=True),
-        'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio del Proyecto'),
-        'fecha_cierre': fields.datetime('Fecha de Cierre',required=False, help='Fecha de cierre del Proyecto'),
-        'cantidad_sujetos': fields.integer('Cantidad de Participantes',required=False, help='Cantidad de Participantes que integran el Colectivo que desarrolla el Proyecto'),
-        'cantidad_maestros': fields.integer('Cantidad de Facilitadores(as)',required=False, help='Cantidad de Facilitadoras y/o Facilitadores que atienden el Proyecto'),
+        'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio de la formación'),
+        'fecha_cierre': fields.datetime('Fecha de Cierre',required=False, help='Fecha de cierre de la formación'),
+        'cantidad_sujetos': fields.integer('Cantidad de Participantes',required=False, help='Cantidad de Participantes que integran la Formación'),
+        'cantidad_maestros': fields.integer('Cantidad de Facilitadores(as)',required=False, help='Cantidad de Facilitadoras y/o Facilitadores que atienden la Formación'),
         'accion_especifica': fields.selection([(1,'Acción Específica 1'),(3,'Acción Específica 3')],'Acción Específica',required=True, help='Acción Específica a la cual corresponde la Formación'),
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual se desarrolla la Formación'),
@@ -121,7 +121,7 @@ class for_pis_registro_inicial(osv.osv):
 ##########################################################################################################################################################################################        
 #####################################################################################################################################################################################
 #####################el siguiente campo creado en formacion_pis_indagacion_matrices por herencia##################################################################################
-        #'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular del Proyecto'),
+        #'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
 ########################################################################################################################################################################################
 
 

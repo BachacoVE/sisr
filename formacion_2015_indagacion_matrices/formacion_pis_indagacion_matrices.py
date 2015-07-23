@@ -34,11 +34,11 @@ class for_categorias_contenidos(osv.osv):
 for_categorias_contenidos()
 
 class for_estructura_curricular(osv.osv):
-    """Registro Maestro de la Estructura Curricular de los Proyectos Integrales Socialistas"""
+    """Registro Maestro de la Estructura Curricular de las Formaciones"""
     _name = 'for.estructura_curricular'
     _rec_name = 'ec_tema'
     _columns = {
-        'proyecto_id': fields.many2one('for.pis.registro_inicial','Proyecto', help='Proyecto formativo al cual se asocia la Estructura Curricular'),
+        'proyecto_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=True, help='Tema de la Matriz Curricular del PIS'),
         'ec_horas': fields.integer('Horas', required=True, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
         'ec_observaciones': fields.text('Observaciones', required=True, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
@@ -52,12 +52,12 @@ for_estructura_curricular()
 ###############herencia de formacion_pis_base####################################################################################################################################
 
 class for_pis_registro_inicial_extended(osv.osv):
-    """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
+    """Registro Inicial de las Formaciones"""
     _name = 'for.pis.registro_inicial'
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
-        'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular del Proyecto'),
+        'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular de la Formación'),
 
 
     }

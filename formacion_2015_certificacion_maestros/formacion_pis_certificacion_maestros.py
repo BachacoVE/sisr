@@ -69,7 +69,7 @@ class for_pis_acsea_certificados_maestros(osv.osv):
         'libro': fields.integer('Libro', required=True, help='Número de Libro de Entrega donde está relacionado el Consecutivo del Certificado'),
         'hoja': fields.integer('Hoja (Folio)', required=True, help='Número de Folio (Hoja) del Libro de Entrega donde está relacionado el Consecutivo del Certificado'),
         'consecutivo': fields.integer('Consecutivo', required=True, help='Número de (Línea) que el Certificado tiene, en el Folio (Hoja) del Libro de Entrega'),
-        'pis_participa': fields.char('Formación Participa', size=120, required=True, help='Lista de Códigos de los Proyectos Integrales Socialistas donde Participa)'),
+        'pis_participa': fields.char('Formación Participa', size=120, required=True, help='Lista de Códigos de las Formaciones donde Participa)'),
         'duracion': fields.integer('Duración', required=True, help='Cantidad de Tiempo, expresado en horas, de experiencias del Facilitador en el Saber referido por el Certificado, que son acreditadas a través del mismo'),
         'fecha_emision': fields.char('Fecha de Emisión', size=10, required=True, help='Fecha de Emisión (Impresión) del Cartón por parte del INCES (no la del Acto de Consignación al Facilitador)'),
         'fecha_consignacion': fields.datetime('Fecha de Consignación', required=False, help='Fecha de Entrega del Certificado al Facilitador. Momento en el cual, el Facilitador firma el Acta/Libro de Entrega, en confirmación de recepción física del cartón'),

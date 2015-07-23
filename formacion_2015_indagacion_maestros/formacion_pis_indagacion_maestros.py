@@ -64,14 +64,14 @@ class for_pis_maestros(osv.osv):
         'fecha_ingreso': fields.datetime('Fecha Ingreso', help='Fecha de ingreso al último trabajo'),
         'tiempo_experiencia': fields.integer('Años experiencia', help='Años de Experiencia en el trabajo'),
         'casea_conocimientos_ids': fields.one2many('for.pis.mae_casea_conocimientos', 'maestro_id', 'Areas de Conocimiento para CASEA', help='Areas de Conocimiento para la Certificación y Acreditación de Saberes Empíricos y Académicos'),
-        'pis_participado': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'En cuántas Formaciones ha participado', help='Relación de Proyectos Integrales Socialistas en los cuales ha participado'),
+        'pis_participado': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'En cuántas Formaciones ha participado', help='Relación de las Formaciones en los cuales ha participado'),
         'frecuencia_colectivos_aprendizaje_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo Facilitadores', help='Frecuencia de Participación en el Colectivo de Facilitadores'),
         'frecuencia_colectivo_cfs_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo del CFS', help='Frecuencia de Participación en el Colectivo del CFS'),
         'frecuencia_matriz_planificacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Matriz de Planificación', help='Frecuencia de Participación en la Matriz de Planificación del Proceso Formativo, Colectivo, Integral'),
         'frecuencia_cuaderno_sistematizacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Registra en el cuaderno de Sistematización', help='Frecuencia con la cual registra en el Cuaderno de Sistematización de Experiencias'),
         'frecuencia_cuaderno_sistema_sujetos_id': fields.many2one('for.pis.frecuencias_participacion', 'Garantiza que las y los Participantes registren en su cuaderno de Sistematización', help='Frecuencia con la cual garantiza que los Participantes registren en el Cuaderno de Sistematización de Experiencias'),
         'frecuencia_intercambio_saberes_id': fields.many2one('for.pis.frecuencias_participacion', 'Realiza intercambio de saberes', help='Realiza intercambio de sabes con los Facilitadores para socializar los registros de los cuadernos'),
-        'frecuencia_encuentros_socializacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participa en encuentros', help='¿Ha participado en encuentros o socialización de saberes con otros Proyectos Integrales de Formación Socialista?'),
+        'frecuencia_encuentros_socializacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participa en encuentros', help='¿Ha participado en encuentros o socialización de saberes con otras Formaciones?'),
         'intereses_formativos_ids': fields.one2many('for.pis.mae_intereses_formativos', 'maestro_id', 'Intereses Formativos', help='Intereses formativos del Facilitador'),
         'tecnologias_ids': fields.one2many('for.pis.mae_tecnologias_utilizadas', 'maestro_id', 'Tecnologías (TIC) que utiliza', help='Tecnologías de Información y Comunicación que utiliza'),
         'frecuencia_fase_I': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase I', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase I'),
@@ -124,7 +124,7 @@ for_pis_mae_asistencias_extended()
 ##########################################################################################################################################################################3
 ############################herencia de formacion_pis_base##################################################################################################################3
 class for_pis_maestros_registro_inicial_extended(osv.osv):
-    """Registro Inicial de Proyectos Integrales (de Formación) Socialista"""
+    """Registro Inicial de las Formaciones"""
     _name = 'for.pis.registro_inicial'
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
@@ -242,12 +242,12 @@ class for_pis_mae_tecnologias_utilizadas(osv.osv):
 for_pis_mae_tecnologias_utilizadas()
 
 class for_pis_mae_participacion_pis(osv.osv):
-    """Registro Maestro de Participación de los Facilitadores en Proyectos Integrales Socialistas"""
+    """Registro Maestro de Participación de los Facilitadores en Formaciones"""
     _name = 'for.pis.mae_participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
         'maestro_id': fields.many2one('for.pis.maestros', 'Facilitador', help='Facilitador que participa en la Formación referida'),
-        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', help='Proyecto Integral Socialista donde participa o ha participado'),
+        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', help='Formación donde participa o ha participado'),
     }
 for_pis_mae_participacion_pis()
 

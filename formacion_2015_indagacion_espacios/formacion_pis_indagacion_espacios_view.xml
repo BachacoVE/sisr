@@ -128,7 +128,7 @@
                              <separator string="Equilibrio Ambiental" colspan="4"/>
                              <field name="ambiental_ids" colspan="4" nolabel="1" select="0"/>
                          </page>
-                         <page string="Proyectos IS">
+                         <page string="Formaciones">
                              <separator string="Formaciones que usan el, o se desarrolan en, el Espacio" colspan="4"/>
                              <field name="pis_ids" colspan="4" nolabel="1" select="0"/>
                          </page>

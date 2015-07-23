@@ -37,7 +37,7 @@ class for_acsea_certificaciones_sujetos(osv.osv):
         'firmante_2': fields.char('Firmante 2', size=60, required=True, help='Texto que identificará al segundo Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),
         'observaciones': fields.text('Observaciones', required=False, help='Observaciones, Comentarios y otras informaciones complementarias y/o descriptivas del Proceso de Generación por Lotes de Certificados'),
         'certificados_ids': fields.one2many('for.acsea_certificados_sujetos', 'proceso_id', 'Certificados', help='Relación de Certificados correspondientes (generados) al (éste) Proceso de Certificación'),
-        'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Proyecto (o Taller) Integral Socialista de cara al cual se Acredita y Certifica al Participante'),
+        'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Formación de cara al cual se Acredita y Certifica al Participante'),
     }
 for_acsea_certificaciones_sujetos()
 
@@ -62,11 +62,11 @@ class for_acsea_certificados_sujetos(osv.osv):
         'fecha_emision': fields.datetime('Fecha de Emisión', required=True, help='Fecha de Emisión (Impresión) del Cartón por parte del INCES (no la del Acto de Consignación al Participante).'),
         'fecha_consignacion': fields.datetime('Fecha de Consignación', required=False, help='Fecha de Entrega del Certificado al Participante. Momento en el cual, el Participante firma el Acta/Libro de Entrega, en confirmación de recepción física del cartón'),
         'estatus_certificado': fields.many2one('for.pis.acsea_certificados_estatus', 'Estatus', required=True, help='Estatus del Certificado'),
-        'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', help='Proyecto (o Taller) Integral Socialista de cara al cual se Acredita y Certifica al Participante Social en Aprendizaje'),
-        'denominacion_pis': fields.related('proyecto_id', 'denominacion_pis', type='char', relation='for.pis.registro_inicial', string='Proyecto', store=False, help='Nombre, Título o Denominación del Proyecto (o Taller) Integral Socialista'),
-        #'estructura_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Estructura Curricular', help='Estructura Curricular del Proyecto (o Taller) Integral Socialista'),
+        'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', help='Formación de cara al cual se Acredita y Certifica al Participante Social en Aprendizaje'),
+        'denominacion_pis': fields.related('proyecto_id', 'denominacion_pis', type='char', relation='for.pis.registro_inicial', string='Formación', store=False, help='Nombre, Título o Denominación de la Formación'),
+        #'estructura_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Estructura Curricular', help='Estructura Curricular de la Formación'),
         #'estructura_curricular_ids': fields.related('proyecto_id', 'estructura_curricular_ids', type='one2many', relation='for.pis.registro_inicial'),
-        'reverso_tematica_ids': fields.one2many('for.acsea_certificados_reverso', 'certificado_id', 'Estructura Curricular', help='Estructura Curricular del Proyecto (o Taller) Integral Socialista'),
+        'reverso_tematica_ids': fields.one2many('for.acsea_certificados_reverso', 'certificado_id', 'Estructura Curricular', help='Estructura Curricular de la Formación'),
         'perfil_egreso': fields.text('Perfil de Egreso', required=False, help='Descripción Detallada del Perfil de Egreso del Participante Social en Aprendizaje'),
     }
 for_acsea_certificados_sujetos()
@@ -78,7 +78,7 @@ class for_acsea_certificados_reverso(osv.osv):
     _rec_name = 'ec_tema'
     _columns = {
 		'certificado_id': fields.many2one('for.acsea_certificados_sujetos','Certificado', help='Certificado al cual se asocia la Estructura Curricular'),
-        'proyecto_id': fields.many2one('for.pis.registro_inicial','Proyecto', help='Proyecto Integral Socialista al cual se asocia la Estructura Curricular'),
+        'proyecto_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=True, help='Tema de la Matriz Curricular de la Formación'),
         'ec_horas': fields.integer('Horas', required=True, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular de la Formación'),
         'ec_observaciones': fields.text('Observaciones', required=True, help='Observaciones del tema identificado en la Matriz Curricular de la Formación'),
