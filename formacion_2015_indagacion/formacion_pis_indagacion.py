@@ -95,6 +95,12 @@ class for_pis_sujetos_aprendizaje(osv.osv):
         current_age = int(current_year - birth_date.year)
         val = {'edad' : current_age}
         return {'value': val}
+
+    def on_change_limpiar_campo(self, cr, uid, ids, *args):
+        v = {'value':{}}
+        for campo in args:
+            v['value'][campo] = ''
+        return v
     
 for_pis_sujetos_aprendizaje()
 
