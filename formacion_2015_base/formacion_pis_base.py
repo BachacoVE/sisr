@@ -167,7 +167,7 @@ class for_pis_registro_inicial(osv.osv):
         
         #agregando las lineas de motores economicos del modulo arranque2015
         'motores_economicos_id': fields.related('denominacion_pis_id','motores_economicos_id', type='many2one',relation='for.pis.motores_economicos', string='Motores Económicos', readonly=True, store=True),
-        'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Áreas Priorizadas', required=True, help='Cadena Priorizada'),
+        'areas_priorizadas_id': fields.many2one('for.pis.areas_priorizadas', 'Área Priorizada', required=True, help='Area Priorizada'),
         'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
         #campo agregado de 'identificador' de la 'opcion_formativa'
@@ -214,7 +214,7 @@ for_pis_cfs()
 class for_pis_motores_economicos(osv.osv):
     """Motores Económicos"""
     _name = 'for.pis.motores_economicos'
-    _rec_name = 'descripcion'
+    _rec_name = 'nombre'
     _columns = {
         'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Económico'),
         'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
@@ -231,14 +231,14 @@ class for_pis_modalidad(osv.osv):
     }
 for_pis_modalidad()
 
-class for_pis_cadenas_formativas(osv.osv):
+class for_pis_areas_priorizadas(osv.osv):
     """Modalidad"""
-    _name = 'for.pis.cadenas_formativas'
+    _name = 'for.pis.areas_priorizadas'
     _rec_name = 'nombre'
     _columns = {
         'nombre': fields.char('Nombre', size=60, help='Nombre de la Cadena Formativa'),
         'descripcion': fields.text('Descripción', help='Descripción de la Cadena Formativa'),
-    'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
+        'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
     }
 for_pis_cadenas_formativas()
 
