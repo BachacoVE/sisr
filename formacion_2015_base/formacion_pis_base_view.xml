@@ -258,8 +258,8 @@
                     <field name="identificador_id" select="2"/>
 					<field name="cantidad_sujetos" select="0"/>
 					<!--field name="cantidad_maestros" select="0"/-->
-					<field name="fecha_inicio" select="0"/>
-					<field name="fecha_cierre" select="0"/>
+					<!--field name="fecha_inicio" select="0"/>
+					<field name="fecha_cierre" select="0"/-->
 					<field name="lapso_ejecucion" string="Duración" select="0"/>
                     <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
                     
@@ -271,6 +271,25 @@
 					<field name="tipo_procedencia_id" select="0"/>
                     <field name="areas_priorizadas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
                 </page>
+                <page string="Calendario">
+                        <!--field name="secuencia" select="0"/-->
+                        <!--campo creado por herencia en indagacion_espacios
+                        <field name="turno_id" on_change="on_change_turno(turno)" select="0" required="True"/>                                             
+                        <separator string="Horario" colspan="4"/-->
+                        <field name="hor_inicio" select="0"/>
+                        <field name="hor_fin" select="0"/>
+                        <field name="fecha_inicio" select="0" on_change="on_change_validar_fecha(fecha_inicio,'fecha_inicio')" required="True"/>
+                        <field name="fecha_cierre" select="0" on_change="on_change_validar_fecha(fecha_cierre, 'fecha_cierre')" required="True"/>
+                        
+                        <separator string="Dias de Formación" colspan="4"/>
+                        <!--field name="for_dom" select="0"/-->
+                        <field name="for_lun" select="0"/>
+                        <field name="for_mar" select="0"/>
+                        <field name="for_mie" select="0"/>
+                        <field name="for_jue" select="0"/>
+                        <field name="for_vie" select="0"/>
+                        <field name="for_sab" select="0"/>
+                    </page>
                 </notebook>
             </form>
         </field>
