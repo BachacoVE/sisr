@@ -216,6 +216,7 @@ class for_pis_motores_economicos(osv.osv):
     _name = 'for.pis.motores_economicos'
     _rec_name = 'nombre'
     _columns = {
+    	'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del motor economico'),
         'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Económico'),
         'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
     }

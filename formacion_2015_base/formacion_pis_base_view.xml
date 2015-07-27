@@ -325,6 +325,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Motores Económicos">
+                <field name="codigo" select="1"/>
                 <field name="nombre" select="1"/>
                 <field name="descripcion" select="2"/>
             </form>
@@ -336,6 +337,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Motores Económicos">
+                <field name="codigo"/>
                 <field name="nombre"/>
                 <field name="descripcion"/>
             </tree>
