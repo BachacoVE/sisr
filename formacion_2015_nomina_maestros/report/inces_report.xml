@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False" 
+            id="reporte_por_hora" 
+            model="for.pis.contratos" 
+            rml="formacion_2015_nomina_maestros/report/por_hora.rml" 
+            name="contrato.por.hora"
+            string="Generar Contrato por Hora"
+            header="False"
+            
+                />
+<!--
+        <report auto="False" 
+            id="reporte_a_tiempo_determinado" 
+            model="for.pis.registro_proyeccion" 
+            rml="for_inicio_proyeccion/report/a_tiempo_determinado.rml" 
+            name="reporte.a.tiempo.determinado"
+            string="Generar Contrato a tiempo Determinado"
+            header="False"
+            
+                />
+-->                
+    </data>
+</openerp>
+
+
+<!--Los argumentos son:
+
+id: el identificador del informe como cualquier etiqueta XML en OpenERP
+cadena: la cadena que será su visualización en el botón Cliente
+modelo: el objeto en el que se ejecutará el informe
+Nombre: el nombre del informe sin el primer "informe".
+RML: la ruta de acceso al archivo RML
+auto: (booleano) para especificar si el servidor debe generar un analizador por defecto o no
+encabezado: permite activar o desactivar el encabezado del informe. Para editarlos para una compañía específica, vaya a: Administración -> Usuarios -> Estructura de la empresa -> Empresas. Allí, seleccionar y editar su empresa: la ficha "Encabezado / Pie de página" permite editar corporativo encabezado / pie de página. -->
