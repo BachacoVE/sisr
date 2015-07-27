@@ -88,7 +88,7 @@ class for_pis_registro_inicial_extended(osv.osv):
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
-    	'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=True, help='Turno en el cual opera el Espacio Socialista Integral'),
+    	'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=False, help='Turno en el cual opera el Espacio Socialista Integral'),
     }
 for_pis_registro_inicial_extended()
 ##########################################################################################################################################################################
