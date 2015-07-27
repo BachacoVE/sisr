@@ -240,7 +240,7 @@ class for_pis_areas_priorizadas(osv.osv):
         'descripcion': fields.text('Descripción', help='Descripción de la Cadena Formativa'),
         'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
     }
-for_pis_cadenas_formativas()
+for_pis_areas_priorizadas()
 
 class for_pis_calendario(osv.osv):
     """Calendario de días hábiles"""
