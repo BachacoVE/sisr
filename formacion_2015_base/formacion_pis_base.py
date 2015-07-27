@@ -170,7 +170,8 @@ class for_pis_registro_inicial(osv.osv):
         'cadenas_formativas_id': fields.many2one('for.pis.cadenas_formativas', 'Áreas Priorizadas', required=True, help='Cadena Priorizada'),
         'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
-
+        #campo agregado de 'identificador' de la 'opcion_formativa'
+        'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Identificador', store=True, readonly=True),
        }
 
     def on_change_limpiar_campo(self, cr, uid, ids, *args):
@@ -187,6 +188,7 @@ class for_pis_registro_inicial(osv.osv):
             v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
             v['lapso_ejecucion']=opciones_formativas_obj.horas
             v['motores_economicos_id']=opciones_formativas_obj.motores_economicos_id.id
+            v['identificador_id']=opciones_formativas_obj.identificador
         return {'value':v}
 
         
@@ -265,12 +267,21 @@ class for_pis_opciones_formativas(osv.osv):
     _name = 'for.pis.opciones_formativas'
     _rec_name='denominacion'
     _columns = {
-        'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
-        'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=True, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
+        'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
+        'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
         'identificador': fields.integer('Identificador',size=30, help='Código Único Identificador de la Formación'),
         'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
     }
+
+    def name_get(self, cr, uid, ids, context={}):
+        if not len(ids):
+            return []
+        
+        res=[]
+        for opcion_formativa_obj in self.browse(cr, uid, ids,context=context):
+            res.append((opcion_formativa_obj.id, str(opcion_formativa_obj.identificador) + ' - ' + opcion_formativa_obj.denominacion))    
+        return res
 for_pis_opciones_formativas()

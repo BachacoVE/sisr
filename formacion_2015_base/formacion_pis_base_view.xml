@@ -255,6 +255,7 @@
 					<field name="accion_especifica" select="0"/>
 					<field name="modalidad_id" select="0" />
                     <field name="denominacion_pis_id" select="2" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
+                    <field name="identificador_id" select="2"/>
 					<field name="cantidad_sujetos" select="0"/>
 					<!--field name="cantidad_maestros" select="0"/-->
 					<field name="fecha_inicio" select="0"/>
@@ -283,6 +284,7 @@
             <tree string="for.registro_inicial">
                 <field name="nro_preimpreso" string="Nº"/>
                 <field name="denominacion_pis_id" string="Denominación"/>
+                <field name="identificador_id"/>
                 <field name="lapso_ejecucion" string="Lapso"/>
                 <field name="fecha_inicio" string="Inicio"/>
                 <field name="fecha_cierre" string="Cierre"/>
