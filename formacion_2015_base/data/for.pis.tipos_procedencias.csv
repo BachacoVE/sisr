@@ -1,15 +1,15 @@
-id,codigo,descripcion,tipo_procedencia
-__export__.for_pis_tipos_procedencias_1,FIE,Financiado por el Estado,Financiado por el Estado
-__export__.for_pis_tipos_procedencias_2,SAI,Surgidos del área de influencia del CFS,Del área de influencia CFS
-__export__.for_pis_tipos_procedencias_3,ALI,Surgido de alianzas estratégicas institucionales,Alianzas Estratégicas
-__export__.for_pis_tipos_procedencias_4,GBC,Contextos comunitarios e institucionales,Gobierno de Calle
-__export__.for_pis_tipos_procedencias_5,RFS,Requerimientos de formacion de los participantes al CFS,Requerimientos de Participante
-__export__.for_pis_tipos_procedencias_6,PEN,Penitenciario,Penitenciario
-__export__.for_pis_tipos_procedencias_7,PNA,Programa Nacional de Aprendizaje,Programa Nac. de Aprendizaje
-__export__.for_pis_tipos_procedencias_8,EMP,Formación en Empresa,Formación en Empresa
-__export__.for_pis_tipos_procedencias_9,BAS,Educación Básica,Educación Básica
-__export__.for_pis_tipos_procedencias_10,CNV,Convenios Internacionales,Convenios Internacionales
-__export__.for_pis_tipos_procedencias_11,PGS,Proyecto Plan Guayana Socialista,Guayana Socialista
-__export__.for_pis_tipos_procedencias_12,ROC,Empresas Recuperadas y Nacionalizadas,Ronca
-__export__.for_pis_tipos_procedencias_13,SNO,Formación musical y construcción de instrumentos musicales,Sistema Nacional de Orquesta
-__export__.for_pis_tipos_procedencias_14,GMV,Gran Misión Vivienda Obrera,Gran Misión Vivienda Obrera
+codigo,descripcion,tipo_procedencia
+FIE,Financiado por el Estado,Financiado por el Estado
+SAI,Surgidos del área de influencia del CFS,Del área de influencia CFS
+ALI,Surgido de alianzas estratégicas institucionales,Alianzas Estratégicas
+GBC,Contextos comunitarios e institucionales,Gobierno de Calle
+RFS,Requerimientos de formacion de los participantes al CFS,Requerimientos de Participante
+PEN,Penitenciario,Penitenciario
+PNA,Programa Nacional de Aprendizaje,Programa Nac. de Aprendizaje
+EMP,Formación en Empresa,Formación en Empresa
+BAS,Educación Básica,Educación Básica
+CNV,Convenios Internacionales,Convenios Internacionales
+PGS,Proyecto Plan Guayana Socialista,Guayana Socialista
+ROC,Empresas Recuperadas y Nacionalizadas,Ronca
+SNO,Formación musical y construcción de instrumentos musicales,Sistema Nacional de Orquesta
+GMV,Gran Misión Vivienda Obrera,Gran Misión Vivienda Obrera
