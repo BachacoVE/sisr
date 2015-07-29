@@ -251,7 +251,7 @@
 
                 
                 <separator string="Datos Básicos la Formación" colspan="4"/>
-					<field name="nro_preimpreso" select="1"/>
+					<field name="nro_preimpreso" select="1" readonly="True"/>
 					<field name="accion_especifica" select="0"/>
 					<field name="modalidad_id" select="0" />
                     <field name="denominacion_pis_id" select="2" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
@@ -269,7 +269,7 @@
 					<field name="area_id" select="0" domain="[('sector_id','=',[sector_id])]"/>
 					<field name="subarea_id" select="0" domain="[('area_id','=',[area_id])]"/>
 					<field name="tipo_procedencia_id" select="0"/>
-                    <field name="areas_priorizadas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" />
+                    <!--field name="areas_priorizadas_id" select="0" domain="[('motores_economicos_id','=',[motores_economicos_id])]" /-->
                 </page>
                 <page string="Calendario">
                         <!--field name="secuencia" select="0"/-->
