@@ -77,6 +77,14 @@ class for_pis_espacios(osv.osv):
         'materiales_necesarios': fields.text('Necesarios', size=1200, required=False, help='Materiales, herramientas, equipos, insumos necesarios para la Formación'),
         'observaciones': fields.text('Observaciones', size=1200, required=False, help='Observaciones'),
     }
+#Aqui funcion para limpiar campos Estado, Municipio y parroquia
+    def on_change_limpiar_campo(self, cr, uid, ids, *args):
+        v = {'value':{}}
+        for campo in args:
+            v['value'][campo] = ''
+            return v
+#Aqui finaliza la funcion
+
 for_pis_espacios()
 
 ###########################################################################################################################################################################3
