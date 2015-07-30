@@ -38,7 +38,8 @@ class for_estructura_curricular(osv.osv):
     _name = 'for.estructura_curricular'
     _rec_name = 'ec_tema'
     _columns = {
-        'proyecto_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se asocia la Estructura Curricular'),
+        #'proyecto_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se asocia la Estructura Curricular'),
+        'opcion_formativa_id': fields.many2one('for.pis.opciones_formativas','Opción Formativa', help='Opción Formativa al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=True, help='Tema de la Matriz Curricular del PIS'),
         'ec_horas': fields.integer('Horas', required=True, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
         'ec_observaciones': fields.text('Observaciones', required=True, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
@@ -47,20 +48,39 @@ class for_estructura_curricular(osv.osv):
     }
 for_estructura_curricular()
 
+
+
 #####################################################################################################################################################################################
 #########################################################################################################################################################################################
 ###############herencia de formacion_pis_base####################################################################################################################################
-
-class for_pis_registro_inicial_extended(osv.osv):
+class for_pis_opciones_formativas_extended(osv.osv):
     """Registro Inicial de las Formaciones"""
-    _name = 'for.pis.registro_inicial'
+    _name = 'for.pis.opciones_formativas'
     #_rec_name = 'denominacion_pis'
-    _inherit= 'for.pis.registro_inicial'
+    _inherit= 'for.pis.opciones_formativas'
     _columns = {
-        'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular de la Formación'),
+        'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular de la Formación'),
 
 
     }
-for_pis_registro_inicial_extended()
+for_pis_opciones_formativas_extended()
+###############herencia de formacion_pis_base####################################################################################################################################
+##################################################################################################################################################################################
+
+#####################################################################################################################################################################################
+#########################################################################################################################################################################################
+###############herencia de formacion_pis_base####################################################################################################################################
+#
+#class for_pis_registro_inicial_extended(osv.osv):
+#    """Registro Inicial de las Formaciones"""
+#    _name = 'for.pis.registro_inicial'
+#    #_rec_name = 'denominacion_pis'
+#    _inherit= 'for.pis.registro_inicial'
+#    _columns = {
+#        'matriz_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular de la Formación'),
+#
+#
+#    }
+#for_pis_registro_inicial_extended()
 ###############herencia de formacion_pis_base####################################################################################################################################
 ##################################################################################################################################################################################3

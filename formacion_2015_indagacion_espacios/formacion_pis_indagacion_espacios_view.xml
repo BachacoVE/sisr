@@ -75,7 +75,7 @@
                               <field name="caracteristicas" colspan="4" nolabel="1" select="0"/>
                               <field name="personas_maximo" select="0"/>
                          </page>
-                         <page string="Factores">
+                         <page string="Factores Favorables">
                              <group colspan="6" col="6">
                                     <group colspan="3" col="3">
                                         <separator string="Factores Internos" colspan="3"/>
@@ -596,8 +596,8 @@
 
   
     <!-- Menu Formación/Indagación -->
-    <!-- menuitem name="Indagacion" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
-    <menuitem name="Espacios Formativos" id="menu_for_pis_esp" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_espacios" sequence="3"/>
+    <!-- menuitem name="Diagnóstico" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
+    <menuitem name="Ambientes    Formativos" id="menu_for_pis_esp" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_espacios" sequence="3"/>
     <!-- menuitem name="Contextos de los Espacios SI" id="menu_for_pis_esp_contextos" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_contextos" sequence="20"/ -->
     <!-- menuitem name="Niveles de Innovación de los Espacios SI" id="menu_for_pis_esp_innovacion" parent="formacion_2015_indagacion.menu_for_pis_indagacion"action="action_for_pis_esp_innovacion" sequence="21"/ -->
     <!-- menuitem name="PIS ejecutados en los Espacios SI" id="menu_for_pis_esp_pis" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="action_for_pis_esp_pis" sequence="22"/ -->

@@ -100,9 +100,9 @@ for_pis_tipos_procedencias()
 class for_pis_registro_inicial(osv.osv):
     """Registro Inicial de la Formación"""
     _name = 'for.pis.registro_inicial'
-    _rec_name = 'denominacion_pis'
+    _rec_name = 'denominacion_pis_id'
     _columns = {
-        'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=True, help='Número de Preimpreso de la Formación'),
+        'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
         'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecución',store=True, readonly=True),
         'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio de la formación'),
@@ -168,12 +168,22 @@ class for_pis_registro_inicial(osv.osv):
         
         #agregando las lineas de motores economicos del modulo arranque2015
         'motores_economicos_id': fields.related('denominacion_pis_id','motores_economicos_id', type='many2one',relation='for.pis.motores_economicos', string='Motores Económicos', readonly=True, store=True),
-        'areas_priorizadas_id': fields.many2one('for.pis.areas_priorizadas', 'Área Priorizada', required=True, help='Area Priorizada'),
+        'areas_priorizadas_id': fields.many2one('for.pis.areas_priorizadas', 'Área Priorizada', required=False, help='Area Priorizada'),
         'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
         #campo agregado de 'identificador' de la 'opcion_formativa'
-        'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Identificador', store=True, readonly=True),
+        'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
+       
        }
+
+
+
+    def create(self, cr, uid, vals, context=None):
+        preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, 'registro_inicial_preimpreso')
+        vals.update({'nro_preimpreso':preimpreso_obj})
+        new_id = super(for_pis_registro_inicial, self).create(cr, uid, vals, context=None)
+        return new_id
+        
 
     def on_change_validar_fecha(self, cr, uid, ids, fecha, campo_fecha):
         v = {'value':{}}

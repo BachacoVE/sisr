@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="codigo_sequence_preimpreso" model="ir.sequence.type">
+            <field name="name">Secuencia de Preimpreso de Registro Inicial</field>
+            <field name="code">registro_inicial_preimpreso</field>
+        </record>
+
+        <record id="seq_codigo_preimpreso" model="ir.sequence">
+            <field name="name">Secuencia de Preimpreso de Registro Inicial</field>
+            <field name="prefix"></field>
+            <field name="code">registro_inicial_preimpreso</field>
+            <field name="padding">10</field>
+        </record>
+
+    </data>
+</openerp>
