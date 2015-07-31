@@ -36,14 +36,14 @@
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Facilitadores">
-                <separator string="Facilitadores en la Formación" colspan="4"/>
+                <page string="Formadores">
+                <separator string="Formadores en la Formación" colspan="4"/>
                     <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0">
-                        <form string="Facilitadores">
+                        <form string="Formadores">
                             <field name="maestro_id" select="0"/>
                             <!--field name="numero_id"/-->
                         </form>
-                        <tree string="Facilitadores">
+                        <tree string="Formadores">
                             <field name="maestro_id"/>
                             <!--field name="numero_id"/-->
                         </tree>
@@ -224,7 +224,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_maestros">
-        <field name="name">Facilitadores (Facilitadores)</field>
+        <field name="name">Formadores</field>
         <field name="res_model">for.pis.maestros</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -267,7 +267,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_familiares">
-        <field name="name">Familiares (Facilitadores)</field>
+        <field name="name">Familiares (Formadores)</field>
         <field name="res_model">for.pis.mae_familiares</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -298,7 +298,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_redes_sociales">
-        <field name="name">Redes Sociales (Facilitadores)</field>
+        <field name="name">Redes Sociales (Formadores)</field>
         <field name="res_model">for.pis.mae_redes_sociales</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -331,7 +331,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_deportes_practicados">
-        <field name="name">Deportes Practicados (Facilitadores)</field>
+        <field name="name">Deportes Practicados (Formadores)</field>
         <field name="res_model">for.pis.mae_deportes_practicados</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -364,7 +364,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_actividades_practicadas">
-        <field name="name">Actividades Culturales (Facilitadores)</field>
+        <field name="name">Actividades Culturales (Formadores)</field>
         <field name="res_model">for.pis.mae_actividades_practicadas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -397,7 +397,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_organizaciones_milita">
-        <field name="name">Organizaciones Socio-Políticas (Facilitadores)</field>
+        <field name="name">Organizaciones Socio-Políticas (Formadores)</field>
         <field name="res_model">for.pis.mae_organizaciones_milita</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -430,7 +430,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_misiones_pertenece">
-        <field name="name">Misiones Sociales (Facilitadores)</field>
+        <field name="name">Misiones Sociales (Formadores)</field>
         <field name="res_model">for.pis.mae_misiones_pertenece</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -463,7 +463,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_formacion_academica">
-        <field name="name">Formación Académica (Facilitadores)</field>
+        <field name="name">Formación Académica (Formadores)</field>
         <field name="res_model">for.pis.mae_formacion_academica</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -498,7 +498,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_intereses_formativos">
-        <field name="name">Intereses Formativos (Facilitadores)</field>
+        <field name="name">Intereses Formativos (Formadores)</field>
         <field name="res_model">for.pis.mae_intereses_formativos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -529,7 +529,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_tecnologias_utilizadas">
-        <field name="name">Tecnologias (TIC: Facilitadores)</field>
+        <field name="name">Tecnologias (TIC: Formadores)</field>
         <field name="res_model">for.pis.mae_tecnologias_utilizadas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -560,7 +560,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_participacion_pis">
-        <field name="name">Participación en Formación (Facilitadores)</field>
+        <field name="name">Participación en Formación (Formadores)</field>
         <field name="res_model">for.pis.mae_participacion_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -597,7 +597,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_empiricas">
-        <field name="name">Experiencias Empíricas (Facilitadores)</field>
+        <field name="name">Experiencias Empíricas (Formadores)</field>
         <field name="res_model">for.pis.mae_experiencias_empiricas</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -632,7 +632,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_docentes">
-        <field name="name">Experiencias Docentes (Facilitadores)</field>
+        <field name="name">Experiencias Docentes (Formadores)</field>
         <field name="res_model">for.pis.mae_experiencias_docentes</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -667,7 +667,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_experiencias_laborales">
-        <field name="name">Experiencias Laborales (Facilitadores)</field>
+        <field name="name">Experiencias Laborales (Formadores)</field>
         <field name="res_model">for.pis.mae_experiencias_laborales</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -706,7 +706,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_casea_conocimientos">
-        <field name="name">Conocimientos para CASEA (Facilitadores)</field>
+        <field name="name">Conocimientos para CASEA (Formadores)</field>
         <field name="res_model">for.pis.mae_casea_conocimientos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -740,7 +740,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_discapacidades">
-        <field name="name">Diversidades Funcionales (Facilitadores)</field>
+        <field name="name">Diversidades Funcionales (Formadores)</field>
         <field name="res_model">for.pis.mae_discapacidades</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
