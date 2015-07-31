@@ -109,6 +109,7 @@ class for_pis_registro_inicial_extended(osv.osv):
     _columns = {
         'participacion_pis_ids': fields.one2many('for.pis.participacion_pis', 'numero_id', 'Participantes', help='Participantes de la Formación'),
     }
+
 for_pis_registro_inicial_extended()
 ##########################################################################################################################################################################3
 ##########################################################################################################################################################################3

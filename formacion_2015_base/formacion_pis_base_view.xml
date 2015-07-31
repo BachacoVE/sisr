@@ -256,11 +256,14 @@
 					<field name="modalidad_id" select="0" />
                     <field name="denominacion_pis_id" select="2" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
                     <field name="identificador_id" select="2"/>
-					<field name="cantidad_sujetos" select="0"/>
+					<field name="cantidad_sujetos_programados" select="0"/>
+                    
+                    
 					<!--field name="cantidad_maestros" select="0"/-->
 					<!--field name="fecha_inicio" select="0"/>
 					<field name="fecha_cierre" select="0"/-->
 					<field name="lapso_ejecucion" string="Duración" select="0"/>
+                    <field name="cantidad_sujetos_enproceso" select="0"/>
                     <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
                     
 				<notebook colspan="4">
@@ -290,6 +293,9 @@
                         <field name="for_vie" select="0"/>
                         <field name="for_sab" select="0"/>
                     </page>
+                    <page string="Matriz Curricular">
+                        <field name="matriz_curricular_ids" select="0" nolabel="1"/>                                           
+                    </page>
                 </notebook>
             </form>
         </field>
@@ -307,7 +313,8 @@
                 <field name="lapso_ejecucion" string="Lapso"/>
                 <field name="fecha_inicio" string="Inicio"/>
                 <field name="fecha_cierre" string="Cierre"/>
-                <field name="cantidad_sujetos" string="Participantes"/>
+                <!--field name="cantidad_sujetos_programados"/-->
+                <field name="cantidad_sujetos_enproceso" string="Participantes"/>
                 <field name="cantidad_maestros" string="Facilitadores"/>
                 <!-- field name="accion_especifica"/ -->
                 <field name="estado_id"/>
@@ -335,6 +342,49 @@
     </record>
         
 
+<!--clase de matriz curricular para opciones formativas. SOLO INFORMATIVO-->
+<record model="ir.ui.view" id="view_for_matriz_curricular_formacion_form">
+        <field name="name">for.matriz_curricular_formacion.form</field>
+        <field name="model">for.matriz_curricular_formacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Estructura Curricular">
+              
+                <!--field name="opcion_formativa_id" select="1"/-->
+                <field name="ec_tema" select="2" readonly="True"/>
+                <field name="ec_horas" select="0" readonly="True"/>
+                <!-- separator string="'Observaciones'" colspan="4" readonly="True"/ -->
+                <field name="ec_observaciones" colspan="2" nolabel="0" select="0" readonly="True"/>
+                <!-- separator string="'Problema que resuelve'" colspan="4"/ -->
+                <field name="ec_problema_resuelve" colspan="2" nolabel="0" select="0" readonly="True"/>
+                <field name="categoria_id" select="0" readonly="True"/>
+                
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_matriz_curricular_formacion_tree">
+        <field name="name">for.matriz_curricular_formacion.tree</field>
+        <field name="model">for.matriz_curricular_formacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Estructura Curricular">
+               
+                <field name="ec_tema"/>
+                <field name="ec_horas"/>
+                <!--field name="opcion_formativa_id"/-->
+                <!-- field name="ec_observaciones"/ -->
+                <!-- field name="ec_problema_resuelve"/ -->
+                <!-- field name="categoria_id"/ -->
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_matriz_curricular_formacion">
+        <field name="name">Estructura Curricular</field>
+        <field name="res_model">for.matriz_curricular_formacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--clase de matriz curricular para opciones formativas. SOLO INFORMATIVO-->
 
 
     <!-- Configuracion/Motores Económicos -->
