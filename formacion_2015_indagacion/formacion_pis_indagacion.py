@@ -95,6 +95,19 @@ class for_pis_sujetos_aprendizaje(osv.osv):
         current_age = int(current_year - birth_date.year)
         val = {'edad' : current_age}
         return {'value': val}
+
+#    def create(self, cr, uid, values, context=None):
+#        cr.execute()
+#        return super(for_pis_sujetos_aprendizaje, self).create(cr, uid, values, context=None)
+#
+#        
+#    def write(self, cr, uid, ids, values, context=None):
+#        cr.execute()
+#        return super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, values, context=None)
+#    def unlink(self, cr, uid, ids, context=None):
+#        cr.execute()    
+#        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)
+
     
 for_pis_sujetos_aprendizaje()
 
