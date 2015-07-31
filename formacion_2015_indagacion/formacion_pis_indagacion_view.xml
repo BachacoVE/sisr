@@ -190,7 +190,7 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Participantes">
-                <separator string="Participantes la Formación" colspan="4"/>
+                <separator string="Participantes de la Formación" colspan="4"/>
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
                             <field name="sujeto_id" select="0"/>
