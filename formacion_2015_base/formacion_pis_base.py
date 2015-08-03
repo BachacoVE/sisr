@@ -101,13 +101,27 @@ class for_pis_registro_inicial(osv.osv):
     """Registro Inicial de la Formación"""
     _name = 'for.pis.registro_inicial'
     _rec_name = 'denominacion_pis_id'
+
+    def cantidad_sujetos_func(self, cr, uid, ids, fields, arg, context):
+        v={}
+        ls=[]
+        for record in self.browse(cr, uid, ids ,context):
+            sujetos_obj=self.pool.get('for.pis.participacion_pis').search(cr, uid, [('numero_id','=', ids)])
+            if sujetos_obj:
+                v[record.id]=len(sujetos_obj)
+            else:
+                v[record.id]=0
+        return v
+
+
     _columns = {
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
         'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecución',store=True, readonly=True),
         'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio de la formación'),
         'fecha_cierre': fields.datetime('Fecha de Cierre',required=False, help='Fecha de cierre de la formación'),
-        'cantidad_sujetos': fields.integer('Cantidad de Participantes',required=False, help='Cantidad de Participantes que integran la Formación'),
+        'cantidad_sujetos_programados': fields.integer('Cantidad de Participantes Programados',required=False, help='Cantidad de Participantes que se programan en  la formación'),
+        'cantidad_sujetos_enproceso': fields.function(cantidad_sujetos_func, method=True, type='integer', string='Cantidad de Participantes en Proceso', store=True, help='Cantidad de Participantes que integran la Formación'),
         'cantidad_maestros': fields.integer('Cantidad de Facilitadores(as)',required=False, help='Cantidad de Facilitadoras y/o Facilitadores que atienden la Formación'),
         'accion_especifica': fields.selection([(1,'Acción Específica 1'),(3,'Acción Específica 3')],'Acción Específica',required=True, help='Acción Específica a la cual corresponde la Formación'),
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
@@ -173,11 +187,8 @@ class for_pis_registro_inicial(osv.osv):
         #hasta aqui llegan las lineas agregadas
         #campo agregado de 'identificador' de la 'opcion_formativa'
         'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
-       
+        'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
        }
-
-
-
     def create(self, cr, uid, vals, context=None):
         preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, 'registro_inicial_preimpreso')
         vals.update({'nro_preimpreso':preimpreso_obj})
@@ -202,16 +213,55 @@ class for_pis_registro_inicial(osv.osv):
         
     def on_change_modalidad_id(self, cr, uid, ids, denominacion_pis_id):
         v={}
+        secuencia_matriz=[]
         if denominacion_pis_id:
+            opciones_formativas_ls=self.pool.get('for.estructura_curricular').search(cr, uid,[('opcion_formativa_id','=',denominacion_pis_id)])
+            
+            
+
+            for element in opciones_formativas_ls:
+                elemento_matriz=self.pool.get('for.estructura_curricular').browse(cr, uid, element)
+                if denominacion_pis_id:
+                    secuencia_matriz.append((0,0,{'opcion_formativa_id':ids,
+                    'ec_tema':elemento_matriz.ec_tema,
+                    'ec_horas':elemento_matriz.ec_horas,
+                    'ec_observaciones':elemento_matriz.ec_observaciones,
+                    'ec_problema_resuelve':elemento_matriz.ec_problema_resuelve,
+                    'categoria_id':str(elemento_matriz.categoria_id)}))
+                else:
+                    secuencia_matriz.append((0,0,{'opcion_formativa_id':'',
+                    'ec_tema':'',
+                    'ec_horas':'',
+                    'ec_observaciones':'',
+                    'ec_problema_resuelve':'',
+                    'categoria_id':''}))
+            
             opciones_formativas_obj=self.pool.get('for.pis.opciones_formativas').browse(cr, uid, denominacion_pis_id)
+            
+            
             v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
             v['lapso_ejecucion']=opciones_formativas_obj.horas
             v['motores_economicos_id']=opciones_formativas_obj.motores_economicos_id.id
             v['identificador_id']=opciones_formativas_obj.identificador
+            v['matriz_curricular_ids']=secuencia_matriz
+            
         return {'value':v}
 
         
 for_pis_registro_inicial()
+
+class for_matriz_curricular_formacion(osv.osv):
+	_name= 'for.matriz_curricular_formacion'
+	_columns = {
+        'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', size=100, help='Opción Formativa al cual se asocia la Estructura Curricular'),
+        'ec_tema': fields.char('Tema', size=250, required=False, help='Tema de la Matriz Curricular del PIS'),
+        'ec_horas': fields.integer('Horas', required=False, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
+        'ec_observaciones': fields.text('Observaciones', required=False, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
+        'ec_problema_resuelve': fields.text('Problema que resuelve', required=False, help='Problema que resuleve el tema identificado en la Matriz Curricular del PIS'),
+        'categoria_id': fields.char('Categoría', size=100, help='Categoría de Contenido en cual se ubica el tema identificado en la Matriz Curricular del PIS'),
+    }
+
+for_matriz_curricular_formacion()	
 
 class for_pis_cfs(osv.osv):
     """Registro Facilitador de Centros Integrales (de Formación) Socialista"""

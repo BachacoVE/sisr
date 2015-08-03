@@ -89,7 +89,7 @@
 						<separator string="Areas de Conocimiento para CASEA" colspan="4"/>
 						<field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
 					</page>
-					<!--page string="Participación en Formación">
+					<page string="Participación en Formación">
 						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
 						<field name="pis_participado" colspan="4" nolabel="1" select="0">
                             <form string="Participación">
@@ -104,7 +104,7 @@
 
                         </field>
 					</page>
-					<page string="Actividad Formación">
+					<!--page string="Actividad Formación">
 						<field name="frecuencia_colectivos_aprendizaje_id" select="0"/>
 						<field name="frecuencia_matriz_planificacion_id" select="0"/>
 						<field name="frecuencia_cuaderno_sistematizacion_id" select="0"/>

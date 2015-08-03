@@ -101,6 +101,18 @@ class for_pis_sujetos_aprendizaje(osv.osv):
             v['value'][campo] = ''
         return v
 
+#    def create(self, cr, uid, values, context=None):
+#        cr.execute()
+#        return super(for_pis_sujetos_aprendizaje, self).create(cr, uid, values, context=None)
+#
+#        
+#    def write(self, cr, uid, ids, values, context=None):
+#        cr.execute()
+#        return super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, values, context=None)
+#    def unlink(self, cr, uid, ids, context=None):
+#        cr.execute()    
+#        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)
+
 for_pis_sujetos_aprendizaje()
 
 ##########################################################################################################################################################################3
@@ -114,6 +126,7 @@ class for_pis_registro_inicial_extended(osv.osv):
     _columns = {
         'participacion_pis_ids': fields.one2many('for.pis.participacion_pis', 'numero_id', 'Participantes', help='Participantes de la Formación'),
     }
+
 for_pis_registro_inicial_extended()
 ##########################################################################################################################################################################3
 ##########################################################################################################################################################################3
