@@ -26,9 +26,13 @@
 						<field name="hijos_ids" colspan="4" nolabel="1" select="0"/>
 					</page>
 					<page string="Ubicación">
-						<field name="estado_id" select="0"/>
+						<!--field name="estado_id" select="0"/>
 						<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
-						<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+						<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/-->
+                        <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0"/>
+                        <field name="municipio_id" on_change="on_change_limpiar_campo('parroquia_id')" domain="[('estado_id','=',[estado_id])]" select="0"/>
+                        <field name="parroquia_id" domain="[('municipio_id','=',[municipio_id])]" select="0"/>
+                        
 						<field name="comunidad_id" select="0"/>
 						<field name="direccion_habitacion" select="0"/>
 						<field name="telefono_fijo" select="0"/>
@@ -89,11 +93,11 @@
 						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
 						<field name="pis_participado" colspan="4" nolabel="1" select="0">
                             <form string="Participación">
-                                <field name="sujeto_id"/>
+                                <!--field name="sujeto_id"/-->
                                 <field name="numero_id"/>
                             </form>
                             <tree string="Participación">
-                                <field name="sujeto_id"/>
+                                <!--field name="sujeto_id"/-->
                                 <field name="numero_id"/>
                             </tree>
 
@@ -106,7 +110,7 @@
 						<field name="frecuencia_cuaderno_sistematizacion_id" select="0"/>
 						<field name="frecuencia_intercambio_saberes_id" select="0"/>
 						<field name="frecuencia_encuentros_socializacion_id" select="0"/>
-					</page-->
+					</page>
 					<page string="Intereses Formativos">
 						<separator string="'Intereses Formativos'" colspan="4"/>
 						<field name="intereses_formativos_ids" colspan="4" nolabel="1" select="0"/>
@@ -115,7 +119,7 @@
 						<separator string="Tecnologías (TIC) que utiliza" colspan="4"/>
 						<field name="tecnologias_ids" colspan="4" nolabel="1" select="0"/>
 					</page>
-					<!--page string="Actividad Fases">
+					<page string="Actividad Fases">
 						<field name="frecuencia_fase_I" select="0"/>
 						<field name="frecuencia_fase_II" select="0"/>
 						<field name="frecuencia_fase_III" select="0"/>
@@ -178,7 +182,7 @@
     </record>
     
 <!-- Acá inicia la clase heredada de formacion_pis_base-->
-     <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+    <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
         <field name="name">for.pis.registro_inicial.form.inherit</field>
         <field name="model">for.pis.registro_inicial</field>
         <field name="type">form</field>
@@ -186,7 +190,7 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Participantes">
-                <separator string="Participantes la Formación" colspan="4"/>
+                <separator string="Participantes de la Formación" colspan="4"/>
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
                             <field name="sujeto_id" select="0"/>

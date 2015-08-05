@@ -22,3 +22,4 @@
 #
 
 import formacion_pis_nomina_maestros
+import report

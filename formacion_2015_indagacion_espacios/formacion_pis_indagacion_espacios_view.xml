@@ -26,9 +26,14 @@
             <form string="for.espacios">
                 <field name="nombre_espacio" select="1"/>
                 <field name="tipo_espacio_id" select="2"/>
-                <field name="estado_id" select="0"/>
+            <!--Inicio para limpiar campo de Estado, Municipio y Parroquia-->
+                <!--field name="estado_id" select="0"/>
                 <field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
-                <field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/>
+                <field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]"/-->
+                <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0"/>
+                <field name="municipio_id" on_change="on_change_limpiar_campo('parroquia_id')" domain="[('estado_id','=',[estado_id])]" select="0"/>
+				<field name="parroquia_id" domain="[('municipio_id','=',[municipio_id])]" select="0"/>
+            <!--Fin para limpiar campo de Estado, Municipio y Parroquia-->    
                 <field name="turno_id" select="0"/>
 
 		<notebook colspan="6">
@@ -94,7 +99,7 @@
                                    </group>
                              </group>
                          </page>
-                         <page string="Materiales">
+                         <page string="Insumos">
                              <group colspan="6" col="6">
                               <group colspan="3" col="3">
                                    <separator string="Disponibles" colspan="3"/>
