@@ -29,7 +29,7 @@
         "depends" : ['base', 'formacion_2015_base', 'formacion_2015_indagacion_maestros'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
-        #"update_xml" : ['formacion_pis_mae_liquidaciones_view.xml', 'security/formacion_pis_mae_liquidaciones.xml', 'security/ir.model.access.csv', 'report/reports.xml', 'data/for.pis.mae_motivos_egreso.csv', 'data/for.pis.mae_modalidades_liquidacion.csv', 'data/sisr.pla.dependencias_administrativas.csv', 'data/for.pis.mae_tipos_asignaciones.csv', 'data/for.pis.mae_tipos_deducciones.csv', 'data/for.pis.mae_tasas_bcv_prestaciones.csv'],
-        "update_xml" : ['formacion_pis_mae_liquidaciones_view.xml', 'report/reports.xml'],
+        #"update_xml" : ['formacion_pis_mae_liquidaciones_view.xml', 'security/formacion_pis_mae_liquidaciones.xml', 'report/reports.xml', 'data/for.pis.mae_motivos_egreso.csv', 'data/for.pis.mae_modalidades_liquidacion.csv', 'data/sisr.pla.dependencias_administrativas.csv', 'data/for.pis.mae_tipos_asignaciones.csv', 'data/for.pis.mae_tipos_deducciones.csv', 'data/for.pis.mae_tasas_bcv_prestaciones.csv'],
+        "update_xml" : ['security/formacion_pis_mae_liquidaciones.xml','security/ir.model.access.csv', 'formacion_pis_mae_liquidaciones_view.xml', 'report/reports.xml'],
         "installable": True
 }
