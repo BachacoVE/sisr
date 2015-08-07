@@ -100,7 +100,7 @@ for_pis_tipos_procedencias()
 class for_pis_registro_inicial(osv.osv):
     """Registro Inicial de la Formación"""
     _name = 'for.pis.registro_inicial'
-    _rec_name = 'denominacion_pis_id'
+    _rec_name = 'nro_preimpreso'
 
     def cantidad_sujetos_func(self, cr, uid, ids, fields, arg, context):
         v={}
@@ -189,6 +189,17 @@ class for_pis_registro_inicial(osv.osv):
         'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
        }
+
+    def name_get(self, cr, uid, ids, context={}):
+        if not len(ids):
+            return []
+        
+        res=[]
+        for denominacion_preimpreso_obj in self.browse(cr, uid, ids,context=context):
+            res.append((denominacion_preimpreso_obj.id, str(denominacion_preimpreso_obj.nro_preimpreso) + ' - ' + denominacion_preimpreso_obj.denominacion_pis_id.denominacion))    
+        return res
+
+
     def create(self, cr, uid, vals, context=None):
         preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, 'registro_inicial_preimpreso')
         vals.update({'nro_preimpreso':preimpreso_obj})
@@ -215,6 +226,8 @@ class for_pis_registro_inicial(osv.osv):
         v={}
         secuencia_matriz=[]
         if denominacion_pis_id:
+            if ids:
+                cr.execute('DELETE FROM for_matriz_curricular_formacion WHERE opcion_formativa_id=%s', ids )
             opciones_formativas_ls=self.pool.get('for.estructura_curricular').search(cr, uid,[('opcion_formativa_id','=',denominacion_pis_id)])
             
             
@@ -346,7 +359,7 @@ class for_pis_opciones_formativas(osv.osv):
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
     }
 
-    def name_get(self, cr, uid, ids, context={}):
+    def name_get(self, cr, uid, ids, context=None):
         if not len(ids):
             return []
         

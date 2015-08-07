@@ -77,6 +77,8 @@ class for_pis_sujetos_aprendizaje(osv.osv):
         'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase III'),
         'observaciones': fields.text('Observaciones', help='Observaciones'),
     }
+    _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este participante ya ha sido cargado (cedula repetida)')]
+
     def name_get(self, cr, uid, ids, context={}):
         if not len(ids):
             return []

@@ -244,7 +244,7 @@
 				
                 <!--Buscar ubicacion geografica-->
                 <separator string="Ubicación Administrativa de la Formación" colspan="4"/>					
-                    <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0"/>
+                    <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0" />
                     <field name="municipio_id" on_change="on_change_limpiar_campo('parroquia_id')" domain="[('estado_id','=',[estado_id])]" select="0"/>
 					<field name="parroquia_id" domain="[('municipio_id','=',[municipio_id])]" select="0"/>
 					<field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/>
@@ -254,18 +254,18 @@
 					<field name="nro_preimpreso" select="1" readonly="True"/>
 					<field name="accion_especifica" select="0"/>
 					<field name="modalidad_id" select="0" />
-                    <field name="denominacion_pis_id" select="2" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
-                    <field name="identificador_id" select="2"/>
-					<field name="cantidad_sujetos_programados" select="0"/>
+                    <field name="denominacion_pis_id" select="1" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
+                    <field name="identificador_id" select="0"/>
+					<field name="cantidad_sujetos_programados" select="0" required="1" attrs="{'readonly':[('cantidad_sujetos_enproceso','>',0),('cantidad_sujetos_programados','>',0)]}"/>
                     
                     
 					<!--field name="cantidad_maestros" select="0"/-->
 					<!--field name="fecha_inicio" select="0"/>
 					<field name="fecha_cierre" select="0"/-->
 					<field name="lapso_ejecucion" string="Duración" select="0"/>
-                    <field name="cantidad_sujetos_enproceso" select="0"/>
-                    <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id')" select="0" />
-                    
+                    <field name="cantidad_sujetos_enproceso" select="0" />
+                    <field name="motores_economicos_id" on_change="on_change_limpiar_campo('cadenas_formativas_id1')" select="0" />                            
+
 				<notebook colspan="4">
 				<page string="Contexto Económico">
 					<!--Limpiar campo relacionados-->
@@ -295,7 +295,26 @@
                         <field name="for_sab" select="0"/>
                     </page>
                     <page string="Matriz Curricular">
-                        <field name="matriz_curricular_ids" select="0" nolabel="1"/>                                           
+                        <field name="matriz_curricular_ids" select="0" nolabel="1">
+							<form string="Estructura Curricular">				              
+				                <!--field name="opcion_formativa_id" select="1"/-->
+				                <field name="ec_tema" select="2" readonly="True"/>
+				                <field name="ec_horas" select="0" readonly="True"/>
+				                <!-- separator string="'Observaciones'" colspan="4" readonly="True"/ -->
+				                <field name="ec_observaciones" colspan="2" nolabel="0" select="0" readonly="True"/>
+				                <!-- separator string="'Problema que resuelve'" colspan="4"/ -->
+				                <field name="ec_problema_resuelve" colspan="2" nolabel="0" select="0" readonly="True"/>
+				                <field name="categoria_id" select="0" readonly="True"/>				                
+				            </form>				
+				            <tree string="Estructura Curricular">				               
+				                <field name="ec_tema"/>
+				                <field name="ec_horas"/>
+				                <!--field name="opcion_formativa_id"/-->
+				                <!-- field name="ec_observaciones"/ -->
+				                <!-- field name="ec_problema_resuelve"/ -->
+				                <!-- field name="categoria_id"/ -->
+				            </tree>
+                        </field>                                           
                     </page>
                 </notebook>
             </form>
