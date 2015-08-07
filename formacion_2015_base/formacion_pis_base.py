@@ -128,9 +128,9 @@ class for_pis_registro_inicial(osv.osv):
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual se desarrolla la Formación'),
         'parroquia_id': fields.many2one('for.pis.parroquias','Parroquia', required=True, help='Parroquia en la cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=True, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
-        'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Económico', required=True, help='Sector Económico en el cual se enmarca la Formación'),
-        'area_id': fields.many2one('for.pis.areas_economicas','Area Económica', required=True, help='Area Económica en la cual se enmarca la Formación'),
-        'subarea_id': fields.many2one('for.pis.subareas_economicas','Subarea Económica', required=True, help='Sub Area Económica en la cual se enmarca la Formación'),
+        'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Económico', required=False, help='Sector Económico en el cual se enmarca la Formación'),
+        'area_id': fields.many2one('for.pis.areas_economicas','Area Económica', required=False, help='Area Económica en la cual se enmarca la Formación'),
+        'subarea_id': fields.many2one('for.pis.subareas_economicas','Subarea Económica', required=False, help='Sub Area Económica en la cual se enmarca la Formación'),
         'tipo_procedencia_id': fields.many2one('for.pis.tipos_procedencias','Procedencia de la Formación', required=True, help='Procedencia de la propuesta original de la Formación'),
 
 ##########################################################################################################################################################################################        
@@ -164,8 +164,8 @@ class for_pis_registro_inicial(osv.osv):
         #Separador HORARIO#
         'fecha_inicio': fields.date('Fecha de Inicio',required=False, help='Indique la Fecha de Inicio de la Modalidad'),
         'fecha_cierre': fields.date('Fecha de Cierre',required=False, help='Indique la Fecha de Finalización de la Modalidad'),
-        'hor_inicio': fields.char('Hora de Inicio', size=5, help='Colocar el Horario en que se dictara la Modalidad.(Ej. 7:00am a 11:00am)'),
-        'hor_fin': fields.char('Hora de Fin', size=5, help='Colocar el Horario en que se dictara la Modalidad.(Ej. 7:00am a 11:00am)'),
+        'hor_inicio': fields.float('Hora de Inicio', size=5, help='Colocar el Horario en que se dictara la Modalidad.(Ej. 9:00 a 13:00)'),
+        'hor_fin': fields.float('Hora de Fin', size=5, help='Colocar el Horario en que se dictara la Modalidad.(Ej. 9:00 a 13:00)'),
         #Separador Dias#
         'for_dom': fields.boolean('Dom', help='Domingo'),
         'for_lun': fields.boolean('Lun', help='Lunes'),
@@ -186,7 +186,7 @@ class for_pis_registro_inicial(osv.osv):
         'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
         #campo agregado de 'identificador' de la 'opcion_formativa'
-        'identificador_id': fields.related('denominacion_pis_id','identificador', type='integer',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
+        'identificador_id': fields.related('denominacion_pis_id','identificador', type='char',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
        }
 
@@ -350,14 +350,25 @@ class for_pis_opciones_formativas(osv.osv):
     _name = 'for.pis.opciones_formativas'
     _rec_name='denominacion'
     _columns = {
+        ''
         'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
-        'identificador': fields.integer('Identificador',size=30, help='Código Único Identificador de la Formación'),
+        'identificador': fields.char('Identificador',size=30, help='Código Único Identificador de la Formación'),
         'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
+        'active': fields.boolean('¿activo?', help='¿La Formación se encuentra activa?'),
     }
+    _defaults= {'active':True}
+
+
+    def on_change_limpiar_campo(self, cr, uid, ids, *args):
+        v = {'value':{}}
+        for campo in args:
+            v['value'][campo] = ''
+
+        return v
 
     def name_get(self, cr, uid, ids, context=None):
         if not len(ids):
