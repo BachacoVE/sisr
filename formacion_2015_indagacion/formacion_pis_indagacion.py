@@ -27,7 +27,28 @@ class for_pis_sujetos_aprendizaje(osv.osv):
     """Registro Maestro de Participantes """
     _name = 'for.pis.sujetos_aprendizaje'
     _rec_name = 'apellidos'
+
+
+# funcion que permite actualizar la cantidad de participantes en todas las formaciones
+# Se realiza de forma global sobre todas las formaciones debido a que si se elimina una formacion a un participante
+# esta no se actualizara al guardarla en la base de datos.
+
+    def actualizar_participantes_funtion(self, cr, uid, ids, field_name, arg, context):
+		res={}
+		for i in ids:
+			cr.execute('SELECT DISTINCT numero_id FROM for_pis_participacion_pis WHERE numero_id>0')
+			sql_res = cr.fetchall()
+			res[i] = str(sql_res)
+			formaciones=sql_res
+			for id_formacion in formaciones:
+				cr.execute('SELECT numero_id FROM for_pis_participacion_pis WHERE numero_id=%s',(id_formacion))
+				sql_res2 = cr.fetchall()
+				cantidad_formacion=len(sql_res2)
+				cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion,id_formacion))
+		return res
+
     _columns = {
+	    'actualizar_participantes': fields.function(actualizar_participantes_funtion, method=False, type='char', string='Cantidad de Participantes', store=False, help='Cantidad de Participantes que integran la Formación'),      
         'cedula': fields.char('Cédula de Identidad', size=12, required=True, help='Número de Cédula de Identidad'),
         'nombres': fields.char('1º y 2º Nombres', size=120, required=True, help='Nombres del Participante'),
         'apellidos': fields.char('1º y 2º Apellidos', size=120, required=True, help='Apellidos del Participante'),
