@@ -88,7 +88,9 @@ class for_pis_maestros(osv.osv):
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias', 'maestro_id', 'Asistencias', help='Control de Asistencias a las Formaciones donde participa'),
 		
     }
-    _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este Facilitador ya ha sido cargado (cedula repetida)')]    
+
+    _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este Formador ya ha sido cargado (cedula repetida)')]    
+
 
     def onchange_calcular_edad(self, cr, uid, ids, fecha, context=None):
         born = datetime.strptime(fecha, '%Y-%m-%d')
