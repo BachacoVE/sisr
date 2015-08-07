@@ -17,5 +17,13 @@
         <field name="name">Transcriptor</field>
         <!--<field name="category_id" ref="base.module_category_formacion"/>-->
     </record>
+    <record id="group_for_pis_analista_rrhh" model="res.groups">
+        <field name="name">Analista RRHH</field>
+        <!--<field name="category_id" ref="base.module_category_formacion"/>-->
+    </record>
+    <record id="group_for_pis_jefe_de_formacion" model="res.groups">
+        <field name="name">Jefe de Formacion</field>
+        <!--<field name="category_id" ref="base.module_category_formacion"/>-->
+    </record>
 
 </data></openerp>
