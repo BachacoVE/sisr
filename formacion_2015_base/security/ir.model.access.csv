@@ -10,8 +10,10 @@ access_for_pis_registro_inicial,for.pis.registro_inicial,model_for_pis_registro_
 access_for_pis_cfs,for.pis.cfs,model_for_pis_cfs,base.group_user,1,0,0,0
 access_for_pis_motores_economicos,for.pis.motores_economicos,model_for_pis_motores_economicos,base.group_user,1,0,0,0
 access_for_pis_modalidad,for.pis.modalidad,model_for_pis_modalidad,base.group_user,1,0,0,0
-access_for_pis_cadenas_formativas,for.pis.cadenas_formativas,model_for_pis_cadenas_formativas,base.group_user,1,0,0,0
 access_for_matriz_curricular_formacion,for.matriz_curricular_formacion,model_for_matriz_curricular_formacion,base.group_user,1,0,0,0
+access_for_pis_areas_priorizadas,for.pis.areas_priorizadas,model_for_pis_areas_priorizadas,base.group_user,1,0,0,0
+access_for_pis_calendario,for.pis.calendario,model_for_pis_calendario,base.group_user,0,0,0,0
+access_for_pis_opciones_formativas,for.pis.opciones_formativas,model_for_pis_opciones_formativas,base.group_user,0,0,0,0
 access_ger_for_pis_estados,for.pis.estados,model_for_pis_estados,group_for_pis_gerente_general,1,1,1,1
 access_ger_for_pis_municipios,for.pis.municipios,model_for_pis_municipios,group_for_pis_gerente_general,1,1,1,1
 access_ger_for_pis_parroquias,for.pis.parroquias,model_for_pis_parroquias,group_for_pis_gerente_general,1,1,1,1
@@ -23,8 +25,10 @@ access_ger_for_pis_registro_inicial,for.pis.registro_inicial,model_for_pis_regis
 access_ger_for_pis_motores_economicos,for.pis.motores_economicos,model_for_pis_motores_economicos,group_for_pis_gerente_general,1,1,1,1
 access_ger_for_pis_modalidad,for.pis.modalidad,model_for_pis_modalidad,group_for_pis_gerente_general,1,1,1,1
 access_ger_for_pis_cfs,for.pis.cfs,model_for_pis_cfs,group_for_pis_gerente_general,1,1,1,1
-access_ger_for_pis_cadenas_formativas,for.pis.cadenas_formativas,model_for_pis_cadenas_formativas,group_for_pis_gerente_general,1,1,1,1
 access_ger_for_matriz_curricular_formacion,for.matriz_curricular_formacion,model_for_matriz_curricular_formacion,group_for_pis_gerente_general,1,0,0,0
+access_for_pis_areas_priorizadas,for.pis.areas_priorizadas,model_for_pis_areas_priorizadas,group_for_pis_gerente_general,1,0,0,0
+access_for_pis_calendario,for.pis.calendario,model_for_pis_calendario,group_for_pis_gerente_general,1,0,0,0
+access_for_pis_opciones_formativas,for.pis.opciones_formativas,model_for_pis_opciones_formativas,group_for_pis_gerente_general,1,0,0,0
 access_gln_for_pis_estados,for.pis.estados,model_for_pis_estados,group_for_pis_gerente_linea,1,1,1,0
 access_gln_for_pis_municipios,for.pis.municipios,model_for_pis_municipios,group_for_pis_gerente_linea,1,1,1,0
 access_gln_for_pis_parroquias,for.pis.parroquias,model_for_pis_parroquias,group_for_pis_gerente_linea,1,1,1,0
@@ -36,8 +40,10 @@ access_gln_for_pis_registro_inicial,for.pis.registro_inicial,model_for_pis_regis
 access_gln_for_pis_motores_economicos,for.pis.motores_economicos,model_for_pis_motores_economicos,group_for_pis_gerente_linea,1,1,1,0
 access_gln_for_pis_modalidad,for.pis.modalidad,model_for_pis_modalidad,group_for_pis_gerente_linea,1,1,1,0
 access_gln_for_pis_cfs,for.pis.cfs,model_for_pis_cfs,group_for_pis_gerente_linea,1,1,1,0
-access_gln_for_pis_cadenas_formativas,for.pis.cadenas_formativas,model_for_pis_cadenas_formativas,group_for_pis_gerente_linea,1,1,1,0
 access_gln_for_matriz_curricular_formacion,for.matriz_curricular_formacion,model_for_matriz_curricular_formacion,group_for_pis_gerente_linea,1,0,0,0
+access_for_pis_areas_priorizadas,for.pis.areas_priorizadas,model_for_pis_areas_priorizadas,group_for_pis_gerente_linea,1,0,0,0
+access_for_pis_calendario,for.pis.calendario,model_for_pis_calendario,group_for_pis_gerente_linea,1,0,0,0
+access_for_pis_opciones_formativas,for.pis.opciones_formativas,model_for_pis_opciones_formativas,group_for_pis_gerente_linea,1,0,0,0
 access_usu_for_pis_estados,for.pis.estados,model_for_pis_estados,group_for_pis_usuario,1,1,0,0
 access_usu_for_pis_municipios,for.pis.municipios,model_for_pis_municipios,group_for_pis_usuario,1,1,0,0
 access_usu_for_pis_parroquias,for.pis.parroquias,model_for_pis_parroquias,group_for_pis_usuario,1,1,0,0
@@ -49,8 +55,10 @@ access_usu_for_pis_registro_inicial,for.pis.registro_inicial,model_for_pis_regis
 access_usu_for_pis_motores_economicos,for.pis.motores_economicos,model_for_pis_motores_economicos,group_for_pis_usuario,1,1,0,0
 access_usu_for_pis_modalidad,for.pis.modalidad,model_for_pis_modalidad,group_for_pis_usuario,1,1,0,0
 access_usu_for_pis_cfs,for.pis.cfs,model_for_pis_cfs,group_for_pis_usuario,1,1,0,0
-access_usu_for_pis_cadenas_formativas,for.pis.cadenas_formativas,model_for_pis_cadenas_formativas,group_for_pis_usuario,1,1,0,0
 access_usufor_matriz_curricular_formacion,for.matriz_curricular_formacion,model_for_matriz_curricular_formacion,group_for_pis_usuario,1,0,0,0
+access_for_pis_areas_priorizadas,for.pis.areas_priorizadas,model_for_pis_areas_priorizadas,group_for_pis_usuario,1,0,0,0
+access_for_pis_calendario,for.pis.calendario,model_for_pis_calendario,group_for_pis_usuario,1,0,0,0
+access_for_pis_opciones_formativas,for.pis.opciones_formativas,model_for_pis_opciones_formativas,group_for_pis_usuario,1,0,0,0
 access_tra_for_pis_estados,for.pis.estados,model_for_pis_estados,group_for_pis_transcriptor,1,0,0,0
 access_tra_for_pis_municipios,for.pis.municipios,model_for_pis_municipios,group_for_pis_transcriptor,1,0,0,0
 access_tra_for_pis_parroquias,for.pis.parroquias,model_for_pis_parroquias,group_for_pis_transcriptor,1,0,0,0
@@ -62,5 +70,7 @@ access_for_pis_registro_inicial,for.pis.registro_inicial,model_for_pis_registro_
 access_for_pis_motores_economicos,for.pis.motores_economicos,model_for_pis_motores_economicos,group_for_pis_transcriptor,1,0,0,0
 access_for_pis_modalidad,for.pis.modalidad,model_for_pis_modalidad,group_for_pis_transcriptor,1,0,0,0
 access_for_pis_cfs,for.pis.cfs,model_for_pis_cfs,group_for_pis_transcriptor,1,0,0,0
-access_for_pis_cadenas_formativas,for.pis.cadenas_formativas,model_for_pis_cadenas_formativas,group_for_pis_transcriptor,1,0,0,0
 access_for_matriz_curricular_formacion,for.matriz_curricular_formacion,model_for_matriz_curricular_formacion,group_for_pis_transcriptor,1,0,0,0
+access_for_pis_areas_priorizadas,for.pis.areas_priorizadas,model_for_pis_areas_priorizadas,group_for_pis_transcriptor,1,0,0,0
+access_for_pis_calendario,for.pis.calendario,model_for_pis_calendario,group_for_pis_transcriptor,1,0,0,0
+access_for_pis_opciones_formativas,for.pis.opciones_formativas,model_for_pis_opciones_formativas,group_for_pis_transcriptor,1,0,0,0
