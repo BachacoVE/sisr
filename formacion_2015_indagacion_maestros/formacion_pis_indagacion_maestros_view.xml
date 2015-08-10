@@ -41,11 +41,11 @@
                     <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0">
                         <form string="Formadores">
                             <field name="maestro_id" select="0"/>
-                            <!--field name="numero_id"/-->
+                            <!--<field name="numero_id"/>-->
                         </form>
                         <tree string="Formadores">
                             <field name="maestro_id"/>
-                            <!--field name="numero_id"/-->
+                            <!--<field name="numero_id"/>-->
                         </tree>
                     </field>
                 </page>
