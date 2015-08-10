@@ -44,7 +44,7 @@ class for_pis_sujetos_aprendizaje(osv.osv):
 				cr.execute('SELECT numero_id FROM for_pis_participacion_pis WHERE numero_id=%s',(id_formacion))
 				sql_res2 = cr.fetchall()
 				cantidad_formacion=len(sql_res2)
-				cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion,id_formacion))
+				cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion, id_formacion))
 		return res
 
     _columns = {
