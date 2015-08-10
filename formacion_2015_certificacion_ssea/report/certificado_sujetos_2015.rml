@@ -1,11 +1,19 @@
 <?xml version="1.0"?>
 <document filename="test.pdf">
-  <template pageSize="(792.0,612.0)" title="Test" author="Martin Simon" allowSplitting="20">
+  <template pageSize="(792.0,612.0)" title="Certificado" author="Modificado por César Rodríguez" allowSplitting="20">
     <pageTemplate id="first">
-      <frame id="first" x1="0.0" y1="5.0" width="792" height="601"/>
+      <frame id="first" x1="2.3cm" y1="3cm" width="23.3cm" height="16.4cm" showBoundary="0"/>
+      <pageGraphics>            
+          <image x="0.2cm" y="0cm"  height="612" file="images/certificado_frente.png" />     
+          <!--<image x="0.2cm" y="0cm"  height="612" file="images/certificado_reverso.png" />-->
+          <fill color="#1668B2"/>
+          <setFont name="Helvetica-Bold" size="10"/> 
+          <drawCentredString x="18cm" y="3.1cm">N° Correlativo [[ acsea_certificados_sujetos.correlativo ]]</drawCentredString>   
+      </pageGraphics>
     </pageTemplate>
   </template>
   <stylesheet>
+
     <blockTableStyle id="Standard_Outline">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -18,16 +26,23 @@
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
     </blockTableStyle>
+
     <blockTableStyle id="Tabla3">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
+      <!--
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      -->
     </blockTableStyle>
-    <blockTableStyle id="Tabla4">
-      <blockAlignment value="LEFT"/>
-      <blockValign value="TOP"/>
-      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
-    </blockTableStyle>
+
     <blockTableStyle id="Tabla5">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -144,13 +159,15 @@
     <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="18.0" leading="22" alignment="LEFT"/>
     <paraStyle name="P6" fontName="Helvetica-Oblique" fontSize="15.0" leading="19" alignment="RIGHT"/>
     <paraStyle name="P7" fontName="Helvetica" fontSize="14.0" leading="17"/>
-    <paraStyle name="P8" fontName="Helvetica-BoldOblique" fontSize="18.0" leading="27" alignment="CENTER" textColor="#000000"/>
+    <paraStyle name="P8" fontName="Helvetica-BoldOblique" fontSize="16.0" leading="27" alignment="CENTER" textColor="#000000"/>
     <paraStyle name="P9" fontName="Helvetica-Oblique" fontSize="18.0" leading="22" alignment="CENTER" textColor="#000000"/>
     <paraStyle name="P10" fontName="Helvetica" fontSize="32.0" leading="39"/>
-    <paraStyle name="P11" fontName="Helvetica" fontSize="32.0" leading="39" alignment="CENTER"/>
+    <paraStyle name="P11" fontName="Helvetica-Bold" fontSize="23.0" leading="28" alignment="CENTER"/>
+        <paraStyle name="P111" fontName="Helvetica-Bold" fontSize="23.0" leading="25" alignment="CENTER"/>
+        <paraStyle name="P1112" fontName="Helvetica-Bold" fontSize="100.0" leading="100" leftIndent="100" alignment="CENTER"/>
     <paraStyle name="P12" fontName="Helvetica" fontSize="14.0" leading="17" alignment="CENTER" textColor="#004586"/>
     <paraStyle name="P13" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT"/>
-    <paraStyle name="P14" fontName="Helvetica" fontSize="14.0" leading="17" alignment="CENTER" textColor="#000000"/>
+    <paraStyle name="P14" fontName="Helvetica" fontSize="12.0" leading="17" alignment="CENTER" textColor="#000000"/>
     <paraStyle name="P15" fontName="Helvetica" fontSize="18.0" leading="22" alignment="CENTER" textColor="#000000"/>
     <paraStyle name="P16" fontName="Helvetica-BoldOblique" fontSize="22.0" leading="27" alignment="CENTER" textColor="#004586"/>
     <paraStyle name="P17" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" textColor="#004586"/>
@@ -186,155 +203,163 @@
     <images/>
   </stylesheet>
   <story>
-    <para style="Standard">
-      <font color="white"> </font>
-    </para>
-    <para style="Standard">
-      <font color="white"> </font>
-    </para>
-    <para style="Standard">
-      <font color="white"> </font>
-    </para>
-    <para style="P1">
-      <font color="white"> </font>
-    </para>
-    <para style="P1">
-      <font color="white"> </font>
-    </para>
+
     <para style="P1">[[ repeatIn(objects,'acsea_certificados_sujetos') ]]</para>
-    <blockTable colWidths="619.0,100.0" style="Tabla1">
+
+    <!--
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+  -->
+
+    <blockTable colWidths="6cm,17.3cm" style="Tabla3">
       <tr>
         <td>
-          <para style="P13">
-            <font color="white"> </font>
-          </para>
         </td>
         <td>
-          <para style="P17">[[ acsea_certificados_sujetos.correlativo ]]</para>
+          <para style="P111"> </para>
         </td>
       </tr>
     </blockTable>
-    <para style="P7">
-      <font color="white"> </font>
-    </para>
-    <para style="P7">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="325.0,36.0,433.0" style="Tabla2">
+
+    <blockTable colWidths="6cm,17.3cm" style="Tabla3">
       <tr>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
         </td>
         <td>
-          <para style="P10">A:</para>
-        </td>
-        <td>
-          <para style="P11">[[ acsea_certificados_sujetos.nombres ]]</para>
+          <para style="P111"> </para>
         </td>
       </tr>
     </blockTable>
+
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P111">A:</para>
+        </td>
+      </tr>
+    </blockTable> 
+
+    
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P11">[[ acsea_certificados_sujetos.nombres ]] [[ acsea_certificados_sujetos.apellidos ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
+<!--
     <para style="P2">
       <font color="white"> </font>
     </para>
-    <blockTable colWidths="368.0,406.0" style="Tabla3">
-      <tr>
-        <td>
-          <para style="P11">
-            <font color="white"> </font>
-          </para>
-        </td>
-        <td>
-          <para style="P11">[[ acsea_certificados_sujetos.apellidos ]]</para>
-        </td>
-      </tr>
-    </blockTable>
-    <blockTable colWidths="359.0,55.0,335.0,39.0" style="Tabla4">
-      <tr>
-        <td>
-          <para style="P32"/>
-        </td>
-        <td>
-          <para style="P32"/>
-        </td>
-        <td>
-          <para style="P32"/>
-        </td>
-        <td>
-          <para style="P32"/>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <para style="P11">
-            <font color="white"> </font>
-          </para>
-        </td>
-        <td>
-          <para style="P11">C.I:</para>
-        </td>
-        <td>
-          <para style="P11">[[ acsea_certificados_sujetos.cedula ]]</para>
-        </td>
-        <td>
-          <para style="P11">
-            <font color="white"> </font>
-          </para>
-        </td>
-      </tr>
-    </blockTable>
-    <blockTable colWidths="237.0,549.0" style="Tabla5">
-      <tr>
-        <td>
-          <para style="P36">
-            <!-- font color="white"> </font -->
-          </para>
-        </td>
-        <td>
-          <para style="P37">
-            <!-- font color="white"> </font -->
-          </para>
-        </td>
-      </tr>
-    </blockTable>
-    <blockTable colWidths="237.0,549.0" style="Tabla5">
-      <tr>
-        <td>
-          <para style="P3">
-            <font color="white"> </font>
-          </para>
-        </td>
-        <td>
-          <para style="P8">[[ acsea_certificados_sujetos.denominacion_pis ]]</para>
-        </td>
-      </tr>
-    </blockTable>
-    <para style="P6">
+    <para style="P2">
       <font color="white"> </font>
     </para>
-    <blockTable colWidths="372.0,331.0" style="Tabla6">
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+-->      
+    <!--   cedula  -->
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
       <tr>
         <td>
-          <para style="P4">
-            <font color="white"> </font>
-          </para>
+        </td>
+        <td>
+          <para style="P11">C.I: [[ acsea_certificados_sujetos.cedula ]]</para>
+        </td>
+      </tr>
+
+    </blockTable>
+<!--
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+-->
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P8">[[ acsea_certificados_sujetos.proceso_id.saber ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
+
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
         </td>
         <td>
           <para style="P9">[[ acsea_certificados_sujetos.proceso_id.lugar_fecha ]]</para>
         </td>
       </tr>
     </blockTable>
-    <para style="P5">
-      <font color="white"> </font>
-    </para>
-    <para style="P5">
-      <font color="white"> </font>
-    </para>
-    <para style="P5">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="280.0,237.0,18.0,236.0" style="Tabla7">
+
+
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P111"> </para>
+        </td>
+      </tr>
+    </blockTable>
+
+        <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P111"> </para>
+        </td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="7.5cm,15.8cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P111"> </para>
+        </td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="7cm,7cm,0.5cm,7cm" style="Tabla7">
       <tr>
         <td>
           <para style="P12">
@@ -354,33 +379,13 @@
         </td>
       </tr>
     </blockTable>
-    <para style="P21">
-      <font color="white"> </font>
-    </para>
-    <para style="P21">
-      <font color="white"> </font>
-    </para>
-    <para style="P22">
-      <font color="white"> </font>
-    </para>
+
     <pageBreak/>
-    <para style="P31">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="663.0,107.0" style="Tabla11">
-      <tr>
-        <td>
-          <para style="P33">N° Correlativo</para>
-        </td>
-        <td>
-          <para style="P17">[[ acsea_certificados_sujetos.correlativo ]]</para>
-        </td>
-      </tr>
-    </blockTable>
+
     <blockTable colWidths="768.0" style="Tabla12">
       <tr>
         <td>
-          <para style="P28">Estructura Curricular – 2014</para>
+          <para style="P28">Estructura Curricular – 2015</para>
         </td>
       </tr>
     </blockTable>
@@ -402,23 +407,25 @@
         <blockTable colWidths="602.0,147.0" style="Tabla9">
           <tr>
             <td>
-              <para style="P24">[[ reverso_tematica_ids.ec_tema ]]</para>
+              <para style="P27">[[ reverso_tematica_ids.ec_tema ]]</para>
             </td>
             <td>
-              <para style="P25">[[ reverso_tematica_ids.ec_horas ]]</para>
+              <para style="P27">[[ reverso_tematica_ids.ec_horas ]]</para>
             </td>
           </tr>
         </blockTable>
     </section>
-    <para style="P20">
-      <font color="white"> </font>
-    </para>
-    <para style="P20">
-      <font color="white"> </font>
-    </para>
-    <para style="P20">
-      <font color="white"> </font>
-    </para>
+
+    <blockTable colWidths="6cm,17.3cm" style="Tabla3">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <para style="P111"> </para>
+        </td>
+      </tr>
+    </blockTable>
+
     <blockTable colWidths="541.0,208.0" style="Tabla14">
       <tr>
         <td>
@@ -499,8 +506,6 @@
         </td>
       </tr>
     </blockTable>
-    <para style="P19">
-      <font color="white"> </font>
-    </para>
+
   </story>
 </document>

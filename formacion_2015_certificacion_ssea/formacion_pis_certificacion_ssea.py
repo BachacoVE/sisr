@@ -63,7 +63,7 @@ class for_acsea_certificados_sujetos(osv.osv):
         'fecha_consignacion': fields.datetime('Fecha de Consignación', required=False, help='Fecha de Entrega del Certificado al Participante. Momento en el cual, el Participante firma el Acta/Libro de Entrega, en confirmación de recepción física del cartón'),
         'estatus_certificado': fields.many2one('for.pis.acsea_certificados_estatus', 'Estatus', required=True, help='Estatus del Certificado'),
         'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', help='Formación de cara al cual se Acredita y Certifica al Participante Social en Aprendizaje'),
-        'denominacion_pis': fields.related('proyecto_id', 'denominacion_pis', type='char', relation='for.pis.registro_inicial', string='Formación', store=False, help='Nombre, Título o Denominación de la Formación'),
+        'denominacion_pis': fields.related('proyecto_id', 'denominacion_pis_id', type='many2one', relation='for.pis.opciones_formativas', string='Formación', store=False, help='Nombre, Título o Denominación de la Formación'),
         #'estructura_curricular_ids': fields.one2many('for.estructura_curricular', 'proyecto_id', 'Estructura Curricular', help='Estructura Curricular de la Formación'),
         #'estructura_curricular_ids': fields.related('proyecto_id', 'estructura_curricular_ids', type='one2many', relation='for.pis.registro_inicial'),
         'reverso_tematica_ids': fields.one2many('for.acsea_certificados_reverso', 'certificado_id', 'Estructura Curricular', help='Estructura Curricular de la Formación'),

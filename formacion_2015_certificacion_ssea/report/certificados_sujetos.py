@@ -42,4 +42,5 @@ class parser_certificado_sujetos(report_sxw.rml_parse):
 #menu                  establecer a True para vincular el reporte a un icono (Por defecto: True)
 #keywords              especifica la palabra clave del reporte (Por defecto: client_print_multi)
 
-report_sxw.report_sxw('report.certificado.report', 'for.acsea_certificados_sujetos', 'addons/formacion_pis_certificacion_ssea/report/certificado_sujetos.rml', parser=parser_certificado_sujetos, header=False)
+report_sxw.report_sxw('report.certificado2014', 'for.acsea_certificados_sujetos', 'addons/formacion_2015_certificacion_ssea/report/certificado_sujetos_2014.rml', parser=parser_certificado_sujetos, header=False)
+report_sxw.report_sxw('report.certificado2015', 'for.acsea_certificados_sujetos', 'addons/formacion_2015_certificacion_ssea/report/certificado_sujetos_2015.rml', parser=parser_certificado_sujetos, header=False)
