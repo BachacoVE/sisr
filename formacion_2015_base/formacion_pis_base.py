@@ -251,6 +251,8 @@ class for_pis_registro_inicial(osv.osv):
             
             opciones_formativas_obj=self.pool.get('for.pis.opciones_formativas').browse(cr, uid, denominacion_pis_id)
             
+            #if opciones_formativas_obj.modalidad_id.nombre=='Proyecto Integral Socialista':
+            #	v['estado_id']=opciones_formativas_obj.estado_id.id
             
             v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
             v['lapso_ejecucion']=opciones_formativas_obj.horas
@@ -350,7 +352,7 @@ class for_pis_opciones_formativas(osv.osv):
     _name = 'for.pis.opciones_formativas'
     _rec_name='denominacion'
     _columns = {
-        ''
+        
         'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),

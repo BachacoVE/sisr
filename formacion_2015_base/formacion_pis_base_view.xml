@@ -254,7 +254,7 @@
 					<field name="nro_preimpreso" select="1" readonly="True"/>
 					<field name="accion_especifica" select="0"/>
 					<field name="modalidad_id" select="0" />
-                    <field name="denominacion_pis_id" select="1" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)"/>
+                    <field name="denominacion_pis_id" select="1" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)" domain="['|',('estado_id','=',estado_id),('estado_id','=','')]"/>
                     <field name="identificador_id" select="0"/>
 					<field name="cantidad_sujetos_programados" select="0" required="1" attrs="{'readonly':[('cantidad_sujetos_enproceso','>',0),('cantidad_sujetos_programados','>',0)]}"/>
                     
