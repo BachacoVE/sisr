@@ -227,7 +227,10 @@ class for_pis_registro_inicial(osv.osv):
         secuencia_matriz=[]
         if denominacion_pis_id:
             if ids:
-                cr.execute('DELETE FROM for_matriz_curricular_formacion WHERE opcion_formativa_id=%s', ids )
+            	var=self.pool.get('for.matriz_curricular_formacion')
+            	opciones_clean=var.search(cr, uid, [('opcion_formativa_id','=',ids)])
+            	clean=var.unlink(cr, uid, opciones_clean)
+                #cr.execute('DELETE FROM for_matriz_curricular_formacion WHERE opcion_formativa_id=%s', ids )
             opciones_formativas_ls=self.pool.get('for.estructura_curricular').search(cr, uid,[('opcion_formativa_id','=',denominacion_pis_id)])
             
             
