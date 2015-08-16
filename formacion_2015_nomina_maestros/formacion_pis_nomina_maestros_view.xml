@@ -409,12 +409,13 @@
     <menuitem name="Contratos" id="contratos" parent="menu_for_pis_mae_pago" action="action_for_pis_contratos" sequence="4"/>  -->> 
 <!-- Fin contratos Abril -->
 
-
+<!-- Menu Programado -->
+ <menuitem name="Ejecutado" id="menu_for_pis_ejecutado" parent="formacion_2015_base.menu_for_pis_inicio" action="action_for_pis_mae_asistencias" sequence="2"/>
 
     <!-- Menu Formación/Pago de Maestros -->
     <menuitem name="Pago de Facilitadores" id="menu_for_pis_mae_pago" parent="formacion_2015_base.menu_for_base" sequence="6"/>
     <menuitem name="Contratos" id="contratos" parent="menu_for_pis_mae_pago" action="action_for_pis_contratos" sequence="4"/> 
-    <menuitem name="Asistencias Facilitadores" id="menu_for_pis_mae_asistencias" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_asistencias" sequence="0"/>
+    <!--menuitem name="Asistencias Facilitadores" id="menu_for_pis_mae_asistencias" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_asistencias" sequence="0"/-->
     <menuitem name="Valor Pago Hora Facilitadores" id="menu_for_pis_mae_valor_hora" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_valor_hora" sequence="1"/>
     <menuitem name="Motivos de Falta de Asistencia" id="menu_for_pis_mae_motivos_falta" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_motivos_falta" sequence="2"/>
     <menuitem name="Cuentas Nomina Facilitadores" id="menu_for_pis_mae_cuentas_nomina" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_cuentas_nomina" sequence="3"/>
