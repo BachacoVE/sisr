@@ -281,19 +281,25 @@
                         <!--campo creado por herencia en indagacion_espacios
                         <field name="turno_id" on_change="on_change_turno(turno)" select="0" required="True"/>                                             
                         <separator string="Horario" colspan="4"/-->
-                        <field name="hor_inicio" widget="float_time" select="0"/>
-                        <field name="hor_fin" widget="float_time" select="0"/>
+                        <group string="Información de Fechas de la Formación" col="6" colspan="4">
                         <field name="fecha_inicio" select="0" on_change="on_change_validar_fecha(fecha_inicio,'fecha_inicio')" required="True"/>
                         <field name="fecha_cierre" select="0" on_change="on_change_validar_fecha(fecha_cierre, 'fecha_cierre')" required="True"/>
+                        </group>
                         
-                        <separator string="Dias de Formación" colspan="4"/>
-                        <!--field name="for_dom" select="0"/-->
-                        <field name="for_lun" select="0"/>
-                        <field name="for_mar" select="0"/>
-                        <field name="for_mie" select="0"/>
-                        <field name="for_jue" select="0"/>
-                        <field name="for_vie" select="0"/>
-                        <field name="for_sab" select="0"/>
+                        <group string="Información del Horario de la Formación" col="6" colspan="4">
+                            <field name="horas_dia" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" />
+                            <field name="hor_inicio" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)"/>
+                            <field name="hor_fin" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)"/>
+                            
+                            <separator string="Dias de Formación" colspan="6"/>
+                            <!--field name="for_dom" select="0"/-->
+                            <field name="for_lun" select="0"/>
+                            <field name="for_mar" select="0"/>
+                            <field name="for_mie" select="0"/>
+                            <field name="for_jue" select="0"/>
+                            <field name="for_vie" select="0"/>
+                            <field name="for_sab" select="0"/>
+                        </group>
                     </page>
                     <page string="Matriz Curricular">
                         <field name="matriz_curricular_ids" select="0" nolabel="1">
