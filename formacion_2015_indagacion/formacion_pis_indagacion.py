@@ -36,15 +36,31 @@ class for_pis_sujetos_aprendizaje(osv.osv):
     def actualizar_participantes_funtion(self, cr, uid, ids, field_name, arg, context):
 		res={}
 		for i in ids:
-			cr.execute('SELECT DISTINCT numero_id FROM for_pis_participacion_pis WHERE numero_id>0')
-			sql_res = cr.fetchall()
-			res[i] = str(sql_res)
-			formaciones=sql_res
-			for id_formacion in formaciones:
-				cr.execute('SELECT numero_id FROM for_pis_participacion_pis WHERE numero_id=%s',(id_formacion))
-				sql_res2 = cr.fetchall()
-				cantidad_formacion=len(sql_res2)
-				cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion, id_formacion))
+##################################################################################################################################################################			
+###             Ejecución del conteo de participantes en una formacion, por medio de los metodos ORM, haciendo uso de campos function 						 #####
+###		En la Clase 'for.pis.registro_inicial' existe un campo function, que permite contar la cantidad de participantes relacionados a sí misma en la tabla #####
+###		'for_pis_participacion_pis'. Un campo function se ejecuta cada vez que los Métodos ORM 'create' o 'write' es instanciado sobre el modelo donde se    #####
+###		encuentra. Por lo cual a través de la función que sigue a continuación solo se ejecuta el método write en registro inicial cuando un participante 	 #####
+###		es creado o editado. 																																 #####
+##################################################################################################################################################################
+			var=self.pool.get('for.pis.registro_inicial')
+			reg_ini_ids=var.search(cr, uid, [('id','>',0)])
+			for id_formacion in reg_ini_ids:
+				write_formacion=var.write(cr, uid, id_formacion, res)
+###################################################################################################################################################################
+### 																																							###
+### El código que sigue, resulve la misma funcionalidad de el código anterior, pero a través de sentencias SQL, directamente a la tabla for_pis_registro_inicial###
+### 																																							###
+###################################################################################################################################################################
+			#cr.execute('SELECT DISTINCT numero_id FROM for_pis_participacion_pis WHERE numero_id>0')
+			#sql_res = cr.fetchall()
+			#res[i] = 's'
+			#formaciones=sql_res
+			#for id_formacion in formaciones:
+			#	cr.execute('SELECT numero_id FROM for_pis_participacion_pis WHERE numero_id=%s',(id_formacion))
+			#	sql_res2 = cr.fetchall()
+			#	cantidad_formacion=len(sql_res2)
+			#	cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion, id_formacion))
 		return res
 
     _columns = {
