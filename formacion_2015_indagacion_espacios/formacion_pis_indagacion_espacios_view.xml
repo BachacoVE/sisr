@@ -10,9 +10,9 @@
         <field name="type">form</field>
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
-            <field name="hor_inicio" position="before">
-                <field name="turno_id" select="0"/>
-                <separator string="Horario" colspan="4"/>
+            <field name="horas_dia" position="after">
+                <field name="turno_id" select="0" colspan="3"/>
+                
             </field>
         </field>
     </record>    

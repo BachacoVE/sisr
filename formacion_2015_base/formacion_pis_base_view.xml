@@ -286,10 +286,11 @@
                         <field name="fecha_cierre" select="0" on_change="on_change_validar_fecha(fecha_cierre, 'fecha_cierre')" required="True"/>
                         </group>
                         
-                        <group string="Información del Horario de la Formación" col="6" colspan="4">
-                            <field name="horas_dia" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" />
-                            <field name="hor_inicio" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" />
-                            <field name="hor_fin" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" />
+                        <group string="Información del Horario de la Formación" col="6" colspan="3">
+                            <field name="horas_dia" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" colspan="3"/>
+                            <separator string="Horario" colspan="6"/>
+                            <field name="hor_inicio" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" colspan="3"/>
+                            <field name="hor_fin" widget="float_time" select="0" on_change="on_change_hor_inicio(horas_dia, hor_inicio)" required="1" colspan="3"/>
                             
                             <separator string="Dias de Formación" colspan="6"/>
                             <!--field name="for_dom" select="0"/-->
