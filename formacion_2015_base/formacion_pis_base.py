@@ -270,9 +270,9 @@ class for_pis_registro_inicial(osv.osv):
     def on_change_hor_inicio(self, cr, uid, ids, horas_dia, hor_inicio):
         v = {'value':{}}
         
-        if horas_dia > 4:
-            horas_dia = 4
-            v['value']['horas_dia'] = 4
+        if horas_dia > 5:
+            horas_dia = 5
+            v['value']['horas_dia'] = 5
         
         if horas_dia > 0:
             hor_fin = hor_inicio + horas_dia
