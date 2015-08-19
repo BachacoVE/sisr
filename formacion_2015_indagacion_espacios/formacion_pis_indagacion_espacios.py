@@ -50,29 +50,29 @@ class for_pis_espacios(osv.osv):
     #_rec_name = 'materiales_necesarios'
     #_rec_name = 'observaciones'
     _columns = {
-        'nombre_espacio': fields.char('Nombre del Espacio', size=240, required=True, help='Nombre (Único) que Identifique el Espacio Socialista Integral'),
-        'tipo_espacio_id': fields.many2one('for.pis.tipos_espacios', 'Tipo de Espacio', required=True, help='Tipo de Espacio Socialista Integral'),
-        'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado del país en el que se ubica el Espacio Socialista Integral'),
-        'municipio_id': fields.many2one('for.pis.municipios', 'Municipio', required=True, help='Municipio del país en el que se ubica el Espacio Socialista Integral'),
-        'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia del país en el que se ubica el Espacio Socialista Integral'),
-        'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=True, help='Turno en el cual opera el Espacio Socialista Integral'),
-        'direccion': fields.text('Dirección', size=300, required=True, help='Detalle de la Dirección del Espacio Socialista Integral'),
-        'acceso_terrestre': fields.text('Terrestre', size=1200, required=False, help='Descripción del Acceso Terrestre al Espacio Socialista Integral'),
-        'acceso_fluvial': fields.text('Fluvial', size=1200, required=False, help='Descripción del Acceso Fluvial al Espacio Socialista Integral'),
-        'acceso_areo': fields.text('Aéreo', size=1200, required=False, help='Descripción del Acceso Aéreo al Espacio Socialista Integral'),
-        'contextos_ids': fields.one2many('for.pis.esp_contextos', 'espacio_id', 'Contextos', help='Contextos del Espacio Socialista Integral'),
-        'caracteristicas': fields.text('Características', size=1200, required=True, help='Características del Espacio Socialista Integral'),
-        'personas_maximo': fields.integer('Personas Máximo', size=9, required=True, help='Capacidad Máxima de Personas del Espacio Socialista Integral'),
-        'dotacion_ids': fields.one2many('for.pis.esp_dotacion', 'espacio_id', 'Dotación del Espacio', help='Dotación (Materiales, Herramientas, Equipamiento) del Espacio Socialista Integral'),
-        'innovacion_ids': fields.one2many('for.pis.esp_innovacion', 'espacio_id', 'Niveles de Innovación Tecnológica', help='Niveles de Innovación Tecnológica del Espacio Socialista Integral'),
-        'seguridad_ids': fields.one2many('for.pis.esp_seguridad_laboral', 'espacio_id', 'Seguridad Laboral', help='Niveles de Seguridad Laboral del Espacio Socialista Integral'),
-        'ambiental_ids': fields.one2many('for.pis.esp_equilibrio_ambiental', 'espacio_id', 'Equilibrio Ambiental', help='Niveles de Equilibrio Ambiental del Espacio Socialista Integral'),
-        'pis_ids': fields.one2many('for.pis.esp_pis', 'espacio_id', 'Formación', help='Formaciones que usan el, o se ejecutan en el Espacio Socialista Integral'),
+        'nombre_espacio': fields.char('Nombre del Espacio', size=240, required=True, help='Nombre (Único) que Identifique el Espacio de Formación y Autoformación'),
+        'tipo_espacio_id': fields.many2one('for.pis.tipos_espacios', 'Tipo de Espacio', required=True, help='Tipo de Espacio de Formación y Autoformación'),
+        'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado del país en el que se ubica el Espacio de Formación y Autoformación'),
+        'municipio_id': fields.many2one('for.pis.municipios', 'Municipio', required=True, help='Municipio del país en el que se ubica el Espacio de Formación y Autoformación'),
+        'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia del país en el que se ubica el Espacio de Formación y Autoformación'),
+        'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=True, help='Turno en el cual opera el Espacio de Formación y Autoformación'),
+        'direccion': fields.text('Dirección', size=300, required=True, help='Detalle de la Dirección del Espacio de Formación y Autoformación'),
+        'acceso_terrestre': fields.text('Terrestre', size=1200, required=False, help='Descripción del Acceso Terrestre al Espacio de Formación y Autoformación'),
+        'acceso_fluvial': fields.text('Fluvial', size=1200, required=False, help='Descripción del Acceso Fluvial al Espacio de Formación y Autoformación'),
+        'acceso_areo': fields.text('Aéreo', size=1200, required=False, help='Descripción del Acceso Aéreo al Espacio de Formación y Autoformación'),
+        'contextos_ids': fields.one2many('for.pis.esp_contextos', 'espacio_id', 'Contextos', help='Contextos del Espacio de Formación y Autoformación'),
+        'caracteristicas': fields.text('Características', size=1200, required=True, help='Características del Espacio de Formación y Autoformación'),
+        'personas_maximo': fields.integer('Personas Máximo', size=9, required=True, help='Capacidad Máxima de Personas del Espacio de Formación y Autoformación'),
+        'dotacion_ids': fields.one2many('for.pis.esp_dotacion', 'espacio_id', 'Dotación del Espacio', help='Dotación (Materiales, Herramientas, Equipamiento) del Espacio de Formación y Autoformación'),
+        'innovacion_ids': fields.one2many('for.pis.esp_innovacion', 'espacio_id', 'Niveles de Innovación Tecnológica', help='Niveles de Innovación Tecnológica del Espacio de Formación y Autoformación'),
+        'seguridad_ids': fields.one2many('for.pis.esp_seguridad_laboral', 'espacio_id', 'Seguridad Laboral', help='Niveles de Seguridad Laboral del Espacio de Formación y Autoformación'),
+        'ambiental_ids': fields.one2many('for.pis.esp_equilibrio_ambiental', 'espacio_id', 'Equilibrio Ambiental', help='Niveles de Equilibrio Ambiental del Espacio de Formación y Autoformación'),
+        'pis_ids': fields.one2many('for.pis.esp_pis', 'espacio_id', 'Formación', help='Formaciones que usan el, o se ejecutan en el Espacio de Formación y Autoformación'),
         'factores_internos': fields.text('Factores Internos', size=1200, required=False, help='Facores Internos que interfieren en la Formación'),
         'factores_externos': fields.text('Factores Externos', size=1200, required=False, help='Facores Externos que interfieren en la Formación'),
-        'sugerencias': fields.text('Sugerencias', size=1200, required=False, help='Sugerencias y aportes para fortalecer el Espacio Socialista Integral'),
-        'valoracion_adecuado': fields.text('Espacio Adecuado', size=1200, required=False, help='Valoración del Espacio Socialista Integral (Adecuado)'),
-        'valoracion_inadecuado': fields.text('Espacio Inadecuado', size=1200, required=False, help='Valoración del Espacio Socialista Integral (Adecuado)'),
+        'sugerencias': fields.text('Sugerencias', size=1200, required=False, help='Sugerencias y aportes para fortalecer el Espacio de Formación y Autoformación'),
+        'valoracion_adecuado': fields.text('Espacio Adecuado', size=1200, required=False, help='Valoración del Espacio de Formación y Autoformación (Adecuado)'),
+        'valoracion_inadecuado': fields.text('Espacio Inadecuado', size=1200, required=False, help='Valoración del Espacio de Formación y Autoformación (Adecuado)'),
         'materiales_disponibles': fields.text('Disponibles', size=1200, required=False, help='Materiales, herramientas, equipos, insumos disponibles (en el espacio) para la Formación'),
         'materiales_necesarios': fields.text('Necesarios', size=1200, required=False, help='Materiales, herramientas, equipos, insumos necesarios para la Formación'),
         'observaciones': fields.text('Observaciones', size=1200, required=False, help='Observaciones'),
@@ -96,7 +96,7 @@ class for_pis_registro_inicial_extended(osv.osv):
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
-    	'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=False, help='Turno en el cual opera el Espacio Socialista Integral'),
+    	'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=False, help='Turno en el cual opera el Espacio de Formación y Autoformación'),
     }
 for_pis_registro_inicial_extended()
 ##########################################################################################################################################################################
@@ -109,8 +109,8 @@ class for_pis_tipos_espacios(osv.osv):
     #_rec_name = 'codigo'
     _rec_name = 'tipo_espacio'
     _columns = {
-        'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación del Tipo de Espacio Socialista Integral'),
-        'tipo_espacio': fields.char('Tipo de Espacio', size=60, required=True, help='Nombre del Tipo de Espacio Socialista Integral'),
+        'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación del Tipo de Espacio de Formación y Autoformación'),
+        'tipo_espacio': fields.char('Tipo de Espacio', size=60, required=True, help='Nombre del Tipo de Espacio de Formación y Autoformación'),
     }
 for_pis_tipos_espacios()
 
@@ -143,8 +143,8 @@ class for_pis_esp_contextos(osv.osv):
     _rec_name = 'tipo_contexto_id'
     #_rec_name = 'observaciones'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral que presenta los contextos referidos'),
-        'tipo_contexto_id': fields.many2one('for.pis.tipos_contextos', 'Tipo de Contexto', required=True, help='Tipo de Contexto que presenta el Espacio Socialista Integral'),
+        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio de Formación y Autoformación que presenta los contextos referidos'),
+        'tipo_contexto_id': fields.many2one('for.pis.tipos_contextos', 'Tipo de Contexto', required=True, help='Tipo de Contexto que presenta el Espacio de Formación y Autoformación'),
         'observaciones': fields.char('Observaciones', size=240, required=False, help='Observaciones y/o comentarios adicionales'),
     }
 for_pis_esp_contextos()
@@ -157,7 +157,7 @@ class for_pis_esp_innovacion(osv.osv):
     #_rec_name = 'observaciones'
     _columns = {
         'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacios Socialistas Integrales que presenta los Niveles de Innovación Tecnológica referidos'),
-        'innovacion_tecnologica_id': fields.many2one('for.pis.niveles_innovacion_tecnologica', 'Innovación Tecnología', required=True, help='Nivel de Innovación Tecnológica que presenta el Espacio Socialista Integral'),
+        'innovacion_tecnologica_id': fields.many2one('for.pis.niveles_innovacion_tecnologica', 'Innovación Tecnología', required=True, help='Nivel de Innovación Tecnológica que presenta el Espacio de Formación y Autoformación'),
         'observaciones': fields.char('Observaciones', size=240, required=False, help='Observaciones y/o Comentarios adicionales'),
     }
 for_pis_esp_innovacion()
@@ -182,22 +182,22 @@ class for_pis_esp_pis(osv.osv):
     #_rec_name = 'domingo_uso'
     #_rec_name = 'domingo_horas'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral donde se dan las Formación referidas'),
+        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio de Formación y Autoformación donde se dan las Formación referidas'),
         'pis_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Formación que se desarrolla en, o hace uso de; el espacio referido'),
         'lunes_uso': fields.boolean('Uso Lunes', required=False, help='¿El espacio es usado para la Formación referida, los días lunes?'),
-        'lunes_horas': fields.integer('Horas Lunes', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Lunes, para la Formación referida'),
+        'lunes_horas': fields.integer('Horas Lunes', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Lunes, para la Formación referida'),
         'martes_uso': fields.boolean('Uso Martes', required=False, help='¿El espacio es usado para la Formación referida, los días martes?'),
-        'martes_horas': fields.integer('Horas Martes', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Martes, para la Formación referida'),
+        'martes_horas': fields.integer('Horas Martes', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Martes, para la Formación referida'),
         'miercoles_uso': fields.boolean('Uso Miércoles', required=False, help='¿El espacio es usado para la Formación referida, los días miércoles?'),
-        'miercoles_horas': fields.integer('Horas Miércoles', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Miécoles, para la Formación referida'),
+        'miercoles_horas': fields.integer('Horas Miércoles', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Miécoles, para la Formación referida'),
         'jueves_uso': fields.boolean('Uso Jueves', required=False, help='¿El espacio es usado para la Formación referida, los días jueves?'),
-        'jueves_horas': fields.integer('Horas Jueves', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Jueves, para la Formación referida'),
+        'jueves_horas': fields.integer('Horas Jueves', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Jueves, para la Formación referida'),
         'viernes_uso': fields.boolean('Uso Viernes', required=False, help='¿El espacio es usado para la Formación referida, los días viernes?'),
-        'viernes_horas': fields.integer('Horas Viernes', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Viernes, para la Formación referida'),
+        'viernes_horas': fields.integer('Horas Viernes', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Viernes, para la Formación referida'),
         'sabado_uso': fields.boolean('Uso Sabado', required=False, help='¿El espacio es usado para la Formación referida, los días sabado?'),
-        'sabado_horas': fields.integer('Horas Sabado', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Sábado, para la Formación referida'),
+        'sabado_horas': fields.integer('Horas Sabado', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Sábado, para la Formación referida'),
         'domingo_uso': fields.boolean('Uso Domingo', required=False, help='¿El espacio es usado para la Formación referida, los días domingo?'),
-        'domingo_horas': fields.integer('Horas Domingo', required=False, help='Tiempo total de uso del Espacio Socialista Integral los días Domingo, para la Formación referida'),
+        'domingo_horas': fields.integer('Horas Domingo', required=False, help='Tiempo total de uso del Espacio de Formación y Autoformación los días Domingo, para la Formación referida'),
     }
 for_pis_esp_pis()
 
@@ -210,10 +210,10 @@ class for_pis_esp_dotacion(osv.osv):
     #_rec_name = 'capacidad_operativa'
     #_rec_name = 'observaciones'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios','Espacio', required=True, help='Espacio Socialista Integral que presenta la Dotación referida'),
-        'recurso': fields.char('Recurso', size=120, required=True, help='Recurso con el que está dotado el Espacio Socialista Integral (Equipo, Herramienta, otro)'),
-        'capacidad_instalada': fields.integer('Capacidad Instalada', required=True, help='Capacidad Instalada del Recurso referido en el Espacio Socialista Integral'),
-        'capacidad_operativa': fields.integer('Capacidad Operativa', required=True, help='Capacidad Operativa del Recurso referido en el Espacio Socialista Integral'),
+        'espacio_id': fields.many2one('for.pis.espacios','Espacio', required=True, help='Espacio de Formación y Autoformación que presenta la Dotación referida'),
+        'recurso': fields.char('Recurso', size=120, required=True, help='Recurso con el que está dotado el Espacio de Formación y Autoformación (Equipo, Herramienta, otro)'),
+        'capacidad_instalada': fields.integer('Capacidad Instalada', required=True, help='Capacidad Instalada del Recurso referido en el Espacio de Formación y Autoformación'),
+        'capacidad_operativa': fields.integer('Capacidad Operativa', required=True, help='Capacidad Operativa del Recurso referido en el Espacio de Formación y Autoformación'),
         'observaciones': fields.char('Observaciones', size=240, required=False, help='Observaciones y/o Comentarios adicionales'),
     }
 for_pis_esp_dotacion()
@@ -225,8 +225,8 @@ class for_pis_esp_seguridad_laboral(osv.osv):
     _rec_name = 'seguridad_id'
     #_rec_name = 'condicion'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral que presenta los Niveles de Seguridad Laboral indicados'),
-        'seguridad_id': fields.many2one('for.pis.criterios_seguridad_laboral', 'Criterio de Seguridad', required=True, help='Criterio de Seguridad Laboral que aplica al Espacio Socialista Integral'),
+        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio de Formación y Autoformación que presenta los Niveles de Seguridad Laboral indicados'),
+        'seguridad_id': fields.many2one('for.pis.criterios_seguridad_laboral', 'Criterio de Seguridad', required=True, help='Criterio de Seguridad Laboral que aplica al Espacio de Formación y Autoformación'),
         'condicion': fields.char('Condición', size=240, required=False, help='Condición'),
     }
 for_pis_esp_seguridad_laboral()
@@ -238,8 +238,8 @@ class for_pis_esp_equilibrio_ambiental(osv.osv):
     _rec_name = 'ambiental_id'
     #_rec_name = 'observaciones'
     _columns = {
-        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio Socialista Integral Sujeto de Aprendizaje que presenta los niveles de Equilibrio Ambiental indicados'),
-        'ambiental_id': fields.many2one('for.pis.criterios_equilibrio_ambiental', 'Criterio Ambiental', required=True, help='Criterio de Equilibrio Ambiental que aplica al Espacio Socialista Integral'),
+        'espacio_id': fields.many2one('for.pis.espacios', 'Espacio', required=True, help='Espacio de Formación y Autoformación Sujeto de Aprendizaje que presenta los niveles de Equilibrio Ambiental indicados'),
+        'ambiental_id': fields.many2one('for.pis.criterios_equilibrio_ambiental', 'Criterio Ambiental', required=True, help='Criterio de Equilibrio Ambiental que aplica al Espacio de Formación y Autoformación'),
         'observaciones': fields.char('Observaciones', size=240, required=False, help='Observaciones y/o comentarios adicionales'),
     }
 for_pis_esp_equilibrio_ambiental()
