@@ -209,12 +209,19 @@ class for_pis_registro_inicial(osv.osv):
         return new_id
         
 
-    def on_change_validar_fecha(self, cr, uid, ids, fecha, campo_fecha):
+    def on_change_validar_fecha(self, cr, uid, ids, fecha, campo_fecha, fechainicio):
         v = {'value':{}}
         born = datetime.strptime(fecha, '%Y-%m-%d')
         if born.year != 2015:
             v['value'][campo_fecha] = ''
             v['warning'] = {'title':"Error", 'message':"ERROR: La fecha de las Formaciones debe corresponder año en curso"}
+        
+        if campo_fecha == 'fecha_cierre':
+            born1=datetime.strptime(fecha, '%Y-%m-%d')
+            born2=datetime.strptime(fechainicio, '%Y-%m-%d')
+            if born2 >born1:
+                v['value'][campo_fecha] = ''
+                v['warning'] = {'title':"Error", 'message':"ERROR: La Fecha de Inicio debe ser Menor a la de Cierre"}
         return v
 
     def on_change_limpiar_campo(self, cr, uid, ids, *args):
@@ -377,7 +384,7 @@ class for_pis_opciones_formativas(osv.osv):
         'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
-        'identificador': fields.char('Identificador',size=30, help='Código Único Identificador de la Formación'),
+        'identificador': fields.char('Código',size=30, help='Código Único Identificador de la Formación'),
         'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
@@ -385,6 +392,7 @@ class for_pis_opciones_formativas(osv.osv):
     }
     _defaults= {'active':True}
 
+    _sql_constraints = [('codigo_uniq', 'unique(identificador)', 'Esta Opcion Formativa ya ha sido cargada (Codigo Repetido)')]
 
     def on_change_limpiar_campo(self, cr, uid, ids, *args):
         v = {'value':{}}
