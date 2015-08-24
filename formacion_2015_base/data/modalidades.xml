@@ -10,7 +10,28 @@
         <field name="nombre">Curso</field>
         <field name="descripcion">Tiempo de Ejecución: 40 a 800 horas. Cantidad de Participantes: 15 a 20</field>
         </record>
+
         
+
+
+
+        <record model="for.pis.modalidad" id="mod_Especializacion">
+        <field name="nombre">Especializacion</field>
+        <field name="descripcion">Tiempo de Ejecución: 40 a 800 horas. Cantidad de Participantes: 15 a 20</field>
+        </record>
+
+
+        <record model="for.pis.modalidad" id="mod_Salida_Ocupacional">
+        <field name="nombre">Salida Ocupacional</field>
+        <field name="descripcion">Tiempo de Ejecución: 40 a 800 horas. Cantidad de Participantes: 15 a 20</field>
+        </record>
+
+
+
+
+
+
+
         <record model="for.pis.modalidad" id="mod_diplomado">
         <field name="nombre">Diplomado</field>
         <field name="descripcion">Tiempo de Ejecución: 120 a 200 horas. Cantidad de Participantes: 15 a 20</field>

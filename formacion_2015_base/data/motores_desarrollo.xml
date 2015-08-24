@@ -3,10 +3,30 @@
 	<data noupdate="1">
 	  
 	<!-- Motores Económicos -->
-	<record id="motor_eco_AGR" model="for.pis.motores_economicos">
+	<!--record id="motor_eco_AGR" model="for.pis.motores_economicos">
 		<field name="codigo">AGR</field>
 		<field name="nombre">Agropecuaria y Agroindustria(Alimentos)</field>
+	</record>-->
+
+
+	<record id="motor_eco_AGR" model="for.pis.motores_economicos">
+		<field name="codigo">AGR</field>
+		<field name="nombre">Agrícola</field>
 	</record>
+
+	<record id="motor_eco_MGS" model="for.pis.motores_economicos">
+		<field name="codigo">MGS</field>
+		<field name="nombre">Nuevo Modelo de Gestión</field>
+	</record>
+    
+
+
+
+
+
+
+
+
 
 	<record id="motor_eco_IND" model="for.pis.motores_economicos">
 		<field name="codigo">IND</field>
@@ -17,6 +37,7 @@
 		<field name="codigo">TUR</field>
 		<field name="nombre">Turismo</field>
 	</record>
+
 	<record id="motor_eco_AUT" model="for.pis.motores_economicos">
 		<field name="codigo">AUT</field>
 		<field name="nombre">Automotríz</field>
@@ -31,32 +52,46 @@
 		<field name="codigo">CON</field>
 		<field name="nombre">Construcción</field>
 	</record>
+
 	<record id="motor_eco_TEC" model="for.pis.motores_economicos">
 		<field name="codigo">TEC</field>
 		<field name="nombre">Tecnología</field>
 	</record>
 
-	<record id="motor_eco_TEX" model="for.pis.motores_economicos">
+	<!--record id="motor_eco_TEX" model="for.pis.motores_economicos">
 		<field name="codigo">TEX</field>
 		<field name="nombre">Textíl</field>
+	</record>-->
+
+    <record id="motor_eco_TEX" model="for.pis.motores_economicos">
+		<field name="codigo">TEX</field>
+		<field name="nombre">Confección, Textil y Calzado</field>
 	</record>
+
+
+
+
+
 	
 	<record id="motor_eco_MIN" model="for.pis.motores_economicos">
 		<field name="codigo">MIN</field>
 		<field name="nombre">Minería</field>
 	</record>
+
 	<record id="motor_eco_PTQ" model="for.pis.motores_economicos">
 		<field name="codigo">PTQ</field>
 		<field name="nombre">Petroquímica</field>
 	</record>
+
 	<record id="motor_eco_COM" model="for.pis.motores_economicos">
 		<field name="codigo">COM</field>
 		<field name="nombre">Comunicaciones</field>
 	</record>
-	<record id="motor_eco_MGS" model="for.pis.motores_economicos">
+
+	<!--record id="motor_eco_MGS" model="for.pis.motores_economicos">
 		<field name="codigo">MGS</field>
 		<field name="nombre">Modelos de Gestión</field>
-	</record>
+	</record>-->
 
 	</data>
 </openerp>
