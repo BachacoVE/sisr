@@ -8,7 +8,7 @@
         <field name="model">for.pis.mae_asistencias</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="for.fac_asistencias">
+            <form string="Ejecución de la Formación y Autoformación">
                 <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id" select="1"/>
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
@@ -66,7 +66,7 @@
         <field name="model">for.pis.mae_asistencias</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="for.fac_asistencias">
+            <tree string="Ejecución de la Formación y Autoformación">
                 <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id"/>
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
@@ -85,7 +85,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_mae_asistencias">
-        <field name="name">Asistencias (Facilitadores)</field>
+        <field name="name">Ejecución de la Formación y Autoformación</field>
         <field name="res_model">for.pis.mae_asistencias</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -410,7 +410,7 @@
 <!-- Fin contratos Abril -->
 
 <!-- Menu Programado -->
- <menuitem name="Ejecución de la Formación y Autoformación" id="menu_for_pis_ejecutado" parent="formacion_2015_base.menu_for_pis_inicio" action="action_for_pis_mae_asistencias" sequence="2"/>
+ <menuitem name="Ejecución" id="menu_for_pis_ejecutado" parent="formacion_2015_base.menu_for_pis_inicio" action="action_for_pis_mae_asistencias" sequence="2"/>
 
     <!-- Menu Formación/Pago de Maestros -->
     <menuitem name="Pago de Facilitadores" id="menu_for_pis_mae_pago" parent="formacion_2015_base.menu_for_base" sequence="6"/>

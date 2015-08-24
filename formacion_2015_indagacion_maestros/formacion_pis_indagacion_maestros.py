@@ -92,6 +92,16 @@ class for_pis_maestros(osv.osv):
     _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este Formador ya ha sido cargado (cedula repetida)')]    
 
 
+    def name_get(self, cr, uid, ids, context={}):
+        if not len(ids):
+            return []
+        
+        res=[]
+        for formador in self.browse(cr, uid, ids,context=context):
+            res.append((formador.id, formador.cedula +' - '+ formador.nombres + ' ' + formador.apellidos))    
+        return res
+
+
     def onchange_calcular_edad(self, cr, uid, ids, fecha, context=None):
         born = datetime.strptime(fecha, '%Y-%m-%d')
         today = date.today()
