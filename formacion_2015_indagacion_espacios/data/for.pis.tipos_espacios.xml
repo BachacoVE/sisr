@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!--parentesco-->
+	<record id="tipo_espacio_COM" model="for.pis.tipos_espacios">
+		<field name="codigo">COM</field>
+		<field name="tipo_espacio">Comunidad</field>
+	</record>
+
+	<record id="tipo_espacio_CFS" model="for.pis.tipos_espacios">
+		<field name="codigo">CFS</field>
+		<field name="tipo_espacio">Centro de Formación Socialista</field>
+	</record>
+
+	<record id="tipo_espacio_PSI" model="for.pis.tipos_espacios">
+		<field name="codigo">PSI</field>
+		<field name="tipo_espacio">Empresa de Propiedad Social Indirecta</field>
+	</record>
+
+	<record id="tipo_espacio_PSD" model="for.pis.tipos_espacios">
+		<field name="codigo">PSD</field>
+		<field name="tipo_espacio">Empresa de Propiedad Social Directa</field>
+	</record>
+
+	<record id="tipo_espacio_PUB" model="for.pis.tipos_espacios">
+		<field name="codigo">PUB</field>
+		<field name="tipo_espacio">Empresa Pública</field>
+	</record>
+
+	<record id="tipo_espacio_PRI" model="for.pis.tipos_espacios">
+		<field name="codigo">PRI</field>
+		<field name="tipo_espacio">Empresa Privada</field>
+	</record>
+
+	<record id="tipo_espacio_MIX" model="for.pis.tipos_espacios">
+		<field name="codigo">MIX</field>
+		<field name="tipo_espacio">mixtos</field>
+	</record>
+
+	<record id="tipo_espacio_OTR" model="for.pis.tipos_espacios">
+		<field name="codigo">OTR</field>
+		<field name="tipo_espacio">Otro</field>
+	</record>
+
+	</data>
+</openerp>
+
+
+
+
