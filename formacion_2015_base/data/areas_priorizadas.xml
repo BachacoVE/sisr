@@ -69,7 +69,7 @@
 		<field name="motores_economicos_id" ref="motor_eco_COM"/>
 	</record>
 
-	<record id="area_priorizada_10" model="for.pis.areas_priorizadas">
+	<record id="area_priorizada_12" model="for.pis.areas_priorizadas">
 		<field name="nombre">MODELOS DE GESTIÓN</field>
 		<field name="descripcion">Modelos de Gestión</field>
 		<field name="motores_economicos_id" ref="motor_eco_MGS"/>
