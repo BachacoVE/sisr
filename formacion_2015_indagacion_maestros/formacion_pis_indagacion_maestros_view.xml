@@ -2,6 +2,23 @@
 <openerp>
 <data>
 
+<!--campos creados por herencia desde for_dependencias-->
+    <record model="ir.ui.view" id="view_for_dependencias_form_inherit">
+        <field name="name">for.dependencias.form.inherit</field>
+        <field name="model">for.dependencias</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_base.view_for_dependencias_form"/>
+        <field name="arch" type="xml">
+            <field name="descripcion" position="after">
+                <separator string="Maestros" colspan="4"/>
+                <field name="maestro_ids" select="1" nolabel="1" colspan="4"/>
+            </field>
+        </field>
+    </record>
+
+<!--fin de campos creados por herencia desde for_dependencias-->
+
+
 <!--campos creados por herencia desde formacion_pis_nomina_maestros-->
     <record model="ir.ui.view" id="view_for_pis_mae_asistencias_form_inherit">
         <field name="name">for.pis.mae_asistencias.form.inherit</field>
@@ -144,9 +161,15 @@
 					   
 					</page>
 					<page string="CASEA">
-						<separator string="Areas de Conocimiento para CASEA" colspan="4"/>
-						<field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
+                        <separator string="Areas de Conocimiento para CASEA" colspan="4"/>
+                        <field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+
+                    <page string="Dependencias">
+						<separator string="Dependencias de Adscripción" colspan="4"/>
+						<field name="dependencia_ids" colspan="4" nolabel="1" select="0"/>
 					</page>
+
 					<page string="Participación en Formaciones">
 						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
 						<field name="pis_participado" colspan="4" nolabel="1" select="0"/>

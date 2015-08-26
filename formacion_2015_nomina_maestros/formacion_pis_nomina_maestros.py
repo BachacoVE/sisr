@@ -34,7 +34,7 @@ class for_pis_mae_asistencias(osv.osv):
         #'apellidos': fields.related('maestro_id', 'apellidos', type='char', relation='for.pis.maestros', string='Apellidos', store=False),
 ##################################################################################################################################################
 ##################################################################################################################################################
-
+        'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
         'numero_id': fields.many2one('for.pis.registro_inicial','Formación donde participa', help='Formación donde participa o ha participado'),
         'calendario_id' : fields.many2one('for.pis.calendario', 'Semana Nro', help="Número de la Semana en la que trabajó el Facilitador"),
         'semana_desde': fields.related('calendario_id', 'inicio_semana', type='date', relation='for.pis.calendario', help='Fecha de inicio de la Semana', store=True, string="Desde"),

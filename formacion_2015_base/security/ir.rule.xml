@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+	<!--reglas de usuario-->
+	<!--record id="dependencia_group_for_pis_gerente_general" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_gerente_general</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_gerente_general'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="1"/>
+		<field name="perm_create" eval="1"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record-->
+
+	<!--record id="dependencia_group_for_pis_gerente_linea" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_gerente_linea</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_gerente_linea'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="1"/>
+		<field name="perm_create" eval="1"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record-->
+
+	<record id="dependencia_group_for_pis_usuario" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_usuario</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_usuario'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="1"/>
+		<field name="perm_create" eval="1"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record>
+
+	<record id="dependencia_group_for_pis_transcriptor" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_transcriptor</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_transcriptor'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="1"/>
+		<field name="perm_create" eval="1"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record>
+
+	<!--record id="dependencia_group_for_pis_analista_rrhh" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_analista_rrhh</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_analista_rrhh'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="0"/>
+		<field name="perm_create" eval="0"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record-->
+
+	<record id="dependencia_group_for_pis_jefe_de_formacion" model="ir.rule">
+		<field name="name">dependencia_group_for_pis_jefe_de_formacion</field>
+		<field name="model_id" ref="model_for_pis_registro_inicial"/>
+		<field name="groups" eval="[(4, ref('group_for_pis_jefe_de_formacion'))]"/>
+		<field name="perm_read" eval="1"/>
+		<field name="perm_write" eval="1"/>
+		<field name="perm_create" eval="1"/>
+		<field name="perm_unlink" eval="0"/>
+		<field name="domain_force">[('dependencia_id','=',user.dependencia_id.id)]</field>
+	</record>
+
+
+	</data>
+</openerp>
+
+
+
+

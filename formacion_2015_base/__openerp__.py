@@ -30,6 +30,6 @@
         "init_xml" : ['data/modalidades.xml', 'data/motores_desarrollo.xml', 'data/areas_priorizadas.xml', 'data/sectores_economicos.xml', 'data/areas_economicas.xml', 'data/subareas_economicas.xml', 'data/for.pis.tipos_procedencias.csv', 'data/estados.xml', 'data/municipios.xml', 'data/parroquias.xml', 'data/cfs.xml'],
         "demo_xml" : [ ],
         #"update_xml" : ['security/for_pis_base.xml', 'security/ir.model.access.csv', 'formacion_pis_base_view.xml','data/modalidades.xml', 'data/motores_desarrollo.xml', 'data/cadenas_formativas.xml'],
-        "update_xml" : ['security/for_pis_base.xml', 'security/ir.model.access.csv', 'formacion_pis_base_view.xml', 'data/for.pis.opciones_formativas.csv', 'data/areas_priorizadas.xml', 'sequence_preimpreso.xml','data/for.pis.calendario.csv'],
+        "update_xml" : ['security/for_pis_base.xml', 'security/ir.model.access.csv','security/ir.rule.xml', 'formacion_pis_base_view.xml', 'data/for.pis.opciones_formativas.csv', 'data/areas_priorizadas.xml', 'sequence_preimpreso.xml','data/for.pis.calendario.csv'],
         "installable": True
 }

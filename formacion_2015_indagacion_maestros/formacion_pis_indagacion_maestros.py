@@ -78,7 +78,7 @@ class for_pis_maestros(osv.osv):
         'frecuencia_fase_II': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase II', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase II'),
         'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase III'),
         'observaciones': fields.text('Observaciones', help='Observaciones'),
-		
+		'dependencia_ids': fields.many2many('for.dependencias', 'dependencia_formador_rel','formador_id','dependencia_id', 'Dependencias'),
         
         'horas_trabajadas': fields.integer('Horas Trabajadas', help='Total de horas trabajadas por el Formador'),
         'nivel_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora', help='Valor de la hora (BsF) para pago al Formador'),
@@ -112,6 +112,21 @@ class for_pis_maestros(osv.osv):
             
 for_pis_maestros()
 
+##############################herencia dependencias en registro inicial####################################################
+########################################################################################################################################
+########################################################################################################################################
+class for_dependencias_extended(osv.osv):
+    """Registro de dependencias de los Formadores"""
+    _name = 'for.dependencias'
+    _inherit='for.dependencias'
+    _columns = {
+        'maestro_ids': fields.many2many('for.pis.maestros','dependencia_formador_rel','dependencia_id', 'formador_id','Formadores'),
+        
+    }
+for_dependencias_extended()
+#########################################################################################################################################
+##########################################################################################################################################
+##############################fin herencia dependencias en registro inicial####################################################
 
 ##############################herencia asistencia en formacion_pis_nomina_maestros####################################################
 ########################################################################################################################################
@@ -142,7 +157,7 @@ class for_pis_maestros_registro_inicial_extended(osv.osv):
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
-        'pis_maestro_formacion_ids': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'Formadores en esta Formación', help='Formadores que participan en la Formación'),
+        'pis_maestro_formacion_ids': fields.one2many('for.pis.mae_participacion_pis', 'numero_id', 'Formadores en esta Formación', help='Formadores que participan en la Formación'),
     }
 for_pis_maestros_registro_inicial_extended()
 ##########################################################################################################################################################################3
