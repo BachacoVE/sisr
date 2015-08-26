@@ -23,6 +23,29 @@ from osv import fields,osv
 from openerp.tools.translate import _
 from datetime import date, datetime
 
+class for_dependencias(osv.osv):
+	_name='for.dependencias'
+	_rec_name='dependencia'
+	_columns={
+		'dependencia': fields.char('Dependencia', size=30),
+		'descripcion': fields.text('Descripción'),
+	}
+for_dependencias()
+###########################################################################################################################################################
+###########################################################################################################################################################
+##############                          herencia de res.user                         ######################################################################
+class res_users_extended(osv.osv):
+	_name= 'res.users'
+	_inherit='res.users'
+	_columns={
+		'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
+	}
+res_users_extended()
+###########################################################################################################################################################
+###########################################################################################################################################################
+###########################################################################################################################################################
+###########################################################################################################################################################
+
 class for_pis_estados(osv.osv):
     """Tabla de Referencia de Estados (Geográfico)"""
     _name = 'for.pis.estados'
@@ -31,6 +54,8 @@ class for_pis_estados(osv.osv):
         'codigo': fields.char('Código',size=3,required=True, help='Código del Estado'),
         'estado': fields.char('Estado',size=30,required=True, help='Nombre del Estado'),
     }
+    
+
 for_pis_estados()
 
 class for_pis_municipios(osv.osv):
@@ -190,8 +215,8 @@ class for_pis_registro_inicial(osv.osv):
         #campo agregado de 'identificador' de la 'opcion_formativa'
         'identificador_id': fields.related('denominacion_pis_id','identificador', type='char',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
+       	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia')
        }
-
     def name_get(self, cr, uid, ids, context={}):
         if not len(ids):
             return []
@@ -262,10 +287,8 @@ class for_pis_registro_inicial(osv.osv):
                     'categoria_id':''}))
             
             opciones_formativas_obj=self.pool.get('for.pis.opciones_formativas').browse(cr, uid, denominacion_pis_id)
-            
             #if opciones_formativas_obj.modalidad_id.nombre=='Proyecto Integral Socialista':
             #	v['estado_id']=opciones_formativas_obj.estado_id.id
-            
             v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
             v['lapso_ejecucion']=opciones_formativas_obj.horas
             v['motores_economicos_id']=opciones_formativas_obj.motores_economicos_id.id

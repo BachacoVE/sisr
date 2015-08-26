@@ -12,9 +12,9 @@
                 <!--campos creados por herencia en formacion_pis_indagacion_maestros>
                 <field name="maestro_id" select="1"/>
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
-                <separator colspan="4" />
+                <separator colspan="6" />
                 <field name="numero_id" select="2"/>
-                
+                <field name="dependencia_id" select="0" required="True"/>
                 <group col="6" colspan="4">
                 <separator colspan="6" string="Información de la Fecha"/>
                 <field name="calendario_id" select="2" on_change="on_change_calendario_id(calendario_id)"/>
