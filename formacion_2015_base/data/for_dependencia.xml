@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	  
+<!--Gerencias Regionales-->
+
+	<record id="for_dependencia_REG_AMA" model="for.dependencias">
+		<field name="dependencia">Región Amazonas</field>
+	</record>
+
+	<record id="for_dependencia_REG_ANZ" model="for.dependencias">
+		<field name="dependencia">Región Anzoátegui</field>
+		/record>
+	
+	<record id="for_dependencia_REG_APU" model="for.dependencias">
+		<field name="dependencia">Región Apure</field>
+		/record>
+	
+	<record id="for_dependencia_REG_ARA" model="for.dependencias">
+		<field name="dependencia">Región Aragua</field>
+	</record>
+	
+	<record id="for_dependencia_REG_BAR" model="for.dependencias">
+		<field name="dependencia">Región Barinas</field>
+	</record>
+
+	<record id="for_dependencia_REG_BOL" model="for.dependencias">
+		<field name="dependencia">Región Bolívar</field>
+	</record>
+	
+	<record id="for_dependencia_REG_CAR" model="for.dependencias">
+		<field name="dependencia">Región Carabobo</field>
+	</record>
+	
+	<record id="for_dependencia_REG_COJ" model="for.dependencias">
+		<field name="dependencia">Región Cojedes</field>
+	</record>
+	
+	<record id="for_dependencia_REG_DEA" model="for.dependencias">
+		<field name="dependencia">Región Delta Amacuro</field>
+	</record>
+
+	<record id="for_dependencia_REG_DTO" model="for.dependencias">
+		<field name="dependencia">Región Distrito Capital</field>
+	</record>
+
+	<record id="for_dependencia_REG_FAL" model="for.dependencias">
+		<field name="dependencia">Región Falcón</field>
+	</record>
+
+	<record id="for_dependencia_REG_GUA" model="for.dependencias">
+		<field name="dependencia">Región Guárico</field>
+	</record>
+
+	<record id="for_dependencia_REG_LAR" model="for.dependencias">
+		<field name="dependencia">Región Lara</field>
+	</record>
+
+	<record id="for_dependencia_REG_MER" model="for.dependencias">
+		<field name="dependencia">Región Mérida</field>
+	</record>
+	
+	<record id="for_dependencia_REG_MIR" model="for.dependencias">
+		<field name="dependencia">Región Miranda</field>
+	</record>
+
+	<record id="for_dependencia_REG_MON" model="for.dependencias">
+		<field name="dependencia">Región Monagas</field>
+	</record>
+
+	<record id="for_dependencia_REG_NVA" model="for.dependencias">
+		<field name="dependencia">Región Nueva Esparta</field>
+	</record>
+
+	<record id="for_dependencia_REG_POR" model="for.dependencias">
+		<field name="dependencia">Región Portuguesa</field>
+	</record>
+
+	<record id="for_dependencia_REG_SUC" model="for.dependencias">
+		<field name="dependencia">Región Sucre</field>
+	</record>
+
+	<record id="for_dependencia_REG_TAC" model="for.dependencias">
+		<field name="dependencia">Región Táchira</field>
+	</record>
+
+	<record id="for_dependencia_REG_TRU" model="for.dependencias">
+		<field name="dependencia">Región Trujillo</field>
+	</record>
+	
+	<record id="for_dependencia_REG_VAR" model="for.dependencias">
+		<field name="dependencia">Región Vargas</field>
+	</record>
+
+	<record id="for_dependencia_REG_YAR" model="for.dependencias">
+		<field name="dependencia">Región Yaracuy</field>
+	</record>
+
+	<record id="for_dependencia_REG_ZUL" model="for.dependencias">
+		<field name="dependencia">Región Zulia</field>
+	</record>
+
+
+	<!--Gerencias Generales-->
+
+	<record id="for_dependencia_pre" model="for.dependencias">
+		<field name="dependencia">Presidencia</field>
+	</record>
+
+	<record id="for_dependencia_dej" model="for.dependencias">
+		<field name="dependencia">Dirección Ejecutiva</field>
+	</record>
+
+	<record id="for_dependencia_fpr" model="for.dependencias">
+		<field name="dependencia">Formación Profesional</field>
+	</record>
+
+	<record id="for_dependencia_det" model="for.dependencias">
+		<field name="dependencia">Dirección Estratégica</field>
+	</record>
+
+	<record id="for_dependencia_cni" model="for.dependencias">
+		<field name="dependencia">Cooperación Nacional e Internacional</field>
+	</record>
+
+	<record id="for_dependencia_pep" model="for.dependencias">
+		<field name="dependencia">Producción y Encadenamiento Productivo</field>
+	</record>
+
+	<record id="for_dependencia_tri" model="for.dependencias">
+		<field name="dependencia">Tributos</field>
+	</record>
+
+	<record id="for_dependencia_ifr" model="for.dependencias">
+		<field name="dependencia">Infraestructura</field>
+	</record>
+
+	<record id="for_dependencia_syt" model="for.dependencias">
+		<field name="dependencia">Seguridad y Transporte</field>
+	</record>
+
+	<record id="for_dependencia_rhu" model="for.dependencias">
+		<field name="dependencia">Recursos Humanos</field>
+	</record>
+
+	<record id="for_dependencia_fin" model="for.dependencias">
+		<field name="dependencia">Finanzas </field>
+	</record>
+
+	<record id="for_dependencia_pla" model="for.dependencias">
+		<field name="dependencia">Planificación</field>
+	</record>
+
+	<record id="for_dependencia_adm" model="for.dependencias">
+		<field name="dependencia">Administración</field>
+	</record>
+
+	<record id="for_dependencia_cju" model="for.dependencias">
+		<field name="dependencia">Consultoría Jurídica</field>
+	</record>
+
+	<record id="for_dependencia_crl" model="for.dependencias">
+		<field name="dependencia">Comunicación y Relaciones</field>
+	</record>
+
+	<record id="for_dependencia_mil" model="for.dependencias">
+		<field name="dependencia">Inces Militar</field>
+	</record>
+
+	<record id="for_dependencia_inf" model="for.dependencias">
+		<field name="dependencia">Informática</field>
+	</record>
+
+	<record id="for_dependencia_atn" model="for.dependencias">
+		<field name="dependencia">Atención a la Ciudadanía</field>
+	</record>
+
+	</data>
+</openerp>
