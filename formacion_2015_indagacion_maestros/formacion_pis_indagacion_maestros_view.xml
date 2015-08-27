@@ -27,7 +27,7 @@
         <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_asistencias_form"/>
         <field name="arch" type="xml">
             <field name="numero_id" position="after">
-                <field name="maestro_id" select="1"/>
+                <field name="maestro_id" select="1" required="True" domain="[('pis_participado.numero_id','=',numero_id)]"/>
             </field>
         </field>
     </record>
