@@ -2,8 +2,8 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,base.group_user,1,0,0,0
 access_ger_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_gerente_general,1,1,1,1
 access_gln_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_gerente_linea,1,1,1,0
-access_usu_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_usuario,1,1,0,0
-access_tra_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_transcriptor,1,0,0,0
+access_usu_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_usuario,1,0,0,0
+access_tra_for_pis_maestros,for.pis.maestros,model_for_pis_maestros,formacion_2015_base.group_for_pis_transcriptor,1,0,1,0
 access_for_pis_mae_familiares,for.pis.mae_familiares,model_for_pis_mae_familiares,base.group_user,1,0,0,0
 access_for_pis_mae_redes_sociales,for.pis.mae_redes_sociales,model_for_pis_mae_redes_sociales,base.group_user,1,0,0,0
 access_for_pis_mae_deportes_practicados,for.pis.mae_deportes_practicados,model_for_pis_mae_deportes_practicados,base.group_user,1,0,0,0

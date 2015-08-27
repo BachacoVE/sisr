@@ -29,6 +29,6 @@
         "depends" : ['base','formacion_2015_base','formacion_2015_indagacion', 'formacion_2015_nomina_maestros'],
         "init_xml" : [ ],
         "demo_xml" : [ ],
-        "update_xml" : ['security/ir.model.access.csv', 'data/for.pis.mae_tipos_cuenta.csv', 'formacion_pis_indagacion_maestros_view.xml'],
+        "update_xml" : ['security/ir.model.access.csv', 'data/for.pis.mae_tipos_cuenta.csv', 'security/ir.rule.xml', 'formacion_pis_indagacion_maestros_view.xml'],
         "installable": True
 }
