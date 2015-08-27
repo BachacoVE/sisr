@@ -55,9 +55,9 @@
             <notebook position="inside">
                 <page string="Formadores">
                 <separator string="Formadores en la Formación" colspan="4"/>
-                    <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0">
+                    <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0" required="True">
                         <form string="Formadores">
-                            <field name="maestro_id" select="0"/>
+                            <field name="maestro_id" select="0" />
                             <!--<field name="numero_id"/>-->
                         </form>
                         <tree string="Formadores">
