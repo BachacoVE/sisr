@@ -157,7 +157,7 @@ class for_pis_maestros_registro_inicial_extended(osv.osv):
     #_rec_name = 'denominacion_pis'
     _inherit= 'for.pis.registro_inicial'
     _columns = {
-        'pis_maestro_formacion_ids': fields.one2many('for.pis.mae_participacion_pis', 'numero_id', 'Formadores en esta Formación', help='Formadores que participan en la Formación'),
+        'pis_maestro_formacion_ids': fields.one2many('for.pis.mae_participacion_pis', 'numero_id', 'Formadores en esta Formacion', help='Formadores que participan en la Formación'),
     }
 for_pis_maestros_registro_inicial_extended()
 ##########################################################################################################################################################################3
