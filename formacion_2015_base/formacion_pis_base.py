@@ -142,7 +142,7 @@ class for_pis_registro_inicial(osv.osv):
 
     _columns = {
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
-        'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominación',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
+        'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominacion',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecución',store=True, readonly=True),
         'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio de la formación'),
         'fecha_cierre': fields.datetime('Fecha de Cierre',required=False, help='Fecha de cierre de la formación'),
@@ -154,10 +154,10 @@ class for_pis_registro_inicial(osv.osv):
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual se desarrolla la Formación'),
         'parroquia_id': fields.many2one('for.pis.parroquias','Parroquia', required=True, help='Parroquia en la cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=True, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
-        'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Económico', required=False, help='Sector Económico en el cual se enmarca la Formación'),
-        'area_id': fields.many2one('for.pis.areas_economicas','Area Económica', required=False, help='Area Económica en la cual se enmarca la Formación'),
-        'subarea_id': fields.many2one('for.pis.subareas_economicas','Subarea Económica', required=False, help='Sub Area Económica en la cual se enmarca la Formación'),
-        'tipo_procedencia_id': fields.many2one('for.pis.tipos_procedencias','Procedencia de la Formación', required=True, help='Procedencia de la propuesta original de la Formación'),
+        'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Economico', required=False, help='Sector Económico en el cual se enmarca la Formación'),
+        'area_id': fields.many2one('for.pis.areas_economicas','Area Economica', required=False, help='Area Económica en la cual se enmarca la Formación'),
+        'subarea_id': fields.many2one('for.pis.subareas_economicas','Subarea Economica', required=False, help='Sub Area Económica en la cual se enmarca la Formación'),
+        'tipo_procedencia_id': fields.many2one('for.pis.tipos_procedencias','Procedencia de la Formacion', required=True, help='Procedencia de la propuesta original de la Formación'),
 
 ##########################################################################################################################################################################################        
 #####################################################################################################################################################################################
@@ -208,7 +208,7 @@ class for_pis_registro_inicial(osv.osv):
         'entidad': fields.char('Entidad', size=200, help='Nombre de la Entidad de procedencia de la Formación'), 
         
         #agregando las lineas de motores economicos del modulo arranque2015
-        'motores_economicos_id': fields.related('denominacion_pis_id','motores_economicos_id', type='many2one',relation='for.pis.motores_economicos', string='Motores Económicos', readonly=True, store=True),
+        'motores_economicos_id': fields.related('denominacion_pis_id','motores_economicos_id', type='many2one',relation='for.pis.motores_economicos', string='Motores Economicos', readonly=True, store=True),
         'areas_priorizadas_id': fields.many2one('for.pis.areas_priorizadas', 'Área Priorizada', required=False, help='Area Priorizada'),
         'modalidad_id': fields.related('denominacion_pis_id','modalidad_id',type='many2one',relation='for.pis.modalidad', string='Modalidad', store=True, readonly=True),
         #hasta aqui llegan las lineas agregadas
