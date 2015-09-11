@@ -394,8 +394,8 @@ herencia res.users
                 <field name="lapso_ejecucion" string="Lapso"/>
                 <field name="fecha_inicio" string="Inicio"/>
                 <field name="fecha_cierre" string="Cierre"/>
-                <!--field name="cantidad_sujetos_programados"/-->
-                <field name="cantidad_sujetos_enproceso" string="Participantes"/>
+                <field name="cantidad_sujetos_programados" string="Participantes programados"/>
+                <field name="cantidad_sujetos_enproceso" string="Participantes en proceso"/>
                 <field name="cantidad_maestros" string="Facilitadores"/>
                 <!-- field name="accion_especifica"/ -->
                 <field name="estado_id"/>
