@@ -22,8 +22,24 @@
         <!--<field name="category_id" ref="base.module_category_formacion"/>-->
     </record>
     <record id="group_for_pis_jefe_de_formacion" model="res.groups">
-        <field name="name">Jefe de Formacion</field>
+    <field name="name">Jefe de Formacion</field>
         <!--<field name="category_id" ref="base.module_category_formacion"/>-->
     </record>
+
+    
+    <record id="group_for_pis_programacion_control_sede" model="res.groups">
+        <field name="name">Programación y Control (sede)</field>
+        <!--<field name="category_id" ref="base.module_category_formacion"/>-->
+    </record>
+     <record id="group_for_pis_programacion_control_region" model="res.groups">
+        <field name="name">Programación y Control (region)</field>
+        <!--<field name="category_id" ref="base.module_category_formacion"/>-->
+    </record>
+    
+    <record id="group_for_pis_seguimiento_control_informatica" model="res.groups">
+        <field name="name">Seguimiento y Control (Informatica)</field>
+        <!--<field name="category_id" ref="base.module_category_formacion"/>-->
+    </record>
+
 
 </data></openerp>
