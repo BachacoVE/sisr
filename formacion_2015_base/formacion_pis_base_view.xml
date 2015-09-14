@@ -388,6 +388,7 @@ herencia res.users
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.registro_inicial">
+                <field name="dependencia_id" string="Dependencia"/>
                 <field name="nro_preimpreso" string="Preimpreso"/>
                 <field name="denominacion_pis_id" string="Denominación"/>
                 <field name="identificador_id"/>

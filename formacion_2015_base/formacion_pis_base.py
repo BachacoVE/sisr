@@ -404,7 +404,7 @@ class for_pis_opciones_formativas(osv.osv):
     _name = 'for.pis.opciones_formativas'
     _rec_name='denominacion'
     _columns = {
-        'create_uid': fields.many2one('res.users','creador')
+        'create_uid': fields.many2one('res.users','creador'),
         'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
