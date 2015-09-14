@@ -414,6 +414,31 @@ herencia res.users
         </field>
     </record>
 
+<!--busquedas search-->
+<record model="ir.ui.view" id="view_for_pis_registro_inicial_search">
+   <field name="name">for.pis.registro_inicial.search</field>
+   <field name="model">for.pis.registro_inicial</field>
+   <field name="type">search</field>
+   <field name="arch" type="xml">
+         
+         <search string="Busqueda Rapida">
+              <field name="nro_preimpreso"/>
+              <field name="denominacion_pis_id"/>
+
+<newline/>
+              <!--culmina busqueda search-->
+
+<!--group-->
+
+<group expand="1" string="Agrupado por...">
+    <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_id'}"/>
+    <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
+</group>
+<!--cerrar group-->
+        </search>
+    </field>
+</record>
+
 
     <record model="ir.actions.act_window" id="action_for_pis_registro_inicial">
         <field name="name">Registro Inicial de la Formación y Autoformación</field>
@@ -422,6 +447,7 @@ herencia res.users
         <field name="view_mode">tree,form</field>
 
     </record>
+
         
 
 <!--clase de matriz curricular para opciones formativas. SOLO INFORMATIVO-->

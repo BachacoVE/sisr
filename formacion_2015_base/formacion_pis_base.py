@@ -22,6 +22,7 @@
 from osv import fields,osv
 from openerp.tools.translate import _
 from datetime import date, datetime
+from openerp.exceptions import Warning
 
 class for_dependencias(osv.osv):
 	_name='for.dependencias'
@@ -407,13 +408,27 @@ class for_pis_opciones_formativas(osv.osv):
         'estado_id': fields.many2one('for.pis.estados','Estado', required=False, help='Estado en el cual se desarrolla la Formación'),
         'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista en el cual se desarrolla el CFS'),
         'motores_economicos_id': fields.many2one('for.pis.motores_economicos', 'Motores Económicos', required=True, help='Seleccione cual de los Motores Productivos corresponde la modalidad de Formación: Agroindustria, Hidrocarburo-Petroquímica, Hierro-Acero, Sector Eléctrico, Telecomunicaciones, Turismo, Construcción, Ciencia e Innovación y Diseño, Manufactura-Autopartes, Mineria, Textil-Calzado y Servicios'),
-        'identificador': fields.char('Código',size=30, help='Código Único Identificador de la Formación'),
+        'identificador': fields.char('Código',size=12, help='Código Único Identificador de la Formación de 11 caracteres. Ej: PISMIR00030'),
         'denominacion': fields.char('Denominación',size=240,required=True, help='Denominación del Curso'),
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
         'active': fields.boolean('¿activo?', help='¿La Formación se encuentra activa?'),
     }
     _defaults= {'active':True}
+
+    # Para validar que no pasen de 11 caracteres 
+
+    def _check_length(self, cr, uid, ids, context=None):
+    	
+    	record = self.browse(cr, uid, ids, context=context)
+    	for data in record:
+    		if len(data.identificador) != 11:
+    			return False
+    	return True
+
+    _constraints = [(_check_length, 'ERROR: El codigo debe contener 11 caracteres. Ej: PISMIR00030', ['identificador'])]
+
+    # cierre de la validacion
 
     _sql_constraints = [('codigo_uniq', 'unique(identificador)', 'Esta Opcion Formativa ya ha sido cargada (Codigo Repetido)')]
 
@@ -432,4 +447,7 @@ class for_pis_opciones_formativas(osv.osv):
         for opcion_formativa_obj in self.browse(cr, uid, ids,context=context):
             res.append((opcion_formativa_obj.id, str(opcion_formativa_obj.identificador) + ' - ' + opcion_formativa_obj.denominacion))    
         return res
+
+
+
 for_pis_opciones_formativas()
