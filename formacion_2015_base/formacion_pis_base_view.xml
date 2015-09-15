@@ -724,6 +724,7 @@ herencia res.users
                 <field name="denominacion" select="1"/>
                 <field name="horas" select="0"/>
                 <field name="active" select="0"/>
+                <field name="create_uid" select="0"/>
 
             </form>
         </field>
@@ -736,6 +737,7 @@ herencia res.users
             <tree string="for.pis.opciones_formativas">
                 <!--field name="estado_id"/>
                 <field name="cfs_id"/-->
+                <field name="create_uid" readonly="True" string="Usuario"/>
                 <field name="motores_economicos_id"/>
                 <field name="modalidad_id"/>
                 <field name="identificador"/>
