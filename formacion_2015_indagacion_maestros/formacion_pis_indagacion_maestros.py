@@ -79,6 +79,7 @@ class for_pis_maestros(osv.osv):
         'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase III'),
         'observaciones': fields.text('Observaciones', help='Observaciones'),
 		'dependencia_ids': fields.many2many('for.dependencias', 'dependencia_formador_rel','formador_id','dependencia_id', 'Dependencias'),
+		'apr_generar': fields.boolean('¿Contrato Generado?', help="Se activa automaticamente al generar un contrato"), 
         
         'horas_trabajadas': fields.integer('Horas Trabajadas', help='Total de horas trabajadas por el Formador'),
         'nivel_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora', help='Valor de la hora (BsF) para pago al Formador'),

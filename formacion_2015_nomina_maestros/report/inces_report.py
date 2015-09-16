@@ -24,6 +24,7 @@ class reporte_inces(report_sxw.rml_parse):
             return 'E'
 
     def convertir(self,cedula):
+        self.cr.execute('UPDATE for_pis_maestros SET apr_generar=%s WHERE cedula=%s',(False,cedula))
         return convertir(cedula)
 
-report_sxw.report_sxw('report.contrato.por.hora', 'for.pis.contratos', 'addons/formacion_2015_nomina_maestros/report/por_hora.rml', parser=reporte_inces, header="False")
+report_sxw.report_sxw('report.contrato.por.hora.2015', 'for.pis.contratos', 'addons/formacion_2015_nomina_maestros/report/por_hora.rml', parser=reporte_inces, header="False")

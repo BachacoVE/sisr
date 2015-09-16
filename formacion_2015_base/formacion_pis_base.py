@@ -317,19 +317,6 @@ class for_pis_registro_inicial(osv.osv):
 
 for_pis_registro_inicial()
 
-class for_matriz_curricular_formacion(osv.osv):
-	_name= 'for.matriz_curricular_formacion'
-	_columns = {
-        'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', size=100, help='Opción Formativa al cual se asocia la Estructura Curricular'),
-        'ec_tema': fields.char('Tema', size=250, required=False, help='Tema de la Matriz Curricular del PIS'),
-        'ec_horas': fields.integer('Horas', required=False, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
-        'ec_observaciones': fields.text('Observaciones', required=False, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
-        'ec_problema_resuelve': fields.text('Problema que resuelve', required=False, help='Problema que resuleve el tema identificado en la Matriz Curricular del PIS'),
-        'categoria_id': fields.char('Categoría', size=100, help='Categoría de Contenido en cual se ubica el tema identificado en la Matriz Curricular del PIS'),
-    }
-
-for_matriz_curricular_formacion()	
-
 class for_pis_cfs(osv.osv):
     """Registro Facilitador de Centros Integrales (de Formación) Socialista"""
     _name = 'for.pis.cfs'
@@ -368,7 +355,23 @@ class for_pis_modalidad(osv.osv):
     }
 for_pis_modalidad()
 
-class for_pis_areas_priorizadas(osv.osv):
+class for_matriz_curricular_formacion(osv.osv):
+	_name= 'for.matriz_curricular_formacion'
+	_columns = {
+        'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', size=100, help='Opción Formativa al cual se asocia la Estructura Curricular'),
+        'ec_tema': fields.char('Tema', size=250, required=False, help='Tema de la Matriz Curricular del PIS'),
+        'ec_horas': fields.integer('Horas', required=False, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
+        'ec_observaciones': fields.text('Observaciones', required=False, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
+        'ec_problema_resuelve': fields.text('Problema que resuelve', required=False, help='Problema que resuleve el tema identificado en la Matriz Curricular del PIS'),
+        'categoria_id': fields.char('Categoría', size=100, help='Categoría de Contenido en cual se ubica el tema identificado en la Matriz Curricular del PIS'),
+    }
+
+for_matriz_curricular_formacion()	
+
+#--------------------------------------------------------
+
+class for_pis_areas_priorizadas(osv.osv): #for.pis.cadenas_formativas--->for_pis_areas_priorizadas
+
     """Modalidad"""
     _name = 'for.pis.areas_priorizadas'
     _rec_name = 'nombre'

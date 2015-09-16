@@ -22,9 +22,9 @@
 from report import report_sxw
 import time
 
-class parser_certificado_sujetos(report_sxw.rml_parse):
+class reporte_programado(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context=None):
-        super(parser_certificado_sujetos, self).__init__(cr, uid, name, context=context)
+        super(reporte_programado, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
         })
@@ -42,5 +42,4 @@ class parser_certificado_sujetos(report_sxw.rml_parse):
 #menu                  establecer a True para vincular el reporte a un icono (Por defecto: True)
 #keywords              especifica la palabra clave del reporte (Por defecto: client_print_multi)
 
-report_sxw.report_sxw('report.certificado2014', 'for.acsea_certificados_sujetos', 'addons/formacion_2015_certificacion_ssea/report/certificado_sujetos_2014.rml', parser=parser_certificado_sujetos, header=False)
-report_sxw.report_sxw('report.certificado2015', 'for.acsea_certificados_sujetos', 'addons/formacion_2015_certificacion_ssea/report/certificado_sujetos_2015.rml', parser=parser_certificado_sujetos, header=False)
+report_sxw.report_sxw('report.prog_est.report', 'for.pis.registro_inicial', 'addons/formacion_2015_base/report/reporte_programado.rml', parser=reporte_programado, header=False)
