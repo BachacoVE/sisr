@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+        auto="False" 
+        id="prog_est" 
+        model="for.pis.registro_inicial" 
+        name="prog_est.report" 
+        rml="formacion_2015_base/report/reporte_programado.rml" 
+        string="Programacion Estimada 2015" />
+    </data>
+</openerp>
