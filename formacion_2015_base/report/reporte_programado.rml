@@ -194,10 +194,10 @@
           <para style="P5">[[ registro_inicial.cfs_id.ubicacion ]]</para>
         </td>
         <td>
-  		   <section>
-  		   		<para style="P5">[[ repeatIn(registro_inicial.pis_maestro_formacion_ids, 'l') ]]</para>  		   			
-        		<para style="P5">-. [[ l.maestro_id.nombres ]]</para>     		
-          	</section>
+        <section> 
+        	<para style="P5" textColor="white" backColor="white">[[repeatIn(registro_inicial.pis_maestro_formacion_ids,'l')]]</para>
+      		<para style="P5">* [[ l.maestro_id.nombres ]] [[ l.maestro_id.apellidos ]]</para>     		
+        </section>
         </td>
         <td>
           <para style="P5">[[ registro_inicial.lapso_ejecucion ]]</para>
