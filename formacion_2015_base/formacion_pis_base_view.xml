@@ -718,13 +718,13 @@ herencia res.users
             <form string="for.pis.opciones_formativas">
                 <field name="estado_id" select="1" attrs="{'required':[('modalidad_id','=',5)],'readonly':[('modalidad_id','!=',5)]}"/>
                 <!--field name="cfs_id" select="1" domain="[('estado_id','=',[estado_id])]"/-->
-                <field name="motores_economicos_id" select="0"/>
-                <field name="modalidad_id" select="0" on_change="on_change_limpiar_campo(estado_id)"/>
-                <field name="identificador" select="1"/>
-                <field name="denominacion" select="1"/>
-                <field name="horas" select="0"/>
+                <field name="motores_economicos_id" select="0" required="True"/>
+                <field name="modalidad_id" select="0" on_change="on_change_limpiar_campo(estado_id)" required="True"/>
+                <field name="identificador" select="1" required="True"/>
+                <field name="denominacion" select="1" required="True"/>
+                <field name="horas" select="0" required="True"/>
                 <field name="active" select="0"/>
-                <field name="create_uid" select="0"/>
+                <field name="create_uid" select="0" readonly="True"/>
 
             </form>
         </field>
