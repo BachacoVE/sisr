@@ -14,7 +14,7 @@
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
                 <separator colspan="6" />
                 <!--field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)"/-->
-                <field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)" domain="[('fecha_inicio','&lt;=',(datetime.date.today()).strftime('%Y-%m-%d'))]" />
+                <field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)" domain="[('fecha_inicio','&lt;=',(datetime.date.today()).strftime('%%Y-%%m-%%d'))]" />
                 <field name="dependencia_id" select="0" required="True"/>
                 <group col="6" colspan="4">
                 <separator colspan="6" string="Información de la Fecha"/>
