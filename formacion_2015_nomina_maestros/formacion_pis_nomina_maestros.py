@@ -75,7 +75,11 @@ class for_pis_mae_asistencias(osv.osv):
         'observaciones_domingo': fields.char('Observaciones', size=200,  help='Comentarios adicionales sobre novedades de asistencia el día domingo'),
         'domingo_laborable': fields.boolean('¿Domingo Laborable?'),
 
+        'state': fields.selection([('pagado','Pagado'),('no pagado','No Pagado')], 'Estatus', help='Estatus de Pagado o No Pagado en la asistencia'),
+
 	}
+
+    _defaults = {'state': 'no pagado',}
         
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
         if (horas > 5):

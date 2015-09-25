@@ -58,6 +58,9 @@
                 <field name="observaciones_domingo" select="0" attrs="{'readonly':[('domingo_laborable','!=','1')], 'required':[('domingo_laborable','=','1')]}"/>
                 <field name="domingo_laborable" select="0" invisible="True"/>
                 </group>
+
+                <separator string="Estatus" colspan="6"/>
+                <field name="state" widget="statusbar" />
                 
             </form>
         </field>
@@ -73,6 +76,7 @@
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
                 
                 <field name="numero_id"/>
+                <field name="calendario_id"/>
                 <field name="semana_desde"/>
                 <field name="semana_hasta"/>
                 <field name="horas_lunes"/>
