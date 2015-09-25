@@ -423,12 +423,13 @@ class for_pis_opciones_formativas(osv.osv):
 
     def _check_length(self, cr, uid, ids, context=None):
 ########el siguiente fragmento de la funcion determina si el usuario pertenece al grupo almacenado en la variable "name_group"
-		name_group='Jefe de Formacion'
+######## y lo retira de la restricción
+		name_group='Tecnología Educativa - Sede'
 		user=self.pool.get('res.users').browse(cr, uid, uid)
 		for grupo in user.groups_id:
 			if grupo.name == name_group:
 				return True
-
+############################################################################################################################
 		record = self.browse(cr, uid, ids, context=context)
 		for data in record:
 			if len(data.identificador) != 11:
