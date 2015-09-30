@@ -2,7 +2,25 @@
 <openerp>
 <data>
 
-    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_form">
+<!--aca inicia la herencia desde formacion_2015_nomima_maestros asistencia-->
+    <record model="ir.ui.view" id="view_for_pis_mae_asistencias_form_inherit">
+        <field name="name">for.pis.mae_asistencias.form.inherit</field>
+        <field name="model">for.pis.mae_asistencias</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_asistencias_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                
+                <field name="detalle_consolidado_id" nolabel="0" invisible="1"/>
+
+            </field>
+        </field>
+    </record>
+<!--aca finaliza la herencia desde formacion_2015_nomima_maestros asistencia-->
+
+
+
+        <record model="ir.ui.view" id="view_for_pis_mae_consolidado_form">
         <field name="name">for.pis.mae_consolidado.form</field>
         <field name="model">for.pis.mae_consolidado</field>
         <field name="type">form</field>
@@ -106,6 +124,8 @@
                 <field name="monto_pago" select="0"/>
                 <!-- separator string="'Observaciones'" colspan="4"/ -->
                 <field name="observaciones" colspan="4" nolabel="0" select="0"/>
+                <separator string="Ejecuciones asociadas" colspan="4"/>
+                <field name="asistencias_ids" colspan="4" nolabel="1" select="0" readonly="1"/>
             </form>
         </field>
     </record>

@@ -34,6 +34,13 @@ class for_pis_mae_asistencias(osv.osv):
         #'apellidos': fields.related('maestro_id', 'apellidos', type='char', relation='for.pis.maestros', string='Apellidos', store=False),
 ##################################################################################################################################################
 ##################################################################################################################################################
+################################################################################################################################################
+####################estos campos son declarados en una extencion de herencia en formacion_2015_nomina_consolidado###############################
+#		'detalle_consolidado_id':fields.many2one('for.pis.mae_consolidado_detalle', 'Consolidado'),
+##################################################################################################################################################
+##################################################################################################################################################
+
+
         'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
         'numero_id': fields.many2one('for.pis.registro_inicial','Formación donde participa', help='Formación donde participa o ha participado'),
         'calendario_id' : fields.many2one('for.pis.calendario', 'Semana Nro', help="Número de la Semana en la que trabajó el Facilitador"),
@@ -78,7 +85,7 @@ class for_pis_mae_asistencias(osv.osv):
         'state': fields.selection([('pagado','Pagado'),('no pagado','No Pagado')], 'Estatus', help='Estatus de Pagado o No Pagado en la asistencia'),
 
 	}
-
+    _sql_constraints = [('asistencia_uniq', 'unique(numero_id,calendario_id,maestro_id)', 'Esta asistencia ya ha sido cargada. Formador, formacion y semana repetida')]
     _defaults = {'state': 'no pagado',}
         
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
