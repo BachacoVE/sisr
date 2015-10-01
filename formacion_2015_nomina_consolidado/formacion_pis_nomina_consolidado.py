@@ -23,7 +23,7 @@ from osv import fields,osv
 
 ##########################################################################################################################################
 ##########################################################################################################################################
-###########Herencia desde formacion_2015_nomima_maestros##################################################################################
+###########Herencias desde formacion_2015_nomima_maestros#################################################################################
 class for_pis_mae_asistencias_extended(osv.osv):
     """Registro de Asistencias de los Facilitadores a las Formaciones"""
     _name = 'for.pis.mae_asistencias'
@@ -33,6 +33,27 @@ class for_pis_mae_asistencias_extended(osv.osv):
         'detalle_consolidado_id':fields.many2one('for.pis.mae_consolidado_detalle', 'Consolidado'),
     }
 for_pis_mae_asistencias_extended()
+
+class for_pis_mae_misiona01_extended(osv.osv):
+    _name = 'for.pis.mae_misiona01'
+    #_rec_name = 'maestro_id'
+    _inherit= 'for.pis.mae_misiona01'
+    _columns = {
+        'detalle_pagos_id':fields.many2one('for.pis.mae_consolidado_pagos', 'Consolidado'),
+    }
+for_pis_mae_misiona01_extended()
+
+class for_pis_mae_misiona05_extended(osv.osv):
+    _name = 'for.pis.mae_misiona05'
+    #_rec_name = 'maestro_id'
+    _inherit= 'for.pis.mae_misiona05'
+    _columns = {
+        'detalle_pagos_id':fields.many2one('for.pis.mae_consolidado_pagos', 'Consolidado'),
+    }
+for_pis_mae_misiona05_extended()
+
+
+
 ##########################################################################################################################################
 ##########################################################################################################################################
 ##########################################################################################################################################
@@ -91,5 +112,22 @@ class for_pis_mae_consolidado_detalle(osv.osv):
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias','detalle_consolidado_id','Ejecuciones'),
     }
 for_pis_mae_consolidado_detalle()
+
+
+class for_pis_mae_consolidado_pagos(osv.osv):
+	"""Registro de Detalles de los Reportes de misiona01 y misiona05"""
+	_name = 'for.pis.mae_consolidado_pagos'
+	_rec_name = 'codigo'
+	_columns = {
+		'consolidado_id': fields.many2one('for.pis.mae_consolidado', 'Codigo consolidado', help='Consolidado al cual se le generara los reportes misiona01 y misiona05'),
+		'codigo': fields.char('Codigo', size=12, help='Código del consolidado de misiona'),
+		'tipo_nomina': fields.integer('Tipo de nomina',size=12, help='Tipo de nomina del consolidado de misiona a generar'),
+		'limite_horas': fields.float('limite de horas',size=12, help='limite de horas del consolidado de misiona a generar'),
+		'fecha_inicio': fields.date('Fecha de inicio', help='Fecha de inicio del consolidado de misiona a generar'),
+		'fecha_fin': fields.date('Fecha de fin', help='Fecha de fin del consolidado de misiona a generar'),
+		'misiona01_ids': fields.one2many('for.pis.mae_misiona01','detalle_pagos_id','misiona01',help='Reporte de Misiona01 generado'),
+		'misiona05_ids': fields.one2many('for.pis.mae_misiona05','detalle_pagos_id','misiona05',help='Reporte de Misiona05 generado'),
+    }
+for_pis_mae_consolidado_pagos()
 
 

@@ -16,6 +16,36 @@
             </field>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_misiona01_form_inherit">
+        <field name="name">for.pis.mae_misiona01.form.inherit</field>
+        <field name="model">for.pis.mae_misiona01</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_misiona01_form"/>
+        <field name="arch" type="xml">
+            <field name="tip_nom" position="before">
+                
+                <field name="detalle_pagos_id" nolabel="0" invisible="1"/>
+
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_misiona05_form_inherit">
+        <field name="name">for.pis.mae_misiona05.form.inherit</field>
+        <field name="model">for.pis.mae_misiona05</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_nomina_maestros.view_for_pis_mae_misiona05_form"/>
+        <field name="arch" type="xml">
+            <field name="tip_nom" position="before">
+                
+                <field name="detalle_pagos_id" nolabel="0" invisible="1"/>
+
+            </field>
+        </field>
+    </record>
+
+    
 <!--aca finaliza la herencia desde formacion_2015_nomima_maestros asistencia-->
 
 
@@ -166,6 +196,64 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_pagos_form">
+        <field name="name">for.pis.mae_consolidado_pagos.form</field>
+        <field name="model">for.pis.mae_consolidado_pagos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Detalle Misiona">
+                <field name="consolidado_id" select="1" colspan="2"/>
+                <field name="codigo" select="1" colspan="2"/>
+                <field name="tipo_nomina" select="0" colspan="2"/>
+                <field name="limite_horas" select="0" colspan="2"/>
+                <field name="fecha_inicio" select="0" colspan="2"/>
+                <field name="fecha_fin" select="0" colspan="2"/>
+                <separator string="reporte de misiona01" colspan="4"/>
+                <field name="misiona01_ids" select="0" colspan="4" nolabel="1" readonly="1">
+                    <tree>
+                        <field name="tip_nom"/>
+                        <field name="cedula"/>
+                        <field name="nombre"/>
+                    </tree>
+                </field>
+                <separator string="reporte de misiona05" colspan="4"/>
+                <field name="misiona05_ids" select="0" colspan="4"  nolabel="1" readonly="1">  
+                    <tree>
+                        <field name="tip_nom"/>
+                        <field name="cedula"/>
+                        
+                    </tree> 
+                </field>             
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_pagos_tree">
+        <field name="name">for.pis.mae_consolidado_pagos.tree</field>
+        <field name="model">for.pis.mae_consolidado_pagos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Detalle Misiona">
+                <field name="consolidado_id"/>
+                <field name="codigo"/>
+                <field name="tipo_nomina"/>
+                <field name="limite_horas"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>              
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado_pagos">
+        <field name="name">Detalles de Consolidados de Misiona</field>
+        <field name="res_model">for.pis.mae_consolidado_pagos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
     <!-- Menu Formación/Pago de Maestros -->
     <!-- menuitem name="Pago de Maestros" id="menu_for_pis_mae_pago" parent="formacion_2015_base.menu_for_base" sequence="4"/ -->
     
@@ -174,7 +262,7 @@
     <!-- menuitem name="Cuentas Nomina Maestros" id="menu_for_pis_mae_cuentas_nomina" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_cuentas_nomina" sequence="2"/ -->
     <!-- menuitem name="Misiona01" id="menu_for_pis_mae_misiona01" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona01" sequence="3"/ -->
     <!-- menuitem name="Misiona05" id="menu_for_pis_mae_misiona05" parent="menu_for_pis_mae_pago" action="action_for_pis_mae_misiona05" sequence="4"/ --> 
-
+    <menuitem name="Consolidados misiona" id="menu_for_pis_mae_consolidado_pagos" parent="formacion_2015_nomina_maestros.menu_for_pis_mae_pago" action="action_for_pis_mae_consolidado_pagos" sequence="7"/>
     <menuitem name="Consolidados" id="menu_for_pis_mae_consolidado" parent="formacion_2015_nomina_maestros.menu_for_pis_mae_pago" action="action_for_pis_mae_consolidado" sequence="10"/>
     <menuitem name="Detalles de Consolidados" id="menu_for_pis_mae_consolidado_detalle" parent="formacion_2015_nomina_maestros.menu_for_pis_mae_pago" action="action_for_pis_mae_consolidado_detalle" sequence="20"/>
 
