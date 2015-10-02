@@ -207,7 +207,7 @@ class for_pis_mae_misiona01(osv.osv):
         'num_cta': fields.char('num_cta',size=20, required=True, help='num_cta : char(20)'),
         'cod_bco': fields.integer('cod_bco', required=True, help='cod_bco : smallint'),
         'cod_age': fields.integer('cod_age', required=True, help='cod_age : smallint'),
-        'usuario': fields.char('hor_usu', size=10, required=True, help='usuario : char(10)'),
+        'usuario': fields.char('ususario', size=10, required=True, help='usuario : char(10)'),
         'fec_usu': fields.date('fec_usu', required=True),
         'hor_usu': fields.char('hor_usu', size=10, required=True, help='hor_usu : char(10)'),
         'cor_amo': fields.integer('cor_amo', required=True, help='cor_amo : integer'),
