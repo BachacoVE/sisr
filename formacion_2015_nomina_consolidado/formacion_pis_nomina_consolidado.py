@@ -120,7 +120,7 @@ class for_pis_mae_consolidado_pagos(osv.osv):
 	_rec_name = 'codigo'
 	_columns = {
 		'consolidado_id': fields.many2one('for.pis.mae_consolidado', 'Codigo consolidado', help='Consolidado al cual se le generara los reportes misiona01 y misiona05'),
-		'codigo': fields.char('Codigo', size=12, help='Código del consolidado de misiona'),
+		'codigo': fields.integer('Codigo', help='Código del consolidado de misiona'),
 		'tipo_nomina': fields.integer('Tipo de nomina',size=12, help='Tipo de nomina del consolidado de misiona a generar'),
 		'limite_horas': fields.float('limite de horas',size=12, help='limite de horas del consolidado de misiona a generar'),
 		'fecha_inicio': fields.date('Fecha de inicio', help='Fecha de inicio del consolidado de misiona a generar'),
