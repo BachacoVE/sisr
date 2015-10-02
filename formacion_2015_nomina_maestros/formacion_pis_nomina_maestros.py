@@ -85,7 +85,7 @@ class for_pis_mae_asistencias(osv.osv):
         'state': fields.selection([('pagado','Pagado'),('no pagado','No Pagado')], 'Estatus', help='Estatus de Pagado o No Pagado en la asistencia'),
 
 	}
-    _sql_constraints = [('asistencia_uniq', 'unique(numero_id,calendario_id,maestro_id)', 'Esta asistencia ya ha sido cargada. Formador, formacion y semana repetida')]
+    #_sql_constraints = [('asistencia_uniq', 'unique(numero_id,calendario_id,maestro_id)', 'Esta asistencia ya ha sido cargada. Formador, formacion y semana repetida')]
     _defaults = {'state': 'no pagado',}
         
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
