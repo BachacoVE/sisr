@@ -68,8 +68,10 @@ class for_pis_mae_consolidado(osv.osv):
         'cfs_id': fields.many2one('for.pis.cfs','CFS', required=False, help='Centro de Formación Socialista al cual se aplica la consolidación'),
         'numero_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se le Consolida la Asistencia y Pagos de los Facilitadores que participan en él'),
         'maestro_id': fields.many2one('for.pis.maestros','Facilitador', help='Facilitador al cual se le realiza el computo de total de horas trabajadas y monto del pago'),
-        'consolidado_desde': fields.datetime('Desde', help='Fecha de inicio del período de consolidación de asistencias y pagos'),
-        'consolidado_hasta': fields.datetime('Hasta', help='Fecha de culminación del período de consolidación de asistencias y pagos'),
+        'semana_desde_id': fields.many2one('for.pis.calendario', 'Semana desde', help='Seleccione el numero de semana desde donde se generara el consolidado'),
+        'consolidado_desde': fields.related('semana_desde_id', 'inicio_semana', type='date', relation='for.pis.calendario', string='Desde'),
+        'semana_hasta_id': fields.many2one('for.pis.calendario', 'Semana hasta', help='Seleccione el numero de semana hasta donde se generara el consolidado'),
+        'consolidado_hasta': fields.related('semana_hasta_id', 'final_semana', type='date', relation='for.pis.calendario', string='Hasta'),
         'observaciones': fields.text('Observaciones', help='Observaciones y comentarios importantes o adicionales acerca de la generación del Consolidado'),
         'responsable_1': fields.many2one('res.users','Responsable 1', help='Identificación (Nombre y Apellido) del Usuario Responsable (1) de avalar el Consolidado'),
         'responsable_1_aval': fields.boolean('Conforme 1', help='Indica si el responsable (1) avala o da conformidad a los datos presentes en el reporte consolidado (Operación post-generación y revisión del reporte).'),
@@ -83,6 +85,16 @@ class for_pis_mae_consolidado(osv.osv):
         'estatus': fields.char('Estatus', size=3, required=False, help='Estado en el cual se encuentra el reporte Consolidado de Asistencias y Pagos a Facilitadores'),
         'detalle_ids': fields.one2many('for.pis.mae_consolidado_detalle','consolidado_id','Detalle', help='Detalle del Reporte Consolidado'),
     }
+
+    def on_change_mostrar_fecha(self, cr, uid, ids, campo, dato):
+        v={}
+        fecha=self.pool.get('for.pis.calendario').browse(cr, uid , dato)
+        if campo=='semana_desde_id':
+            v['consolidado_desde']=fecha.inicio_semana
+        elif campo=='semana_hasta_id':
+            v['consolidado_hasta']=fecha.final_semana
+        return {'value': v}
+
 for_pis_mae_consolidado()
 
 class for_pis_mae_consolidado_detalle(osv.osv):

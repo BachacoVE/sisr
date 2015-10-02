@@ -61,8 +61,10 @@
                 <!-- field name="cfs_id" select="0" string="CFS" domain="[('estado_id','=',[estado_id])]"/ -->
                 <!-- field name="maestro_id" select="0"/ -->     
                 <!-- field name="numero_id" select="0" colspan="4" domain="[('estado_id','=',[estado_id])]"/ -->
-                <field name="consolidado_desde" select="0"/>
-                <field name="consolidado_hasta" select="0"/>
+                <field name="semana_desde_id" select="0" on_change="on_change_mostrar_fecha('semana_desde_id',semana_desde_id)"/>
+                <field name="semana_hasta_id" select="0" on_change="on_change_mostrar_fecha('semana_hasta_id',semana_hasta_id)"/>
+                <field name="consolidado_desde" readonly="1" select="0"/>
+                <field name="consolidado_hasta" readonly="1" select="0"/>
 
                 <notebook colspan="4">
 					<page string="Detalle">
