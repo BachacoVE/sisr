@@ -69,9 +69,9 @@ class for_pis_mae_consolidado(osv.osv):
         'numero_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se le Consolida la Asistencia y Pagos de los Facilitadores que participan en él'),
         'maestro_id': fields.many2one('for.pis.maestros','Facilitador', help='Facilitador al cual se le realiza el computo de total de horas trabajadas y monto del pago'),
         'semana_desde_id': fields.many2one('for.pis.calendario', 'Semana desde', help='Seleccione el numero de semana desde donde se generara el consolidado'),
-        'consolidado_desde': fields.related('semana_desde_id', 'inicio_semana', type='date', relation='for.pis.calendario', string='Desde',store=True),
+        'consolidado_desde': fields.related('semana_desde_id', 'inicio_semana', type='date', relation='for.pis.calendario', string='Desde', store=True),
         'semana_hasta_id': fields.many2one('for.pis.calendario', 'Semana hasta', help='Seleccione el numero de semana hasta donde se generara el consolidado'),
-        'consolidado_hasta': fields.related('semana_hasta_id', 'final_semana', type='date', relation='for.pis.calendario', string='Hasta',store=True),
+        'consolidado_hasta': fields.related('semana_hasta_id', 'final_semana', type='date', relation='for.pis.calendario', string='Hasta', store=True),
         'observaciones': fields.text('Observaciones', help='Observaciones y comentarios importantes o adicionales acerca de la generación del Consolidado'),
         'responsable_1': fields.many2one('res.users','Responsable 1', help='Identificación (Nombre y Apellido) del Usuario Responsable (1) de avalar el Consolidado'),
         'responsable_1_aval': fields.boolean('Conforme 1', help='Indica si el responsable (1) avala o da conformidad a los datos presentes en el reporte consolidado (Operación post-generación y revisión del reporte).'),
@@ -84,6 +84,7 @@ class for_pis_mae_consolidado(osv.osv):
         'responsable_3_fecha': fields.datetime('Fecha 3', help='Fecha en la cual el Responsable 3 realiza el aval o conformidad del contenido del reporte consolidado'),
         'estatus': fields.char('Estatus', size=3, required=False, help='Estado en el cual se encuentra el reporte Consolidado de Asistencias y Pagos a Facilitadores'),
         'detalle_ids': fields.one2many('for.pis.mae_consolidado_detalle','consolidado_id','Detalle', help='Detalle del Reporte Consolidado'),
+    	'limite_horas': fields.float('limite de horas',size=12, help='limite de horas del consolidado de misiona a generar'),
     }
 
     def on_change_mostrar_fecha(self, cr, uid, ids, campo, dato):
@@ -134,12 +135,17 @@ class for_pis_mae_consolidado_pagos(osv.osv):
 		'consolidado_id': fields.many2one('for.pis.mae_consolidado', 'Codigo consolidado', help='Consolidado al cual se le generara los reportes misiona01 y misiona05'),
 		'codigo': fields.integer('Codigo de pago', help='Código del consolidado de misiona'),
 		'tipo_nomina': fields.integer('Tipo de nomina',size=12, help='Tipo de nomina del consolidado de misiona a generar'),
-		'limite_horas': fields.float('limite de horas',size=12, help='limite de horas del consolidado de misiona a generar'),
+		'limite_horas': fields.related('consolidado_id', 'limite_horas', type='float', relation='for.pis.mae_consolidado', string='limite de horas', store=True),
 		'fecha_inicio': fields.date('Fecha de inicio', help='Fecha de inicio del consolidado de misiona a generar'),
 		'fecha_fin': fields.date('Fecha de fin', help='Fecha de fin del consolidado de misiona a generar'),
 		'misiona01_ids': fields.one2many('for.pis.mae_misiona01','detalle_pagos_id','misiona01',help='Reporte de Misiona01 generado'),
 		'misiona05_ids': fields.one2many('for.pis.mae_misiona05','detalle_pagos_id','misiona05',help='Reporte de Misiona05 generado'),
-    }
+	}
+
+	def on_change_limite_horas(self, cr, uid, ids, consolidado):
+		consolidado=self.pool.get('for.pis.mae_consolidado').browse(cr, uid, consolidado)
+		return {'value':{'limite_horas':consolidado.limite_horas}}
+
 for_pis_mae_consolidado_pagos()
 
 
