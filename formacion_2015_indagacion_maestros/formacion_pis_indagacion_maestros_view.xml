@@ -168,7 +168,7 @@
 
                     <page string="Dependencias">
 						<separator string="Dependencias de Adscripción" colspan="4"/>
-						<field name="dependencia_ids" colspan="4" nolabel="1" select="0"/>
+						<field name="dependencia_ids" colspan="4" nolabel="1" select="0" required="True"/>
 					</page>
 
 					<page string="Participación en Formaciones">
