@@ -10,8 +10,7 @@
 			<form string="for.Participante">
 				<separator string="Datos Básicos" colspan="4"/>
 				<field name="cedula" select="1"/>
-                <field name="actualizar_participantes" select="1" invisible="1"/>
-				<field name="nombres" select="2"/>
+                <field name="nombres" select="2"/>
 				<field name="apellidos" select="0"/>
 				<field name="nacionalidad" select="0"/>
 				<field name="fecha_nacimiento" select="0" on_change="onchange_calcular_edad(fecha_nacimiento, context)"/>
