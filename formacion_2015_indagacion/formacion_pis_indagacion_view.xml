@@ -91,7 +91,7 @@
 					</page>
 					<page string="Participación en Formación">
 						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
-						<field name="pis_participado" colspan="4" nolabel="1" select="0">
+						<field name="pis_participado" colspan="4" required="True" nolabel="1" select="0">
                             <form string="Participación">
                                 <!--field name="sujeto_id"/-->
                                 <field name="numero_id"/>

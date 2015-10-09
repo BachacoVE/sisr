@@ -88,34 +88,28 @@ class for_pis_sujetos_aprendizaje(osv.osv):
 ###        es creado o editado.                                                                                                                                  #####
 ##################################################################################################################################################################
     def create(self, cr, uid, vals, context=None):
-        formacion=self.pool.get('for.pis.registro_inicial')
         new_id = super(for_pis_sujetos_aprendizaje, self).create(cr, uid, vals, context=None)
         res={}
-       
-
-        if vals['pis_participado']:
+        if 'pis_participado' in vals:
             for registro_formacion in vals['pis_participado']:
                 if registro_formacion[0]==0:
                     id_formacion=registro_formacion[2]['numero_id']
-                    formacion.write(cr, uid, id_formacion, res)                    
+                    self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res)                    
         return new_id
 
     def write(self, cr, uid, ids, vals, context=None):
         res={}
-        formacion=self.pool.get('for.pis.registro_inicial')
-        if vals['pis_participado']:
+        id_formacion=[]
+        if 'pis_participado' in vals:
             for registro_formacion in vals['pis_participado']:
-                if registro_formacion[0]==0 or registro_formacion[0]==1:
-                    new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
-                    id_formacion=registro_formacion[2]['numero_id']
-                    formacion.write(cr, uid, id_formacion, res)                    
-                elif registro_formacion[0]==2:
-                    id_formacion=self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id
-                    new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
-                    formacion.write(cr, uid, id_formacion, res)
-                else:
-                    new_id = super(for_pis_sujetos_aprendizaje, self).create(cr, uid, vals, context=None)     
+                if registro_formacion[0]==0:
+                    id_formacion.append(registro_formacion[2]['numero_id'])
+                elif registro_formacion[0]==2 or registro_formacion[0]==1:
+                    id_formacion.append(self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id)
+        new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
+        self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res) 
         return new_id
+
 
 
     def name_get(self, cr, uid, ids, context={}):
