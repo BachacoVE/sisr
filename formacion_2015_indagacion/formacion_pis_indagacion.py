@@ -26,45 +26,8 @@ from dateutil import parser
 class for_pis_sujetos_aprendizaje(osv.osv):
     """Registro Maestro de Participantes """
     _name = 'for.pis.sujetos_aprendizaje'
-    _rec_name = 'apellidos'
-
-
-# funcion que permite actualizar la cantidad de participantes en todas las formaciones
-# Se realiza de forma global sobre todas las formaciones debido a que si se elimina una formacion a un participante
-# esta no se actualizara al guardarla en la base de datos.
-
-    def actualizar_participantes_funtion(self, cr, uid, ids, field_name, arg, context):
-		res={}
-		for i in ids:
-##################################################################################################################################################################			
-###             Ejecución del conteo de participantes en una formacion, por medio de los metodos ORM, haciendo uso de campos function 						 #####
-###		En la Clase 'for.pis.registro_inicial' existe un campo function, que permite contar la cantidad de participantes relacionados a sí misma en la tabla #####
-###		'for_pis_participacion_pis'. Un campo function se ejecuta cada vez que los Métodos ORM 'create' o 'write' es instanciado sobre el modelo donde se    #####
-###		encuentra. Por lo cual a través de la función que sigue a continuación solo se ejecuta el método write en registro inicial cuando un participante 	 #####
-###		es creado o editado. 																																 #####
-##################################################################################################################################################################
-			var=self.pool.get('for.pis.registro_inicial')
-			reg_ini_ids=var.search(cr, uid, [('id','>',0)])
-			for id_formacion in reg_ini_ids:
-				write_formacion=var.write(cr, uid, id_formacion, res)
-###################################################################################################################################################################
-### 																																							###
-### El código que sigue, resulve la misma funcionalidad de el código anterior, pero a través de sentencias SQL, directamente a la tabla for_pis_registro_inicial###
-### 																																							###
-###################################################################################################################################################################
-			#cr.execute('SELECT DISTINCT numero_id FROM for_pis_participacion_pis WHERE numero_id>0')
-			#sql_res = cr.fetchall()
-			#res[i] = 's'
-			#formaciones=sql_res
-			#for id_formacion in formaciones:
-			#	cr.execute('SELECT numero_id FROM for_pis_participacion_pis WHERE numero_id=%s',(id_formacion))
-			#	sql_res2 = cr.fetchall()
-			#	cantidad_formacion=len(sql_res2)
-			#	cr.execute('UPDATE for_pis_registro_inicial SET cantidad_sujetos_enproceso=%s WHERE id=%s',(cantidad_formacion, id_formacion))
-		return res
-
+    _rec_name = 'cedula'
     _columns = {
-	    'actualizar_participantes': fields.function(actualizar_participantes_funtion, method=False, type='char', string='Cantidad de Participantes', store=False, help='Cantidad de Participantes que integran la Formación'),      
         'cedula': fields.char('Cédula de Identidad', size=12, required=True, help='Número de Cédula de Identidad'),
         'nombres': fields.char('1º y 2º Nombres', size=120, required=True, help='Nombres del Participante'),
         'apellidos': fields.char('1º y 2º Apellidos', size=120, required=True, help='Apellidos del Participante'),
@@ -116,6 +79,39 @@ class for_pis_sujetos_aprendizaje(osv.osv):
     }
     _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este participante ya ha sido cargado (cedula repetida)')]
 
+  
+##################################################################################################################################################################            
+###             Ejecución del conteo de participantes en una formacion, por medio de los metodos ORM, haciendo uso de campos function                          #####
+###        En la Clase 'for.pis.registro_inicial' existe un campo function, que permite contar la cantidad de participantes relacionados a sí misma en la tabla #####
+###        'for_pis_participacion_pis'. Un campo function se ejecuta cada vez que los Métodos ORM 'create' o 'write' es instanciado sobre el modelo donde se    #####
+###        encuentra. Por lo cual a través de la función que sigue a continuación solo se ejecuta el método write en registro inicial cuando un participante      #####
+###        es creado o editado.                                                                                                                                  #####
+##################################################################################################################################################################
+    def create(self, cr, uid, vals, context=None):
+        new_id = super(for_pis_sujetos_aprendizaje, self).create(cr, uid, vals, context=None)
+        res={}
+        if 'pis_participado' in vals:
+            for registro_formacion in vals['pis_participado']:
+                if registro_formacion[0]==0:
+                    id_formacion=registro_formacion[2]['numero_id']
+                    self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res)                    
+        return new_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        res={}
+        id_formacion=[]
+        if 'pis_participado' in vals:
+            for registro_formacion in vals['pis_participado']:
+                if registro_formacion[0]==0:
+                    id_formacion.append(registro_formacion[2]['numero_id'])
+                elif registro_formacion[0]==2 or registro_formacion[0]==1:
+                    id_formacion.append(self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id)
+        new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
+        self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res) 
+        return new_id
+
+
+
     def name_get(self, cr, uid, ids, context={}):
         if not len(ids):
             return []
@@ -140,14 +136,7 @@ class for_pis_sujetos_aprendizaje(osv.osv):
             v['value'][campo] = ''
         return v
 
-#    def create(self, cr, uid, values, context=None):
-#        cr.execute()
-#        return super(for_pis_sujetos_aprendizaje, self).create(cr, uid, values, context=None)
-#
-#        
-#    def write(self, cr, uid, ids, values, context=None):
-#        cr.execute()
-#        return super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, values, context=None)
+
 #    def unlink(self, cr, uid, ids, context=None):
 #        cr.execute()    
 #        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)

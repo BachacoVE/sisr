@@ -411,7 +411,7 @@ herencia res.users
          
          <search string="Busqueda Rapida">
               <field name="nro_preimpreso"/>
-              <field name="denominacion_pis_id"/>
+              <!--field name="denominacion_pis_id"/-->
 
 <newline/>
               <!--culmina busqueda search-->
