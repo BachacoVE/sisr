@@ -88,7 +88,7 @@ class for_pis_maestros(osv.osv):
         'cuenta_id': fields.char('Cuenta Formador', size=20, required=True, help='Número de la Cuenta Bancaria donde el Formador desea que sea realiado su pago'),
         'tipo_cuenta_id': fields.many2one('for.pis.mae_tipos_cuenta', 'Tipo de Cuenta', help='Tipo de Cuenta Bancaria del Formador'),
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias', 'maestro_id', 'Asistencias', help='Control de Asistencias a las Formaciones donde participa'),
-        'ademdun': fields.boolean('¿ademdun?', help='¿Requiere ademdun de contrato?'),
+        'ademdum': fields.boolean('¿ademdum?', help='¿Requiere ademdum de contrato?'),
 		
     }
 

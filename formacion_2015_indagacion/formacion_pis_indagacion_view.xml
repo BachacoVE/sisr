@@ -94,11 +94,13 @@
 						<field name="pis_participado" colspan="4" required="True" nolabel="1" select="0">
                             <form string="Participación">
                                 <!--field name="sujeto_id"/-->
-                                <field name="numero_id"/>
+                                <field name="numero_id" required="1"/>
+                                <field name="estatus" required="1"/>
                             </form>
                             <tree string="Participación">
                                 <!--field name="sujeto_id"/-->
-                                <field name="numero_id"/>
+                                <field name="numero_id" required="1"/>
+                                <field name="estatus" required="1"/>
                             </tree>
 
 
@@ -194,11 +196,13 @@
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
                             <field name="sujeto_id" select="0"/>
+                            <field name="estatus" select="0"/>
                             <!--<field name="numero_id"/>-->
                         
                         </form>
                         <tree string="Participación">
                             <field name="sujeto_id"/>
+                            <field name="estatus"/>
                             <!--<field name="numero_id"/>-->
                         </tree>
                     </field>
@@ -1132,6 +1136,7 @@
             <form string="Participación">
                 <field name="sujeto_id" select="1"/>
                 <field name="numero_id" select="2"/>
+                <field name="estatus" select="2"/>
 
             </form>
         </field>
@@ -1144,6 +1149,7 @@
             <tree string="Participación">
                 <field name="sujeto_id"/>
                 <field name="numero_id"/>
+                <field name="estatus"/>
             </tree>
         </field>
     </record>
