@@ -213,6 +213,13 @@
                 <field name="limite_horas" select="0" colspan="2"/>
                 <field name="fecha_inicio" select="0" colspan="2"/>
                 <field name="fecha_fin" select="0" colspan="2"/>
+
+                <separator string="Exportar Consolidado" colspan="4" />
+                    <group colspan="4" col="6">
+                        <button icon="terp-gtk-go-back-rtl" string="Exportar Consolidado" name="fun_consolidado" type="object" default_focus="1"/>
+                   </group>
+
+
                 <separator string="reporte de misiona01" colspan="4"/>
                 <field name="misiona01_ids" select="0" colspan="4" nolabel="1" readonly="1">
                     <tree>
