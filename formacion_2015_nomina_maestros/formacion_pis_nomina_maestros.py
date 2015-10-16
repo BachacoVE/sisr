@@ -129,6 +129,30 @@ class for_pis_mae_asistencias(osv.osv):
         if calendario_id:
 
             calendario_obj=self.pool.get('for.pis.calendario').browse(cr, uid, calendario_id)
+            
+
+            v['horas_lunes']=0
+            v['horas_martes']=0
+            v['horas_miercoles']=0
+            v['horas_jueves']=0
+            v['horas_viernes']=0
+            v['horas_sabado']=0
+            v['horas_domingo']=0
+            v['observaciones_lunes']=''
+            v['observaciones_martes']=''
+            v['observaciones_miercoles']=''
+            v['observaciones_jueves']=''
+            v['observaciones_viernes']=''
+            v['observaciones_sabado']=''
+            v['observaciones_domingo']=''
+            v['motivo_falta_lunes_id']=None
+            v['motivo_falta_martes_id']=None
+            v['motivo_falta_miercoles_id']=None
+            v['motivo_falta_jueves_id']=None
+            v['motivo_falta_viernes_id']=None
+            v['motivo_falta_sabado_id']=None
+            v['motivo_falta_domingo_id']=None
+
             v['lunes_laborable']=calendario_obj.lunes
             v['martes_laborable']=calendario_obj.martes
             v['miercoles_laborable']=calendario_obj.miercoles
