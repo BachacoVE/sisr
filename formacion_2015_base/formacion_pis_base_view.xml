@@ -766,7 +766,7 @@ herencia res.users
     <menuitem name="Áreas Priorizadas" id="menu_for_pis_cadenas_formativas" action="action_for_pis_cadenas_formativas" parent="menu_for_pis_configuracion" sequence="11"/>
     <menuitem name="Calendario" id="menu_for_pis_calendario" action="action_for_pis_calendario" parent="menu_for_pis_configuracion" sequence="12"/>
     <menuitem name="Opciones Formativas" id="menu_for_pis_opciones_formativas" action="action_for_pis_opciones_formativas" parent="menu_for_pis_configuracion" sequence="13"/>
-    <menuitem name="dependencias usuarios" id="menu_dependencias_usuarios" action="action_for_dependencias" parent="menu_for_configuracion" sequence="14"/>
+    <menuitem name="Dependencias" id="menu_dependencias_usuarios" action="action_for_dependencias" parent="menu_for_pis_configuracion" sequence="14"/>
    
 <!--notebook colpsan="4">
  <page string= "Geografica">
