@@ -95,7 +95,7 @@ class for_pis_mae_asistencias(osv.osv):
         return v
 
     def copy(self, cr, uid, id, default=None, context=None):
-        raise osv.except_osv(('Lo prohibido duplicar'), ('No es posible duplicar el registro , por favor cree una nueva.'))
+        raise osv.except_osv(('Prohibido duplicar'), ('No es posible duplicar el registro , por favor cree uno nuevo.'))
 
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
         if (horas > 5):
