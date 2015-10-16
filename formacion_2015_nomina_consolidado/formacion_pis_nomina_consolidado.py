@@ -128,23 +128,28 @@ for_pis_mae_consolidado_detalle()
 
 
 class for_pis_mae_consolidado_pagos(osv.osv):
-	"""Registro de Detalles de los Reportes de misiona01 y misiona05"""
-	_name = 'for.pis.mae_consolidado_pagos'
-	_rec_name = 'codigo'
-	_columns = {
-		'consolidado_id': fields.many2one('for.pis.mae_consolidado', 'Codigo consolidado', help='Consolidado al cual se le generara los reportes misiona01 y misiona05'),
-		'codigo': fields.integer('Codigo de pago', help='Código del consolidado de misiona'),
-		'tipo_nomina': fields.integer('Tipo de nomina',size=12, help='Tipo de nomina del consolidado de misiona a generar'),
-		'limite_horas': fields.related('consolidado_id', 'limite_horas', type='float', relation='for.pis.mae_consolidado', string='limite de horas', store=True),
-		'fecha_inicio': fields.date('Fecha de inicio', help='Fecha de inicio del consolidado de misiona a generar'),
-		'fecha_fin': fields.date('Fecha de fin', help='Fecha de fin del consolidado de misiona a generar'),
-		'misiona01_ids': fields.one2many('for.pis.mae_misiona01','detalle_pagos_id','misiona01',help='Reporte de Misiona01 generado'),
-		'misiona05_ids': fields.one2many('for.pis.mae_misiona05','detalle_pagos_id','misiona05',help='Reporte de Misiona05 generado'),
-	}
+    """Registro de Detalles de los Reportes de misiona01 y misiona05"""
+    _name = 'for.pis.mae_consolidado_pagos'
+    _rec_name = 'codigo'
+    _columns = {
+        'consolidado_id': fields.many2one('for.pis.mae_consolidado', 'Codigo consolidado', help='Consolidado al cual se le generara los reportes misiona01 y misiona05'),
+        'codigo': fields.integer('Codigo de pago', help='Código del consolidado de misiona'),
+        'tipo_nomina': fields.integer('Tipo de nomina',size=12, help='Tipo de nomina del consolidado de misiona a generar'),
+        'limite_horas': fields.related('consolidado_id', 'limite_horas', type='float', relation='for.pis.mae_consolidado', string='limite de horas', store=True),
+        'fecha_inicio': fields.date('Fecha de inicio', help='Fecha de inicio del consolidado de misiona a generar'),
+        'fecha_fin': fields.date('Fecha de fin', help='Fecha de fin del consolidado de misiona a generar'),
+        'misiona01_ids': fields.one2many('for.pis.mae_misiona01','detalle_pagos_id','misiona01',help='Reporte de Misiona01 generado'),
+        'misiona05_ids': fields.one2many('for.pis.mae_misiona05','detalle_pagos_id','misiona05',help='Reporte de Misiona05 generado'),
+    }
 
-	def on_change_limite_horas(self, cr, uid, ids, consolidado):
-		consolidado=self.pool.get('for.pis.mae_consolidado').browse(cr, uid, consolidado)
-		return {'value':{'limite_horas':consolidado.limite_horas}}
+    def on_change_limite_horas(self, cr, uid, ids, consolidado):
+        consolidado=self.pool.get('for.pis.mae_consolidado').browse(cr, uid, consolidado)
+        return {'value':{'limite_horas':consolidado.limite_horas}}
+
+    def fun_consolidado(self, cr, uid, ids, context=None):       
+        cr.execute("COPY (SELECT tip_nom, nac, cedula, nombre,ciu_nac, to_char(fec_nac,'DD/MM/YYYY'), sexo, to_char(fec_ing,'DD/MM/YYYY'), to_char(fec_egr,'DD/MM/YYYY'), cod_car, cod_dep, cod_edo, cod_mun, cod_par, situacion, to_char(fec_sta,'DD/MM/YYYY'), for_pag, tip_cta, num_cta, cod_bco, cod_age, usuario, to_char(fec_usu,'DD/MM/YYYY'), hor_usu, cor_amo FROM for_pis_mae_misiona01 WHERE detalle_pagos_id=%s) TO '/tmp/misiona01.txt' DELIMITER '|' CSV", ids)
+        cr.execute("COPY (SELECT tip_nom, cedula, tip_mov, cod_mov, cri_mov, to_char(fec_ini,'DD/MM/YYYY'), to_char(fec_fin,'DD/MM/YYYY'), fec_retro, sal_ini, mon_mov, apo_pat, sal_mov, sal_ant, stat_05, usuario, to_char(fec_usu,'DD/MM/YYYY'), hor_usu FROM for_pis_mae_misiona05 WHERE detalle_pagos_id=%s) TO '/tmp/misiona05.txt' DELIMITER '|' CSV", ids)
+
 
 for_pis_mae_consolidado_pagos()
 
