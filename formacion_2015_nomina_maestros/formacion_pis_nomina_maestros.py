@@ -87,7 +87,10 @@ class for_pis_mae_asistencias(osv.osv):
 	}
     #_sql_constraints = [('asistencia_uniq', 'unique(numero_id,calendario_id,maestro_id)', 'Esta asistencia ya ha sido cargada. Formador, formacion y semana repetida')]
     _defaults = {'state': 'no pagado', 'horas_lunes':0, 'horas_martes':0, 'horas_miercoles':0, 'horas_jueves':0, 'horas_viernes':0, 'horas_sabado':0, 'horas_domingo':0}
-        
+    
+    def copy(self, cr, uid, id, default=None, context=None):
+        raise osv.except_osv(('Lo prohibido duplicar'), ('No es posible duplicar el registro , por favor cree una nueva.'))
+
     def onchange_max_horas_lunes(self, cr, uid, ids, horas, context=None):
         if (horas > 5):
 		    val = {'horas_lunes' : 5}
