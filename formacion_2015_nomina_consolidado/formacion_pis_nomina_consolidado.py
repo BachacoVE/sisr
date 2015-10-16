@@ -101,7 +101,7 @@ for_pis_mae_consolidado()
 class for_pis_mae_consolidado_detalle(osv.osv):
     """Registro de Detalles de los Reportes Consolidados de Asistencia y Pago de Facilitadores"""
     _name = 'for.pis.mae_consolidado_detalle'
-    _rec_name = 'maestro_id'
+    _rec_name = 'id'
     _columns = {
         'consolidado_id': fields.many2one('for.pis.mae_consolidado','Reporte', help='Reporte Consolidado al cual pertenece el registro de detalle'),
         'estado_id': fields.many2one('for.pis.estados','Estado', help='Estado del País donde se realiza el Consolidado'),
