@@ -486,18 +486,21 @@
       </tr>
     </blockTable>
 
+
 <!-- Tabla de REGISTRO -->
+
 <blockTable colWidths="4cm,22.6cm" style="Tabla3">
   <tr>
    <td>
     <!--QR-->
+    
     <blockTable colWidths="4cm" style="Tabla153">
       <tr>
         <td>
-          <para style="P26">QR de Validación</para>
-          <barCode  x="1cm" y="1cm" code="qrcode">http://ws.inces.gob.ve/certificado/id/[[ acsea_certificados_sujetos.correlativo ]]/</barCode>
+          <para style="P26"><!--QR de Validación--></para>
+          <!--<barCode  x="1cm" y="1cm" code="qrcode">http://ws.inces.gob.ve/certificado/id/[[ acsea_certificados_sujetos.correlativo ]]/</barCode>-->
         </td>
-      </tr>
+      </tr>-->
     </blockTable>
   </td>
   <td>
@@ -610,7 +613,7 @@
    <blockTable colWidths="750">
       <tr>
         <td>
-          <para style="P38">La autenticidad de este documento puede ser verificada en http://ws.inces.gob.ve/certificado/id/[[ acsea_certificados_sujetos.correlativo ]]/</para>
+          <para style="P38"><!--La autenticidad de este documento puede ser verificada en http://ws.inces.gob.ve/certificado/id/[[ acsea_certificados_sujetos.correlativo ]]/--></para>
         </td>
       </tr>
     </blockTable>
