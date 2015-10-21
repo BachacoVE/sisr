@@ -41,6 +41,24 @@ class for_acsea_certificaciones_sujetos(osv.osv):
     }
 for_acsea_certificaciones_sujetos()
 
+class for_pis_sujetos_aprendizaje_inherit(osv.osv):
+    """Registro Maestro de los Certificados Emitidos a Participantes Sociales de INCES Militar. Cumple las funciones del Libro/Acta de Certificación"""
+    _name = 'for.pis.sujetos_aprendizaje'
+    _inherit = 'for.pis.sujetos_aprendizaje'
+    _columns = {
+        'certificados_ids': fields.one2many('for.acsea_certificados_sujetos', 'sujeto_id', 'Certificados', help='Certificados Obtenidos por el sujeto de aprendizaje')
+    }
+for_pis_sujetos_aprendizaje_inherit()
+
+class for_pis_registro_inicial_inherit(osv.osv):
+    """Registro Maestro de los Certificados Emitidos a Participantes Sociales de INCES Militar. Cumple las funciones del Libro/Acta de Certificación"""
+    _name = 'for.pis.registro_inicial'
+    _inherit = 'for.pis.registro_inicial'
+    _columns = {
+        'certificados_ids': fields.one2many('for.acsea_certificados_sujetos', 'proyecto_id', 'Certificados', help='Certificados Procedentes de la formación')
+    }
+for_pis_registro_inicial_inherit()
+
 
 class for_acsea_certificados_sujetos(osv.osv):
     """Registro Maestro de los Certificados Emitidos a Participantes Sociales de INCES Militar. Cumple las funciones del Libro/Acta de Certificación"""
