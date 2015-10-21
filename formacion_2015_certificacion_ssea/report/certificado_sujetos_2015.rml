@@ -582,6 +582,24 @@
         </td>
       </tr>
     </blockTable>
+
+    <blockTable colWidths="541.0,75.0,133.0" style="Tabla18">
+      <tr>
+        <td>
+          <para style="P17">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <para style="P27">Identificador:</para>
+        </td>
+        <td>
+          <para style="P17">[[ acsea_certificados_sujetos.denominacion_pis.identificador ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
+
    <blockTable colWidths="0,208.0" style="Tabla15">
       <tr>
         <td>
