@@ -103,7 +103,7 @@ class for_pis_sujetos_aprendizaje(osv.osv):
             for registro_formacion in vals['pis_participado']:
                 if registro_formacion[0]==0:
                     id_formacion=registro_formacion[2]['numero_id']
-                    self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res)                    
+                    self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)                    
         return new_id
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -116,7 +116,7 @@ class for_pis_sujetos_aprendizaje(osv.osv):
                 elif registro_formacion[0]==2 or registro_formacion[0]==1:
                     id_formacion.append(self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id)
         new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
-        self.pool.get('for.pis.registro_inicial').write(cr, uid, id_formacion, res) 
+        self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)
         return new_id
 
 
@@ -481,9 +481,10 @@ class for_pis_participacion_pis(osv.osv):
     _name = 'for.pis.participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
-        'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', help='Participante que participa en el PIS referido'),
-        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', help='Formación donde participa o ha participado'),
-        'estatus': fields.selection([('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación '),
+        'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', help='Participante que participa la formación referida'),
+        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', help='Formación donde participa o ha participado'),
+        'estatus': fields.selection([('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
+        'dependencia_formacion': fields.related('numero_id', 'dependencia_id', type='many2one', relation='for.dependencias', string='Dependencia', store=True, help='Dependencia de donde se registra la formacion'),
     }
 for_pis_participacion_pis()
 

@@ -1134,9 +1134,10 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Participación">
-                <field name="sujeto_id" select="1"/>
-                <field name="numero_id" select="2"/>
-                <field name="estatus" select="2"/>
+                <field name="sujeto_id" select="1" readonly="1"/>
+                <field name="numero_id" select="2" readonly="1"/>
+                <field name="estatus" select="2" readonly="0" required="1"/>
+                <field name="dependencia_formacion" select="2" readonly="1"/>
 
             </form>
         </field>
@@ -1150,14 +1151,36 @@
                 <field name="sujeto_id"/>
                 <field name="numero_id"/>
                 <field name="estatus"/>
+                <field name="dependencia_formacion"/>
             </tree>
         </field>
     </record>
+
+
+
+    <record model="ir.ui.view" id="view_for_pis_participacion_pis_search">
+        <field name="name">for.pis.participacion_pis.search</field>
+        <field name="model">for.pis.participacion_pis</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Busqueda Rapida">
+                    <group expand="1" string="Agrupado por...">
+                        <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_formacion'}"/>
+                        <filter string="Estatus" icon="terp-folder-violet" domain="[]" context="{'group_by':'estatus'}"/>
+                        <filter string="Formación" icon="terp-folder-violet" domain="[]" context="{'group_by':'numero_id'}"/>
+                        <filter string="Sujeto" icon="terp-folder-violet" domain="[]" context="{'group_by':'sujeto_id'}"/>
+                    </group>
+            </search>
+        </field>
+    </record>
+
+
+
     <record model="ir.actions.act_window" id="action_for_pis_participacion_pis">
         <field name="name">Participación en PIS</field>
         <field name="res_model">for.pis.participacion_pis</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,search</field>
     </record>
         
     <record model="ir.ui.view" id="view_for_pis_experiencias_empiricas_form">
@@ -1446,11 +1469,15 @@
     <!-- menuitem name="Formación Académica" id="menu_for_pis_formacion_academica" parent="menu_for_pis_indagacion" action="action_for_pis_formacion_academica" sequence="9"/ -->
     <!-- menuitem name="Intereses Formativos" id="menu_for_pis_intereses_formativos" parent="menu_for_pis_indagacion" action="action_for_pis_intereses_formativos" sequence="10"/ -->
     <!-- menuitem name="Tecnologias (TIC)" id="menu_for_pis_tecnologias_utilizadas" parent="menu_for_pis_indagacion" action="action_for_pis_tecnologias_utilizadas" sequence="11"/ -->
-    <!-- menuitem name="Participación en PIS" id="menu_for_pis_participacion_pis" parent="menu_for_pis_indagacion" action="action_for_pis_participacion_pis" sequence="12"/ -->
+    
     <!-- menuitem name="Experiencias Empíricas" id="menu_for_pis_experiencias_empiricas" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_empiricas" sequence="13"/ -->
     <!-- menuitem name="Experiencias Docentes" id="menu_for_pis_experiencias_docentes" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_docentes" sequence="14"/ -->
     <!-- menuitem name="Experiencias Laborales" id="menu_for_pis_experiencias_laborales" parent="menu_for_pis_indagacion" action="action_for_pis_experiencias_laborales" sequence="15"/ -->
     <!-- menuitem name="Conocimientos para CASEA" id="menu_for_pis_casea_conocimientos" parent="menu_for_pis_indagacion" action="action_for_pis_casea_conocimientos" sequence="16"/ -->
+
+<!-- Menu Formación/participacion -->
+    <menuitem name="Participacion" id="menu_for_pis_participacion" parent="formacion_2015_base.menu_for_base" sequence="4"/>
+    <menuitem name="Participantes en formación" id="menu_for_pis_participacion_pis" parent="menu_for_pis_participacion" action="action_for_pis_participacion_pis" sequence="1"/>
 
     <!-- Menu Configuración/Indagación -->
     <menuitem name="Indagación" id="menu_for_pis_conf_indag" parent="formacion_2015_base.menu_for_configuracion" sequence="40"/>
@@ -1473,7 +1500,7 @@
     <menuitem name="Misiones" id="menu_for_pis_misiones" parent="menu_for_pis_conf_indag" action="action_for_pis_misiones" sequence="17"/>
     <menuitem name="Frecuencias de Participación" id="menu_for_pis_frecuencias_participacion" parent="menu_for_pis_conf_indag" action="action_for_pis_frecuencias_participacion" sequence="18"/>
     <menuitem name="Pueblos Indígenas" id="menu_for_pis_pueblos_indigenas" parent="menu_for_pis_conf_indag" action="action_for_pis_pueblos_indigenas" sequence="19"/>
-	<menuitem name="Profesiones u Ocupaciones" id="menu_for_pis_profesiones_ocupaciones" parent="menu_for_pis_conf_indag" action="action_for_pis_profesiones_ocupaciones" sequence="20"/>
+    <menuitem name="Profesiones u Ocupaciones" id="menu_for_pis_profesiones_ocupaciones" parent="menu_for_pis_conf_indag" action="action_for_pis_profesiones_ocupaciones" sequence="20"/>
     <menuitem name="Estatus Niveles Educativos" id="menu_for_pis_estatus_niveles_educativos" parent="menu_for_pis_conf_indag" action="action_for_pis_estatus_niveles_educativos" sequence="21"/>
     <menuitem name="Tecnologías (TIC)" id="menu_for_pis_tecnologias_tic" parent="menu_for_pis_conf_indag" action="action_for_pis_tecnologias_tic" sequence="22"/>
     <menuitem name="Condiciones Laborales" id="menu_for_pis_condiciones_laborales" parent="menu_for_pis_conf_indag" action="action_for_pis_condiciones_laborales" sequence="23"/>

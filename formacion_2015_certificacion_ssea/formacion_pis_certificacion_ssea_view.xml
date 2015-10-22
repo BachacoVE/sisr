@@ -2,6 +2,43 @@
 <openerp>
 <data>
 
+
+<!--campos creados por herencia desde for.pis.sujetos_aprendizaje-->
+    <record model="ir.ui.view" id="view_for_pis_sujetos_aprendizaje_form_inherit">
+        <field name="name">for.pis.sujetos_aprendizaje.form.inherit</field>
+        <field name="model">for.pis.sujetos_aprendizaje</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_indagacion.view_for_pis_sujetos_aprendizaje_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Certificados">
+                <separator string="Certificados adquiridos" colspan="4"/>
+                    <field name="certificados_ids" readonly="1" nolabel="1" colspan="4" select="0"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+<!--fin de campos creados por herencia desde for.pis.sujetos_aprendizaje-->
+
+<!--campos creados por herencia desde for.pis.registro_inicial-->
+    <record model="ir.ui.view" id="view_for_pis_registro_inicial_form_inherit">
+        <field name="name">for.pis.registro_inicial.form.inherit</field>
+        <field name="model">for.pis.registro_inicial</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Certificados">
+                <separator string="Certificados de la formación" colspan="4"/>
+                    <field name="certificados_ids" readonly="1" nolabel="1" colspan="4" select="0"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+<!--fin de campos creados por herencia desde for.pis.registro_inicial-->
+
     <record model="ir.ui.view" id="view_for_acsea_certificaciones_sujetos_form">
         <field name="name">for.acsea_certificaciones_sujetos.form</field>
         <field name="model">for.acsea_certificaciones_sujetos</field>
