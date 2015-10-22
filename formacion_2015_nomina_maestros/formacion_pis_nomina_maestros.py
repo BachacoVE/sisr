@@ -137,6 +137,7 @@ class for_pis_mae_asistencias(osv.osv):
         v={}
         if calendario_id:
 
+
             calendario_obj=self.pool.get('for.pis.calendario').browse(cr, uid, calendario_id)
             
 
@@ -171,7 +172,20 @@ class for_pis_mae_asistencias(osv.osv):
             v['domingo_laborable']=calendario_obj.domingo
             v['semana_desde']=calendario_obj.inicio_semana
             v['semana_hasta']=calendario_obj.final_semana
-        return {'value':v}    
+        return {'value':v}
+
+
+
+    def horas_limitadas(self, cr, uid, ids):
+        dias=('horas_lunes', 'horas_martes', 'horas_miercoles', 'horas_jueves', 'horas_viernes', 'horas_sabado', 'horas_domingo')
+        suma_horas=0
+        for asistencia in self.browse(cr, uid, ids):
+            for dia in dias:
+                suma_horas += asistencia[dia]
+        if suma_horas>25:
+                return False
+        return True
+    _constraints = [(horas_limitadas, 'La asistencia excede del ĺimite de horas establecido, el limite de horas semanales es 25 ', ['de horas'])]  
 
 for_pis_mae_asistencias()
 
