@@ -197,15 +197,18 @@ class for_pis_mae_asistencias(osv.osv):
     def write(self, cr, uid, ids, vals, context):
         campos=('maestro_id', 'numero_id', 'calendario_id')
         ls=[]
+        cn=0
         for asistencia in self.browse(cr, uid, ids):
             for campo in campos:
                 if campo in vals:
                     ls.append(vals[str(campo)])
                 else:
                     ls.append(asistencia[campo].id)
-        repetido= self.pool.get('for.pis.mae_asistencias').search(cr,uid, [('maestro_id','=',ls[0]),('numero_id','=', ls[1]),('calendario_id','=', ls[2])])
-        if repetido:
-            raise osv.except_osv(('Asistencia repetida'),('Esta asistencia ya ha sido cargada'))
+                    cn+=1
+        if cn<3:
+            repetido= self.pool.get('for.pis.mae_asistencias').search(cr,uid, [('maestro_id','=',ls[0]),('numero_id','=', ls[1]),('calendario_id','=', ls[2])])
+            if repetido:
+                raise osv.except_osv(('Asistencia repetida'),('Esta asistencia ya ha sido cargada'))
         return super(for_pis_mae_asistencias, self).write(cr, uid, ids, vals, context)
 
 
