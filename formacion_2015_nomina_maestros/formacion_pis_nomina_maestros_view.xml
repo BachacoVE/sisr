@@ -389,9 +389,13 @@
             <field name="cedula"/>
             <field name="nacionalidad"/>
             <field name="estado_civil"/>
-            <field name="domicilio"/>
+
+            <field name="dependencia"/>
+
+            <!-- field name="domicilio"/ >
+
             <field name="municipio"/>
-            <field name="estado"/>
+            <field name="estado"/ -->
             <field name="total_horas"/>
             <field name="fecha_inicio"/>
             <field name="fecha_cierre"/>

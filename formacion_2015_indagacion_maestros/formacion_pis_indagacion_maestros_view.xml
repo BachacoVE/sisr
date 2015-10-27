@@ -149,18 +149,17 @@
 				<notebook colspan="4">
 					<page string="Condición Laboral">
 						<separator string="Condición Laboral relacionada con INCES" colspan="4"/>
+     					<field name="nivel_viejo_id" required="1" string="Valor Hora hasta 30 Abril 2015" select="0" domain="[('fecha_resolucion','=','17/02/2014')]"/>
+                        <field name="nivel_id" required="1" string="Valor Hora desde 1ero Mayo 2015" select="0" domain="[('fecha_resolucion','=','01/05/2015')]"/>
 						<field name="condicion_laboral" select="0" required="True"/>
-						<field name="trabaja_actualmente" select="0" required="False"/>
-						<!-- field name="fecha_ingreso" select="0"/ -->
+     					<!-- field name="fecha_ingreso" select="0"/ -->
 						<field name="tiempo_experiencia" string="Años de Experiencia" select="0" required="True"/>
-					   
-					   <!-- Modificaciones para Nomina de Maestros -->
-					   <!--<field name="horas_trabajadas" select="0"/>-->
-					   <field name="nivel_id" select="0" required="True"/>
-					   <field name="entidad_id" select="0" required="True"/>
-					   <field name="cuenta_id" select="0" required="True"/>
-					   <field name="tipo_cuenta_id" select="0" required="True"/>
-					   
+					    <!-- Modificaciones para Nomina de Maestros -->
+					    <!--<field name="horas_trabajadas" select="0"/>-->
+					    <field name="entidad_id" select="0" required="True"/>
+					    <field name="cuenta_id" select="0" required="True"/>
+					    <field name="tipo_cuenta_id" select="0" required="True"/>
+					    <field name="trabaja_actualmente" select="0" required="False"/>
 					</page>
 					<page string="CASEA">
                         <separator string="Areas de Conocimiento para CASEA" colspan="4"/>
