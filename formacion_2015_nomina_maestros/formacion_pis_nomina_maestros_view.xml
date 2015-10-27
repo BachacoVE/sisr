@@ -355,6 +355,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
         <form string="Contratos">
+            <field name="dependencia" select="1" readonly="True"/>
             <field name="nombres" select="1" readonly="True"/>
             <field name="apellidos" select="1" readonly="True"/>
             <field name="cedula" select="1" readonly="True"/>
