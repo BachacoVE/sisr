@@ -83,14 +83,8 @@ class for_pis_maestros(osv.osv):
 		'apr_generar': fields.boolean('¿Contrato Generado?', help="Se activa automaticamente al generar un contrato"), 
         'horas_trabajadas': fields.integer('Horas Trabajadas', help='Total de horas trabajadas por el Formador'),
        
-        'nivel_viejo_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora Viejo', help='Valor de la hora (BsF) para pago al Formador hasta mes de Abril 2014'),
-        'nivel_nuevo_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora Nuevo', help='Valor de la hora (BsF) para pago al Formador apartir del 1ero de Mayo 2015'),
-
-
         'nivel_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora Nuevo', help='Valor de la hora (BsF) para pago al Formador apartir del 1ero de Mayo 2015'),
         'nivel_viejo_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora Viejo', help='Valor de la hora (BsF) para pago al Formador hasta mes de Abril 2014'),
-
-
 
         'entidad_id': fields.many2one('for.pis.mae_cuentas_nomina', 'Entidad Bancaria', help='Nombre de la Entidad Bancaria Cuenta Bancaria a traves de la cual INCES paga nomina de Formadores'),
         'cuenta_id': fields.char('Cuenta Formador', size=20, required=True, help='Número de la Cuenta Bancaria donde el Formador desea que sea realiado su pago'),
