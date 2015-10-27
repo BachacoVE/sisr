@@ -486,6 +486,17 @@ class for_pis_participacion_pis(osv.osv):
         'estatus': fields.selection([('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
         'dependencia_formacion': fields.related('numero_id', 'dependencia_id', type='many2one', relation='for.dependencias', string='Dependencia', store=True, help='Dependencia de donde se registra la formacion'),
     }
+
+    def unlink(self, cr, uid, ids, context=None):
+        id_formacion=[]
+        res={}
+        for participacion in ids:
+            obj_participacion=self.browse(cr, uid, ids, context)
+            id_formacion.append(obj_participacion[0].numero_id.id)
+        validate=super(for_pis_participacion_pis, self).unlink(cr, uid, ids, context=None)
+        for formaciones in id_formacion:
+            id_reg=self.pool.get('for.pis.registro_inicial').write(cr, 1, formaciones, res, context=None)
+        return validate
 for_pis_participacion_pis()
 
 class for_pis_experiencias_empiricas(osv.osv):
