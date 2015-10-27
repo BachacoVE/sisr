@@ -209,6 +209,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.Facilitadores">
+                <field name="estado_id"/>
                 <field name="cedula" string="Nº Cédula"/>
                 <field name="nombres" string="Nombres"/>
                 <field name="apellidos" string ="Apellidos"/>
@@ -244,9 +245,27 @@
                 <!-- field name="frecuencia_fase_II"/ -->
                 <!-- field name="frecuencia_fase_III"/ -->
                 <!-- field name="observaciones"/ -->
+                 <field name="apr_generar" string="Contrato"/>
             </tree>
         </field>
     </record>
+
+
+    <record model="ir.ui.view" id="view_for_pis_maestros_search">
+        <field name="name">for.pis.maestros.search</field>
+        <field name="model">for.pis.maestros</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Búsqueda Rápida">
+                    <group expand="1" string="Agrupado por...">
+                        <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'estado_id'}"/>
+                        <filter string="Contrato" icon="terp-folder-violet" domain="[]" context="{'group_by':'apr_generar'}"/>
+                    </group>
+            </search>
+        </field>
+    </record>
+
+
     <record model="ir.actions.act_window" id="action_for_pis_maestros">
         <field name="name">Formadores</field>
         <field name="res_model">for.pis.maestros</field>
