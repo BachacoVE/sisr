@@ -1,4 +1,4 @@
-﻿SELECT  mae.nombres, mae.apellidos, mae.cedula, nac.nacionalidad, civ.estado_civil,
+﻿SELECT  dep.dependencia, mae.nombres, mae.apellidos, mae.cedula, nac.nacionalidad, civ.estado_civil,
         mae.direccion_habitacion, mun.municipio, es.estado,
         --to_char (min(pry.fecha_inicio), 'DD/MM/YYYY') as primera_fecha_inicio,
         --to_char (max(pry.fecha_cierre), 'DD/MM/YYYY') as ultima_fecha_cierre,
@@ -21,8 +21,16 @@ INNER JOIN for_pis_mae_participacion_pis mae_part
 INNER JOIN for_pis_maestros as mae
   ON mae_part.maestro_id = mae.id
 
+INNER JOIN dependencia_formador_rel dep_rel
+  ON mae.id = dep_rel.formador_id
+
+INNER JOIN for_dependencias dep
+  ON dep_rel.dependencia_id = dep.id
+
 INNER JOIN for_pis_estados es
   ON mae.estado_id = es.id
+
+
 
 INNER JOIN  for_pis_municipios mun
   ON mae.municipio_id = mun.id
@@ -42,7 +50,7 @@ WHERE mae.condicion_laboral in (3)
   AND pry.fecha_inicio is not null
   AND pry.fecha_cierre is not null
   AND pry.lapso_ejecucion is not null
-  AND mae.nivel_id is not null
+  --AND mae.nivel_id is not null
   AND nac.nacionalidad is not null
   AND civ.estado_civil is not null
   AND mae.direccion_habitacion is not null
@@ -52,6 +60,7 @@ WHERE mae.condicion_laboral in (3)
   AND vh.valor_hora is not null 
   AND mae.condicion_laboral is not null
   AND mae.apr_generar is false
+  --AND mae.cedula = '1863827'
 --GROUP BY 1,2,3,10,11
-GROUP BY 1,2,3,4,5,6,7,8,12,15,16
-ORDER BY es.estado, mae.cedula
+GROUP BY 1,2,3,4,5,6,7,8,9,13,16,17
+ORDER BY dep.dependencia, mae.cedula
