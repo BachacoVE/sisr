@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<document filename="reporteprogramado.pdf">
+  <template pageSize="(34cm,21.59cm)" title="Test" author="César Rodríguez" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="1cm" y1="1cm" width="32cm" height="17.59cm"/>
+      <pageGraphics>
+          <setFont name="DejaVu Sans" size="7"/>          
+                <image x="4cm" y="18.5cm"  width="25cm" file="images/cabecera_inces_web.jpg" />
+                <fill color="black"/>
+                <drawCentredString x="25cm" y="0.8cm">Fecha y Hora de Generación: [[ time.strftime("%d/%m/%y %I:%M %P") ]]</drawCentredString>
+
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+
+     <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>      
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="4,0" stop="4,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="5,0" stop="5,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="5,0" stop="5,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="5,-1" stop="5,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="6,0" stop="6,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="7,0" stop="7,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="7,0" stop="7,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="7,0" stop="7,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="7,-1" stop="7,-1"/>
+
+
+    </blockTableStyle>
+
+<blockTableStyle id="Tabla11">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+
+      <blockTopPadding length="0"/>
+      <blockLeftPadding length="0" />
+      <blockRightPadding length="0" />
+      <blockBottomPadding length="0" />
+
+      
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+
+     <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>      
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="4,0" stop="4,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="5,0" stop="5,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="5,0" stop="5,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="5,-1" stop="5,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="6,0" stop="6,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+
+    </blockTableStyle>
+
+    <paraStyle name="P1" fontName="Helvetica-bold" alignment="CENTER" fontSize="7.0"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="14.0" spaceBefore="12.0" spaceAfter="14.0"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="10.0" alignment="CENTER"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="7.0"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="6.0" leftIndent="2"/>
+
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text_20_body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Contents" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Heading" fontName="Helvetica" alignment="CENTER"/>
+    <paraStyle name="Header" fontName="Helvetica"/>
+    <images/>
+  </stylesheet>
+  <story>
+
+        
+    <blockTable colWidths="460,443" style='Tabla1'>
+      <tr>
+        <td>
+          <para style="P1"></para>
+        </td>
+        <td>
+          <para style="P1">PARTICIPANTES</para>
+        </td>
+       </tr>
+    </blockTable>
+
+    <blockTable colWidths="180,80,90,110,63,150,80,150" style='Tabla1'>
+      <tr>
+        <td>
+          <para style="P1">OPCIONES FORMATIVAS</para>
+        </td>
+        <td>
+          <para style="P1">ESTÁDO</para>
+        </td>
+        <td>
+          <para style="P1">CFS</para>
+        </td>
+        <td>
+          <para style="P1">PROMOTOR</para>
+        </td>
+        <td>
+          <para style="P1">CEDULA</para>
+        </td>
+        <td>
+          <para style="P1">NOMBRES Y APELLIDOS</para>
+        </td>
+        <td>
+          <para style="P1">TELEFONO</para>
+        </td>
+        <td>
+          <para style="P1">CORREO</para>
+        </td>
+       </tr>
+    </blockTable>
+
+<section>
+    <para textColor="white" backColor="white">[[ repeatIn(objects,'maestros') ]]</para>
+    <section>
+        <para textColor="white" backColor="white">[[repeatIn(maestros.pis_participado.numero_id,'l') ]]</para>
+        <blockTable colWidths="180,80,90,110,443" style="Tabla11">
+            <tr>
+                <td><para style="P5">[[ l.nro_preimpreso ]] [[ l.denominacion_pis_id.denominacion ]]</para></td>
+                <td><para style="P5">[[ l.estado_id.estado ]]</para></td>
+                <td><para style="P5">[[ l.cfs_id.nombre ]]</para></td>
+                <td><para style="P5">[[ maestros.nombres ]] [[ maestros.apellidos ]]</para></td>
+                <td>
+                    <section>
+                        <para textColor="white" backColor="white">[[repeatIn(l.participacion_pis_ids,'m')]]</para> 
+                        <blockTable colWidths="63,150,80,150" style="Tabla11">
+                            <tr>
+                                <td><para style="P5">[[ m.sujeto_id.cedula ]]</para></td>
+                                <td><para style="P5">[[ m.sujeto_id.nombres ]] [[ m.sujeto_id.apellidos ]]</para></td>
+                                <td><para style="P5">[[ m.sujeto_id.telefono_celular ]]</para></td>
+                                <td><para style="P5">[[ m.sujeto_id.correo_electronico ]]</para></td>
+                            </tr>
+                        </blockTable>
+                    </section>
+                </td>
+            </tr>
+        </blockTable> 
+    </section>
+</section>
+
+<para style="P2"></para>
+<para style="P2"></para>
+
+<blockTable colWidths="8cm,8cm,8cm">
+      <tr>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+       </tr>
+        <tr>
+        <td>
+          <para style="P3">Gerente Regional</para>
+        </td>
+        <td>
+          <para style="P3">Jefe de Formación</para>
+          
+        </td>
+        <td>
+          <para style="P3">Programación y Control</para>
+        </td>
+       </tr>
+</blockTable>
+
+
+  </story>
+</document>
