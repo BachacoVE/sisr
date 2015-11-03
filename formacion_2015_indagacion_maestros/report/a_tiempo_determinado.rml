@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(612.0,792.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      	
+      <frame id="first" x1="57.0" y1="87.0" width="498" height="640"/>
+      <pageGraphics>
+
+					<setFont name="DejaVu Sans" size="7"/>
+
+            		<!-- Cabeceras -->            		
+            		<image x="1.8cm" y="25.9cm" height="28.0" file="images/cintillo_superior.jpg"/>
+            		<image x="2cm" y="0.8cm" height="74.0" file="images/cintillo_inferior.jpg" />
+					<!-- Texto Inferior --> 
+      				<drawCentredString x="10.5cm" y="2.4cm" >GERENCIA GENERAL DE RECURSOS HUMANOS, piso 6. Teléfonos: (0212) 603.1785. Fax: 603.1691</drawCentredString>
+      				<drawCentredString x="10.5cm" y="2.1cm">GERENCIA DE RELACIONES LABORALES. Telefax (0212) 603.1710</drawCentredString>
+      				<drawCentredString x="10.5cm" y="1.8cm">GERENCIA DE ADMINISTRACIÓN DE RECURSOS HUMANOS. Teléfono: (0212) 603.1734 </drawCentredString>
+      				<drawCentredString x="10.5cm" y="1.5cm">GERENCIA DE POLÍTICAS DE RECURSOS HUMANOS. Teléfono: (0212) 603.1693</drawCentredString>
+	
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+
+	<paraStyle name="P0" rightIndent="5.0" leftIndent="0.0" fontName="Helvetica" fontSize="9" leading="12" alignment="CENTER" spaceBefore="3.0" spaceAfter="3.0"/>
+	<paraStyle name="P2" rightIndent="5.0" leftIndent="0.0" fontName="Helvetica" fontSize="12.0" leading="5" alignment="JUSTIFY" spaceBefore="3.0" spaceAfter="3.0"/>
+    <paraStyle name="P3" rightIndent="5.0" leftIndent="0.0" fontName="Helvetica" fontSize="9" leading="15" alignment="JUSTIFY" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P4" rightIndent="5.0" leftIndent="0.0" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P5" rightIndent="5.0" leftIndent="0.0" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="13.0"/>
+    <paraStyle name="P6" rightIndent="5.0" leftIndent="9.0" fontName="Helvetica" fontSize="6.0" leading="8" alignment="CENTER" textColor="#000000"/>
+    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P15" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P16" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER"/>
+ 	<paraStyle name="P22" rightIndent="-1.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="3.0" spaceAfter="3.0"/>
+    <paraStyle name="P33" rightIndent="-1.0" leftIndent="0.0" fontName="Helvetica" fontSize="7.0" leading="9" alignment="CENTER" spaceBefore="3.0" spaceAfter="3.0" textColor="#000000"/>    
+    <paraStyle name="P18" rightIndent="0.0" leftIndent="-3.0" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0" textColor="#000000"/>
+
+
+
+
+    <paraStyle name="Standard" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="Text_20_body" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="List" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="Caption" fontName="Helvetica-Oblique" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="Index" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="Footer" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="Normal_20__28_Web_29_" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="14.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="Frame_20_contents" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="Header" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="Table_20_Contents" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="Table_20_Heading" fontName="Helvetica-Bold" fontSize="12.0" leading="15" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <paraStyle name="MP1" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="MP2" fontName="Helvetica" fontSize="14.0" leading="17" alignment="RIGHT" spaceBefore="12.0" spaceAfter="6.0" textColor="#00000a"/>
+    <paraStyle name="MP3" rightIndent="18.0" leftIndent="91.0" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="JUSTIFY" spaceBefore="0.0" spaceAfter="0.0" textColor="#00000a"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="P0">
+      <font face="Helvetica-Bold">[[ repeatIn(objects,'registro_proyeccion') ]]</font>
+    </para>
+    <para style="P0">
+      <font face="Helvetica-Bold">CONTRATO DE TRABAJO DE FORMACIÓN A TIEMPO DETERMINADO</font>
+    </para>
+    <para style="P0">
+      <font face="Helvetica-Bold">DE MAESTRO/A TÉCNICO-PRODUCTIVO </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica">Entre el </font><font face="Helvetica-Bold">INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA (INCES)</font><font face="Helvetica">, Instituto Autónomo regulado por el Decreto Nº 1.414 publicado en Gaceta Oficial de la República Bolivariana de Venezuela Nº 6.155 Extraordinaria, de fecha 19 de noviembre de 2.014, representado en este acto por su Gerente General de la Gerencia General de Recursos Humanos, ciudadano </font><font face="Helvetica-Bold">HEBER ALBERTO GÓMEZ LÓPEZ</font><font face="Helvetica">, venezolano, mayor de edad, de este domicilio, titular de la cédula de identidad Nº </font>  <font face="Helvetica-Bold">V-5.224.203</font><font face="Helvetica">, designado mediante Orden Administrativa N° OA-2015-01-37, de fecha 30/01/2015, publicado en la Gaceta Oficial de la República Bolivariana de Venezuela N° 40.622, de fecha 17/03/2015 emanada de la Presidencia de </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, actuando en este acto por delegación del ciudadano Presidente del Instituto, contenida en el numeral 1, del artículo 1° de la referida orden administrativa; quien en lo sucesivo y a los efectos de este documento se denominará </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, por una parte, y, por la otra, el (la) ciudadano (a) </font><font face="Helvetica-Bold">[[ registro_proyeccion.facilitador_id.nombres ]] [[ registro_proyeccion.facilitador_id.apellidos ]]</font><font face="Helvetica"> titular de la cédula de identidad Nº </font><font face="Helvetica-Bold">V-[[ '{:,}'.format(registro_proyeccion.facilitador_id.cedula).replace(",",".") ]]</font><font face="Helvetica">, de nacionalidad [[ registro_proyeccion.facilitador_id.nacionalidad.nacionalidad ]] </font><font face="Helvetica">, de estado civil </font><font face="Helvetica">[[ registro_proyeccion.facilitador_id.estado_civil_id.estado_civil ]]</font><font face="Helvetica"> y domiciliado(a) en [[ registro_proyeccion.facilitador_id.direccion_habitacion ]]</font><font face="Helvetica">, quien en lo sucesivo se denominará </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica">, se ha convenido en celebrar el presente contrato de trabajo, el cual se regirá por las cláusulas siguientes:</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">PRIMERA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font><font face="Helvetica">acepta de forma expresa que el presente contrato tiene como única finalidad cumplir con una carga o responsabilidad formativa de carácter no académica indicada por </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica">, bajo las funciones de </font><font face="Helvetica-Bold">“MAESTRO/A TÉCNICO PRODUCTIVO</font><font face="Helvetica">”, en el período comprendido desde </font><font face="Helvetica">[[ registro_proyeccion.fecha_inicio ]]</font><font face="Helvetica">, hasta </font><font face="Helvetica">[[ registro_proyeccion.fecha_cierre ]]</font><font face="Helvetica">, de acuerdo con la planificación previamente aprobado en función de los procesos de formación y autoformación impulsados por el instituto. Dicha carga o responsabilidad formativa deberá impartirse en el </font><font face="Helvetica">[[ registro_proyeccion.cfs_id.nombre ]]</font><font face="Helvetica">, cuya dirección de ubicación, instalaciones e identidad de las autoridades, </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> afirman conocer a plenitud. Este contrato </font><font face="Helvetica">quedará resuelto de pleno derecho, una vez cumplido el tiempo de su vigencia, sin necesidad de notificación alguna de las partes. </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">SEGUNDA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font><font face="Helvetica">acepta de forma expresa que el presente</font><font face="Helvetica-Bold"/><font face="Helvetica">contrato es a tiempo determinado, correspondiéndose con la figura del </font><font face="Helvetica-Bold">“MAESTRO/A TÉCNICO PRODUCTIVO”</font><font face="Helvetica">, de conformidad con lo establecido en el artículo 64 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras, de literal “a” el cual señala: “El contrato de trabajo podrá celebrarse por tiempo determinado únicamente en los siguientes casos: a) cuando lo exija la naturaleza del servicio”. En tal sentido, </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> suscribe el presente contrato, atendiendo a la necesidad de la temporalidad, especificidad y singularidad del proyecto formativo a cargo del </font><font face="Helvetica-Bold">CONTRATADO (A)</font>,<font face="Helvetica"> a quien se contratan sus servicios personales, previa revisión de su síntesis curricular, su idoneidad ética y formativa para cumplir y desempeñar en forma temporal y por el lapso indicado en el contrato con los procesos de formación y autoformación de naturaleza no académica, pero siempre enmarcados en el propósito de contribuir a que quienes son sujetos de aprendizaje logren avanzar hacia un trabajo consciente, productivo y liberador en el marco del proceso social trabajo.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">TERCERA</font>:<font face="Helvetica-Bold"> EL (LA) CONTRATADO (A)</font><font face="Helvetica"> acepta y se obliga de forma expresa a: a) cumplir puntualmente con un horario de trabajo establecido por </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica">, de lunes a viernes, el cual comprende de siete y media de mañana (7:30 a.m.) a cuatro de la tarde (4:00 p.m.), con una hora intermedia de descanso y reposo entre doce del mediodía (12:00 p.m.) y una de la tarde (1:00 p.m.); b) a ejercer el período de descanso legal semanal los días sábado y domingo; c) que durante el horario indicado en el literal a) de esta cláusula, desarrollará con eficiencia, lealtad y compromiso las responsabilidades formativas para las cuales ha sido contratado (a) a tiempo determinado, cuya carga presencial, administrativa y de investigación será previamente determinada y establecida en el proyecto formativo en el cual participe y sea responsable directo e inmediato, a tenor de los lineamientos impartidos por la Gerencia General de Formación, a través de la respectiva Gerencia Regional o Estadal, según los casos; d) que informará de forma periódica, suficiente y adecuada mediante los respectivos reportes o informes mensuales que deben presentar ante su supervisor o supervisora inmediato adscrito al Centro de Formación indicado anteriormente, precisando los avances en el cumplimiento efectivo de la carga o responsabilidad formativa asignada, así como el número y la identidad de los sujetos de aprendizaje que participaron en las actividades formativas programadas, fechas de asistencia de éstos y demás datos que le sean requeridos, todo ello de conformidad con los lineamientos de la Gerencia General de Formación , a través de la Gerencia Regional o Estadal de </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> respectiva; e) Participar con puntual y activamente en las jornadas de planificación, formación, de organización administrativa, control y seguimiento establecidas por la Gerencia General de Formación, por la Gerencia Regional o Estadal de </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica">, según los casos.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">CUARTA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> acepta de forma expresa que dada la naturaleza especialísima y singular de su contratación, la misma se realiza </font><font face="Helvetica-Bold">“INTUITO PERSONAE”</font><font face="Helvetica">, por lo que no podrá delegar, ceder, hacerse sustituir en el presente contrato por terceras personas para el cumplimiento de las obligaciones que del mismo derivan.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">QUINTA</font><font face="Helvetica">: Las actividades y funciones establecidas en las cláusulas Segunda y Tercera desempeñadas por </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> serán supervisadas, evaluadas y convalidadas por </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica"> a través de un supervisor inmediato o supervisora inmediata, adscrito al Centro de Formación indicado con anterioridad, debidamente designado por la Gerencia Regional o Estadal de </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica">. En tal sentido, el informe de avance y seguimiento indicado en la Cláusula Tercera deberá ser presentado dentro de los primeros cinco (5) días continuos de cada mes al supervisor o supervisora designados, en el formato y con las precisiones mencionadas en el mismo. La validación de la información indicada por parte del respectivo supervisor o supervisora, dará lugar a la remuneración en los términos indicados en Cláusula Sexta.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">SEXTA</font>: <font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font><font face="Helvetica">acepta de manera expresa que por impartir la precitada </font><font face="Helvetica">carga y responsabilidad formativa de carácter no académica, y siempre que se cumplan las obligaciones y condiciones establecidas en las cláusulas Segunda y Tercera, </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> le pagará mensualmente un </font><font face="Helvetica-Bold">SALARIO BÁSICO de </font><font face="Helvetica-Bold">OCHO MIL DOSCIENTOS BOLÍVARES (Bs. 8.200,00)</font><font face="Helvetica">. De igual modo, siempre que el contrato a tiempo determinado suscrito sea superior a seis (6) meses, a </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font><font face="Helvetica">efectivamente activo (a), se le aplicarán las cláusulas 5,7, 8, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 40, 41, 42, 43, 44, 45, 48, 50, 51, 54, 55, 56, 59, 60, 61, 62, 6364, 65, 66, 68, 78, 80 y 82 de la vigente Convención Colectiva, siempre atendiendo a la fecha, naturaleza y características del beneficio de que se trate. Lo que deba pagar </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> por concepto de Bono Vacacional y Bonificación de Fin de Año, será en forma proporcional y prorrateada de acuerdo a los meses efectivamente cumplidos de acuerdo a la vigencia temporal de contrato pactado entre </font><font face="Helvetica-Bold">LAS PARTES</font><font face="Helvetica">, teniendo siempre como referencia lo previsto en la Convención Colectiva vigente.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">SÉPTIMA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">"EL INCES" </font><font face="Helvetica">retendrá </font><font face="Helvetica">a </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> de la cantidades de naturaleza </font><font face="Helvetica">salarial pagadas mensualmente como retribución de las obligaciones formativas no académicas cumplidas, los montos que correspondan </font><font face="Helvetica">a las </font><font face="Helvetica">cotizaciones al Sistema de Seguridad Social, a los </font><font face="Helvetica">fines de su remisión a las instituciones competentes. </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">OCTAVA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> podrá dar por resuelto y culminado el contrato de trabajo a tiempo determinado por cualquier de las causales previstas en el artículo 79 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras. En el caso de las “faltas graves a las obligaciones que impone este contrato laboral”, se incluyen los siguientes casos: a) la divulgación por parte de </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> de las informaciones, material, documentación y/o datos obtenidos en razón del desempeño de sus funciones y responsabilidades. Por tanto, deberá mantener estricta confidencialidad y abstenerse de divulgar total o parcialmente aquellas/os ante terceros, excepto cuando sea necesario por razones legales, con la previa autorización de </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, a través de su respectivo supervisor o supervisora; b) la ausencia o inadecuada de rendición de informes de avances dentro de los cinco (5) primeros días de cada mes; c) el retardo injustificado o incumplimiento del horario diario establecido, en al menos, cinco (5) días del mes, sin perjuicio de los descuentos que pueda efectuar </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">  de conformidad con el ordenamiento jurídico. En estos casos, </font><font face="Helvetica-Bold">“El INCES”</font><font face="Helvetica"> podrá dar ejercer, adicionalmente, las demás acciones que correspondan para determinar la eventual responsabilidad civil, administrativa y penal en que se haya incurrido. </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">NOVENA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font><font face="Helvetica">se obliga a comunicar al supervisor inmediato o supervisora inmediata, por escrito y a la brevedad posible, de cualquier hecho o circunstancia del cual tenga conocimiento, que incida en perjuicio o afecte los intereses, objetivos y metas de </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, de los sujetos de aprendizaje y del cumplimiento efectivo, oportuno y de calidad de su respectiva carga o responsabilidad formativa o del proyecto formativo a su cargo.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">DÉCIMA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> deberá notificar por escrito a su respectivo supervisor o supervisora de </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica"> de toda situación o eventualidad que por caso fortuito o fuerza mayor le imposibilite cumplir con las obligaciones previstas en el presente contrato, dentro de un lapso máximo de dos (2) días hábiles después de ocurrido el hecho y deberá expresar asimismo, las razones justificadas de sus alegatos y las formas viables de subsanar, recuperar o reprogramar la carga formativa asignada sin afectar los objetivos y metas que se hayan planificado originalmente por </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">UNDÉCIMA</font><font face="Helvetica">: Los papeles de trabajo, presentaciones y cualquier tipo de documento preparado o elaborado por </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica">, en ocasión de los servicios contratados se consideran propiedad exclusiva de </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, por lo cual </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica">, entregará los mismos a </font><font face="Helvetica-Bold">"EL INCES"</font><font face="Helvetica">, una vez culminadas las respectivas actividades formativas. Asimismo, </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> se obliga a que una vez finalizada el presente contrato por cualquier causa, deberá presentar a su supervisor inmediato o supervisora inmediata un acta de entrega contentiva de las actividades realizadas, de la identidad, asistencia y rendimiento de los sujetos de aprendizaje que participaron de las actividades formativas, así como el estatus de aquellas que no hayan sido concluidas, con sus respectivos anexos. Dicha acta deberá realizarse en el formato debidamente aprobado por </font><font face="Helvetica-Bold">“EL INCES”</font><font face="Helvetica"> para tal fin. </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">DUODÉCIMA</font><font face="Helvetica">: Ambas partes convienen que el presente contrato, a tiempo determinado, podrá ser modificado de común acuerdo, si surgieren condiciones distintas a las establecidas por </font><font face="Helvetica-Bold">LAS PARTES</font><font face="Helvetica">, mediante la suscripción de un </font><font face="Helvetica-Oblique">addendum</font><font face="Helvetica">, el cual se anexará al presente contrato y formará parte integrante del mismo.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">DÉCIMA TERCERA</font><font face="Helvetica">: </font><font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font><font face="Helvetica"> conviene expresamente que el presente contrato a tiempo determinado se realiza a tenor de lo establecido en el artículo 37 de la Ley del Estatuto de </font><font face="Helvetica">la Función Pública, y que en ningún caso podrá constituirse como una vía de ingreso a la Administración Pública Nacional, tal como lo estipula el artículo 39 de la citada ley. </font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica-Bold">DECIMA CUARTA</font><font face="Helvetica">: Para todos los efectos del presente contrato, se elige como domicilio especial la ciudad de Caracas, a la jurisdicción de cuya autoridades administrativas y/o judiciales las partes declaran someterse.</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica">Se hacen dos (2) ejemplares del presente contrato de un solo tenor y a un solo efecto, en la ciudad de Caracas, a los _</font><font face="Helvetica-Bold">”Falta”</font><font face="Helvetica">_días del mes de___</font><font face="Helvetica-Bold">”Falta”</font><font face="Helvetica">___</font><font face="Helvetica"> de 2015.</font>
+    </para>
+
+
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+
+ <blockTable colWidths="258.0,252.0" style="Tabla1">
+      <tr>
+        <td>
+          <para style="P4">Por: <font face="Helvetica-Bold">EL INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA (INCES)</font></para>
+          
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P22">HEBER ALBERTO GÓMEZ LÓPEZ</para>
+          <para style="P22">Gerente General de Recursos Humanos</para>
+          <para style="P33">Designado mediante Orden Administrativa N° OA-201501-37, de fecha 30/01/2015, publicada en Gaceta Oficial N° 40.622, de fecha 17/03/2015</para>
+          <para style="P6">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <para style="P7">EL (LA) CONTRATADO (A)</para>
+          <para style="P7">
+            <font color="white"> </font>
+          </para>
+          <para style="P15">
+            <font color="white"> </font>
+          </para>
+          <para style="P15">
+            <font color="white"> </font>
+          </para>
+          <para style="P18">[[ registro_proyeccion.facilitador_id.nombres ]] [[ registro_proyeccion.facilitador_id.apellidos ]]</para>
+          <para style="P16">C. I. V-[[ '{:,}'.format(registro_proyeccion.facilitador_id.cedula).replace(",",".") ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
+
+  </story>
+</document>
