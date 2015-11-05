@@ -17,6 +17,8 @@ class reporte_inces(report_sxw.rml_parse):
             'sumar_horas':self.sumar_horas,
             'min_fecha':self.min_fecha,
             'max_fecha':self.max_fecha,
+            'determinar_valor_hora':self.determinar_valor_hora,
+            'marcar_contrato_generado':self.marcar_contrato_generado,
             'agregar_a_clase_contratos':self.agregar_a_clase_contratos
         })
 
@@ -50,8 +52,53 @@ class reporte_inces(report_sxw.rml_parse):
         fec_max = max(fecha)
         return fec_max[8:10]+"/"+fec_max[5:7]+"/"+fec_max[0:4]
 
-    def agregar_a_clase_contratos(self, cedula):
-        cr.execute("""INSERT INTO for_pis_contratos (cedula) VALUES (%s)""",(cedula))
+    def determinar_valor_hora(self, fec_minima, identificador):
+        if(fec_minima > '2015-05-01'):
+            self.cr.execute("SELECT valor_hora \
+                        FROM for_pis_maestros \
+                        INNER JOIN for_pis_mae_valor_hora \
+                        ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
+                        WHERE for_pis_maestros.id=%d" % (identificador))
+            resultado1=self.cr.fetchone()
+            return resultado1[0]
+        else:
+            self.cr.execute("SELECT valor_hora \
+                        FROM for_pis_maestros \
+                        INNER JOIN for_pis_mae_valor_hora \
+                        ON for_pis_maestros.nivel_viejo_id=for_pis_mae_valor_hora.id \
+                        WHERE for_pis_maestros.id=%d" % (identificador))
+            resultado2=self.cr.fetchone()
+            if(resultado2<0):
+                self.cr.execute("SELECT valor_hora \
+                        FROM for_pis_maestros \
+                        INNER JOIN for_pis_mae_valor_hora \
+                        ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
+                        WHERE for_pis_maestros.id=%d" % (identificador))
+                resultado1=self.cr.fetchone()
+                return resultado1[0]
+            else:
+                return resultado2[0]
+
+    def marcar_contrato_generado(self, cedula):
+        self.cr.execute("UPDATE for_pis_maestros SET apr_generar=%s WHERE cedula=%s",(True,cedula))
+
+    def agregar_a_clase_contratos(self, cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, condicion_laboral):
+        fecha_generado=time.strftime("%d-%m-%Y")
+        create_uid=1
+        create_date=datetime.datetime.now()
+        write_date=0
+        write_uid=0
+        total_pagar=total_horas*valor_hora
+        active=True
+        dependencia=0,
+        self.cr.execute("SELECT count(*) from for_pis_mae_participacion_pis \
+                        INNER JOIN for_pis_maestros \
+                        ON for_pis_maestros.id=for_pis_mae_participacion_pis.maestro_id \
+                        WHERE for_pis_maestros.cedula='%s'" % cedula)
+        total_formaciones=self.cr.fetchone()
+
+        self.cr.execute("INSERT INTO for_pis_contratos (create_uid, create_date, cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones) \
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (create_uid,create_date,cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones))
 
 report_sxw.report_sxw('report.contrato.por.hora', 'for.pis.maestros', 'addons/formacion_2015_indagacion_maestros/report/por_hora.rml', parser=reporte_inces, header="False")
 report_sxw.report_sxw('report.participantes.formadores', 'for.pis.maestros', 'addons/formacion_2015_indagacion_maestros/report/participantes_formadores.rml', parser=reporte_inces, header="False")
