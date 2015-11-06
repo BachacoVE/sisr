@@ -52,13 +52,21 @@ class reporte_inces(report_sxw.rml_parse):
         fec_max = max(fecha)
         return fec_max[8:10]+"/"+fec_max[5:7]+"/"+fec_max[0:4]
 
-    def determinar_valor_hora(self, fec_minima, identificador):
-        if(min(fec_minima) > '2015-05-01'):
+    def determinar_valor_hora(self, cedula):
+        self.cr.execute("SELECT min(for_pis_registro_inicial.fecha_inicio) from for_pis_mae_participacion_pis  \
+                        INNER JOIN for_pis_maestros  \
+                        ON for_pis_maestros.id=for_pis_mae_participacion_pis.maestro_id  \
+                        INNER JOIN for_pis_registro_inicial  \
+                        ON for_pis_registro_inicial.id=for_pis_mae_participacion_pis.numero_id  \
+                        WHERE for_pis_maestros.cedula='%s'" % cedula)
+        fec_minima=self.cr.fetchone()
+
+        if(fec_minima > '2015-05-01'):
             self.cr.execute("SELECT valor_hora \
                         FROM for_pis_maestros \
                         INNER JOIN for_pis_mae_valor_hora \
                         ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.id=%d" % (identificador))
+                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
             resultado1=self.cr.fetchone()
             return resultado1[0]
         else:
@@ -66,14 +74,14 @@ class reporte_inces(report_sxw.rml_parse):
                         FROM for_pis_maestros \
                         INNER JOIN for_pis_mae_valor_hora \
                         ON for_pis_maestros.nivel_viejo_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.id=%d" % (identificador))
+                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
             resultado2=self.cr.fetchone()
             if(resultado2<0):
                 self.cr.execute("SELECT valor_hora \
                         FROM for_pis_maestros \
                         INNER JOIN for_pis_mae_valor_hora \
                         ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.id=%d" % (identificador))
+                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
                 resultado1=self.cr.fetchone()
                 return resultado1[0]
             else:
