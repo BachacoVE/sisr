@@ -53,7 +53,7 @@ class reporte_inces(report_sxw.rml_parse):
         return fec_max[8:10]+"/"+fec_max[5:7]+"/"+fec_max[0:4]
 
     def determinar_valor_hora(self, fec_minima, identificador):
-        if(fec_minima > '2015-05-01'):
+        if(min(fec_minima) > '2015-05-01'):
             self.cr.execute("SELECT valor_hora \
                         FROM for_pis_maestros \
                         INNER JOIN for_pis_mae_valor_hora \
