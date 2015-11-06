@@ -90,15 +90,24 @@ class reporte_inces(report_sxw.rml_parse):
         write_uid=0
         total_pagar=total_horas*valor_hora
         active=True
-        dependencia=0,
+        
         self.cr.execute("SELECT count(*) from for_pis_mae_participacion_pis \
                         INNER JOIN for_pis_maestros \
                         ON for_pis_maestros.id=for_pis_mae_participacion_pis.maestro_id \
                         WHERE for_pis_maestros.cedula='%s'" % cedula)
         total_formaciones=self.cr.fetchone()
 
-        self.cr.execute("INSERT INTO for_pis_contratos (create_uid, create_date, cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones) \
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (create_uid,create_date,cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones))
+        self.cr.execute("SELECT for_dependencias.dependencia \
+                        FROM dependencia_formador_rel \
+                        INNER JOIN for_pis_maestros  \
+                        ON for_pis_maestros.id=dependencia_formador_rel.formador_id  \
+                        INNER JOIN for_dependencias \
+                        ON for_dependencias.id=dependencia_formador_rel.dependencia_id \
+                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
+        dependencia=self.cr.fetchone()
+
+        self.cr.execute("INSERT INTO for_pis_contratos (create_uid, create_date, cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones, dependencia) \
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (create_uid,create_date,cedula, nombres, apellidos, nacionalidad, estado_civil, domicilio, municipio, estado, fecha_inicio, fecha_cierre, cfs, total_horas, valor_hora, fecha_generado, total_pagar, condicion_laboral, active, total_formaciones, dependencia))
 
 report_sxw.report_sxw('report.contrato.por.hora', 'for.pis.maestros', 'addons/formacion_2015_indagacion_maestros/report/por_hora.rml', parser=reporte_inces, header="False")
 report_sxw.report_sxw('report.participantes.formadores', 'for.pis.maestros', 'addons/formacion_2015_indagacion_maestros/report/participantes_formadores.rml', parser=reporte_inces, header="False")
