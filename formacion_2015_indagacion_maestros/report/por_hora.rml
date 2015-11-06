@@ -88,19 +88,17 @@
   </stylesheet>
   <story>
     <para>
-      <font face="Helvetica-Bold" >[[ repeatIn(objects,'maestros') ]]</font>
-      
+      <font face="Helvetica-Bold" >[[ repeatIn(objects,'maestros') ]]</font>      
     </para>
-
 
     <para style="P0">
       <font face="Helvetica-Bold" >CONTRATO DE TRABAJO DE PROMOTOR TÉCNICO-PRODUCTIVO</font>
     </para>
     <para style="P0">
-      <font face="Helvetica-Bold" >PARA PROYECTO FORMATIVO SOCIALISTA [[ maestros.id ]]</font>
+      <font face="Helvetica-Bold" >PARA PROYECTO FORMATIVO SOCIALISTA</font>
     </para>
     <para style="P2">
-      <font color="white"> </font>
+      <font color="white"></font>
     </para>
 
     <para style="P3">

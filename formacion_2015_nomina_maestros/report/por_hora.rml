@@ -100,15 +100,15 @@
       <font face="Helvetica-Bold" >PARA PROYECTO FORMATIVO SOCIALISTA</font>
     </para>
     <para style="P2">
-      <font color="white"> </font>
+      <font color="white"></font>
     </para>
 
     <para style="P3">
-    	Entre el <font face="Helvetica-Bold">INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA (INCES)</font>, Instituto Autónomo regulado por el Decreto Nº 1.414 publicado en Gaceta Oficial de la República Bolivariana de Venezuela Nº 6.155 Extraordinaria, de fecha 19 de noviembre de 2.014, representado en este acto por su Gerente General de la Gerencia General de Recursos Humanos, ciudadano <font face="Helvetica-Bold">HEBER ALBERTO GÓMEZ LÓPEZ</font>, venezolano, mayor de edad, de este domicilio, titular de la cédula de identidad Nº <font face="Helvetica-Bold">V-5.224.203</font>, designado mediante Orden Administrativa N° OA-2015-01-37, de fecha 30/01/2015, publicado en la Gaceta Oficial de la República Bolivariana de Venezuela N° 40.622, de fecha 17/03/2015 emanada de la Presidencia de <font face="Helvetica-Bold" >“EL INCES”</font>, actuando en este acto por delegación del ciudadano Presidente del Instituto, contenida en el numeral 1, del artículo 1° de la referida orden administrativa; quien en lo sucesivo y a los efectos de este documento se denominará <font face="Helvetica-Bold" >“EL INCES”</font>, por una parte, y, por la otra, el (la) ciudadano (a) <font face="Helvetica-Bold" >[[ contratos.nombres ]] [[  contratos.apellidos ]]</font> titular de la cédula de identidad Nº <font face="Helvetica-Bold" >[[ convertir(contratos.cedula) ]]</font>, de nacionalidad [[ contratos.nacionalidad ]], de estado civil [[ contratos.estado_civil ]] y domiciliado(a) en [[ contratos.domicilio ]], Municipio [[ contratos.municipio ]], [[ contratos.estado ]], quien en lo sucesivo se denominará <font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font>, se ha convenido en celebrar el presente contrato de trabajo, el cual se regirá por las cláusulas siguientes:
+    	Entre el <font face="Helvetica-Bold">INSTITUTO NACIONAL DE CAPACITACIÓN Y EDUCACIÓN SOCIALISTA (INCES)</font>, Instituto Autónomo regulado por el Decreto Nº 1.414 publicado en Gaceta Oficial de la República Bolivariana de Venezuela Nº 6.155 Extraordinaria, de fecha 19 de noviembre de 2.014, representado en este acto por su Gerente General de la Gerencia General de Recursos Humanos, ciudadano <font face="Helvetica-Bold">HEBER ALBERTO GÓMEZ LÓPEZ</font>, venezolano, mayor de edad, de este domicilio, titular de la cédula de identidad Nº <font face="Helvetica-Bold">V-5.224.203</font>, designado mediante Orden Administrativa N° OA-2015-01-37, de fecha 30/01/2015, publicado en la Gaceta Oficial de la República Bolivariana de Venezuela N° 40.622, de fecha 17/03/2015 emanada de la Presidencia de <font face="Helvetica-Bold" >“EL INCES”</font>, actuando en este acto por delegación del ciudadano Presidente del Instituto, contenida en el numeral 1, del artículo 1° de la referida orden administrativa; quien en lo sucesivo y a los efectos de este documento se denominará <font face="Helvetica-Bold" >“EL INCES”</font>, por una parte, y, por la otra, el (la) ciudadano (a) <font face="Helvetica-Bold" >[[ (contratos.nombres).upper() ]] [[ (contratos.apellidos).upper() ]]</font> titular de la cédula de identidad Nº <font face="Helvetica-Bold" >[[ convertir(contratos.cedula) ]]</font>, de nacionalidad [[ contratos.nacionalidad ]], de estado civil [[ contratos.estado_civil ]] y domiciliado(a) en [[ contratos.domicilio ]], Municipio [[ contratos.municipio ]], Estado [[ contratos.estado ]], quien en lo sucesivo se denominará <font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font>, se ha convenido en celebrar el presente contrato de trabajo, el cual se regirá por las cláusulas siguientes:
     </para>
 
 	<para style="P3">
-		<font face="Helvetica-Bold">PRIMERA</font>: <font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font>acepta de forma expresa que el presente contrato tiene como única finalidad cumplir con una responsabilidad y carga formativa de carácter no académica indicada por <font face="Helvetica-Bold">“EL INCES” </font>de [[ contratos.total_horas ]] horas, en el período comprendido desde [[ contratos.fecha_inicio[8:10]+"/"+contratos.fecha_inicio[5:7]+"/"+contratos.fecha_inicio[0:4] ]], hasta [[ contratos.fecha_cierre[8:10]+"/"+contratos.fecha_cierre[5:7]+"/"+contratos.fecha_cierre[0:4] ]], de acuerdo con la planificación previamente aprobada en función de los procesos de formación y autoformación impulsados por el Instituto. Dicha responsabilidad y carga formativa deberá impartirse en el [[ contratos.cfs ]], o en las comunidades adyacentes en la región a cuya dirección de ubicación, instalaciones e identidad de las autoridades, <font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font> afirman conocer a plenitud. Este contrato quedará resuelto de pleno derecho, una vez cumplido el tiempo de su vigencia, sin necesidad de notificación alguna de las partes.
+		<font face="Helvetica-Bold">PRIMERA</font>: <font face="Helvetica-Bold">EL (LA) CONTRATADO (A) </font>acepta de forma expresa que el presente contrato tiene como única finalidad cumplir con una responsabilidad y carga formativa de carácter no académica indicada por <font face="Helvetica-Bold">“EL INCES” </font>de [[ contratos.total_horas ]] horas, en el período comprendido desde [[ formatear_fecha(contratos.fecha_inicio) ]], hasta [[ formatear_fecha(contratos.fecha_cierre) ]], de acuerdo con la planificación previamente aprobada en función de los procesos de formación y autoformación impulsados por el Instituto. Dicha responsabilidad y carga formativa deberá impartirse en el [[ contratos.cfs ]], o en las comunidades adyacentes en la región a cuya dirección de ubicación, instalaciones e identidad de las autoridades, <font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font> afirman conocer a plenitud. Este contrato quedará resuelto de pleno derecho, una vez cumplido el tiempo de su vigencia, sin necesidad de notificación alguna de las partes.
 	</para>
 
 	<para style="P3">
@@ -124,7 +124,7 @@
 	</para>
 
 	<para style="P3">
-		<font face="Helvetica-Bold">QUINTA</font>:<font face="Helvetica-Bold"> EL (LA) CONTRATADO (A) </font>acepta de manera expresa que por impartir la precitada responsabilidad y carga formativa de carácter no académica, <font face="Helvetica-Bold">“EL INCES”</font> le pagará <font face="Helvetica-Bold">BOLÍVARES [[  obt_texto(contratos.valor_hora) ]] (Bs. [[ contratos.valor_hora ]]) </font>por cada hora formativa efectivamente impartida, y cuyo valor será la base de cálculo para el pago de prestaciones sociales y demás beneficios que le correspondan debidamente prorrateado en base al período de vigencia del presente contrato (Bono Vacacional y Bonificación de Fin de Año, siempre de acuerdo con lo aprobado por la máxima autoridad de <font face="Helvetica-Bold">“EL INCES”</font>, atendiendo a las tareas cumplidas y validadas de acuerdo con los artículos 112, 114, 121 y 122 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras. De igual modo, le será prorrateado el monto del beneficio de alimentación de acuerdo al número de horas diaria que efectivamente laboren. 
+		<font face="Helvetica-Bold">QUINTA</font>:<font face="Helvetica-Bold"> EL (LA) CONTRATADO (A) </font>acepta de manera expresa que por impartir la precitada responsabilidad y carga formativa de carácter no académica, <font face="Helvetica-Bold">“EL INCES”</font> le pagará <font face="Helvetica-Bold">BOLÍVARES [[ obt_texto(contratos.valor_hora) ]] (Bs. [[ contratos.valor_hora ]]) </font>por cada hora formativa efectivamente impartida, y cuyo valor será la base de cálculo para el pago de prestaciones sociales y demás beneficios que le correspondan debidamente prorrateado en base al período de vigencia del presente contrato (Bono Vacacional y Bonificación de Fin de Año, siempre de acuerdo con lo aprobado por la máxima autoridad de <font face="Helvetica-Bold">“EL INCES”</font>, atendiendo a las tareas cumplidas y validadas de acuerdo con los artículos 112, 114, 121 y 122 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras. De igual modo, le será prorrateado el monto del beneficio de alimentación de acuerdo al número de horas diaria que efectivamente laboren. 
 	</para>
 
 	<para style="P3">
@@ -162,6 +162,9 @@
           <para style="P15">
             <font color="white"> </font>
           </para>
+          <para style="P15">
+            <font color="white"> </font>
+          </para>
 
      <blockTable colWidths="258.0,252.0" style="Tabla1">
       <tr>
@@ -184,13 +187,13 @@
           <para style="P7">
             <font color="white"> </font>
           </para>
-          <para style="P22">[[ contratos.nombres ]] [[  contratos.apellidos ]]</para>
-          <para style="P16">C. I. [[  vcedula(contratos.nacionalidad) ]]-[[ convertir(contratos.cedula) ]]</para>
+          <para style="P22">[[ (contratos.nombres).upper() ]] [[  (contratos.apellidos).upper() ]]</para>
+          <para style="P16">C.I. [[  vcedula(contratos.nacionalidad) ]]-[[ convertir(contratos.cedula) ]]</para>
         </td>
       </tr>
     </blockTable>
-
-          <para spaceAfter="5.3cm">
+          
+          <para spaceBefore="4.5cm" spaceAfter="0cm">
             <font color="white"> </font>
           </para>
 
@@ -204,8 +207,6 @@
         <drawCentredString x="8.8cm" y="0.2cm">GERENCIA DE RELACIONES LABORALES. Telefax (0212) 603.1710</drawCentredString>
 
   </illustration>
-	 
-
 
   </story>
 </document>

@@ -6,7 +6,7 @@
             id="reporte_por_hora" 
             model="for.pis.contratos" 
             rml="formacion_2015_nomina_maestros/report/por_hora.rml" 
-            name="contrato.por.hora"
+            name="contrato.por.hora.2015.foto"
             string="Generar Contrato por Hora"
             header="False"
             

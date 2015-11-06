@@ -11,7 +11,8 @@ class reporte_inces(report_sxw.rml_parse):
             'obt_texto':self.obt_texto,#agregar para RML
             'lang':context['lang'],    #agregar para RML
             'vcedula':self.vcedula,#agregar para RML
-	    	'convertir':self.convertir#agregar para RML
+	    	'convertir':self.convertir,#agregar para RML
+            'formatear_fecha':self.formatear_fecha
         })
     def obt_texto(self,cantidad):
         res=Numero_a_Texto(cantidad).escribir
@@ -24,7 +25,9 @@ class reporte_inces(report_sxw.rml_parse):
             return 'E'
 
     def convertir(self,cedula):
-        self.cr.execute('UPDATE for_pis_maestros SET apr_generar=%s WHERE cedula=%s',(False,cedula))
         return convertir(cedula)
+    
+    def formatear_fecha(self,fecha):
+        return fecha[8:10]+"/"+fecha[5:7]+"/"+fecha[0:4]
 
-report_sxw.report_sxw('report.contrato.por.hora.2015', 'for.pis.contratos', 'addons/formacion_2015_nomina_maestros/report/por_hora.rml', parser=reporte_inces, header="False")
+report_sxw.report_sxw('report.contrato.por.hora.2015.foto', 'for.pis.contratos', 'addons/formacion_2015_nomina_maestros/report/por_hora.rml', parser=reporte_inces, header="False")
