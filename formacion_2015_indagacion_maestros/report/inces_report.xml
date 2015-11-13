@@ -5,7 +5,7 @@
         <report auto="False" 
             id="reporte_por_hora" 
             model="for.pis.maestros" 
-            rml="formacion_2015_indagacion_maestros/report/por_hora.rml" 
+            rml="formacion_2015_indagacion_maestros/report/por_hora.rml"
             name="contrato.por.hora"
             string="Generar Contrato por Hora"
             header="False"
