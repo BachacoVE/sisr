@@ -27,19 +27,47 @@ class reporte_programado(report_sxw.rml_parse):
         super(reporte_programado, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
+            'calculo_egresados':self.calculo_egresados,
+            'calculo_retirado':self.calculo_retirado,
+            'calculo_en_proceso':self.calculo_en_proceso,
+            'calculo_nulos':self.calculo_nulos,
+            'calculo_maestros':self.calculo_maestros
         })
 
-#id                    identificador unico de reporte
-#name                  nombre del reporte (requerido)
-#string                titulo del reporte (requerido)
-#model                 objeto modelo sobre el cual esta definido el reporte (requerido)
-#rml, sxw, xml, xsl    ruta a la fuente del reporte (iniciando desde addons)
-#auto                  establecer a False para usar un parser personalizado, heredando report_sxw.rml_parse
-#                      y declarando el reporte como se indica:
-#                      report_sxw.report_sxw('report_name', 'object_model', 'rml_path', parser=parser, header=False)
-#header                establecer a False para suprimir la cabecera del reporte. Por defecto: True)
-#groups                lista (separada por comas) de los grupos que pueden ver este reporte
-#menu                  establecer a True para vincular el reporte a un icono (Por defecto: True)
-#keywords              especifica la palabra clave del reporte (Por defecto: client_print_multi)
+    def calculo_egresados(self, id_reg_inicial):
+        self.cr.execute("SELECT count(numero_id) \
+                         FROM for_pis_participacion_pis \
+                         WHERE estatus = 'egresado' and numero_id='%d'" % (id_reg_inicial))
+        egresados=self.cr.fetchone()
+        return egresados[0]
+    
+    def calculo_retirado(self, id_reg_inicial_retirado):
+        self.cr.execute("SELECT count(numero_id) \
+                         FROM for_pis_participacion_pis \
+                         WHERE estatus = 'retirado' and numero_id='%d'" % (id_reg_inicial_retirado))
+        retirado=self.cr.fetchone()
+        return retirado[0]
+
+    def calculo_en_proceso(self, id_reg_inicial_proceso):
+        self.cr.execute("SELECT count(numero_id) \
+                         FROM for_pis_participacion_pis \
+                         WHERE estatus = 'proceso' and numero_id='%d'" % (id_reg_inicial_proceso))
+        proceso=self.cr.fetchone()
+        return proceso[0]
+
+    def calculo_nulos(self, id_reg_inicial_nulos):
+        self.cr.execute("SELECT count(numero_id) \
+                         FROM for_pis_participacion_pis \
+                         WHERE estatus is null and numero_id='%d'" % (id_reg_inicial_nulos))
+        nulos=self.cr.fetchone()
+        return nulos[0]
+
+    def calculo_maestros(self, id_reg_inicial_nulos):
+        self.cr.execute("SELECT count(maestro_id) \
+                         FROM for_pis_mae_participacion_pis \
+                         WHERE numero_id='%d'" % (id_reg_inicial_nulos))
+        maestros=self.cr.fetchone()
+        return maestros[0]
 
 report_sxw.report_sxw('report.prog_est.report', 'for.pis.registro_inicial', 'addons/formacion_2015_base/report/reporte_programado.rml', parser=reporte_programado, header=False)
+report_sxw.report_sxw('report.estadisticas.participantes', 'for.pis.registro_inicial', 'addons/formacion_2015_base/report/reporte_estadistico.rml', parser=reporte_programado, header=False)

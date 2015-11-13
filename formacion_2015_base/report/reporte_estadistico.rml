@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<document filename="reporteprogramado.pdf">
+  <template pageSize="(34cm,21.59cm)" title="Test" author="César Rodríguez0" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="1cm" y1="1cm" width="32cm" height="17.59cm"/>
+      <pageGraphics>
+          <setFont name="DejaVu Sans" size="7"/>          
+                <image x="4cm" y="18.5cm"  width="25cm" file="images/cabecera_inces_web.jpg" />
+              <fill color="black"/>
+                <drawCentredString x="25cm" y="0.8cm">Fecha y Hora de Generación: [[ time.strftime("%d/%m/%y %I:%M %P") ]]</drawCentredString>
+                
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+
+     <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>      
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="4,0" stop="4,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="5,0" stop="5,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="5,0" stop="5,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="5,-1" stop="5,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="6,0" stop="6,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="6,0" stop="6,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="7,0" stop="7,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="7,0" stop="7,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="7,0" stop="7,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="7,-1" stop="7,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="8,0" stop="8,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="8,0" stop="8,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="8,0" stop="8,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="8,-1" stop="8,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="9,0" stop="9,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="9,0" stop="9,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="9,0" stop="9,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="9,-1" stop="9,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="10,0" stop="10,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="10,0" stop="10,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="10,0" stop="10,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="10,-1" stop="10,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="11,0" stop="11,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="11,0" stop="11,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="11,0" stop="11,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="11,-1" stop="11,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="12,0" stop="12,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="12,0" stop="12,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="12,0" stop="12,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="12,-1" stop="12,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="13,0" stop="13,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="13,0" stop="13,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="13,0" stop="13,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="13,-1" stop="13,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="14,0" stop="14,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="14,0" stop="14,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="14,0" stop="14,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="14,-1" stop="14,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="15,0" stop="15,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="15,0" stop="15,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="15,0" stop="15,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="15,-1" stop="15,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="16,0" stop="16,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="16,0" stop="16,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="16,0" stop="16,0"/>      
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="16,-1" stop="16,-1"/>
+    </blockTableStyle>
+
+
+    <paraStyle name="P1" fontName="Helvetica-bold" fontSize="7.0"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="14.0" spaceBefore="12.0" spaceAfter="14.0"/>
+  <paraStyle name="P3" fontName="Helvetica" fontSize="10.0" alignment="CENTER"/>
+  <paraStyle name="P4" fontName="Helvetica" fontSize="7.0"/>
+  <paraStyle name="P5" fontName="Helvetica" fontSize="6.0"/>
+  <paraStyle name="P6" fontName="Helvetica" fontSize="7.0" alignment="CENTER"/>
+
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text_20_body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Contents" fontName="Helvetica"/>
+    <paraStyle name="Table_20_Heading" fontName="Helvetica" alignment="CENTER"/>
+    <paraStyle name="Header" fontName="Helvetica"/>
+    <images/>
+  </stylesheet>
+  <story>
+
+        
+    <blockTable colWidths="30,50,75,100,100,150,55,55,60,60,65,40,55" style='Tabla1'>
+      <tr>
+        <td>
+          <para style="P1">N° PRE.</para>
+        </td>
+        <td>
+          <para style="P1">ESTADO</para>
+        </td>
+        <td>
+          <para style="P1">C.F.S./ PROG. RESPONSABLE</para>
+        </td>
+        <td>
+          <para style="P1">MOD. (CURSO/PIS/TALLER)</para>
+        </td>
+        <td>
+          <para style="P1">MOTOR PRO.</para>
+        </td>
+        <td>
+          <para style="P1">OPCION FORMATIVA</para>
+        </td>
+        <td>
+          <para style="P1">CANT. SUJ. PROGRAM.</para>
+        </td>
+         <td>
+          <para style="P1">CANT .SUJ. INSCRITOS</para>
+        </td>
+        <td>
+          <para style="P1">EGRESADOS</para>
+        </td>
+        <td>
+          <para style="P1">RETIRADOS</para>
+        </td>
+         <td>
+          <para style="P1">EN PROCESO</para>
+        </td>
+        <td>
+          <para style="P1">NULOS</para>
+        </td>
+        <td>
+          <para style="P1">CANT. MAESTROS</para>
+        </td>
+      </tr>
+    </blockTable>
+
+<section>
+    <para >[[ repeatIn(objects,'registro_inicial') ]]</para>
+  <blockTable colWidths="30,50,75,100,100,150,55,55,60,60,65,40,55" style='Tabla1'>
+    
+        <tr>
+        <td>
+          <para style="P5">[[ registro_inicial.nro_preimpreso ]]</para>
+        </td>
+        <td>
+          <para style="P5">[[ registro_inicial.estado_id.estado ]]</para>
+        </td>
+        <td>
+          <para style="P5">[[ registro_inicial.cfs_id.nombre ]]</para>
+        </td>
+        <td>
+          <para style="P5">[[ registro_inicial.modalidad_id.nombre ]]</para>
+        </td>
+        <td>
+          <para style="P5">[[ registro_inicial.motores_economicos_id.nombre ]]</para>
+        </td>
+        <td>
+          <para style="P5">[[ registro_inicial.denominacion_pis_id.denominacion ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ registro_inicial.cantidad_sujetos_programados ]]</para>
+        </td>
+                <td>
+          <para style="P6">[[ registro_inicial.cantidad_sujetos_enproceso ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ calculo_egresados(registro_inicial.id) ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ calculo_retirado(registro_inicial.id) ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ calculo_en_proceso(registro_inicial.id) ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ calculo_nulos(registro_inicial.id) ]]</para>
+        </td>
+        <td>
+          <para style="P6">[[ calculo_maestros(registro_inicial.id) ]]</para>
+        </td>
+      </tr>
+</blockTable>
+</section>
+
+
+<para style="P2"></para>
+<para style="P2"></para>
+
+<blockTable colWidths="8cm,8cm,8cm">
+      <tr>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+        <td>
+          <para style="P3">_______________________________________</para>
+        </td>
+       </tr>
+        <tr>
+        <td>
+          <para style="P3">Jefe de Formación</para>
+        </td>
+        <td>
+          <para style="P3">Gerente Regional</para>
+        </td>
+        <td>
+          <para style="P3">Programación y Control</para>
+        </td>
+       </tr>
+</blockTable>
+
+
+  </story>
+</document>

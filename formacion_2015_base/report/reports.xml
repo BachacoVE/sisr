@@ -8,5 +8,13 @@
         name="prog_est.report" 
         rml="formacion_2015_base/report/reporte_programado.rml" 
         string="Programacion Estimada 2015" />
+
+        <report 
+        auto="False" 
+        id="estadisticas_participantes" 
+        model="for.pis.registro_inicial" 
+        name="estadisticas.participantes" 
+        rml="formacion_2015_base/report/reporte_estadistico.rml" 
+        string="Estadisticas Participantes" />
     </data>
 </openerp>
