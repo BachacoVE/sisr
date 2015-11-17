@@ -321,15 +321,13 @@ class for_pis_contratos(osv.osv):
     _name = 'for.pis.contratos'
     _rec_name = ''
     _columns = {
-        'nombres': fields.char('Nombres', size=60, help='Nombres del Facilitador'),
-        'apellidos': fields.char('Apellidos', size=60, help='Apellidos del Facilitador'),
-        'cedula': fields.integer('Cédula', help='Cédula del Facilitador'),
-        'nacionalidad': fields.char('Nacionalidad', size=60, help='Nacionalidad  del Facilitador'),
+        'nombres': fields.char('Nombres', size=120, help='Nombres del Facilitador'),
+        'apellidos': fields.char('Apellidos', size=120, help='Apellidos del Facilitador'),
+        'cedula': fields.char('Cédula', size=120, help='Cédula del Facilitador'),
+        'nacionalidad': fields.char('Nacionalidad', size=120, help='Nacionalidad  del Facilitador'),
         'estado_civil': fields.char('Estado Civil', size=60, help='Estado Civil del Facilitador'),
-
-        'dependencia': fields.char('Dependencia', size=17, help='Depenciancia donde trabaja el Facilitador'),
-
-        'domicilio': fields.text('Domicilio', help='Domicilio  del Facilitador'),
+        'dependencia': fields.char('Dependencia', size=120, help='Depenciancia donde trabaja el Facilitador'),
+        'domicilio': fields.char('Domicilio', size=120, help='Domicilio  del Facilitador'),
         'municipio': fields.char('Municipio', size=120, help='Municipio del Facilitador'),
         'estado': fields.char('Estado', size=120, help='Estado del Facilitador'),
         'total_horas': fields.integer('Total Horas', help='Total Horas de Formación del Facilitador'),

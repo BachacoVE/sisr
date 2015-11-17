@@ -3,10 +3,10 @@
     <data>
 
         <report auto="False" 
-            id="reporte_por_hora" 
+            id="reporte_por_hora_foto" 
             model="for.pis.contratos" 
             rml="formacion_2015_nomina_maestros/report/por_hora.rml" 
-            name="contrato.por.hora"
+            name="contrato.por.hora.2015.foto"
             string="Generar Contrato por Hora"
             header="False"
             

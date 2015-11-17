@@ -88,10 +88,8 @@
   </stylesheet>
   <story>
     <para>
-      <font face="Helvetica-Bold" >[[ repeatIn(objects,'maestros') ]]</font>
-      
+      <font face="Helvetica-Bold" >[[ repeatIn(objects,'maestros') ]]</font>      
     </para>
-
 
     <para style="P0">
       <font face="Helvetica-Bold" >CONTRATO DE TRABAJO DE PROMOTOR TÉCNICO-PRODUCTIVO</font>
@@ -100,7 +98,7 @@
       <font face="Helvetica-Bold" >PARA PROYECTO FORMATIVO SOCIALISTA</font>
     </para>
     <para style="P2">
-      <font color="white"> </font>
+      <font color="white"></font>
     </para>
 
     <para style="P3">
@@ -123,8 +121,9 @@
 		<font face="Helvetica-Bold">CUARTA</font>: Las actividades y funciones establecidas en la Cláusula Segunda desempeñadas por <font face="Helvetica-Bold">EL (LA) CONTRATADO (A)</font> serán supervisadas, evaluadas y convalidadas por <font face="Helvetica-Bold">“EL INCES”</font> a través de un supervisor inmediato o supervisora inmediata, adscrito al centro de formación indicado con anterioridad, debidamente designado por la Gerencia Regional de <font face="Helvetica-Bold">“EL INCES”</font>. En tal sentido, el informe de avance y seguimiento indicado en la Cláusula Segunda deberá ser presentado dentro de los primeros cinco (5) días continuos de cada mes al supervisor o supervisora designados, en el formato y con las precisiones mencionadas en el mismo. La validación de la información indicada por parte del respectivo supervisor inmediato o supervisora inmediata, dará lugar a la remuneración en los términos indicados en la cláusula Quinta.
 	</para>
 
+<!--[[ repeatIn(determinar_valor_hora(maestros.pis_participado.numero_id.fecha_inicio),'valor') ]]-->
 	<para style="P3">
-		<font face="Helvetica-Bold">QUINTA</font>:<font face="Helvetica-Bold"> EL (LA) CONTRATADO (A) </font>acepta de manera expresa que por impartir la precitada responsabilidad y carga formativa de carácter no académica, <font face="Helvetica-Bold">“EL INCES”</font> le pagará <font face="Helvetica-Bold">BOLÍVARES [[  obt_texto(maestros.nivel_id.valor_hora) ]] (Bs. [[ maestros.nivel_id.valor_hora ]]) </font>por cada hora formativa efectivamente impartida, y cuyo valor será la base de cálculo para el pago de prestaciones sociales y demás beneficios que le correspondan debidamente prorrateado en base al período de vigencia del presente contrato (Bono Vacacional y Bonificación de Fin de Año, siempre de acuerdo con lo aprobado por la máxima autoridad de <font face="Helvetica-Bold">“EL INCES”</font>, atendiendo a las tareas cumplidas y validadas de acuerdo con los artículos 112, 114, 121 y 122 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras. De igual modo, le será prorrateado el monto del beneficio de alimentación de acuerdo al número de horas diaria que efectivamente laboren. 
+		<font face="Helvetica-Bold">QUINTA</font>:<font face="Helvetica-Bold"> EL (LA) CONTRATADO (A) </font>acepta de manera expresa que por impartir la precitada responsabilidad y carga formativa de carácter no académica, <font face="Helvetica-Bold">“EL INCES”</font> le pagará <font face="Helvetica-Bold">BOLÍVARES [[ obt_texto(determinar_valor_hora(maestros.cedula)) ]] (Bs. [[ determinar_valor_hora(maestros.cedula) ]]) </font>por cada hora formativa efectivamente impartida, y cuyo valor será la base de cálculo para el pago de prestaciones sociales y demás beneficios que le correspondan debidamente prorrateado en base al período de vigencia del presente contrato (Bono Vacacional y Bonificación de Fin de Año, siempre de acuerdo con lo aprobado por la máxima autoridad de <font face="Helvetica-Bold">“EL INCES”</font>, atendiendo a las tareas cumplidas y validadas de acuerdo con los artículos 112, 114, 121 y 122 de la Ley Orgánica del Trabajo, los Trabajadores y las Trabajadoras. De igual modo, le será prorrateado el monto del beneficio de alimentación de acuerdo al número de horas diaria que efectivamente laboren. 
 	</para>
 
 	<para style="P3">
@@ -188,12 +187,12 @@
             <font color="white"> </font>
           </para>
           <para style="P22">[[ (maestros.nombres).upper() ]] [[  (maestros.apellidos).upper() ]]</para>
-          <para style="P16">C. I. [[  vcedula(maestros.nacionalidad.nacionalidad) ]]-[[ convertir(maestros.cedula) ]]</para>
+          <para style="P16">C.I. [[  vcedula(maestros.nacionalidad.nacionalidad) ]]-[[ convertir(maestros.cedula) ]]</para>
         </td>
       </tr>
     </blockTable>
           
-          <para spaceBefore="4.5cm" spaceAfter="0cm">[[ agregar_a_clase_contratos(maestros.cedula) ]]
+          <para spaceBefore="4.5cm" spaceAfter="0cm">
             <font color="white"> </font>
           </para>
 
@@ -207,8 +206,9 @@
         <drawCentredString x="8.8cm" y="0.2cm">GERENCIA DE RELACIONES LABORALES. Telefax (0212) 603.1710</drawCentredString>
 
   </illustration>
-	 
 
+<para>[[ marcar_contrato_generado(maestros.cedula) ]]</para>
+<para>[[ agregar_a_clase_contratos(maestros.cedula, maestros.nombres, maestros.apellidos, maestros.nacionalidad.nacionalidad,maestros.estado_civil_id.estado_civil,maestros.direccion_habitacion, maestros.municipio_id.municipio, maestros.estado_id.estado, min_fecha(maestros.pis_participado.numero_id.fecha_inicio), max_fecha(maestros.pis_participado.numero_id.fecha_cierre), maestros.pis_participado.numero_id.cfs_id.nombre[0],sumar_horas(maestros.pis_participado.numero_id.lapso_ejecucion), determinar_valor_hora(maestros.cedula), maestros.condicion_laboral.condicion_laboral) ]]</para>
 
   </story>
 </document>
