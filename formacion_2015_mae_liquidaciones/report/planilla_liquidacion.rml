@@ -4,7 +4,7 @@
     <pageTemplate id="first">
       <frame id="first" x1="59.0" y1="57.0" width="527" height="822"/>
 	<pageGraphics>
-	<image file="./cabecera_inces.png" x="54" y="880" height="30"/>
+	<image file="images/cabecera_inces_web.jpg" x="75" y="870" height="42"/>
 	</pageGraphics>
     </pageTemplate>
   </template>
@@ -739,6 +739,7 @@
     <paraStyle name="P1" fontName="Helvetica" fontSize="6.0" leading="8" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="7.0" leading="9"/>
     <paraStyle name="P3" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="CENTER"/>
+    <paraStyle name="P333" fontName="Helvetica-Bold" fontSize="6.0" leading="9" alignment="CENTER"/>
     <paraStyle name="P4" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="JUSTIFY"/>
     <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="RIGHT"/>
     <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="CENTER"/>
@@ -775,18 +776,19 @@
     <paraStyle name="MP1" fontName="Helvetica" fontSize="6.0" leading="8" spaceBefore="12.0" spaceAfter="6.0"/>
   </stylesheet>
   <story>
+  	
     <para style="P26">[[repeatIn(objects,'mae_liquidaciones')]]</para>
     <blockTable colWidths="225.0" style="Tabla2">
       <tr>
         <td>
-          <para style="P6">LIQUIDACIÓN DE PRESTACIONES SOCIALES AÑO 2014</para>
+          <para style="P6">LIQUIDACIÓN DE PRESTACIONES SOCIALES AÑO 2015</para>
         </td>
       </tr>
     </blockTable>
     <blockTable colWidths="128.0" style="Tabla14">
       <tr>
         <td>
-          <!-- para style="P6">MAESTRO(A)S PUEBLO</para -->
+          
 	  <para style="P6">[[ mae_liquidaciones.cargo ]]</para>
         </td>
       </tr>
@@ -833,7 +835,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,161.0,49.0,82.0,100.0" style="Tabla4">
+    <blockTable colWidths="95.0,161.0,49.0,82.0,101.0" style="Tabla4">
       <tr>
         <td>
           <para style="P8">Fecha Fin del Proyecto:</para>
@@ -852,25 +854,25 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,25.0,31.0,28.0,21.0,23.0,33.0,49.0,82.0,100.0" style="Tabla5">
+    <blockTable colWidths="95.0,25.0,31.0,28.0,21.0,23.0,33.0,49.0,82.0,101.0" style="Tabla5">
       <tr>
         <td>
           <para style="P8">Antigüedad INCES:</para>
         </td>
         <td>
-          <para style="P9">Años</para>
+          <para style="P9" fontSize="5.0">Años</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.antiguedad_annios ]]</para>
         </td>
         <td>
-          <para style="P9">Meses</para>
+          <para style="P9" fontSize="5.0">Meses</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.antiguedad_meses ]]</para>
         </td>
         <td>
-          <para style="P9">Días</para>
+          <para style="P9" fontSize="5.0">Días</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.antiguedad_dias ]]</para>
@@ -886,7 +888,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,209.0,183.0" style="Tabla6">
+    <blockTable colWidths="95.0,210.0,183.0" style="Tabla6">
       <tr>
         <td>
           <para style="P8">Último sueldo:</para>
@@ -899,13 +901,13 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,209.0,183.0" style="Tabla7">
+    <blockTable colWidths="95.0,210.0,183.0" style="Tabla7">
       <tr>
         <td>
           <para style="P8">Dependencia:</para>
         </td>
         <td>
-          <para style="P2">[[ mae_liquidaciones.dependencia_id.dependencia_administrativa ]]</para>
+          <para style="P2">[[ mae_liquidaciones.dependencia_id.dependencia ]]</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.motivo_egreso ]]</para>
@@ -919,7 +921,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="117.0,87.0,32.0,175.0,78.0" style="Tabla9">
+    <blockTable colWidths="117.0,87.0,32.0,175.0,77.0" style="Tabla9">
       <tr>
         <td>
           <para style="P10">Sueldo Mensual:</para>
@@ -928,9 +930,7 @@
           <para style="P11">[[ mae_liquidaciones.bas_salario_mensual ]]</para>
         </td>
         <td>
-          <para style="P20">
-            <font color="white"> </font>
-          </para>
+          <para style="P20"></para>
         </td>
         <td>
           <para style="P10">Salario Integral Diario (Prest Anti):</para>
@@ -940,7 +940,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="117.0,87.0,32.0,175.0,78.0" style="Tabla10">
+    <blockTable colWidths="117.0,87.0,32.0,175.0,77.0" style="Tabla10">
       <tr>
         <td>
           <para style="P10">Sueldo Anual:</para>
@@ -949,9 +949,7 @@
           <para style="P11">[[ mae_liquidaciones.bas_salario_anual ]]</para>
         </td>
         <td>
-          <para style="P27">
-            <font color="white"> </font>
-          </para>
+          <para style="P27"></para>
         </td>
         <td>
           <para style="P10">Bono Vacacional (85 días):</para>
@@ -961,7 +959,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="117.0,87.0,32.0,175.0,78.0" style="Tabla11">
+    <blockTable colWidths="117.0,87.0,32.0,175.0,77.0" style="Tabla11">
       <tr>
         <td>
           <para style="P10">Sueldo Diario:</para>
@@ -970,9 +968,7 @@
           <para style="P11">[[ mae_liquidaciones.bas_salario_diario ]]</para>
         </td>
         <td>
-          <para style="P27">
-            <font color="white"> </font>
-          </para>
+          <para style="P27"></para>
         </td>
         <td>
           <para style="P10">Bonificación De Fin de Año (140 Días):</para>
@@ -982,7 +978,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="117.0,87.0,32.0,175.0,78.0" style="Tabla12">
+    <blockTable colWidths="117.0,87.0,32.0,175.0,77.0" style="Tabla12">
       <tr>
         <td>
           <para style="P10">Salario Bono Vacacional:</para>
@@ -991,9 +987,7 @@
           <para style="P11">[[ mae_liquidaciones.bas_salario_int_bv ]]</para>
         </td>
         <td>
-          <para style="P27">
-            <font color="white"> </font>
-          </para>
+          <para style="P27"></para>
         </td>
         <td>
           <para style="P10">Alícuota de B.F.A (Aguinaldos):</para>
@@ -1003,7 +997,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="117.0,87.0,32.0,175.0,78.0" style="Tabla13">
+    <blockTable colWidths="117.0,87.0,32.0,175.0,77.0" style="Tabla13">
       <tr>
         <td>
           <para style="P10">Salario Bono de Fin de Año:</para>
@@ -1012,9 +1006,7 @@
           <para style="P11">[[ mae_liquidaciones.bas_salario_int_bfa ]]</para>
         </td>
         <td>
-          <para style="P27">
-            <font color="white"> </font>
-          </para>
+          <para style="P27"></para>
         </td>
         <td>
           <para style="P10">Alícuota de B.V. (Bono Vacacional):</para>
@@ -1031,7 +1023,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="96.0,46.0,82.0,77.0,102.0,84.0" style="Tabla17">
+    <blockTable colWidths="96.0,46.0,82.0,77.0,102.0,85.0" style="Tabla17">
       <tr>
         <td>
           <para style="P3">CONCEPTO</para>
@@ -1053,7 +1045,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="96.0,46.0,82.0,77.0,102.0,84.0" style="Tabla18">
+    <blockTable colWidths="96.0,46.0,82.0,77.0,102.0,85.0" style="Tabla18">
       <tr>
         <td>
           <para style="P10">Prestaciones</para>
@@ -1075,10 +1067,10 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="404.0,84.0" style="Tabla19">
+    <blockTable colWidths="403.0,85.0" style="Tabla19">
       <tr>
         <td>
-          <para style="P4">SUB-TOTAL DE ANTIGUEDAD Bs...</para>
+          <para style="P4" alignment="RIGHT">SUB-TOTAL DE ANTIGUEDAD Bs.</para>
         </td>
         <td>
           <para style="P5">[[ mae_liquidaciones.pres_monto_a_pagar ]]</para>
@@ -1092,7 +1084,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="111.0,75.0,58.0,92.0,66.0,84.0" style="Tabla21">
+    <blockTable colWidths="111.0,75.0,58.0,93.0,66.0,85.0" style="Tabla21">
       <tr>
         <td>
           <para style="P3">CONCEPTO</para>
@@ -1114,7 +1106,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="111.0,75.0,58.0,93.0,66.0,84.0" style="Tabla22">
+    <blockTable colWidths="111.0,75.0,58.0,93.0,66.0,85.0" style="Tabla22">
       <tr>
         <td>
           <para style="P10">Intereses Prest. Soc.</para>
@@ -1136,10 +1128,10 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="403.0,84.0" style="Tabla23">
+    <blockTable colWidths="403.0,85.0" style="Tabla23">
       <tr>
         <td>
-          <para style="P4">SUB-TOTAL INTERES PRESTACIONES Bs...</para>
+          <para style="P4" alignment="RIGHT">SUB-TOTAL INTERES PRESTACIONES Bs.</para>
         </td>
         <td>
           <para style="P5">[[ mae_liquidaciones.total_pres_mas_interes ]]</para>
@@ -1153,28 +1145,28 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="102.0,57.0,70.0,59.0,73.0,61.0,66.0" style="Tabla25">
+    <blockTable colWidths="102.0,57.0,70.0,59.0,72.0,62.0,66.0" style="Tabla25">
       <tr>
         <td>
-          <para style="P3">CONCEPTO</para>
+          <para style="P333">CONCEPTO</para>
         </td>
         <td>
-          <para style="P3">DÍAS/PAGAR</para>
+          <para style="P333">DÍAS/PAGAR</para>
         </td>
         <td>
-          <para style="P3">MESES T/INT</para>
+          <para style="P333">MESES T/INT</para>
         </td>
         <td>
-          <para style="P3">DÍAS/PAGAR</para>
+          <para style="P333">DÍAS/PAGAR</para>
         </td>
         <td>
-          <para style="P3">SUELDO M.</para>
+          <para style="P333">SUELDO M.</para>
         </td>
         <td>
-          <para style="P3">SUELDO D.</para>
+          <para style="P333">SUELDO D.</para>
         </td>
         <td>
-          <para style="P3">MONTO/PAGAR</para>
+          <para style="P333">MONTO/PAGAR</para>
         </td>
       </tr>
     </blockTable>
@@ -1253,14 +1245,14 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="422.0,67.0" style="Tabla29">
+    <blockTable colWidths="422.0,66.0" style="Tabla29">
       <tr>
         <td>
-          <para style="P4">SUB-TOTAL BENEFICIOS LEGALES Y/O CONTRACTUALES Bs...</para>
+          <para style="P4" alignment="RIGHT">SUB-TOTAL BENEFICIOS LEGALES Y/O CONTRACTUALES Bs.</para>
         </td>
         <td>
-          <!-- para style="P15">[[ mae_liquidaciones.total_asignaciones_legales ]]</para -->
-          <para style="P15">[[ '%.2f' % (mae_liquidaciones.vfr_monto_a_pagar + mae_liquidaciones.bvf_monto_a_pagar + mae_liquidaciones.bfaf_monto_a_pagar)]]</para>
+          
+          <para style="P15">[[ '%.2f' % (mae_liquidaciones.vfr_monto_a_pagar + mae_liquidaciones.bvf_monto_a_pagar + mae_liquidaciones.bfaf_monto_a_pagar) ]]</para>
         </td>
       </tr>
     </blockTable>
@@ -1310,7 +1302,7 @@
       </tr>
     </blockTable>
     <blockTable colWidths="392.0,96.0" style="Tabla42">
-	  <!-- BLOQUE DE OTRAS ASIGNACIONES -->
+	  
       <tr>
         <td>
           <para style="P23">[[ mae_liquidaciones.asig_concepto1.tipo_asignacion ]]</para>
@@ -1341,10 +1333,10 @@
       </tr>
     </blockTable>
     <blockTable colWidths="392.0,96.0" style="Tabla41">
-	  <!-- SUBTOTALIZACION DE OTRAS ASIGNACIONES -->
+	  
       <tr>
         <td>
-          <para style="P7"> TOTAL OTRAS ASIGNACIONES Bs...</para>
+          <para style="P7" alignment="RIGHT"> TOTAL OTRAS ASIGNACIONES Bs.</para>
         </td>
         <td>
           <para style="P22">[[ '%.2f' % (mae_liquidaciones.total_otras_asignaciones + mae_liquidaciones.asig_monto_a_pagar)]]</para>
@@ -1354,7 +1346,7 @@
     <blockTable colWidths="392.0,96.0" style="Tabla40">
       <tr>
         <td>
-          <para style="P7">TOTAL ASIGNACIONES Bs...</para>
+          <para style="P7" alignment="RIGHT">TOTAL ASIGNACIONES Bs.</para>
         </td>
         <td>
           <para style="P22">[[ mae_liquidaciones.total_asignaciones_legales ]]</para>
@@ -1404,7 +1396,7 @@
     <blockTable colWidths="392.0,96.0" style="Tabla35">
       <tr>
         <td>
-          <para style="P7">TOTAL DEDUCCIONES Bs...</para>
+          <para style="P7" alignment="RIGHT">TOTAL DEDUCCIONES Bs.</para>
         </td>
         <td>
           <para style="P5">[[ mae_liquidaciones.total_deducciones ]]</para>
@@ -1414,14 +1406,14 @@
     <blockTable colWidths="392.0,96.0" style="Tabla36">
       <tr>
         <td>
-          <para style="P16">TOTAL A PAGAR Bs................</para>
+          <para style="P16" alignment="RIGHT">TOTAL A PAGAR Bs.</para>
         </td>
         <td>
           <para style="P15">[[ mae_liquidaciones.total_liquidacion ]]</para>
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="488.0" style="Tabla37">
+    <blockTable colWidths="488.0" style="Tabla27">
       <tr>
         <td>
           <para style="P3">OBSERVACIONES</para>
@@ -1429,9 +1421,7 @@
       </tr>
       <tr>
         <td>
-          <para style="P17">
-            <font color="white"> </font>
-          </para>
+          <para style="P17"></para>
         </td>
       </tr>
       <tr>
@@ -1440,7 +1430,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="216.0,125.0,49.0,98.0" style="Tabla38">
+    <blockTable colWidths="216.0,125.0,49.0,98.0" style="Tabla27">
       <tr>
         <td>
           <para style="P3">NOMBRE Y APELLIDO</para>
@@ -1457,28 +1447,20 @@
       </tr>
       <tr>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P25">
-            <font color="white"> </font>
-          </para>
+          <para style="P25"></para>
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="101.0,115.0,125.0,147.0" style="Tabla39">
+    <blockTable colWidths="101.0,115.0,125.0,147.0" style="Tabla27">
       <tr>
         <td>
           <para style="P18">PREPARADO</para>
@@ -1509,29 +1491,19 @@
       </tr>
       <tr>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P10">
-            <font color="white"> </font>
-          </para>
+          <para style="P10"></para>
         </td>
         <td>
-          <para style="P3">
-            <font color="white"> </font>
-          </para>
+          <para style="P3"></para>
         </td>
       </tr>
     </blockTable>
-    <para style="Standard">
-      <font color="white"> </font>
-    </para>
+
   </story>
 </document>

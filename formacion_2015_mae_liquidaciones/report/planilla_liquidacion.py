@@ -42,4 +42,4 @@ class parser_planilla_liquidacion(report_sxw.rml_parse):
 #menu                  establecer a True para vincular el reporte a un icono (Por defecto: True)
 #keywords              especifica la palabra clave del reporte (Por defecto: client_print_multi)
 
-report_sxw.report_sxw('report.planilla.report', 'for.pis.mae_liquidaciones', 'addons/formacion_pis_mae_liquidaciones/report/planilla_liquidacion.rml', parser=parser_planilla_liquidacion, header=False)
+report_sxw.report_sxw('report.planilla.report', 'for.pis.mae_liquidaciones', 'addons/formacion_2015_mae_liquidaciones/report/planilla_liquidacion.rml', parser=parser_planilla_liquidacion, header=False)

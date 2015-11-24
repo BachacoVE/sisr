@@ -8,7 +8,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
 			<form string="for_mae_liquidaciones">
-							<field name="maestro_id" select="1"/>
+							<field name="maestro_id" select="1" on_change="onchange_dependencia(maestro_id)"/>
 							<!-- field name="cedula" select="1"/ -->
 							<field name="cedula" select="2" readonly="1"/>
 							<field name="nombres" select="0" readonly="1"/>
@@ -45,7 +45,7 @@
 									<field name="cargo" readonly="1" select="0"/>
 									<field name="estado_id" readonly="1" select="0"/>
 									<field name="estado" readonly="1" select="0"/>
-									<field name="dependencia_id" readonly="0" colspan="4" select="0"/>
+									<field name="dependencia_id" readonly="0" colspan="4" select="0" required="1" domain="[('maestro_ids','=',maestro_id)]"/>
 							</page>
 					<page string="Base de Cálculo">
 									<field name="bas_salario_diario" select="0"/>
