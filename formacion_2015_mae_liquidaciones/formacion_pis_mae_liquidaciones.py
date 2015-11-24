@@ -44,7 +44,7 @@ class for_pis_mae_liquidaciones(osv.osv):
         'ultimo_salario': fields.float('Ultimo Salario', help='Ultimo salario del Facilitador'),
         'total_horas': fields.integer('Total Horas', help='Total de Horas Trabajadas por el Facilitador en el período de tiempo especificado'),
         'cargo': fields.char('Cargo', size=100, readonly=True, help='(Cargo por defecto: Facilitador Pueblo)'),
-        'dependencia_id': fields.many2one('sisr.pla.dependencias_administrativas', 'Dependencia', required=True, help='Dependencia INCES'),
+        'dependencia_id': fields.many2one('for.dependencias', 'Dependencia', required=False, help='Dependencia INCES'),
         'estado_id': fields.many2one('for.pis.estados', 'Código Estado', help='Código del Estado donde trabaja el Facilitador'),
         'estado': fields.related('estado_id', 'estado', type='char', relation='for.pis.estados', string='Estado', store=False, help='Estado donde trabaja el Facilitador'),
         'motivo_egreso_id': fields.many2one('for.pis.mae_motivos_egreso', 'Codigo Motivo Egreso', help='Código del Motivo de Egreso del Facilitador'),
@@ -115,6 +115,10 @@ class for_pis_mae_liquidaciones(osv.osv):
     }
     _sql_constraints = [('unique_maestro_id', 'unique(maestro_id)', 'No puede generar 2 o mas Liquidaciones para un Facilitador'),]
     
+    def onchange_dependencia(self, cr, uid, ids, maestro):
+        dep_maestro= self.pool.get('for.pis.maestros').browse(cr, uid, maestro).dependencia_ids[0].id
+        return {'value':{'dependencia_id': dep_maestro}}
+
     def init(self, cr):
         # Ejecuta sentencias SQL para agregar las Funciones de Cálculo de la Liquidación
         cr.execute("""
