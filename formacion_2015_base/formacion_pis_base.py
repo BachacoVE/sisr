@@ -218,6 +218,25 @@ class for_pis_registro_inicial(osv.osv):
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
        	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia')
        }
+
+    def actualizar_matriz(self, cr, uid, ids, context=None):
+        var=self.pool.get('for.matriz_curricular_formacion')
+        opciones_clean=var.search(cr, uid, [('opcion_formativa_id','=',ids)])
+        clean=var.unlink(cr, uid, opciones_clean)
+        dict={}
+        id_opcion_formativa = self.browse(cr, uid, ids)[0].denominacion_pis_id.id
+        id_matriz = self.pool.get('for.estructura_curricular').search(cr, uid, [('opcion_formativa_id','=',id_opcion_formativa)])
+        for element in id_matriz:
+            elemento_matriz=self.pool.get('for.estructura_curricular').browse(cr, uid, element)
+            dict={'opcion_formativa_id':ids[0],
+                'ec_tema':elemento_matriz.ec_tema,
+                'ec_horas':elemento_matriz.ec_horas,
+                'ec_observaciones':elemento_matriz.ec_observaciones,
+                'ec_problema_resuelve':elemento_matriz.ec_problema_resuelve,
+                'categoria_id':str(elemento_matriz.categoria_id)}
+            var.create(cr, uid, dict, context)
+        return True
+
     def name_get(self, cr, uid, ids, context={}):
         if not len(ids):
             return []
