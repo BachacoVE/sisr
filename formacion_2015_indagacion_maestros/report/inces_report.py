@@ -61,12 +61,13 @@ class reporte_inces(report_sxw.rml_parse):
                         ON for_pis_registro_inicial.id=for_pis_mae_participacion_pis.numero_id  \
                         WHERE for_pis_maestros.cedula='%s'" % cedula)
         fec_minima=self.cr.fetchone()
+
         if(fec_minima<0):
             #fec_minima='2015-05-01'
             return 0
 
         else:
-            if(fec_minima > '2015-05-01'):
+            if(fec_minima[0] > '2015-05-01'):
                 self.cr.execute("SELECT valor_hora \
                             FROM for_pis_maestros \
                             INNER JOIN for_pis_mae_valor_hora \
