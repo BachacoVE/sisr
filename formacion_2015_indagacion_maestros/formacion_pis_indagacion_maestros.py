@@ -65,7 +65,7 @@ class for_pis_maestros(osv.osv):
         'fecha_ingreso': fields.datetime('Fecha Ingreso', help='Fecha de ingreso al último trabajo'),
         'tiempo_experiencia': fields.integer('Años experiencia', help='Años de Experiencia en el trabajo'),
         'casea_conocimientos_ids': fields.one2many('for.pis.mae_casea_conocimientos', 'maestro_id', 'Areas de Conocimiento para CASEA', help='Areas de Conocimiento para la Certificación y Acreditación de Saberes Empíricos y Académicos'),
-        'pis_participado': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'En cuántas Formaciones ha participado', help='Relación de las Formaciones en los cuales ha participado'),
+        'pis_participado': fields.one2many('for.pis.mae_participacion_pis', 'maestro_id', 'En cuantas Formaciones ha participado', help='Relación de las Formaciones en los cuales ha participado'),
         'frecuencia_colectivos_aprendizaje_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo Formadores', help='Frecuencia de Participación en el Colectivo de Formadores'),
         'frecuencia_colectivo_cfs_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo del CFS', help='Frecuencia de Participación en el Colectivo del CFS'),
         'frecuencia_matriz_planificacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Matriz de Planificación', help='Frecuencia de Participación en la Matriz de Planificación del Proceso Formativo, Colectivo, Integral'),
@@ -289,7 +289,7 @@ class for_pis_mae_participacion_pis(osv.osv):
     _rec_name = 'numero_id'
     _columns = {
         'maestro_id': fields.many2one('for.pis.maestros', 'Formador', help='Formador que participa en la Formación referida'),
-        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', help='Formación donde participa o ha participado'),
+        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formacion donde participa', help='Formación donde participa o ha participado'),
     }
 for_pis_mae_participacion_pis()
 
