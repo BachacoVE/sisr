@@ -377,7 +377,7 @@ for_pis_modalidad()
 class for_matriz_curricular_formacion(osv.osv):
 	_name= 'for.matriz_curricular_formacion'
 	_columns = {
-        'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', size=100, help='Opción Formativa al cual se asocia la Estructura Curricular'),
+        'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', onupdate='cascade', help='Opción Formativa al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=False, help='Tema de la Matriz Curricular del PIS'),
         'ec_horas': fields.integer('Horas', required=False, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
         'ec_observaciones': fields.text('Observaciones', required=False, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),
