@@ -356,7 +356,8 @@ herencia res.users
                         </group>
                     </page>
                     <page string="Matriz Curricular">
-                        <field name="matriz_curricular_ids" select="0" nolabel="1">
+                        <button name="actualizar_matriz" type="object" string="Actualizar Matriz Curricular" colspan="4"/> 
+                        <field name="matriz_curricular_ids" select="0" nolabel="1" colspan="4">
 							<form string="Estructura Curricular">				              
 				                <!--field name="opcion_formativa_id" select="1"/-->
 				                <field name="ec_tema" select="2" readonly="True"/>
