@@ -62,39 +62,42 @@ class reporte_inces(report_sxw.rml_parse):
                         WHERE for_pis_maestros.cedula='%s'" % cedula)
         fec_minima=self.cr.fetchone()
         if(fec_minima<0):
-            fec_minima='2015-05-01'
+            #fec_minima='2015-05-01'
+            return 0
 
-        if(fec_minima > '2015-05-01'):
-            self.cr.execute("SELECT valor_hora \
-                        FROM for_pis_maestros \
-                        INNER JOIN for_pis_mae_valor_hora \
-                        ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
-            resultado1=self.cr.fetchone()
-            if(resultado1<0):
-                return 0
-            else:
-                return resultado1[0]
         else:
-            self.cr.execute("SELECT valor_hora \
-                        FROM for_pis_maestros \
-                        INNER JOIN for_pis_mae_valor_hora \
-                        ON for_pis_maestros.nivel_viejo_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
-            resultado2=self.cr.fetchone()
-            if(resultado2<0):
+            if(fec_minima > '2015-05-01'):
                 self.cr.execute("SELECT valor_hora \
-                        FROM for_pis_maestros \
-                        INNER JOIN for_pis_mae_valor_hora \
-                        ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
-                        WHERE for_pis_maestros.cedula='%s'" % (cedula))
+                            FROM for_pis_maestros \
+                            INNER JOIN for_pis_mae_valor_hora \
+                            ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
+                            WHERE for_pis_maestros.cedula='%s'" % (cedula))
                 resultado1=self.cr.fetchone()
                 if(resultado1<0):
                     return 0
                 else:
                     return resultado1[0]
             else:
-                return resultado2[0]
+                self.cr.execute("SELECT valor_hora \
+                            FROM for_pis_maestros \
+                            INNER JOIN for_pis_mae_valor_hora \
+                            ON for_pis_maestros.nivel_viejo_id=for_pis_mae_valor_hora.id \
+                            WHERE for_pis_maestros.cedula='%s'" % (cedula))
+                resultado2=self.cr.fetchone()
+                if(resultado2<0):
+                    #self.cr.execute("SELECT valor_hora \
+                    #        FROM for_pis_maestros \
+                    #        INNER JOIN for_pis_mae_valor_hora \
+                    #        ON for_pis_maestros.nivel_id=for_pis_mae_valor_hora.id \
+                    #        WHERE for_pis_maestros.cedula='%s'" % (cedula))
+                    #resultado1=self.cr.fetchone()
+                    #if(resultado1<0):
+                    #    return 0
+                    #else:
+                    #    return resultado1[0]
+                    return 0
+                else:
+                    return resultado2[0]
 
     def marcar_contrato_generado(self, cedula):
         self.cr.execute("SELECT apr_generar FROM for_pis_maestros WHERE cedula='%s'" % (cedula))
