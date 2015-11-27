@@ -481,12 +481,15 @@ class for_pis_participacion_pis(osv.osv):
     _name = 'for.pis.participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
-        'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', help='Participante que participa la formación referida'),
-        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', help='Formación donde participa o ha participado'),
+        'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', ondelete='cascade', help='Participante que participa la formación referida'),
+        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', ondelete='cascade', help='Formación donde participa o ha participado'),
         'estatus': fields.selection([('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
         'dependencia_formacion': fields.related('numero_id', 'dependencia_id', type='many2one', relation='for.dependencias', string='Dependencia', store=True, help='Dependencia de donde se registra la formacion'),
         'motores_economicos_id': fields.related('numero_id', 'motores_economicos_id', type='many2one', relation='for.pis.motores_economicos', string='Motor', store=True, help='Motor economico de donde se registra la formacion'),
     }
+
+    _sql_constraints = [('participante_en_formacion_uniq', 'unique(sujeto_id,numero_id)', 'Este participante ya pertenece a esta formacion')]
+
 
     def unlink(self, cr, uid, ids, context=None):
         id_formacion=[]

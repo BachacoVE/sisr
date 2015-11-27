@@ -288,9 +288,10 @@ class for_pis_mae_participacion_pis(osv.osv):
     _name = 'for.pis.mae_participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
-        'maestro_id': fields.many2one('for.pis.maestros', 'Formador', help='Formador que participa en la Formación referida'),
-        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', help='Formación donde participa o ha participado'),
+        'maestro_id': fields.many2one('for.pis.maestros', 'Formador', ondelete='cascade', onupdate='cascade', help='Formador que participa en la Formación referida'),
+        'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', ondelete='cascade', onupdate='cascade', help='Formación donde participa o ha participado'),
     }
+    _sql_constraints = [('maestro_en_formacion_uniq', 'unique(maestro_id,numero_id)', 'Este Formador ya pertenece a esta formacion')]
 for_pis_mae_participacion_pis()
 
 class for_pis_mae_experiencias_empiricas(osv.osv):
