@@ -22,3 +22,4 @@
 #
 
 import formacion_pis_indagacion
+import report

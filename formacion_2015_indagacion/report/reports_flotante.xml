@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <!--   Product Price List -->
+
+		<record id="view_product_price_list" model="ir.ui.view">
+		      <field name="name">Reporte Estadistico</field>
+		      <field name="model">for.pis.participacion_pis</field>
+		      <field name="type">form</field>
+		      <field name="arch" type="xml">
+				<form string="Price List">
+                    <separator colspan="4" string="Reporte Estadistico"/>
+                    <group col="2" colspan="4">
+                         <button icon="gtk-cancel" special="cancel" string="Cerrar"/>
+                         <button name="print_report" string="Imprimir"  type="object"  icon="gtk-print"/>
+                    </group>
+				</form>
+		      </field>
+    	</record>
+
+        <act_window id="reporte_multidimensional_float"
+    		key2="client_print_multi"
+            name="Price List"
+    		res_model="for.pis.participacion_pis"
+            src_model="for.pis.participacion_pis"
+    		view_mode="form" target="new" view_type="form" />
+
+</data>
+</openerp>

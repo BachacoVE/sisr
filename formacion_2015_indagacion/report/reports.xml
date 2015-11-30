@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report 
+        auto="False" 
+        id="reporte_multidimensional" 
+        model="for.pis.participacion_pis" 
+        name="reporte_multidimensional"
+        rml="formacion_2015_indagacion/report/reporte_multidimensional.rml" 
+        string="Reporte Multidimensional" />
+    </data>
+</openerp>
