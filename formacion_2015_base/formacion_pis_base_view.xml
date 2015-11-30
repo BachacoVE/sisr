@@ -294,6 +294,12 @@ herencia res.users
                     <field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/-->
 				
                 <!--Buscar ubicacion geografica-->
+                <field name="state" widget="statusbar" select="0"/>
+                <button name="action_proceso" type="object" string="proceso" states="programado"/>
+                <button name="action_finalizado" type="object" string="finalizado" states="proceso"/>
+                <button name="action_certificado" type="object" string="certificado" states="finalizado"/>
+                
+
                 <separator string="Ubicación Administrativa de la Formación" colspan="4"/>					
                                         
                     <field name="estado_id" on_change="on_change_limpiar_campo('municipio_id','parroquia_id')" select="0" required="1" />
@@ -392,6 +398,7 @@ herencia res.users
                 <field name="dependencia_id" string="Dependencia"/>
                 <field name="nro_preimpreso" string="Preimpreso"/>
                 <field name="denominacion_pis_id" string="Denominación"/>
+                <field name="cfs_id" string="Denominación"/>
                 <field name="identificador_id"/>
                 <field name="lapso_ejecucion" string="Lapso"/>
                 <field name="fecha_inicio" string="Inicio"/>
@@ -422,6 +429,7 @@ herencia res.users
 <group expand="1" string="Agrupado por...">
     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_id'}"/>
     <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
+    <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
 </group>
 <!--cerrar group-->
         </search>

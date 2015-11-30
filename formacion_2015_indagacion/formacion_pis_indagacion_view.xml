@@ -1139,6 +1139,7 @@
                 <field name="estatus" select="2" readonly="0" required="1"/>
                 <field name="dependencia_formacion" select="2" readonly="1"/>
                 <field name="motores_economicos_id" select="2" readonly="1"/>
+                <field name="cfs_id" select="2" readonly="1"/>
 
             </form>
         </field>
@@ -1154,6 +1155,7 @@
                 <field name="estatus"/>
                 <field name="dependencia_formacion"/>
                 <field name="motores_economicos_id"/>
+                <field name="cfs_id"/>
             </tree>
         </field>
     </record>
@@ -1172,6 +1174,7 @@
                         <filter string="Formación" icon="terp-folder-violet" domain="[]" context="{'group_by':'numero_id'}"/>
                         <filter string="Sujeto" icon="terp-folder-violet" domain="[]" context="{'group_by':'sujeto_id'}"/>
                         <filter string="Motor" icon="terp-folder-violet" domain="[]" context="{'group_by':'motores_economicos_id'}"/>
+                        <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
                         
                     </group>
             </search>
