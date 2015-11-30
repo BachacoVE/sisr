@@ -294,10 +294,12 @@ herencia res.users
                     <field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/-->
 				
                 <!--Buscar ubicacion geografica-->
+                <!--
                 <field name="state" widget="statusbar" select="0"/>
                 <button name="action_proceso" type="object" string="proceso" states="programado"/>
                 <button name="action_finalizado" type="object" string="finalizado" states="proceso"/>
                 <button name="action_certificado" type="object" string="certificado" states="finalizado"/>
+                -->
                 
 
                 <separator string="Ubicación Administrativa de la Formación" colspan="4"/>					
