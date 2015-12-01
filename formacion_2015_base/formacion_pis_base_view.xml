@@ -412,6 +412,24 @@ herencia res.users
         </field>
     </record>
 
+<!--Gráfica-->
+
+        <record model="ir.ui.view" id="view_registro_inicial_graph">
+            <field name="name">sale.registro_inicial.graph</field>
+            <field name="model">for.pis.registro_inicial</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Estadística" type="bar">
+                    <field name="estado_id"/>
+                    <field name="cantidad_sujetos_programados" operator="+"/>
+                    <field name="cantidad_sujetos_enproceso"/>
+                </graph>
+            </field>
+        </record>
+
+<!--Fin Gráfica-->
+
+
 <!--busquedas search-->
 <record model="ir.ui.view" id="view_for_pis_registro_inicial_search">
    <field name="name">for.pis.registro_inicial.search</field>
@@ -443,7 +461,7 @@ herencia res.users
         <field name="name">Registro Inicial de la Formación y Autoformación</field>
         <field name="res_model">for.pis.registro_inicial</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,graph</field>
 
     </record>
 
@@ -752,6 +770,21 @@ herencia res.users
         <field name="view_mode">tree,form</field>
     </record>
 
+<!--Vista Grafica-->
+
+<record model="ir.ui.view" id="view_pis_base_graph">
+   <field name="name">pis.base.graph</field>
+   <field name="model">for.pis.estados</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="Estados">
+              <field name="codigo" group="True"/>
+              <field name="estado" operator="+"/>
+        </graph>
+    </field>
+</record>
+
+<!--Vista Grafica-->
 
 
     <menuitem name="Formación" id="menu_for_base"

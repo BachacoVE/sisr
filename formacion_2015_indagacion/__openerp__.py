@@ -50,6 +50,6 @@
                         'data/for.pis.oficios.csv',
                         'data/for.pis.profesiones_ocupaciones.csv'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_indagacion_view.xml', 'security/ir.model.access.csv'],
+        "update_xml" : ['formacion_pis_indagacion_view.xml', 'security/ir.model.access.csv', 'report/reports.xml'],
         "installable": True
 }
