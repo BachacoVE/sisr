@@ -130,7 +130,7 @@
     <blockTable colWidths="100,55,55,55,55,55,55,55" style='Tabla1'>
       <tr>
         <td>
-          <para style="P1">Estado</para>
+          <para style="P1">Depenedencia</para>
         </td>
         <td>
           <para style="P1">Participantes Programados</para>
@@ -188,7 +188,34 @@
       </tr>
 </blockTable>
 </section>
-
+    <blockTable colWidths="100,55,55,55,55,55,55,55" style='Tabla1'>
+      <tr>
+        <td>
+          <para style="P1" alignment="RIGHT">Totales:</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('participantes_rogramados') ]]</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('total_inscritos') ]]</para>           
+        </td>
+        <td>
+          <para style="P1">[[ totales('egresados') ]]</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('retirados') ]]</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('procesos') ]]</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('nulos') ]]</para>
+        </td>
+        <td>
+          <para style="P1">[[ totales('cantidad_maestros') ]]</para>
+        </td>
+      </tr>
+    </blockTable>
 
 <para style="P2"></para>
 <para style="P2"></para>
