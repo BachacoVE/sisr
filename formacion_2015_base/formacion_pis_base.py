@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -142,6 +142,7 @@ class for_pis_registro_inicial(osv.osv):
 
 
     _columns = {
+    	'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
         'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominacion',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecucion',store=True, readonly=True),
@@ -218,6 +219,7 @@ class for_pis_registro_inicial(osv.osv):
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
        	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia')
        }
+    _defaults= {'state': 'programado'}
 
     def actualizar_matriz(self, cr, uid, ids, context=None):
         var=self.pool.get('for.matriz_curricular_formacion')
@@ -235,6 +237,26 @@ class for_pis_registro_inicial(osv.osv):
                 'ec_problema_resuelve':elemento_matriz.ec_problema_resuelve,
                 'categoria_id':str(elemento_matriz.categoria_id)}
             var.create(cr, uid, dict, context)
+        return True    
+    
+    def action_programado(self, cr, uid, ids, context=None):
+        res={'state': 'programado'}
+        self.write(cr, uid, ids, res)
+        return True    
+
+    def action_proceso(self, cr, uid, ids, context=None):
+        res={'state': 'proceso'}
+        self.write(cr, uid, ids, res)
+        return True
+	
+    def action_finalizado(self, cr, uid, ids, context=None):
+        res={'state': 'finalizado'}
+        self.write(cr, uid, ids, res)
+        return True
+
+    def action_certificado(self, cr, uid, ids, context=None):
+        res={'state': 'certificado'}
+        self.write(cr, uid, ids, res)
         return True
 
     def name_get(self, cr, uid, ids, context={}):
@@ -332,7 +354,6 @@ class for_pis_registro_inicial(osv.osv):
             v['warning'] = {'title':"Error", 'message':"ERROR: Debe definir las Horas Diarias"}
         
         return v
-            
 
 for_pis_registro_inicial()
 
@@ -476,7 +497,4 @@ class for_pis_opciones_formativas(osv.osv):
         for opcion_formativa_obj in self.browse(cr, uid, ids,context=context):
             res.append((opcion_formativa_obj.id, str(opcion_formativa_obj.identificador) + ' - ' + opcion_formativa_obj.denominacion))    
         return res
-
-
-
 for_pis_opciones_formativas()
