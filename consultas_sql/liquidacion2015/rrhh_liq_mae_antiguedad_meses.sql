@@ -16,12 +16,12 @@ $BODY$
 			AND a.semana_desde >= (fecha_inicio - time '24:00')
 			AND a.semana_hasta <= (fecha_fin + time '24:00');
 
-                IF modalidad = 1 THEN
+                --IF modalidad = 1 THEN
 			RETURN EXTRACT(MONTH FROM AGE(fecha_fin , fecha_inicio));
-		ELSE
+		--ELSE
 			-- Calculo de Meses desde las Horas (horas/8/30)
-			RETURN (total_horas/8/30)::integer;
-		END IF;
+			--RETURN (total_horas/5/21)::integer;
+		--END IF;
         END;
 $BODY$
   LANGUAGE plpgsql VOLATILE

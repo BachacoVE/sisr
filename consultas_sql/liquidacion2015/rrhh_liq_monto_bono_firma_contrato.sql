@@ -9,7 +9,7 @@ $BODY$
         BEGIN
         --Funcion aplicada en el año 2015, determina el monto del bono incentivo al ahorro en base a la fecha de la firma del contrato colectivo
 		    IF fecha_inicio < '20/07/2015' AND fecha_fin >= '20/10/2015'
-          THEN monto_bono_firma_contrato= 10000;
+          THEN monto_bono_firma_contrato= 6000;
         ELSE monto_bono_firma_contrato= 0;
         END IF;                   		
 		    RETURN monto_bono_firma_contrato;

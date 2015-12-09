@@ -10,6 +10,9 @@ $BODY$
 	DECLARE valor_hora DOUBLE PRECISION;
 	DECLARE valor_hora_viejo DOUBLE PRECISION;
 	DECLARE ultimo_salario DOUBLE PRECISION;
+	DECLARE semana_ultima_asistencia INTEGER;
+	DECLARE semana_calculo_salario INTEGER;
+	DECLARE antiguedad_meses INTEGER;
         BEGIN
         
 		/*
@@ -51,6 +54,7 @@ $BODY$
         ------------------------------------------------------------------------------------------------------------------------------
         ------------------------------------------------------------------------------------------------------------------------------
         --------------- Liquidacion para el periodo 2015, No utiliza consolidado-----------------------------------------------------
+		
 		SELECT sum(asi1.horas_lunes)+sum(asi1.horas_martes)+sum(asi1.horas_miercoles)+sum(asi1.horas_jueves)+sum(asi1.horas_viernes)+sum(asi1.horas_sabado)+sum(asi1.horas_domingo) INTO  total_horas_viejo
                 FROM for_pis_mae_asistencias asi1
                 WHERE asi1.maestro_id = maestro
@@ -62,6 +66,8 @@ $BODY$
                 WHERE asi2.maestro_id = maestro
                 -- condicion para seleccionar asistencias despues del aumento salarial del 1 mayo 2015, la semana 6 tuvo un salto de id por ello la segunda condicion 'AND asi2.calendario_id <> 53'                
                   AND asi2.calendario_id >17 AND asi2.calendario_id <> 53;
+
+		antiguedad_meses = (total_horas_viejo + total_horas) / 5 / 21;
 
         SELECT vh.valor_hora INTO valor_hora_viejo
         		FROM for_pis_maestros as mae
@@ -91,10 +97,12 @@ $BODY$
 			ELSE
 				-- Calculo de Ultimo Salario/horas trabajadas * 30
 				
-				RETURN ((ultimo_salario/(total_horas + total_horas_viejo)) * 30);
+				RETURN (ultimo_salario / antiguedad_meses);
 				
 			END IF;
 		END IF;
+
+
 
         END;
 $BODY$

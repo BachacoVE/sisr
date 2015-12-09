@@ -76,130 +76,130 @@
         <field name="model">for.pis.maestros</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-			<form string="for.Facilitadores">
-				<separator string="Datos Básicos" colspan="4"/>
-				<field name="cedula" select="1" required="1"/>
-				<field name="nombres" select="2" required="1"/>
-				<field name="apellidos" select="0" required="1"/>
-				<field name="nacionalidad" select="0" required="True"/>
-				<field name="fecha_nacimiento" select="0" on_change="onchange_calcular_edad(fecha_nacimiento, context)" required="1"/>
-				<field name="edad" select="0" string="Años"/>
-				<field name="genero_id" select="0" required="1"/>
-				<field name="pueblo_indigena_id" select="0"/>
-				<field name="estado_civil_id" select="0" required="1"/>
+            <form string="for.Facilitadores">
+                <separator string="Datos Básicos" colspan="4"/>
+                <field name="cedula" select="1" required="1"/>
+                <field name="nombres" select="2" required="1"/>
+                <field name="apellidos" select="0" required="1"/>
+                <field name="nacionalidad" select="0" required="True"/>
+                <field name="fecha_nacimiento" select="0" on_change="onchange_calcular_edad(fecha_nacimiento, context)" required="1"/>
+                <field name="edad" select="0" string="Años"/>
+                <field name="genero_id" select="0" required="1"/>
+                <field name="pueblo_indigena_id" select="0"/>
+                <field name="estado_civil_id" select="0" required="1"/>
                 <field name="apr_generar" select="0" readonly="1"/>
-                <field name="ademdum" select="0" readonly="0"/>
-				<notebook colspan="4">
-					<page string="Diversidad Funcional">
-						<field name="discapacidad_ids" string="Diversidades Funcionales" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Familiares">
-						<field name="hijos_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Ubicación">
-						<field name="estado_id" select="0" required="1"/>
-						<field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]" required="1"/>
-						<field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]" required="1"/>
-						<field name="comunidad_id" select="0" required="1"/>
-						<field name="direccion_habitacion" select="0" required="1"/>
-						<field name="telefono_fijo" select="0"/>
-						<field name="telefono_celular" select="0"/>
-						<field name="correo_electronico" select="0"/>
-					</page>
-					<page string="Redes Sociales">
-						<field name="redes_sociales_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Deportes">
-						<separator string="'Deporte(s) que practica" colspan="4"/>
-						<field name="deportes_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Culturales">
-						<separator string="Actividad(es) Cultural(es) que practica" colspan="4"/>
-						<field name="actividades_culturales_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Misiones">
-						<separator string="'Mision(es) a la(s) que pertenece'" colspan="4"/>
-						<field name="misiones_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Organizaciones">
-						<field name="organizaciones_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-				</notebook>
-				<notebook colspan="4">
-					<page string="Formación">
-						<separator string="Formación Académica" colspan="4"/>
-						<field name="formacion_ids" colspan="4" nolabel="1" select="0"/>
-						<field name="ultimo_cursado" select="0" string="Último año cursado"/>
-						<field name="especialidad_id" select="0"/>
-					</page>
-					<page string="Otras formaciones">
-						<field name="otras_formaciones" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Experiencias Empíricas">
-						<field name="experiencias_empiricas" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Experiencias Docentes">
-						<field name="experiencias_docentes" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Experiencias Laborales">
-						<field name="experiencias_laborales" colspan="4" nolabel="1" select="0"/>
-					</page>
-				</notebook>                
-				<notebook colspan="4">
-					<page string="Condición Laboral">
-						<separator string="Condición Laboral relacionada con INCES" colspan="4"/>
-     					<field name="nivel_viejo_id" required="1" string="Valor Hora hasta 30 Abril 2015" select="0" domain="[('fecha_resolucion','=','17/02/2014')]"/>
+                <field name="ademdum" select="0" readonly="1"/>
+                <notebook colspan="4">
+                    <page string="Diversidad Funcional">
+                        <field name="discapacidad_ids" string="Diversidades Funcionales" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Familiares">
+                        <field name="hijos_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Ubicación">
+                        <field name="estado_id" select="0" required="1"/>
+                        <field name="municipio_id" select="0" domain="[('estado_id','=',[estado_id])]" required="1"/>
+                        <field name="parroquia_id" select="0" domain="[('municipio_id','=',[municipio_id])]" required="1"/>
+                        <field name="comunidad_id" select="0" required="1"/>
+                        <field name="direccion_habitacion" select="0" required="1"/>
+                        <field name="telefono_fijo" select="0"/>
+                        <field name="telefono_celular" select="0"/>
+                        <field name="correo_electronico" select="0"/>
+                    </page>
+                    <page string="Redes Sociales">
+                        <field name="redes_sociales_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Deportes">
+                        <separator string="'Deporte(s) que practica" colspan="4"/>
+                        <field name="deportes_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Culturales">
+                        <separator string="Actividad(es) Cultural(es) que practica" colspan="4"/>
+                        <field name="actividades_culturales_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Misiones">
+                        <separator string="'Mision(es) a la(s) que pertenece'" colspan="4"/>
+                        <field name="misiones_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Organizaciones">
+                        <field name="organizaciones_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                </notebook>
+                <notebook colspan="4">
+                    <page string="Formación">
+                        <separator string="Formación Académica" colspan="4"/>
+                        <field name="formacion_ids" colspan="4" nolabel="1" select="0"/>
+                        <field name="ultimo_cursado" select="0" string="Último año cursado"/>
+                        <field name="especialidad_id" select="0"/>
+                    </page>
+                    <page string="Otras formaciones">
+                        <field name="otras_formaciones" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Experiencias Empíricas">
+                        <field name="experiencias_empiricas" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Experiencias Docentes">
+                        <field name="experiencias_docentes" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Experiencias Laborales">
+                        <field name="experiencias_laborales" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                </notebook>                
+                <notebook colspan="4">
+                    <page string="Condición Laboral">
+                        <separator string="Condición Laboral relacionada con INCES" colspan="4"/>
+                        <field name="nivel_viejo_id" required="1" string="Valor Hora hasta 30 Abril 2015" select="0" domain="[('fecha_resolucion','=','17/02/2014')]"/>
                         <field name="nivel_id" required="1" string="Valor Hora desde 1ero Mayo 2015" select="0" domain="[('fecha_resolucion','=','01/05/2015')]"/>
-						<field name="condicion_laboral" select="0" required="True"/>
-     					<!-- field name="fecha_ingreso" select="0"/ -->
-						<field name="tiempo_experiencia" string="Años de Experiencia" select="0" required="True"/>
-					    <!-- Modificaciones para Nomina de Maestros -->
-					    <!--<field name="horas_trabajadas" select="0"/>-->
-					    <field name="entidad_id" select="0" required="True"/>
-					    <field name="cuenta_id" select="0" required="True"/>
-					    <field name="tipo_cuenta_id" select="0" required="True"/>
-					    <field name="trabaja_actualmente" select="0" required="False"/>
-					</page>
-					<page string="CASEA">
+                        <field name="condicion_laboral" select="0" required="True"/>
+                        <!-- field name="fecha_ingreso" select="0"/ -->
+                        <field name="tiempo_experiencia" string="Años de Experiencia" select="0" required="True"/>
+                        <!-- Modificaciones para Nomina de Maestros -->
+                        <!--<field name="horas_trabajadas" select="0"/>-->
+                        <field name="entidad_id" select="0" required="True"/>
+                        <field name="cuenta_id" select="0" required="True"/>
+                        <field name="tipo_cuenta_id" select="0" required="True"/>
+                        <field name="trabaja_actualmente" select="0" required="False"/>
+                    </page>
+                    <page string="CASEA">
                         <separator string="Areas de Conocimiento para CASEA" colspan="4"/>
                         <field name="casea_conocimientos_ids" colspan="4" nolabel="1" select="0"/>
                     </page>
 
                     <page string="Dependencias">
-						<separator string="Dependencias de Adscripción" colspan="4"/>
-						<field name="dependencia_ids" colspan="4" nolabel="1" select="0" required="True"/>
-					</page>
+                        <separator string="Dependencias de Adscripción" colspan="4"/>
+                        <field name="dependencia_ids" colspan="4" nolabel="1" select="0" required="True"/>
+                    </page>
 
-					<page string="Participación en Formaciones">
-						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
-						<field name="pis_participado" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="Actividad Formativa">
-						<field name="frecuencia_colectivos_aprendizaje_id" select="0"/>
-						<field name="frecuencia_colectivo_cfs_id" select="0"/>
-						<field name="frecuencia_matriz_planificacion_id" select="0"/>
-						<field name="frecuencia_cuaderno_sistematizacion_id" select="0"/>
-						<field name="frecuencia_cuaderno_sistema_sujetos_id" select="0"/>
-						<field name="frecuencia_intercambio_saberes_id" select="0"/>
-						<field name="frecuencia_encuentros_socializacion_id" select="0"/>
-					</page>
-					<page string="Intereses Formativos">
-						<separator string="'Intereses Formativos'" colspan="4"/>
-						<field name="intereses_formativos_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<page string="TICs">
-						<separator string="Tecnologías (TIC) que utiliza" colspan="4"/>
-						<field name="tecnologias_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-					<!--page string="Actividad Fases">
-						<field name="frecuencia_fase_I" select="0"/>
-						<field name="frecuencia_fase_II" select="0"/>
-						<field name="frecuencia_fase_III" select="0"/>
-						<separator string="'Observaciones'" colspan="4"/>
-						<field name="observaciones" colspan="4" nolabel="1" select="0"/>
-					</page-->
-				</notebook>
-			</form>
+                    <page string="Participación en Formaciones">
+                        <separator string="En cuántas Formaciones ha participado" colspan="4"/>
+                        <field name="pis_participado" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="Actividad Formativa">
+                        <field name="frecuencia_colectivos_aprendizaje_id" select="0"/>
+                        <field name="frecuencia_colectivo_cfs_id" select="0"/>
+                        <field name="frecuencia_matriz_planificacion_id" select="0"/>
+                        <field name="frecuencia_cuaderno_sistematizacion_id" select="0"/>
+                        <field name="frecuencia_cuaderno_sistema_sujetos_id" select="0"/>
+                        <field name="frecuencia_intercambio_saberes_id" select="0"/>
+                        <field name="frecuencia_encuentros_socializacion_id" select="0"/>
+                    </page>
+                    <page string="Intereses Formativos">
+                        <separator string="'Intereses Formativos'" colspan="4"/>
+                        <field name="intereses_formativos_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <page string="TICs">
+                        <separator string="Tecnologías (TIC) que utiliza" colspan="4"/>
+                        <field name="tecnologias_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
+                    <!--page string="Actividad Fases">
+                        <field name="frecuencia_fase_I" select="0"/>
+                        <field name="frecuencia_fase_II" select="0"/>
+                        <field name="frecuencia_fase_III" select="0"/>
+                        <separator string="'Observaciones'" colspan="4"/>
+                        <field name="observaciones" colspan="4" nolabel="1" select="0"/>
+                    </page-->
+                </notebook>
+            </form>
         </field>
     </record>
     <record model="ir.ui.view" id="view_for_pis_maestros_tree">
@@ -256,6 +256,8 @@
         <field name="type">search</field>
         <field name="arch" type="xml">
             <search string="Búsqueda Rápida">
+                <field name="cedula"/>
+                <newline/>
                     <group expand="1" string="Agrupado por...">
                         <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'estado_id'}"/>
                         <filter string="Contrato" icon="terp-folder-violet" domain="[]" context="{'group_by':'apr_generar'}"/>
@@ -787,7 +789,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-	
+    
     <record model="ir.ui.view" id="view_for_pis_mae_tipos_cuenta_form">
         <field name="name">for.pis.mae_tipos_cuenta.form</field>
         <field name="model">for.pis.mae_tipos_cuenta</field>
@@ -820,7 +822,7 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-		
+        
     <!-- Menu Formación/Indagación -->
     <!-- menuitem name="Diagnóstico" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
     <!-- menuitem name="Caracterización de Maestros" id="menu_for_pis_mae" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="formacion_pis_indagacion.action_for_pis_maestros" sequence="2"/ -->

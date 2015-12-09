@@ -74,6 +74,8 @@ DECLARE
 
   --Aplica para el año 2015, bono retroactivo de la firma del contrato colectivo
   sp_bono_firma_contrato double precision;
+  sp_bono_firma_tope double precision;
+	sp_monto_bono_firma double precision;
 
   -- DECLARACIONES DE VARIABLES ADICIONALES (Jue 16 / Vie 17 Oct)
   sp_total_asignaciones double precision; -- Total Asignaciones
@@ -116,7 +118,7 @@ DECLARE
 		-- NEW.ded_monto_a_deducir,
 
 	-- ASIGNACIONES / INICIALIZACIONES
-	sp_cargo = 'Maestro Pueblo';
+	sp_cargo = 'Promotor Técnico Productivo';
 	sp_estado_id = rrhh_liq_mae_id_estado(NEW.dependencia_id) ; --F(x) para RECUPERAR
 
 	-- sp_fecha_inicio = NEW.fecha_inicio;
@@ -171,7 +173,7 @@ DECLARE
 
 	-- Asignación por INCENTIVO AL AHORRO
 	sp_asig_tope_horas = 1496; -- Valor CONSTANTE para el año 2014
-	sp_asig_monto = rrhh_liq_mae_monto_bono_incentivo_ahorro(sp_fecha_fin);
+	sp_asig_monto = rrhh_liq_mae_monto_bono_incentivo_ahorro(sp_fecha_inicio, sp_fecha_fin);
 	sp_asig_cantidad_horas = sp_total_horas;
 	sp_asig_monto_a_pagar = rrhh_liq_mae_bono_incentivo_ahorro(sp_asig_cantidad_horas, sp_asig_tope_horas, sp_asig_monto);
 			
@@ -197,8 +199,9 @@ DECLARE
 	sp_bfaf_salario_diario = sp_bas_salario_int_bfa;
 	sp_bfaf_monto_a_pagar = sp_bfaf_salario_diario * sp_bfaf_total_dias_a_pagar;
 
-	sp_bono_firma_contrato = rrhh_liq_monto_bono_firma_contrato(sp_fecha_inicio, sp_fecha_fin);
-
+	sp_bono_firma_tope = 1496;
+	sp_monto_bono_firma = rrhh_liq_monto_bono_firma_contrato(sp_fecha_inicio, sp_fecha_fin);
+	sp_bono_firma_contrato = rrhh_liq_bono_firma_contrato(sp_total_horas, sp_bono_firma_tope, sp_monto_bono_firma);
 	-- INTERESES SOBRE PRESTACIONES
 	sp_ipre_tasa_interes_id = rrhh_liq_mae_id_tasa_interes_prest(sp_fecha_fin); 
 	sp_ipre_mes_tasa = date_part('month',sp_fecha_fin); --F(x) para RECUPERAR
@@ -213,7 +216,8 @@ DECLARE
 	
 	-- ASIGNACIONES LEGALES comprende:
 	-- Prestaciones + Intereses sobre Prestaciones + Incentivo al Ahorro + VFR + BVF + BFAF
-	sp_total_asignaciones_legales = sp_pres_monto_a_pagar + sp_total_pres_mas_interes + sp_asig_monto_a_pagar + sp_vfr_monto_a_pagar + sp_bvf_monto_a_pagar + sp_bfaf_monto_a_pagar + sp_bono_firma_contrato;
+	-- para 2015 se pagara bono de forma de contrato colectivo 'sp_bono_firma_contrato', y no se pagara interes de prestaciones 'sp_total_pres_mas_interes'
+	sp_total_asignaciones_legales = sp_pres_monto_a_pagar + sp_asig_monto_a_pagar + sp_vfr_monto_a_pagar + sp_bvf_monto_a_pagar + sp_bfaf_monto_a_pagar + sp_bono_firma_contrato;
 
 	sp_asig_monto_de_asignacion1 = NEW.asig_monto_de_asignacion1;
 	sp_asig_monto_de_asignacion2 = NEW.asig_monto_de_asignacion2;
@@ -302,7 +306,14 @@ DECLARE
                         total_otras_asignaciones = sp_total_otras_asignaciones,
 			total_asignaciones = sp_total_asignaciones,
                         total_deducciones = sp_total_deducciones,
-			total_liquidacion = sp_total_liquidacion
+			total_liquidacion = sp_total_liquidacion,
+
+			--El bono de firma de contrato para el año 2015 se asume en la seccion de bonos
+			bono_concepto1 = 'Bono firma Contrato Colectivo 2015',
+			bono_tope_horas1 = sp_bono_firma_tope,
+			bono_monto1 = sp_monto_bono_firma,
+			bono_cantidad_horas1 = sp_total_horas,
+			bono_monto_a_pagar1 = sp_bono_firma_contrato
 
 			WHERE for_pis_mae_liquidaciones.id = NEW.id;
 	
