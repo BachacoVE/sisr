@@ -88,35 +88,50 @@
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="4,0" stop="4,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="4,0" stop="4,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="4,-1" stop="4,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="5,0" stop="5,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="5,0" stop="5,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="5,-1" stop="5,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="6,0" stop="6,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="6,0" stop="6,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="7,0" stop="7,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="7,0" stop="7,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="7,-1" stop="7,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="8,0" stop="8,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="8,0" stop="8,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="8,-1" stop="8,-1"/>
+
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="9,0" stop="9,-1"/>
       <lineStyle kind="LINEAFTER" colorName="#000000" start="9,0" stop="9,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="9,0" stop="9,0"/>
       <lineStyle kind="LINEBELOW" colorName="#000000" start="9,-1" stop="9,-1"/>
+
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="10,0" stop="10,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="10,0" stop="10,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="10,0" stop="10,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="10,-1" stop="10,-1"/>
     </blockTableStyle>
+
     <blockTableStyle id="Tabla6">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -835,7 +850,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,161.0,49.0,82.0,101.0" style="Tabla4">
+    <blockTable colWidths="95.0,126.0,55.0,55.0,55,102.0" style="Tabla5">
       <tr>
         <td>
           <para style="P8">Fecha Fin del Proyecto:</para>
@@ -844,7 +859,10 @@
           <para style="P2">[[ formatLang(mae_liquidaciones.fecha_fin, date=True) ]]</para>
         </td>
         <td>
-          <para style="P9">Valor Hora:</para>
+          <para style="P9">Valor Hora al 30-04-15</para>
+        </td>
+        <td>
+          <para style="P9">Valor Hora a partir del 01-05-15</para>
         </td>
         <td>
           <para style="P9">Total Horas Trabajadas:</para>
@@ -854,7 +872,8 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,25.0,31.0,28.0,21.0,23.0,33.0,49.0,82.0,101.0" style="Tabla5">
+
+    <blockTable colWidths="60.0,25.0,31.0,28.0,21.0,23.0,33.0,55.0,55,55.0,102.0" style="Tabla5">
       <tr>
         <td>
           <para style="P8">Antigüedad INCES:</para>
@@ -878,7 +897,10 @@
           <para style="P3">[[ mae_liquidaciones.antiguedad_dias ]]</para>
         </td>
         <td>
-          <para style="P3">[[ mae_liquidaciones.valor_hora ]]</para>
+          <para style="P3">[[  mae_liquidaciones.maestro_id.nivel_viejo_id.valor_hora  ]]</para>
+        </td>
+        <td>
+          <para style="P3">[[  mae_liquidaciones.maestro_id.nivel_id.valor_hora  ]]</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.total_horas ]]</para>
@@ -888,6 +910,46 @@
         </td>
       </tr>
     </blockTable>
+
+<!--
+    <blockTable colWidths="270.0,88.0,65.0,65.0" style="Tabla5">
+      <tr>
+        <td>
+          <para style="P3">Denominación</para>
+        </td>
+        <td>
+          <para style="P3">Horas Programadas</para>
+        </td>
+        <td>
+          <para style="P3">Valor Hora al 30-04-2015</para>
+        </td>
+        <td>
+          <para style="P3">Valor Hora al 01-04-2015</para>
+        </td>
+      </tr>
+    </blockTable>
+
+<section>
+    <para>[[repeatIn(mae_liquidaciones.maestro_id.pis_participado,'l')]]</para>
+    <blockTable colWidths="270.0,88.0,65.0,65.0" style="Tabla5">
+      <tr>
+        <td>
+          <para style="P8">[[  l.numero_id.nro_preimpreso  ]]-[[  l.numero_id.denominacion_pis_id.denominacion  ]]</para>
+        </td>
+        <td>
+          <para style="P8" alignment="CENTER">[[  l.numero_id.lapso_ejecucion  ]]</para>
+        </td>
+        <td>
+          <para style="P8" alignment="CENTER">[[   l.maestro_id.nivel_viejo_id.valor_hora  ]]</para>
+        </td>
+        <td>
+          <para style="P8" alignment="CENTER">[[   l.maestro_id.nivel_id.valor_hora  ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+</section>
+-->
+
     <blockTable colWidths="95.0,210.0,183.0" style="Tabla6">
       <tr>
         <td>
