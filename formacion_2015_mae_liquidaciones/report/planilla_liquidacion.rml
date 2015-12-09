@@ -524,6 +524,7 @@
     <blockTableStyle id="Tabla44">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
+      <blockBackground colorName="#cccccc" start="0,0" stop="0,-1"/>
       <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
       <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
@@ -976,7 +977,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="488.0" style="Tabla8">
+    <blockTable colWidths="488.0" style="Tabla44">
       <tr>
         <td>
           <para style="P3">BASE DE CÁLCULOS (Bolívares)</para>
@@ -1078,7 +1079,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="488.0" style="Tabla16">
+    <blockTable colWidths="488.0" style="Tabla44">
       <tr>
         <td>
           <para style="P3">GARANTIA Y CÁLCULO DE PRESTACIONES SOCIALES</para>
@@ -1203,7 +1204,7 @@
       </tr>
     </blockTable>
 -->
-    <blockTable colWidths="488.0" style="Tabla24">
+    <blockTable colWidths="488.0" style="Tabla44">
       <tr>
         <td>
           <para style="P3">BENEFICIOS LEGALES Y/O CONTRACTUALES</para>
@@ -1321,51 +1322,6 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="488.0" style="Tabla44">
-      <tr>
-        <td>
-          <para style="P3">OTRAS ASIGNACIONES</para>
-        </td>
-      </tr>
-    </blockTable>
-    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla31">
-      <tr>
-        <td>
-          <para style="P3">CONCEPTO</para>
-        </td>
-        <td>
-          <para style="P3">TOPE DE HORAS</para>
-        </td>
-        <td>
-          <para style="P3">MONTO</para>
-        </td>
-        <td>
-          <para style="P3">NRO. DE HORAS</para>
-        </td>
-        <td>
-          <para style="P3">MONTO A PAGAR</para>
-        </td>
-      </tr>
-    </blockTable>
-    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla43">
-      <tr>
-        <td>
-          <para style="P10">Incentivo al Ahorro Clausula 68</para>
-        </td>
-        <td>
-          <para style="P9">[[ mae_liquidaciones.asig_tope_horas ]]</para>
-        </td>
-        <td>
-          <para style="P9">[[ mae_liquidaciones.asig_monto ]]</para>
-        </td>
-        <td>
-          <para style="P9">[[ mae_liquidaciones.asig_cantidad_horas ]]</para>
-        </td>
-        <td>
-          <para style="P14">[[ mae_liquidaciones.asig_monto_a_pagar ]]</para>
-        </td>
-      </tr>
-    </blockTable>
 
 <!--Bonos-->
 
@@ -1455,6 +1411,54 @@
 
 <!--Fin de Bonos-->
 
+    <blockTable colWidths="488.0" style="Tabla44">
+      <tr>
+        <td>
+          <para style="P3">OTRAS ASIGNACIONES</para>
+        </td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla31">
+      <tr>
+        <td>
+          <para style="P3">CONCEPTO</para>
+        </td>
+        <td>
+          <para style="P3">TOPE DE HORAS</para>
+        </td>
+        <td>
+          <para style="P3">MONTO</para>
+        </td>
+        <td>
+          <para style="P3">NRO. DE HORAS</para>
+        </td>
+        <td>
+          <para style="P3">MONTO A PAGAR</para>
+        </td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla43">
+      <tr>
+        <td>
+          <para style="P10">Incentivo al Ahorro Clausula 68</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.asig_tope_horas ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.asig_monto ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.asig_cantidad_horas ]]</para>
+        </td>
+        <td>
+          <para style="P14">[[ mae_liquidaciones.asig_monto_a_pagar ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
 
     <blockTable colWidths="392.0,96.0" style="Tabla42">
 
@@ -1467,6 +1471,7 @@
         </td>
       </tr>
       </blockTable>
+
       <blockTable colWidths="392.0,96.0" style="Tabla42">
       <tr>
         <td>
@@ -1477,6 +1482,7 @@
         </td>
       </tr>      
       </blockTable>
+
       <blockTable colWidths="392.0,96.0" style="Tabla42">
       <tr>
         <td>
@@ -1487,8 +1493,9 @@
         </td>
       </tr>
     </blockTable>
+
+
     <blockTable colWidths="392.0,96.0" style="Tabla41">
-	  
       <tr>
         <td>
           <para style="P7" alignment="RIGHT"> TOTAL OTRAS ASIGNACIONES Bs.</para>
@@ -1498,6 +1505,7 @@
         </td>
       </tr>
     </blockTable>
+
     <blockTable colWidths="392.0,96.0" style="Tabla40">
       <tr>
         <td>
