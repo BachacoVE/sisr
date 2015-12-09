@@ -31,7 +31,7 @@ class for_acsea_certificaciones_sujetos(osv.osv):
         'pis_inicio': fields.datetime('Inicio de la Formación', required=True, help='Fecha desde la cual se tomará la creación de certificados'),
         'pis_cierre': fields.datetime('Cierre de la Formación', required=True, help='Fecha hasta la cual se tomará la creación de certificados'),
         'fecha_generacion': fields.datetime('Fecha Generación', required=True, help='Fecha en la cual se genera el lote de Certificados para los valores (estado, cfs, fechas) establecidos'),
-        'saber': fields.char('Saber', size=40, required=True, help='Texto al frente del Certificado, que indica el Saber que se acredita y certifica'),
+        'saber': fields.char('Saber', size=60, required=True, help='Texto al frente del Certificado, que indica el Saber que se acredita y certifica'),
         'lugar_fecha': fields.char('Lugar y Fecha', size=60, help='Texto que indica el Lugar y Fecha que será impreso al frente del Certificado'),
         'firmante_1': fields.char('Firmante 1', size=60, required=True, help='Texto que identificará al primer Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),
         'firmante_2': fields.char('Firmante 2', size=60, required=True, help='Texto que identificará al segundo Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),

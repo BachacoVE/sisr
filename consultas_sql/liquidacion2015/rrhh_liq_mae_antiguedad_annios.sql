@@ -16,13 +16,13 @@ $BODY$
 			AND a.semana_desde >= (fecha_inicio - time '24:00')
 			AND a.semana_hasta <= (fecha_fin + time '24:00');
 		
-                IF modalidad = 1 THEN
+                --IF modalidad = 1 THEN
 			RETURN EXTRACT(YEAR FROM AGE(fecha_fin , fecha_inicio));
-		ELSE
+		--ELSE
 			-- Calculo de Annios desde las Horas (horas/8/30/12)
-			RETURN (total_horas/8/30/12)::integer;
+			--RETURN (total_horas/5/21/12)::integer;
 
-		END IF;
+		--END IF;
         END;
 $BODY$
   LANGUAGE plpgsql VOLATILE

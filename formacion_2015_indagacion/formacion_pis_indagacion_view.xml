@@ -1140,6 +1140,7 @@
                 <field name="dependencia_formacion" select="2" readonly="1"/>
                 <field name="motores_economicos_id" select="2" readonly="1"/>
                 <field name="cfs_id" select="2" readonly="1"/>
+                <field name="genero_id" select="2" readonly="1"/>
             </form>
         </field>
     </record>
@@ -1155,6 +1156,7 @@
                 <field name="dependencia_formacion"/>
                 <field name="motores_economicos_id"/>
                 <field name="cfs_id"/>
+                <field name="genero_id"/>
             </tree>
         </field>
     </record>
@@ -1174,6 +1176,7 @@
                         <filter string="Sujeto" icon="terp-folder-violet" domain="[]" context="{'group_by':'sujeto_id'}"/>
                         <filter string="Motor" icon="terp-folder-violet" domain="[]" context="{'group_by':'motores_economicos_id'}"/>
                         <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
+                        <filter string="Genero" icon="terp-folder-violet" domain="[]" context="{'group_by':'genero_id'}"/>
                     </group>
             </search>
         </field>
