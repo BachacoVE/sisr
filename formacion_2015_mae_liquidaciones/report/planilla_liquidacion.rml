@@ -1366,8 +1366,98 @@
         </td>
       </tr>
     </blockTable>
+
+<!--Bonos-->
+
+    <blockTable colWidths="488.0" style="Tabla44">
+      <tr>
+        <td>
+          <para style="P3">BONOS</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla31">
+      <tr>
+        <td>
+          <para style="P3">CONCEPTO</para>
+        </td>
+        <td>
+          <para style="P3">TOPE DE HORAS</para>
+        </td>
+        <td>
+          <para style="P3">MONTO</para>
+        </td>
+        <td>
+          <para style="P3">NRO. DE HORAS</para>
+        </td>
+        <td>
+          <para style="P3">MONTO A PAGAR</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla43">
+      <tr>
+        <td>
+          <para style="P10">[[ mae_liquidaciones.bono_concepto1 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_tope_horas1 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_monto1 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_cantidad_horas1 ]]</para>
+        </td>
+        <td>
+          <para style="P14">[[ mae_liquidaciones.bono_monto_a_pagar1 ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla43">
+      <tr>
+        <td>
+          <para style="P10">[[ mae_liquidaciones.bono_concepto2 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_tope_horas2 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_monto2 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_cantidad_horas2 ]]</para>
+        </td>
+        <td>
+          <para style="P14">[[ mae_liquidaciones.bono_monto_a_pagar2 ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+        <blockTable colWidths="126.0,67.0,104.0,112.0,79.0" style="Tabla43">
+      <tr>
+        <td>
+          <para style="P10">[[ mae_liquidaciones.bono_concepto3 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_tope_horas3 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_monto3 ]]</para>
+        </td>
+        <td>
+          <para style="P9">[[ mae_liquidaciones.bono_cantidad_horas3 ]]</para>
+        </td>
+        <td>
+          <para style="P14">[[ mae_liquidaciones.bono_monto_a_pagar3 ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+
+<!--Fin de Bonos-->
+
+
     <blockTable colWidths="392.0,96.0" style="Tabla42">
-	  
+
       <tr>
         <td>
           <para style="P23">[[ mae_liquidaciones.asig_concepto1.tipo_asignacion ]]</para>
