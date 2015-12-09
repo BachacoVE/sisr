@@ -27,7 +27,7 @@ from dateutil import parser
 class for_pis_maestros(osv.osv):
     """Registro Maestro de Formadores"""
     _name = 'for.pis.maestros'
-    _rec_name = 'apellidos'
+    _rec_name = 'cedula'
     _columns = {
         'cedula': fields.char('Cédula de Identidad', size=12, required=False, help='Número de Cédula de Identidad'),
         'nombres': fields.char('1º y 2º Nombres', size=120, required=False, help='Nombres del Formador'),
@@ -79,8 +79,8 @@ class for_pis_maestros(osv.osv):
         'frecuencia_fase_II': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase II', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase II'),
         'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo Formación. Fase III'),
         'observaciones': fields.text('Observaciones', help='Observaciones'),
-		'dependencia_ids': fields.many2many('for.dependencias', 'dependencia_formador_rel','formador_id','dependencia_id', 'Dependencias'),
-		'apr_generar': fields.boolean('¿Contrato Generado?', help="Se activa automaticamente al generar un contrato"), 
+        'dependencia_ids': fields.many2many('for.dependencias', 'dependencia_formador_rel','formador_id','dependencia_id', 'Dependencias'),
+        'apr_generar': fields.boolean('¿Contrato Generado?', help="Se activa automaticamente al generar un contrato"), 
         'horas_trabajadas': fields.integer('Horas Trabajadas', help='Total de horas trabajadas por el Formador'),
        
         'nivel_id': fields.many2one('for.pis.mae_valor_hora', 'Valor Hora Nuevo', help='Valor de la hora (BsF) para pago al Formador apartir del 1ero de Mayo 2015'),
@@ -91,7 +91,7 @@ class for_pis_maestros(osv.osv):
         'tipo_cuenta_id': fields.many2one('for.pis.mae_tipos_cuenta', 'Tipo de Cuenta', help='Tipo de Cuenta Bancaria del Formador'),
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias', 'maestro_id', 'Asistencias', help='Control de Asistencias a las Formaciones donde participa'),
         'ademdum': fields.boolean('¿ademdum?', help='¿Requiere ademdum de contrato?'),
-		
+        
     }
 
     def validar_numero(self, cr, uid, ids):
