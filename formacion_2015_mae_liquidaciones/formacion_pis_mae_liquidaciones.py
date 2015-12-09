@@ -95,23 +95,43 @@ class for_pis_mae_liquidaciones(osv.osv):
 # campos nuevos, intereses, otras asignaciones, otras deducciones, total asignaciones
 
         'ipre_tasa_interes_id': fields.many2one('for.pis.mae_tasas_bcv_prestaciones','Tasa de Interes Prestaciones', readonly=True, help='Tasa de Interes Prestaciones'),
-	'ipre_mes_tasa': fields.integer('Mes para cálculo de Intereses', readonly=True, help='Mes cálculo de Intereses sobre Prestaciones'),
-	'ipre_dias_calculos': fields.integer('Días para cálculo de Intereses', readonly=True, help='Días cálculo de Intereses sobre Prestaciones'),
+	    'ipre_mes_tasa': fields.integer('Mes para cálculo de Intereses', readonly=True, help='Mes cálculo de Intereses sobre Prestaciones'),
+	    'ipre_dias_calculos': fields.integer('Días para cálculo de Intereses', readonly=True, help='Días cálculo de Intereses sobre Prestaciones'),
         'ipre_monto_interes': fields.float('Interes sobre Prestaciones', readonly=True, help='Intereses sobre Prestaciones'),
         'total_pres_mas_interes': fields.float('Total Interes mas Prestaciones', readonly=True, help='Total Intereses mas Prestaciones'), 
         'asig_concepto1': fields.many2one('for.pis.mae_tipos_asignaciones','Concepto de Asignación 1', help='Concepto de Asignación 1'),
         'asig_monto_de_asignacion1': fields.float('Monto de Asignación 1', help='Monto de Asignación 1'),
-	'asig_concepto2': fields.many2one('for.pis.mae_tipos_asignaciones', 'Concepto de Asignación 2', help='Concepto de Asignación 2'),
+	    'asig_concepto2': fields.many2one('for.pis.mae_tipos_asignaciones', 'Concepto de Asignación 2', help='Concepto de Asignación 2'),
         'asig_monto_de_asignacion2': fields.float('Monto de Asignación 2', help='Monto de Asignación 2'),
         'asig_concepto3': fields.many2one('for.pis.mae_tipos_asignaciones','Concepto de Asignación 3', help='Concepto de Asignación 3'),
         'asig_monto_de_asignacion3': fields.float('Monto de Asignación 3', help='Monto de Asignación 3'),
         'ded_concepto1': fields.many2one('for.pis.mae_tipos_deducciones','Concepto de Deducción 1', help='Concepto de Deducción 1'),
         'ded_monto_a_deducir1': fields.float('Monto a deducir1', help='Monto a Deducir 1'),
-	'ded_concepto2': fields.many2one('for.pis.mae_tipos_deducciones','Concepto de Deducción 2', help='Concepto de Deducción 2'),
+	    'ded_concepto2': fields.many2one('for.pis.mae_tipos_deducciones','Concepto de Deducción 2', help='Concepto de Deducción 2'),
         'ded_monto_a_deducir2': fields.float('Monto a deducir2', help='Monto a Deducir 2'),
-	'ded_concepto3': fields.many2one('for.pis.mae_tipos_deducciones','Concepto de Deducción 3', help='Concepto de Deducción 3'),
+	    'ded_concepto3': fields.many2one('for.pis.mae_tipos_deducciones','Concepto de Deducción 3', help='Concepto de Deducción 3'),
         'ded_monto_a_deducir3': fields.float('Monto a deducir2', help='Monto a Deducir 3'),
         'total_asignaciones': fields.float('Total Asignaciones', help='Total monto a pagar por Asignaciones'),
+
+
+# campos para bonos
+
+        'bono_concepto1': fields.char('Concepto', size=100, help='Concepto del bono'),
+        'bono_concepto2': fields.char('Concepto', size=100, help='Concepto del bono'),
+        'bono_concepto3': fields.char('Concepto', size=100, help='Concepto del bono'),
+        'bono_tope_horas1': fields.integer('Tope de Horas', help='Tope maximo de horas'),
+        'bono_tope_horas2': fields.integer('Tope de Horas', help='Tope maximo de horas'),
+        'bono_tope_horas3': fields.integer('Tope de Horas', help='Tope maximo de horas'),
+        'bono_monto1': fields.float('Monto', help='Monto del Bono'),
+        'bono_monto2': fields.float('Monto', help='Monto del Bono'),
+        'bono_monto3': fields.float('Monto', help='Monto del Bono'),        
+        'bono_cantidad_horas1': fields.integer('Cantidad de Horas', help='Cantidad de Horas'),
+        'bono_cantidad_horas2': fields.integer('Cantidad de Horas', help='Cantidad de Horas'),
+        'bono_cantidad_horas3': fields.integer('Cantidad de Horas', help='Cantidad de Horas'),        
+        'bono_monto_a_pagar1': fields.float('Monto a Pagar', help='Monto a Pagar'),
+        'bono_monto_a_pagar2': fields.float('Monto a Pagar', help='Monto a Pagar'),
+        'bono_monto_a_pagar3': fields.float('Monto a Pagar', help='Monto a Pagar'),
+
     }
     _sql_constraints = [('unique_maestro_id', 'unique(maestro_id)', 'No puede generar 2 o mas Liquidaciones para un Facilitador'),]
     
