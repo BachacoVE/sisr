@@ -86,54 +86,77 @@
 					<page string="Vacaciones Fraccionadas">
 									<group col="6" colspan="4">
 									<separator string="Vacaciones Fraccionadas" colspan="2"/>
-									<separator string="Bono Vacacional Fraccionado" colspan="2"/>
-									<separator string="Bonificación de Fin de Año Fraccionado" colspan="2"/>
+                                    <separator string="Bono Vacacional Fraccionado" colspan="2"/>
+                                    <separator string="Bonificación de Fin de Año Fraccionado" colspan="2"/>
 
-									<field name="vfr_dias_a_pagar" select="0"/>
-									<field name="bvf_dias_a_pagar" select="0"/>
-									<field name="bfaf_dias_a_pagar" select="0"/>
+                                    <field name="vfr_dias_a_pagar" select="0"/>
+                                    <field name="bvf_dias_a_pagar" select="0"/>
+                                    <field name="bfaf_dias_a_pagar" select="0"/>
 
-									<field name="vfr_meses" select="0"/>
-									<field name="bvf_meses" select="0"/>
-									<field name="bfaf_meses" select="0"/>
+                                    <field name="vfr_meses" select="0"/>
+                                    <field name="bvf_meses" select="0"/>
+                                    <field name="bfaf_meses" select="0"/>
 
-									<field name="vfr_total_dias_pagar" select="0"/>
-									<field name="bvf_total_dias_pagar" select="0"/>
-									<field name="bfaf_total_dias_a_pagar" select="0"/>
+                                    <field name="vfr_total_dias_pagar" select="0"/>
+                                    <field name="bvf_total_dias_pagar" select="0"/>
+                                    <field name="bfaf_total_dias_a_pagar" select="0"/>
 
-									<field name="vfr_sueldo_mensual" select="0"/>
-									<field name="bvf_salario_mensual" select="0"/>
-									<field name="bfaf_salario_mensual" select="0"/>
+                                    <field name="vfr_sueldo_mensual" select="0"/>
+                                    <field name="bvf_salario_mensual" select="0"/>
+                                    <field name="bfaf_salario_mensual" select="0"/>
 
-									<field name="vfr_salario_diario" select="0"/>
-									<field name="bvf_salario_diario" select="0"/>
-									<field name="bfaf_salario_diario" select="0"/>
+                                    <field name="vfr_salario_diario" select="0"/>
+                                    <field name="bvf_salario_diario" select="0"/>
+                                    <field name="bfaf_salario_diario" select="0"/>
 
-									<field name="vfr_monto_a_pagar" select="0"/>
-									<field name="bvf_monto_a_pagar" select="0"/>
-									<field name="bfaf_monto_a_pagar" select="0"/>
-									</group>
-							</page>
+                                    <field name="vfr_monto_a_pagar" select="0"/>
+                                    <field name="bvf_monto_a_pagar" select="0"/>
+                                    <field name="bfaf_monto_a_pagar" select="0"/>
+                                    </group>
+                            </page>
 
-						<page string="Otras Asignaciones">
-						<field name="asig_concepto1" select="0"/>
-						<field name="asig_monto_de_asignacion1" select="0"/>
-						<field name="asig_concepto2" select="0"/>
-						<field name="asig_monto_de_asignacion2" select="0"/>
-						<field name="asig_concepto3" select="0"/>
-						<field name="asig_monto_de_asignacion3" select="0"/>
-							</page>
+                        <page string="Otras Asignaciones">
+                        <field name="asig_concepto1" select="0"/>
+                        <field name="asig_monto_de_asignacion1" select="0"/>
+                        <field name="asig_concepto2" select="0"/>
+                        <field name="asig_monto_de_asignacion2" select="0"/>
+                        <field name="asig_concepto3" select="0"/>
+                        <field name="asig_monto_de_asignacion3" select="0"/>
+                            </page>
 
-					<page string="Deducciones">
-									<!-- field name="ded_concepto" select="0"/ -->
-									<!-- field name="ded_monto_a_deducir" readonly="0" select="0"/ -->
-						<field name="ded_concepto1" select="0"/>
-									<field name="ded_monto_a_deducir1" readonly="0" select="0"/>
-						<field name="ded_concepto2" select="0"/>
-									<field name="ded_monto_a_deducir2" readonly="0" select="0"/>
-						<field name="ded_concepto3" select="0"/>
-									<field name="ded_monto_a_deducir3" readonly="0" select="0"/>
-							</page>
+                    <page string="Deducciones">
+                                    <!-- field name="ded_concepto" select="0"/ -->
+                                    <!-- field name="ded_monto_a_deducir" readonly="0" select="0"/ -->
+                        <field name="ded_concepto1" select="0"/>
+                                    <field name="ded_monto_a_deducir1" readonly="0" select="0"/>
+                        <field name="ded_concepto2" select="0"/>
+                                    <field name="ded_monto_a_deducir2" readonly="0" select="0"/>
+                        <field name="ded_concepto3" select="0"/>
+                                    <field name="ded_monto_a_deducir3" readonly="0" select="0"/>
+                            </page>
+
+                    <page string="Bonos">
+                        <group col="6" colspan="2">
+                        <separator string="Bono Adicional 1" colspan="2"/>
+                        <separator string="Bono Adicional 2" colspan="2"/>
+						<separator string="Bono Adicional 3" colspan="2"/>
+                        <field name="bono_concepto1" select="0" readonly="True"/>
+                        <field name="bono_concepto2" select="0" readonly="True"/>
+                        <field name="bono_concepto3" select="0" readonly="True"/>
+                        <field name="bono_tope_horas1" select="0" readonly="True"/>
+                        <field name="bono_tope_horas2" select="0" readonly="True"/>
+                        <field name="bono_tope_horas3" select="0" readonly="True"/>
+                        <field name="bono_monto1" select="0" readonly="True"/>
+                        <field name="bono_monto2" select="0" readonly="True"/>
+                        <field name="bono_monto3" select="0" readonly="True"/>
+                        <field name="bono_cantidad_horas1" select="0" readonly="True"/>
+                        <field name="bono_cantidad_horas2" select="0" readonly="True"/>
+                        <field name="bono_cantidad_horas3" select="0" readonly="True"/>
+                        <field name="bono_monto_a_pagar1" select="0" readonly="True"/>
+                        <field name="bono_monto_a_pagar2" select="0" readonly="True"/>
+                        <field name="bono_monto_a_pagar3" select="0" readonly="True"/>
+                        </group>
+                    </page>
 
 					</notebook>
 			</form>
