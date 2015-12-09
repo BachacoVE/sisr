@@ -407,6 +407,7 @@ herencia res.users
                 <field name="cantidad_sujetos_programados" string="Participantes programados"/>
                 <field name="cantidad_sujetos_enproceso" string="Participantes en proceso"/>
                 <field name="modalidad_id" select="0" readonly='1'/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -449,6 +450,7 @@ herencia res.users
     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_id'}"/>
     <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
     <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
+    <filter string="Estatus" icon="terp-folder-violet" domain="[]" context="{'group_by':'state'}"/>
 </group>
 <!--cerrar group-->
         </search>
