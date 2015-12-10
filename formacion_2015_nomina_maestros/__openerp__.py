@@ -27,8 +27,14 @@
         "category" : "Formacion",
         "description": """  Módulo para el Pago de Nómina de Maestros """,
         "depends" : ['base',  'formacion_2015_base'],
-        "init_xml" : ['data/for.pis.mae_cuentas_nomina.csv', 'data/for.pis.mae_valor_hora.csv', 'data/for.pis.mae_motivos_falta.csv'],
+        "init_xml" : ['data/for.pis.mae_cuentas_nomina.csv',
+                        'data/for.pis.mae_valor_hora.csv',
+                        'data/for.pis.mae_motivos_falta.csv',
+                        'formacion_pis_nomina_maestros_view.xml',
+                        'security/ir.model.access.csv',
+                        'security/ir.rule.xml',
+                        'report/inces_report.xml'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_nomina_maestros_view.xml', 'security/ir.model.access.csv','security/ir.rule.xml', 'report/inces_report.xml'],
+        "update_xml" : [],
         "installable": True
 }

@@ -27,8 +27,10 @@
         "category" : "Formacion",
         "description": """  Módulo de Funcionalidades para apoyar la Certificación Pedagógica de Maestros en los Proyectos de Formacion Socialista de INCES  """,
         "depends" : ['base','formacion_2015_base','formacion_2015_indagacion_maestros'],
-        "init_xml" : ['data/for.pis.acsea_certificados_estatus.csv'],
+        "init_xml" : ['data/for.pis.acsea_certificados_estatus.csv',
+                        'formacion_pis_certificacion_maestros_view.xml',
+                        'security/ir.model.access.csv'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_certificacion_maestros_view.xml', 'security/ir.model.access.csv'],
+        "update_xml" : [ ],
         "installable": True
 }

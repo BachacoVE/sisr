@@ -48,8 +48,11 @@
                         'data/for.pis.carreras_universitarias.csv',
                         'data/for.pis.especialidades.csv',
                         'data/for.pis.oficios.csv',
-                        'data/for.pis.profesiones_ocupaciones.csv'],
+                        'data/for.pis.profesiones_ocupaciones.csv',
+                        'formacion_pis_indagacion_view.xml',
+                        'security/ir.model.access.csv',
+                        'report/reports.xml'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_indagacion_view.xml', 'security/ir.model.access.csv', 'report/reports.xml'],
+        "update_xml" : [ ],
         "installable": True
 }

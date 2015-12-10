@@ -27,8 +27,8 @@
         "category" : "Formacion",
         "description": """  Módulo de Funcionalidades para apoyar la creación de Matrices y otros Instrumentos de Indagación los Proyectos de Formacion Socialista de INCES Militar  """,
         "depends" : ['base','formacion_2015_base'],
-        "init_xml" : [],
+        "init_xml" : ['formacion_pis_indagacion_matrices_view.xml', 'security/ir.model.access.csv'],
         "demo_xml" : [],
-        "update_xml" : ['formacion_pis_indagacion_matrices_view.xml', 'security/ir.model.access.csv'],
+        "update_xml" : [],
         "installable": True
 }
