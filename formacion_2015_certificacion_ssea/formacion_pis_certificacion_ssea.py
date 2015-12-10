@@ -34,7 +34,7 @@ class for_acsea_certificaciones_sujetos(osv.osv):
         'saber': fields.char('Saber', size=60, required=True, help='Texto al frente del Certificado, que indica el Saber que se acredita y certifica'),
         'lugar_fecha': fields.char('Lugar y Fecha', size=60, help='Texto que indica el Lugar y Fecha que será impreso al frente del Certificado'),
         'firmante_1': fields.char('Firmante 1', size=60, required=True, help='Texto que identificará al primer Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),
-        'firmante_2': fields.char('Firmante 2', size=60, required=True, help='Texto que identificará al segundo Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),
+        'firmante_2': fields.char('Firmante 2', size=60, required=False, help='Texto que identificará al segundo Firmante en la sección inferior de los Certifcados (Firmas y Sellos)'),
         'observaciones': fields.text('Observaciones', required=False, help='Observaciones, Comentarios y otras informaciones complementarias y/o descriptivas del Proceso de Generación por Lotes de Certificados'),
         'certificados_ids': fields.one2many('for.acsea_certificados_sujetos', 'proceso_id', 'Certificados', help='Relación de Certificados correspondientes (generados) al (éste) Proceso de Certificación'),
         'proyecto_id': fields.many2one('for.pis.registro_inicial', 'Formación', required=True, help='Formación de cara al cual se Acredita y Certifica al Participante'),
