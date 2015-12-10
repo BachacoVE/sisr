@@ -27,9 +27,15 @@
         "category" : "Formacion",
         "description": """  Funcionalidades para Caracterización de Espacios Integrales Socialistas, del Módulo de Gestión de los Procesos de Indagación de Contexto de los PIS INCES  """,
         "depends" : ['base','formacion_2015_base'],
-        "init_xml" : ['data/for.pis.criterios_equilibrio_ambiental.csv', 'data/for.pis.criterios_seguridad_laboral.csv', 'data/for.pis.turnos.csv',
-					'data/for.pis.niveles_innovacion_tecnologica.csv', 'data/for.pis.tipos_contextos.csv'],
+        "init_xml" : ['data/for.pis.criterios_equilibrio_ambiental.csv',
+                        'data/for.pis.criterios_seguridad_laboral.csv', 
+                        'data/for.pis.turnos.csv',
+			'data/for.pis.niveles_innovacion_tecnologica.csv', 
+                        'data/for.pis.tipos_contextos.csv',
+                        'formacion_pis_indagacion_espacios_view.xml', 
+                        'security/ir.model.access.csv',
+                        'data/for.pis.tipos_espacios.xml'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_indagacion_espacios_view.xml', 'security/ir.model.access.csv','data/for.pis.tipos_espacios.xml'],
+        "update_xml" : [],
         "installable": True
 }

@@ -27,8 +27,10 @@
         "category" : "Formacion",
         "description": """  Módulo de Funcionalidades para apoyar la Certificación de Sujetos Sociales en Aprendizaje en los Proyectos de Formacion Socialista de INCES Militar  """,
         "depends" : ['base', 'formacion_2015_base', 'formacion_2015_indagacion', 'formacion_2015_indagacion_maestros', 'formacion_2015_indagacion_matrices', 'formacion_2015_certificacion_maestros'],
-        "init_xml" : [ ],
+        "init_xml" : ['formacion_pis_certificacion_ssea_view.xml',
+                        'security/ir.model.access.csv',
+                        'report/reports.xml'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_certificacion_ssea_view.xml', 'security/ir.model.access.csv', 'report/reports.xml'],
+        "update_xml" : [ ],
         "installable": True
 }

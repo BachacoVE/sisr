@@ -27,8 +27,8 @@
         "category" : "Formacion",
         "description": """  Módulo para la generación y administración de Reportes Consolidados de Asistencia y Pago de Maestros """,
         "depends" : ['base', 'formacion_2015_base', 'formacion_2015_indagacion_maestros'],
-        "init_xml" : [ ],
+        "init_xml" : ['formacion_pis_nomina_consolidado_view.xml', 'security/ir.model.access.csv'],
         "demo_xml" : [ ],
-        "update_xml" : ['formacion_pis_nomina_consolidado_view.xml', 'security/ir.model.access.csv'],
+        "update_xml" : [],
         "installable": True
 }
