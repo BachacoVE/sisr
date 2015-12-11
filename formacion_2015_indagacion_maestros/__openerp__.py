@@ -27,11 +27,10 @@
         "category" : "Formacion",
         "description": """  Funcionalidades para Caracterización de Maestros, del Módulo de Gestión de los Procesos de Indagación de Contexto de los PIS INCES  """,
         "depends" : ['base','formacion_2015_base','formacion_2015_indagacion', 'formacion_2015_nomina_maestros'],
-        "init_xml" : ['data/for.pis.mae_tipos_cuenta.csv',
-                        'security/ir.rule.xml',
+        "init_xml" : ['data/for.pis.mae_tipos_cuenta.csv', 'security/ir.model.access.csv'],
+        "demo_xml" : [],
+        "update_xml" : ['security/ir.rule.xml',
                         'formacion_pis_indagacion_maestros_view.xml',
                         'report/inces_report.xml'],
-        "demo_xml" : ['security/ir.model.access.csv'],
-        "update_xml" : [],
         "installable": True
 }
