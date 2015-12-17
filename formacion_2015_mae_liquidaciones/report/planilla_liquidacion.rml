@@ -1141,8 +1141,8 @@
       </tr>
     </blockTable>
 
-    <!--
-    <blockTable colWidths="488.0" style="Tabla20">
+    
+    <blockTable colWidths="488.0" style="Tabla44">
       <tr>
         <td>
           <para style="P3">INTERESES SOBRE PRESTACIONES SOCIALES</para>
@@ -1203,7 +1203,7 @@
         </td>
       </tr>
     </blockTable>
--->
+
     <blockTable colWidths="488.0" style="Tabla44">
       <tr>
         <td>
