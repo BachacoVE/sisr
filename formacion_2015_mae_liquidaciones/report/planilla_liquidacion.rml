@@ -2,7 +2,7 @@
 <document filename="test.pdf">
   <template pageSize="(612.0,936.0)" title="Test" author="Martin Simon" allowSplitting="20">
     <pageTemplate id="first">
-      <frame id="first" x1="59.0" y1="57.0" width="527" height="822"/>
+      <frame id="first" x1="49.0" y1="57.0" width="527" height="822"/>
 	<pageGraphics>
 	<image file="images/cabecera_inces_web.jpg" x="75" y="870" height="42"/>
 	</pageGraphics>
@@ -816,7 +816,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,110.0,100.0,51.0,132.0" style="Tabla1">
+    <blockTable colWidths="95.0,110.0,100.0,183.0" style="Tabla1">
       <tr>
         <td>
           <para style="P8">Apellidos y Nombres:</para>
@@ -828,26 +828,26 @@
           <para style="P2">[[ mae_liquidaciones.nombres ]]</para>
         </td>
         <td>
-          <para style="P9">Cédula:</para>
-        </td>
-        <td>
           <para style="P9">Códigos de los Proyectos:</para>
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="95.0,210.0,51.0,132.0" style="Tabla3">
+    <blockTable colWidths="95.0,55.0,55,50.0,233.0" style="Tabla5">
       <tr>
         <td>
           <para style="P8">Fecha Inicio del Proyecto:</para>
         </td>
         <td>
-          <para style="P2">[[ formatLang(mae_liquidaciones.fecha_inicio, date=True) ]]</para>
+          <para style="P8">[[ formatLang(mae_liquidaciones.fecha_inicio, date=True) ]]</para>
+        </td>
+        <td>
+          <para style="P8">Cédula:</para>
         </td>
         <td>
           <para style="P3">[[ mae_liquidaciones.cedula ]]</para>
         </td>
         <td>
-          <para style="P3">[[ mae_liquidaciones.pis_participa ]]</para>
+          <para style="P8" fontSize="6">[[ mae_liquidaciones.pis_participa ]]</para>
         </td>
       </tr>
     </blockTable>
