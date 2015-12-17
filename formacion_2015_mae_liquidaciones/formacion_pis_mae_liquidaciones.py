@@ -141,7 +141,7 @@ class for_pis_mae_liquidaciones(osv.osv):
 
     def init(self, cr):
         # Ejecuta sentencias SQL para agregar las Funciones de Cálculo de la Liquidación
-        cr.execute("""
+    '''    cr.execute("""
 -- Function: rrhh_liq_mae_alicuota_diaria_bonificacion_fin_annio(double precision, double precision)
 
 -- DROP FUNCTION rrhh_liq_mae_alicuota_diaria_bonificacion_fin_annio(double precision, double precision);
@@ -1372,7 +1372,7 @@ CREATE TRIGGER generar_liquidaciones
   ON for_pis_mae_liquidaciones
   FOR EACH ROW
   EXECUTE PROCEDURE generar_liquidacion_maestro();     
-        """)
+        """)'''
             
 for_pis_mae_liquidaciones()
 
