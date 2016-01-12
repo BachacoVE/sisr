@@ -497,8 +497,8 @@ class for_pis_participacion_pis(osv.osv):
         id_formacion=[]
         res={}
         for participacion in ids:
-            obj_participacion=self.browse(cr, uid, ids, context)
-            id_formacion.append(obj_participacion[0].numero_id.id)
+            obj_participacion=self.browse(cr, uid, participacion, context)
+            id_formacion.append(obj_participacion.numero_id.id)
         validate=super(for_pis_participacion_pis, self).unlink(cr, uid, ids, context=None)
         for formaciones in id_formacion:
             id_reg=self.pool.get('for.pis.registro_inicial').write(cr, 1, formaciones, res, context=None)
