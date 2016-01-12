@@ -279,7 +279,9 @@ class for_pis_registro_inicial(osv.osv):
     def on_change_validar_fecha(self, cr, uid, ids, fecha, campo_fecha, fechainicio):
         v = {'value':{}}
         born = datetime.strptime(fecha, '%Y-%m-%d')
-        if born.year != 2015:
+        #today = datetime.strptime(str(date.today()), '%Y-%m-%d').year
+        today = date.today().year
+        if born.year != today:
             v['value'][campo_fecha] = ''
             v['warning'] = {'title':"Error", 'message':"ERROR: La fecha de las Formaciones debe corresponder año en curso"}
         
