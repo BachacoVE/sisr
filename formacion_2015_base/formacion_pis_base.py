@@ -140,6 +140,8 @@ class for_pis_registro_inicial(osv.osv):
                 v[record.id]=0
         return v
 
+    def fun_fecha(self, cr, uid, ids, fields, arg, context):
+        return {ids[0]:'2015'}
 
     _columns = {
     	'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
@@ -217,9 +219,11 @@ class for_pis_registro_inicial(osv.osv):
         #campo agregado de 'identificador' de la 'opcion_formativa'
         'identificador_id': fields.related('denominacion_pis_id','identificador', type='char',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
-       	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia')
+       	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
+       	'anio_vigencia': fields.char('anio de vigencia', size=4),
+
        }
-    _defaults= {'state': 'programado'}
+    _defaults= {'state': 'programado', 'anio_vigencia': date.today().year}
 
     def actualizar_matriz(self, cr, uid, ids, context=None):
         var=self.pool.get('for.matriz_curricular_formacion')
@@ -239,6 +243,8 @@ class for_pis_registro_inicial(osv.osv):
             var.create(cr, uid, dict, context)
         return True    
     
+    
+
     def action_programado(self, cr, uid, ids, context=None):
         res={'state': 'programado'}
         self.write(cr, uid, ids, res)
@@ -279,7 +285,6 @@ class for_pis_registro_inicial(osv.osv):
     def on_change_validar_fecha(self, cr, uid, ids, fecha, campo_fecha, fechainicio):
         v = {'value':{}}
         born = datetime.strptime(fecha, '%Y-%m-%d')
-        #today = datetime.strptime(str(date.today()), '%Y-%m-%d').year
         today = date.today().year
         if born.year != today:
             v['value'][campo_fecha] = ''

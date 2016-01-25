@@ -294,7 +294,7 @@ herencia res.users
                     <field name="cfs_id" select="0" domain="[('estado_id','=',[estado_id])]"/-->
 				
                 <!--Buscar ubicacion geografica-->
-                <field name="state" required="1" select="0"/>
+                <field name="state" required="1" select="0" attrs="{'readonly': [(users.groups_id, 'in', ('group_extended'))]}"/>
                 <!--
                 <button name="action_proceso" type="object" string="proceso" states="programado"/>
                 <button name="action_finalizado" type="object" string="finalizado" states="proceso"/>
@@ -342,6 +342,8 @@ herencia res.users
                         <field name="turno_id" on_change="on_change_turno(turno)" select="0" required="True"/>                                             
                         <separator string="Horario" colspan="4"/-->
                         <group string="Información de Fechas de la Formación" col="6" colspan="4">
+                        <field name="anio_vigencia" select="0" invisible="0"/>
+                        <field name="anio_actual" select="0" invisible="0"/>
                         <field name="fecha_inicio" select="0" on_change="on_change_validar_fecha(fecha_inicio,'fecha_inicio', fecha_inicio)" required="True"/>
                         <field name="fecha_cierre" select="0" on_change="on_change_validar_fecha(fecha_cierre, 'fecha_cierre', fecha_inicio)" required="True"/>
                         </group>
@@ -396,6 +398,7 @@ herencia res.users
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.registro_inicial">
+                <field name="anio_vigencia"/>
                 <field name="dependencia_id" string="Dependencia"/>
                 <field name="nro_preimpreso" string="Preimpreso"/>
                 <field name="denominacion_pis_id" string="Denominación"/>
@@ -446,6 +449,12 @@ herencia res.users
 
 <!--group-->
 
+<group expand="0" string="Filtrar por...">
+    <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+</group>
+
+<newline/>
 <group expand="1" string="Agrupado por...">
     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_id'}"/>
     <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
@@ -462,6 +471,8 @@ herencia res.users
         <field name="name">Registro Inicial de la Formación y Autoformación</field>
         <field name="res_model">for.pis.registro_inicial</field>
         <field name="view_type">form</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
         <field name="view_mode">tree,form,graph</field>
 
     </record>
