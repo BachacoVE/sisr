@@ -140,9 +140,6 @@ class for_pis_registro_inicial(osv.osv):
                 v[record.id]=0
         return v
 
-    def fun_fecha(self, cr, uid, ids, fields, arg, context):
-        return {ids[0]:'2015'}
-
     _columns = {
     	'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
         'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
