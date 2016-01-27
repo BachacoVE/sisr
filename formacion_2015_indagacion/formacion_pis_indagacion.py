@@ -481,7 +481,7 @@ class for_pis_participacion_pis(osv.osv):
     _name = 'for.pis.participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
-    
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
         'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', ondelete='cascade', help='Participante que participa la formación referida'),
         'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', ondelete='cascade', help='Formación donde participa o ha participado'),
         'estatus': fields.selection([('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
@@ -490,7 +490,7 @@ class for_pis_participacion_pis(osv.osv):
         'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
         'genero_id': fields.related('sujeto_id', 'genero_id', type='many2one', relation='for.pis.generos', string='Genero', store=True),
     }
-
+    _defaults= {'anio_vigencia': date.today().year}
     _sql_constraints = [('participante_en_formacion_uniq', 'unique(sujeto_id,numero_id)', 'Este participante ya pertenece a esta formacion')]
 
     def unlink(self, cr, uid, ids, context=None):
