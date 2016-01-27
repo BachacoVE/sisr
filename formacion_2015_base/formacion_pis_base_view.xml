@@ -397,7 +397,6 @@ herencia res.users
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.registro_inicial">
-                <field name="anio_vigencia"/>
                 <field name="dependencia_id" string="Dependencia"/>
                 <field name="nro_preimpreso" string="Preimpreso"/>
                 <field name="denominacion_pis_id" string="Denominación"/>
@@ -410,6 +409,7 @@ herencia res.users
                 <field name="cantidad_sujetos_enproceso" string="Participantes en proceso"/>
                 <field name="modalidad_id" select="0" readonly='1'/>
                 <field name="state"/>
+                <field name="anio_vigencia"/>
             </tree>
         </field>
     </record>
