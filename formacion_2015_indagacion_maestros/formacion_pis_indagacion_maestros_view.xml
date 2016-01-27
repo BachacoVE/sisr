@@ -586,8 +586,13 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.fac_participacion_pis">
-                <!-- field name="maestro_id" select="1"/ -->
+                <field name="maestro_id" select="1"/>
                 <field name="numero_id" select="2"/>
+                <field name="dependencia_formacion" select="2" readonly="1"/>
+                <field name="motores_economicos_id" select="2" readonly="1"/>
+                <field name="cfs_id" select="2" readonly="1"/>
+                <field name="genero_id" select="2" readonly="1"/>
+                <field name="anio_vigencia" select="0" invisible="1"/>
 
             </form>
         </field>
@@ -598,17 +603,56 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.fac_participacion_formacion">
-                <!-- field name="maestro_id"/ -->
+                <field name="maestro_id"/>
                 <field name="numero_id"/>
-
+                <field name="dependencia_formacion"/>
+                <field name="motores_economicos_id"/>
+                <field name="cfs_id"/>
+                <field name="genero_id"/>
+                <field name="anio_vigencia"/>
             </tree>
         </field>
     </record>
+
+
+
+    <record model="ir.ui.view" id="view_for_pis_mae_participacion_pis_search">
+        <field name="name">for.pis.mae_participacion_pis.search</field>
+        <field name="model">for.pis.mae_participacion_pis</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Busqueda Rapida">
+                <field name="numero_id"/>
+                <field name="dependencia_formacion"/>
+                <field name="motores_economicos_id"/>
+                <field name="cfs_id"/>
+                <field name="genero_id"/>
+                <newline/>
+                <group expand="0" string="Filtrar por...">
+                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
+                <newline/>
+                <group expand="1" string="Agrupado por...">
+                    <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_formacion'}"/>
+                    <filter string="Sujeto" icon="terp-folder-violet" domain="[]" context="{'group_by':'maestro_id'}"/>
+                    <filter string="Motor" icon="terp-folder-violet" domain="[]" context="{'group_by':'motores_economicos_id'}"/>
+                    <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
+                    <filter string="Genero" icon="terp-folder-violet" domain="[]" context="{'group_by':'genero_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+
     <record model="ir.actions.act_window" id="action_for_pis_mae_participacion_pis">
         <field name="name">Participación en Formación (Formadores)</field>
         <field name="res_model">for.pis.mae_participacion_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
         
     <record model="ir.ui.view" id="view_for_pis_mae_experiencias_empiricas_form">
@@ -823,7 +867,8 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-        
+    
+    <menuitem name="Formadores en formación" id="menu_for_pis_participacion_pis" parent="formacion_2015_indagacion.menu_for_pis_participacion" action="action_for_pis_mae_participacion_pis" sequence="1"/> 
     <!-- Menu Formación/Indagación -->
     <!-- menuitem name="Diagnóstico" id="menu_for_pis_indagacion" parent="formacion_2015_base.menu_for_base" sequence="2"/ -->
     <!-- menuitem name="Caracterización de Maestros" id="menu_for_pis_mae" parent="formacion_2015_indagacion.menu_for_pis_indagacion" action="formacion_pis_indagacion.action_for_pis_maestros" sequence="2"/ -->

@@ -289,10 +289,16 @@ class for_pis_mae_participacion_pis(osv.osv):
     _name = 'for.pis.mae_participacion_pis'
     _rec_name = 'numero_id'
     _columns = {
-
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
         'maestro_id': fields.many2one('for.pis.maestros', 'Formador', ondelete='cascade', onupdate='cascade', help='Formador que participa en la Formación referida'),
         'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', ondelete='cascade', onupdate='cascade', help='Formación donde participa o ha participado'),
+        'dependencia_formacion': fields.related('numero_id', 'dependencia_id', type='many2one', relation='for.dependencias', string='Dependencia', store=True, help='Dependencia de donde se registra la formacion'),
+        'motores_economicos_id': fields.related('numero_id', 'motores_economicos_id', type='many2one', relation='for.pis.motores_economicos', string='Motor', store=True, help='Motor economico de donde se registra la formacion'),
+        'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
+        'genero_id': fields.related('maestro_id', 'genero_id', type='many2one', relation='for.pis.generos', string='Genero', store=True),
+
     }
+    _defaults= {'anio_vigencia': date.today().year}
     _sql_constraints = [('maestro_en_formacion_uniq', 'unique(maestro_id,numero_id)', 'Este Formador ya pertenece a esta formacion')]
 for_pis_mae_participacion_pis()
 

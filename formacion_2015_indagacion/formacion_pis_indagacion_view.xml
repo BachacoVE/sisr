@@ -1178,7 +1178,6 @@
                 <field name="motores_economicos_id"/>
                 <field name="cfs_id"/>
                 <field name="genero_id"/>
-                <field name="anio_vigencia"/>
                 <newline/>
                 <group expand="0" string="Filtrar por...">
                 <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
