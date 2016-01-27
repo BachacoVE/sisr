@@ -92,6 +92,7 @@
 						   <!-- separator string="'Observaciones'" colspan="4"/ -->
 						   <field name="estatus" select="0"/>
 						   <field name="observaciones" colspan="4" nolabel="0" select="0"/>
+                           <field name="anio_vigencia" select="0" invisible="1"/>
 					</page>
                 </notebook>
             </form>
@@ -121,14 +122,34 @@
                 <field name="responsable_3_aval"/>
                 <!-- field name="responsable_3_fecha"/ -->
                 <field name="estatus"/>
+                <field name="anio_vigencia"/>
             </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_search">
+        <field name="name">for.pis.mae_consolidado.search</field>
+        <field name="model">for.pis.mae_consolidado</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">         
+            <search string="Busqueda Rapida">
+                <field name="codigo"/>
+                    <newline/>
+                <group expand="0" string="Filtrar por...">
+                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado">
         <field name="name">Consolidados</field>
         <field name="res_model">for.pis.mae_consolidado</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
         
@@ -160,6 +181,7 @@
                 <field name="observaciones" colspan="4" nolabel="0" select="0"/>
                 <separator string="Ejecuciones asociadas" colspan="4"/>
                 <field name="asistencias_ids" colspan="4" nolabel="1" select="0" readonly="1"/>
+                <field name="anio_vigencia" select="0" invisible="1"/>
             </form>
         </field>
     </record>
@@ -190,14 +212,32 @@
                 <field name="monto_pago"/>
                 <field name="activo"/>
                 <!-- field name="observaciones"/ -->
+                <field name="anio_vigencia"/>
             </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_detalle_search">
+        <field name="name">for.pis.mae_consolidado_detalle.search</field>
+        <field name="model">for.pis.mae_consolidado_detalle</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">         
+            <search string="Busqueda Rapida">
+                <group expand="0" string="Filtrar por...">
+                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado_detalle">
         <field name="name">Detalles de Consolidados</field>
         <field name="res_model">for.pis.mae_consolidado_detalle</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
 
@@ -235,7 +275,8 @@
                         <field name="cedula"/>
                         
                     </tree> 
-                </field>             
+                </field> 
+                <field name="anio_vigencia" select="0" invisible="1"/>            
             </form>
         </field>
     </record>
@@ -250,15 +291,35 @@
                 <field name="tipo_nomina"/>
                 <field name="limite_horas"/>
                 <field name="fecha_inicio"/>
-                <field name="fecha_fin"/>              
+                <field name="fecha_fin"/>
+                <field name="anio_vigencia"/>              
             </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_pagos_search">
+        <field name="name">for.pis.mae_consolidado_pagos.search</field>
+        <field name="model">for.pis.mae_consolidado_pagos</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">         
+            <search string="Busqueda Rapida">
+                <field name="consolidado_id"/>
+                <field name="codigo"/>
+                <newline/>
+                <group expand="0" string="Filtrar por...">
+                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="action_for_pis_mae_consolidado_pagos">
         <field name="name">Detalles de Consolidados de Misiona</field>
         <field name="res_model">for.pis.mae_consolidado_pagos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
 
