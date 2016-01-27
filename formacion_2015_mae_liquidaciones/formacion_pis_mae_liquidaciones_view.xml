@@ -30,7 +30,7 @@
 						  <field name="total_otras_asignaciones" select="0"/>
 						  <field name="total_liquidacion" select="0"/>
 					  <field name="total_asignaciones" readonly="1" select="0"/>
-
+                      <field name="anio_vigencia" select="0" invisible="1"/>
 				<notebook colspan="4">
 						<page string="Datos Personales">
 									<field name="antiguedad_dias" readonly="1" select="0"/>
@@ -168,6 +168,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
 			<tree string="for_fac_liquidaciones" colors="blue:total_liquidacion&lt;0;red:total_liquidacion==0">
+                <field name="anio_vigencia"/>
                 <field name="cedula"/>
                 <field name="nombres"/>
                 <field name="maestro_id" string="1ER y 2DO APELLIDO"/>
@@ -236,21 +237,26 @@
     </record>
 	<record model='ir.ui.view' id="view_for_pis_mae_liquidaciones_search">
 	<field name="name">for.pis.mae.liquidaciones.search</field>
-	<field name="model">form.pis.mae_liquidaciones</field>
+	<field name="model">for.pis.mae_liquidaciones</field>
 	<field name="type">search</field>
 	<field name="arch" type="xml">
          <search string="Search">
                   <!-- group expand="0" string="Pivote o Punto Focal..." -->
-                          <field name="cedula"/>
+            <field name="cedula"/>
                   <!-- /group -->
-                  <newline/>
-                  <group expand="1" string="Agrupado por...">
-                       <filter string="Facilitador" icon="terp-personal+" domain="[]" context="{'group_by':'maestro_id'}"/>
-                       <separator orientation="vertical"/>
-                       <filter string="Estado" icon="terp-rating-rated" domain="[]" context="{'group_by':'estado_id'}"/>
-                       <separator orientation="vertical"/>
-                       <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
-                  </group>
+            <newline/>
+            <group expand="0" string="Filtrar por...">
+                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+            </group>
+            <newline/>                  
+            <group expand="1" string="Agrupado por...">
+                <filter string="Facilitador" icon="terp-personal+" domain="[]" context="{'group_by':'maestro_id'}"/>
+                <separator orientation="vertical"/>
+                <filter string="Estado" icon="terp-rating-rated" domain="[]" context="{'group_by':'estado_id'}"/>
+                <separator orientation="vertical"/>
+                <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
+            </group>
         </search>
 	</field>
         		
@@ -260,6 +266,7 @@
         <field name="res_model">for.pis.mae_liquidaciones</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
       
     <record model="ir.ui.view" id="view_for_pis_mae_motivos_egreso_form">
