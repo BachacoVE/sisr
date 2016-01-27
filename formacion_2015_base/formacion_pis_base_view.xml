@@ -342,7 +342,7 @@ herencia res.users
                         <field name="turno_id" on_change="on_change_turno(turno)" select="0" required="True"/>                                             
                         <separator string="Horario" colspan="4"/-->
                         <group string="Información de Fechas de la Formación" col="6" colspan="4">
-                        <field name="anio_vigencia" select="0" invisible="0"/>
+                        <field name="anio_vigencia" select="0" invisible="1"/>
                         <field name="fecha_inicio" select="0" on_change="on_change_validar_fecha(fecha_inicio,'fecha_inicio', fecha_inicio)" required="True"/>
                         <field name="fecha_cierre" select="0" on_change="on_change_validar_fecha(fecha_cierre, 'fecha_cierre', fecha_inicio)" required="True"/>
                         </group>
