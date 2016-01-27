@@ -586,8 +586,8 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.fac_participacion_pis">
-                <field name="maestro_id" select="1"/>
-                <field name="numero_id" select="2"/>
+                <field name="maestro_id" select="1" readonly="1"/>
+                <field name="numero_id" select="2" readonly="1"/>
                 <field name="dependencia_formacion" select="2" readonly="1"/>
                 <field name="motores_economicos_id" select="2" readonly="1"/>
                 <field name="cfs_id" select="2" readonly="1"/>
