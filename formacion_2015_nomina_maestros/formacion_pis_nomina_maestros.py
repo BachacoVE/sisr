@@ -288,7 +288,9 @@ class for_pis_mae_misiona01(osv.osv):
         'fec_usu': fields.date('fec_usu', required=False),
         'hor_usu': fields.char('hor_usu', size=10, required=False, help='hor_usu : char(10)'),
         'cor_amo': fields.integer('cor_amo', required=False, help='cor_amo : integer'),
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
     }
+    _defaults= {'anio_vigencia': date.today().year}
 for_pis_mae_misiona01()
 
 class for_pis_mae_misiona05(osv.osv):
@@ -313,7 +315,9 @@ class for_pis_mae_misiona05(osv.osv):
         'usuario': fields.char('usuario', size=10, required=False, help='usuario : char(10)'),
         'fec_usu': fields.date('fec_usu', required=False, help='fec_usu : date'),
         'hor_usu': fields.char('hor_usu', size=10, required=False, help='hor_usu : char(10)'),
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
     }
+    _defaults= {'anio_vigencia': date.today().year}
 for_pis_mae_misiona05()
 
 #Contratos Abril
