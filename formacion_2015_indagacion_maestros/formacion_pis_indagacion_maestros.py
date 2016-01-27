@@ -91,9 +91,10 @@ class for_pis_maestros(osv.osv):
         'tipo_cuenta_id': fields.many2one('for.pis.mae_tipos_cuenta', 'Tipo de Cuenta', help='Tipo de Cuenta Bancaria del Formador'),
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias', 'maestro_id', 'Asistencias', help='Control de Asistencias a las Formaciones donde participa'),
         'ademdum': fields.boolean('¿ademdum?', help='¿Requiere ademdum de contrato?'),
+        'active': fields.boolean('activo?', help='Campo para activar/inactivar facilidores del sistema'),
         
     }
-
+    _defaults = {'active': True}
     def validar_numero(self, cr, uid, ids):
         for rec in self.browse(cr, uid, ids):
             digito = rec.cedula
