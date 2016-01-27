@@ -17,7 +17,8 @@
 				<field name="edad" select="0" string="Años"/>
 				<field name="genero_id" select="0"/>
 				<field name="pueblo_indigena_id" select="0"/>
-				<field name="estado_civil_id" select="0"/>
+                <field name="estado_civil_id" select="0"/>
+				<field name="active" select="0"/>
 				<notebook colspan="4">
 					<page string="Diversidad Funcional">
 						<field name="discapacidad_ids" string="Diversidades Funcionales" colspan="4" nolabel="1" select="0"/>

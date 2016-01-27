@@ -77,6 +77,9 @@ class for_pis_sujetos_aprendizaje(osv.osv):
         'frecuencia_fase_II': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase II', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase II'),
         'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase III'),
         'observaciones': fields.text('Observaciones', help='Observaciones'),
+        'active': fields.boolean('activo?', help='Campo para activar/inactivar facilidores del sistema'),
+
+
     }
     def validar_numero(self, cr, uid, ids):
         for rec in self.browse(cr, uid, ids):
@@ -85,6 +88,7 @@ class for_pis_sujetos_aprendizaje(osv.osv):
                 return True
         return False
 
+    _defaults = {'active': True}
     _constraints = [(validar_numero, 'La cedula solo puede contener numeros', ['cedula'])]
     _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este participante ya ha sido cargado (cedula repetida)')]
 
