@@ -622,7 +622,7 @@
         <field name="type">search</field>
         <field name="arch" type="xml">
             <search string="Busqueda Rapida">
-                <field name="numero_id"/>
+                <field name="maestro_id"/>
                 <field name="dependencia_formacion"/>
                 <field name="motores_economicos_id"/>
                 <field name="cfs_id"/>
@@ -635,7 +635,6 @@
                 <newline/>
                 <group expand="1" string="Agrupado por...">
                     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_formacion'}"/>
-                    <filter string="Sujeto" icon="terp-folder-violet" domain="[]" context="{'group_by':'maestro_id'}"/>
                     <filter string="Motor" icon="terp-folder-violet" domain="[]" context="{'group_by':'motores_economicos_id'}"/>
                     <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
                     <filter string="Genero" icon="terp-folder-violet" domain="[]" context="{'group_by':'genero_id'}"/>
