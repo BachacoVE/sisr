@@ -27,7 +27,15 @@ class for_pis_mae_asistencias(osv.osv):
     """Registro de Asistencias de los Facilitadores a las Formaciones"""
     _name = 'for.pis.mae_asistencias'
     #_rec_name = 'maestro_id'
+
+    def _total_horas_asistencia(self, cr, uid, ids, nombre_campo, arg, context):
+    	res = {}
+    	for asistencia in self.browse(cr, uid, ids):
+    		res[asistencia.id] = asistencia.horas_lunes + asistencia.horas_martes + asistencia.horas_miercoles + asistencia.horas_jueves + asistencia.horas_viernes + asistencia.horas_sabado + asistencia.horas_domingo
+    	return res
+    	
     _columns = {
+    	'total_horas': fields.function(_total_horas_asistencia, method=True, type='integer', string='Total Horas', store=False),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
 ################################################################################################################################################
 ####################estos campos son declarados en una extencion de herencia en formacion_pis_indagacion_maestros###############################
