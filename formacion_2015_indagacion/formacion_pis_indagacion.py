@@ -488,7 +488,7 @@ class for_pis_participacion_pis(osv.osv):
         'anio_vigencia': fields.char('anio de vigencia', size=4),
         'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', ondelete='cascade', help='Participante que participa la formación referida'),
         'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', ondelete='cascade', help='Formación donde participa o ha participado'),
-        'estatus': fields.selection([('transcrito', 'Transcrito'), ('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
+        'estatus': fields.selection([('registrado', 'Registrado'), ('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
         'dependencia_formacion': fields.related('numero_id', 'dependencia_id', type='many2one', relation='for.dependencias', string='Dependencia', store=True, help='Dependencia de donde se registra la formacion'),
         'motores_economicos_id': fields.related('numero_id', 'motores_economicos_id', type='many2one', relation='for.pis.motores_economicos', string='Motor', store=True, help='Motor economico de donde se registra la formacion'),
         'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
