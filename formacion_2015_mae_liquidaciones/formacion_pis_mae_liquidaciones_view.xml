@@ -8,7 +8,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
 			<form string="for_mae_liquidaciones">
-							<field name="maestro_id" select="1" on_change="onchange_dependencia(maestro_id)"/>
+							<field name="maestro_id" select="1" on_change="onchange_dependencia(maestro_id)" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
 							<!-- field name="cedula" select="1"/ -->
 							<field name="cedula" select="2" readonly="1"/>
 							<field name="nombres" select="0" readonly="1"/>

@@ -100,7 +100,7 @@
                 <field name="correlativo" select="2"/>
                 <field name="estado_id" select="0"/>
                 <field name="estado" select="0"/>
-                <field name="sujeto_id" select="0"/>
+                <field name="sujeto_id" select="0" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="cedula" select="0"/>
                 <field name="nombres" select="0"/>
                 <field name="apellidos" select="0"/>

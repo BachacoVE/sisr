@@ -10,11 +10,11 @@
         <field name="arch" type="xml">
             <form string="Ejecución de la Formación y Autoformación">
                 <!--campos creados por herencia en formacion_pis_indagacion_maestros>
-                <field name="maestro_id" select="1"/>
+                <field name="maestro_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <fin de campos creados por herencia en formacion_pis_indagacion_maestros-->
                 <separator colspan="6" />
-                <!--field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)"/-->
-                <field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)" domain="[('fecha_inicio','&lt;=',(datetime.date.today()).strftime('%%Y-%%m-%%d'))]" on_change="on_change_limpiar_campo('maestro_id')"/>
+                <!--field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/-->
+                <field name="numero_id" select="2" required="True" string="Formación (Pre-Impreso)" domain="[('fecha_inicio','&lt;=',(datetime.date.today()).strftime('%%Y-%%m-%%d'))]" on_change="on_change_limpiar_campo('maestro_id')" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="dependencia_id" select="0" required="True"/>
                 <group col="6" colspan="4">
                 <separator colspan="6" string="Información de la Fecha"/>
@@ -104,7 +104,7 @@
         <field name="type">search</field>
         <field name="arch" type="xml">         
             <search string="Busqueda Rapida">
-                <field name="maestro_id"/>
+                <field name="maestro_id" string="Cedula"/>
                 <newline/>
                 <group expand="0" string="Filtrar por...">
                 <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>

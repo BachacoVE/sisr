@@ -61,8 +61,8 @@
                 <field name="estado_id" select="2"/>
                 <field name="limite_horas" select="2"/>
                 <!-- field name="cfs_id" select="0" string="CFS" domain="[('estado_id','=',[estado_id])]"/ -->
-                <!-- field name="maestro_id" select="0"/ -->     
-                <!-- field name="numero_id" select="0" colspan="4" domain="[('estado_id','=',[estado_id])]"/ -->
+                <!-- field name="maestro_id" select="0" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->     
+                <!-- field name="numero_id" select="0" colspan="4" domain="[('estado_id','=',[estado_id])]" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="semana_desde_id" required="True" select="0" on_change="on_change_mostrar_fecha('semana_desde_id',semana_desde_id)" colspan="3"/>
                 <field name="semana_hasta_id" required="True" select="0" on_change="on_change_mostrar_fecha('semana_hasta_id',semana_hasta_id)" colspan="3"/>
                 <field name="consolidado_desde" readonly="1" select="0" colspan="3"/>
@@ -163,7 +163,7 @@
                 <field name="activo" select="0"/>
                 <field name="estado_id" select="2"/>
                 <field name="cfs_id" select="0"/>
-                <field name="maestro_id" select="0"/>
+                <field name="maestro_id" select="0" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="desde" select="0"/>
                 <field name="hasta" select="0"/>
                 <field name="cedula" select="0"/>

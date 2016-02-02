@@ -94,8 +94,8 @@
 						<separator string="En cuántas Formaciones ha participado" colspan="4"/>
 						<field name="pis_participado" colspan="4" required="True" nolabel="1" select="0">
                             <form string="Participación">
-                                <!--field name="sujeto_id"/-->
-                                <field name="numero_id" required="1"/>
+                                <!--field name="sujeto_id" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/-->
+                                <field name="numero_id" required="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                                 <field name="estatus" required="1"/>
                             </form>
                             <tree string="Participación">
@@ -196,9 +196,9 @@
                 <separator string="Participantes de la Formación" colspan="4"/>
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
-                            <field name="sujeto_id" select="0"/>
+                            <field name="sujeto_id" select="0" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                             <field name="estatus" select="0" required="1"/>
-                            <!--<field name="numero_id"/>-->
+                            <!--<field name="numero_id" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>-->
                         
                         </form>
                         <tree string="Participación">
@@ -799,7 +799,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.familiares">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="cedula" select="2"/>
                 <field name="nombres" select="0"/>
                 <field name="apellidos" select="0"/>
@@ -842,7 +842,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.redes_sociales">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="tipo_red_social_id" select="2"/>
                 <field name="cuenta" select="0"/>
             </form>
@@ -873,7 +873,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.deportes_practicados">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="deporte_id" select="2"/>
                 <field name="desde" select="0"/>
 
@@ -906,7 +906,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.actividades_practicadas">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="actividad_cultural_id" select="2"/>
                 <field name="desde" select="0"/>
 
@@ -939,7 +939,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.organizaciones_milita">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1"context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="organizacion_id" select="2"/>
                 <field name="desde" select="0"/>
 
@@ -972,7 +972,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.misiones_pertenece">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="mision_id" select="2"/>
                 <field name="desde" select="0"/>
 
@@ -1005,7 +1005,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.formacion_academica">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="nivel_educativo_id" select="2"/>
                 <field name="estatus_educativo_id" select="0"/>
 
@@ -1069,7 +1069,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.intereses_formativos">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="sector_economico_id" select="2"/>
                 <field name="area_economica_id" select="0"/>
                 <field name="requerimiento" select="0"/>
@@ -1104,7 +1104,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.tecnologias_utilizadas">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="tecnologia" select="2"/>
 
             </form>
@@ -1135,8 +1135,8 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Participación">
-                <field name="sujeto_id" select="1" readonly="1"/>
-                <field name="numero_id" select="2" readonly="1"/>
+                <field name="sujeto_id" select="1" readonly="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
+                <field name="numero_id" select="2" readonly="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="estatus" select="2" readonly="0" required="1"/>
                 <field name="dependencia_formacion" select="2" readonly="1"/>
                 <field name="motores_economicos_id" select="2" readonly="1"/>
@@ -1213,7 +1213,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.experiencias_empiricas">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="area_conocimiento_id" select="2"/>
                 <field name="tiempo_experiencias" select="0"/>
                 <field name="portafolio_evidencias" select="0"/>
@@ -1250,7 +1250,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.experiencias_docentes">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="entidad_educativa" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
                 <field name="area_conocimiento_id" select="0"/>
@@ -1285,7 +1285,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.experiencias_laborales">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="profesion_ocupacion_id" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
                 <field name="lugar" select="0"/>
@@ -1320,7 +1320,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.casea_conocimientos">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="area_conocimiento_id" select="2"/>
                 <field name="tiempo_experiencia" select="0"/>
                 <field name="donde" select="0"/>
@@ -1421,7 +1421,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.discapacidades">
-                <!-- field name="sujeto_id" select="1"/ -->
+                <!-- field name="sujeto_id" select="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/ -->
                 <field name="categoria_discapacidad_id" string="Diversidad Funcional" select="2"/>
                 <separator string="'Observaciones'" colspan="4"/>
                 <field name="observaciones" colspan="4" nolabel="1" select="0"/>
