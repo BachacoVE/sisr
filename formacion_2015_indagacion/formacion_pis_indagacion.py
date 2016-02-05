@@ -494,7 +494,7 @@ class for_pis_participacion_pis(osv.osv):
         'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
         'genero_id': fields.related('sujeto_id', 'genero_id', type='many2one', relation='for.pis.generos', string='Genero', store=True),
     }
-    _defaults= {'anio_vigencia': date.today().year, 'estatus': 'transcrito'}
+    _defaults= {'anio_vigencia': date.today().year, 'estatus': 'registrado'}
     _sql_constraints = [('participante_en_formacion_uniq', 'unique(sujeto_id,numero_id)', 'Este participante ya pertenece a esta formacion')]
 
     def unlink(self, cr, uid, ids, context=None):

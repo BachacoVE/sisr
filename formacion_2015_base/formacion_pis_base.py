@@ -463,25 +463,6 @@ class for_pis_opciones_formativas(osv.osv):
     }
     _defaults= {'active':True}
 
-    # Para validar que no pasen de 11 caracteres 
-
-    def _check_length(self, cr, uid, ids, context=None):
-########el siguiente fragmento de la funcion determina si el usuario pertenece al grupo almacenado en la variable "name_group"
-######## y lo retira de la restricción
-		name_group='Tecnología Educativa - Sede'
-		user=self.pool.get('res.users').browse(cr, uid, uid)
-		for grupo in user.groups_id:
-			if grupo.name == name_group:
-				return True
-############################################################################################################################
-		record = self.browse(cr, uid, ids, context=context)
-		for data in record:
-			if len(data.identificador) != 11:
-				return False
-		return True
-
-    _constraints = [(_check_length, 'ERROR: El codigo debe contener 11 caracteres. Ej: PISMIR00030', ['identificador'])]
-
     # cierre de la validacion
 
     _sql_constraints = [('codigo_uniq', 'unique(identificador)', 'Esta Opcion Formativa ya ha sido cargada (Codigo Repetido)')]
