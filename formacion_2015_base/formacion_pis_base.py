@@ -366,7 +366,7 @@ class for_pis_cfs(osv.osv):
     _name = 'for.pis.cfs'
     _rec_name = 'nombre'
     _columns = {
-        'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del Centro de Formación Socialista'),
+        'codigo': fields.char('Código',size=9,required=True, help='Código de Identificación del Centro de Formación Socialista'),
         'nombre': fields.char('CFS',size=60,required=True, help='Nombre del Centro de Formación Socialista'),
         'ubicacion': fields.char('Ubicación',size=200,required=True, help='Direccion del Centro de Formación Socialista'),
         'telefono': fields.char('Teléfono',size=30,required=False, help='Número de Contacto Telefónico del Centro de Formación Socialista'),
