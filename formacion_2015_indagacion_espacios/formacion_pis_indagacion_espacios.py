@@ -50,6 +50,7 @@ class for_pis_espacios(osv.osv):
     #_rec_name = 'materiales_necesarios'
     #_rec_name = 'observaciones'
     _columns = {
+        'codigo': fields.char('Codigo', size=9),
         'nombre_espacio': fields.char('Nombre del Espacio', size=240, required=True, help='Nombre (Único) que Identifique el Espacio de Formación y Autoformación'),
         'tipo_espacio_id': fields.many2one('for.pis.tipos_espacios', 'Tipo de Espacio', required=True, help='Tipo de Espacio de Formación y Autoformación'),
         'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado del país en el que se ubica el Espacio de Formación y Autoformación'),

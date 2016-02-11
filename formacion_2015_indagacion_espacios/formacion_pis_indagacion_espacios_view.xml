@@ -24,6 +24,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.espacios">
+                <field name="codigo" select="1" required="1"/>
                 <field name="nombre_espacio" select="1"/>
                 <field name="tipo_espacio_id" select="2"/>
             <!--Inicio para limpiar campo de Estado, Municipio y Parroquia-->
@@ -148,6 +149,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.espacios">
+                <field name="codigo"/>
                 <field name="nombre_espacio"/>
                 <field name="tipo_espacio_id"/>
                 <field name="estado_id"/>
