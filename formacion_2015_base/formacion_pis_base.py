@@ -142,7 +142,7 @@ class for_pis_registro_inicial(osv.osv):
 
     _columns = {
     	'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
-        'nro_preimpreso': fields.integer('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
+        'nro_preimpreso': fields.char('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
         'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominacion',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecucion',store=True, readonly=True),
         'fecha_inicio': fields.datetime('Fecha de Inicio',required=False, help='Fecha de Inicio de la formación'),
