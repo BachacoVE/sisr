@@ -40,6 +40,7 @@ class res_users_extended(osv.osv):
 	_inherit='res.users'
 	_columns={
 		'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa')
 	}
 res_users_extended()
 ###########################################################################################################################################################

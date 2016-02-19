@@ -45,6 +45,7 @@ herencia res.users
         <field name="arch" type="xml">
             <field name="active" position="after">
                 <field name="dependencia_id" select="1"/>
+                <field name="unidad_formativa_id" select="1"/>
             </field>
         </field>
     </record>
