@@ -88,6 +88,7 @@ class for_pis_sectores_economicos(osv.osv):
     _columns = {
         'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del Sector Económico'),
         'sector_economico': fields.char('Sector Económico',size=30,required=True, help='Nombre del Sector Económico'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_sectores_economicos()
 
@@ -99,6 +100,7 @@ class for_pis_areas_economicas(osv.osv):
         'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del Area Económica'),
         'area_economica': fields.char('Area Económica',size=200,required=True, help='Nombre del Area Económica'),
         'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Económico', help='Sector Económico al cual pertenece el Area Económica'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_areas_economicas()
 
@@ -110,6 +112,7 @@ class for_pis_subareas_economicas(osv.osv):
         'codigo': fields.char('Codigo',size=3,required=True, help='Código de Identificación de la Sub Area Económica'),
         'subarea_economica': fields.char('Subarea Económica',size=200,required=True, help='Nombre de la Sub Area Económica'),
         'area_id': fields.many2one('for.pis.areas_economicas','Area', help='Area Económica a la cual corresponde la Sub Area'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_subareas_economicas()
 
@@ -121,6 +124,7 @@ class for_pis_tipos_procedencias(osv.osv):
         'codigo': fields.char('Código',size=3,required=True, help='Codigo de Identificación del Tipo de Procedencia'),
         'tipo_procedencia': fields.char('Tipo de Procedencia',size=30,required=True, help='Nombre del Tipo de Procedencia'),
         'descripcion': fields.char('Descripción',size=250,required=True, help='Descripción del Tipo de Procedencia'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_tipos_procedencias()
 
@@ -374,6 +378,7 @@ class for_pis_cfs(osv.osv):
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual está ubicado el Centro de Formación'),
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual está ubicado el Centro de Formación'),
         'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia en la cual está ubicada el Centro de Formación'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_cfs()
 
@@ -386,6 +391,7 @@ class for_pis_motores_economicos(osv.osv):
     	'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del motor economico'),
         'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Económico'),
         'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_motores_economicos()
 
@@ -396,6 +402,7 @@ class for_pis_modalidad(osv.osv):
     _columns = {
         'nombre': fields.char('Nombre', size=60, help='Nombre de la modalidad Formativa'),
         'descripcion': fields.text('Descripción', help='Descripción de la modalidad'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_modalidad()
 
@@ -423,6 +430,7 @@ class for_pis_areas_priorizadas(osv.osv): #for.pis.cadenas_formativas--->for_pis
         'nombre': fields.char('Nombre', size=60, help='Nombre de la Cadena Formativa'),
         'descripcion': fields.text('Descripción', help='Descripción de la Cadena Formativa'),
         'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
+        'active': fields.boolean('Activo?'),
     }
 for_pis_areas_priorizadas()
 
