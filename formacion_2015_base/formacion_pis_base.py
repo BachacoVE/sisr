@@ -483,3 +483,11 @@ class for_pis_opciones_formativas(osv.osv):
             res.append((opcion_formativa_obj.id, str(opcion_formativa_obj.identificador) + ' - ' + opcion_formativa_obj.denominacion))    
         return res
 for_pis_opciones_formativas()
+
+class for_unidades_formativas(osv.osv):
+	_name = 'for.unidades.formativas'
+	_columns = {
+		'codigo': fields.char('Codigo', size=3),
+		'unidad_formativa': fields.char('Unidad formativa',size=50),
+		'active': fields.boolean('activo?')
+	}

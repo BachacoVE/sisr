@@ -798,6 +798,42 @@ herencia res.users
 <!--Vista Grafica-->
 
 
+    <record model="ir.ui.view" id="view_for_unidades_formativas_form">
+        <field name="name">for.unidades.formativas.form</field>
+        <field name="model">for.unidades.formativas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Unidades formativas">
+                
+                <field name="codigo" select="1"/>
+                <field name="unidad_formativa" select="1"/>
+                <field name="active" select="0"/>
+                
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_unidades_formativas_tree">
+        <field name="name">for.unidades.formativas.tree</field>
+        <field name="model">for.unidades.formativas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Unidades formativas">
+                <field name="codigo"/>
+                <field name="unidad_formativa"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_for_unidades_formativas">
+        <field name="name">Unidades formativas</field>
+        <field name="res_model">for.unidades.formativas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
     <menuitem name="Formación" id="menu_for_base"
             web_icon="images/formacion.png"
             web_icon_hover="images/formacion-hover.png" />
@@ -822,6 +858,7 @@ herencia res.users
     <menuitem name="Calendario" id="menu_for_pis_calendario" action="action_for_pis_calendario" parent="menu_for_pis_configuracion" sequence="12"/>
     <menuitem name="Opciones Formativas" id="menu_for_pis_opciones_formativas" action="action_for_pis_opciones_formativas" parent="menu_for_pis_configuracion" sequence="13"/>
     <menuitem name="Dependencias" id="menu_dependencias_usuarios" action="action_for_dependencias" parent="menu_for_pis_configuracion" sequence="14"/>
+    <menuitem name="Unidades formativas" id="menu_unidades_formativas" action="action_for_unidades_formativas" parent="menu_for_pis_configuracion" sequence="15"/>
    
 <!--notebook colpsan="4">
  <page string= "Geografica">
