@@ -156,9 +156,10 @@ herencia res.users
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.sectores_economicos">
+                <field name="active" select="0"/>
+                <newline/>
                 <field name="codigo" select="1"/>
                 <field name="sector_economico" select="2"/>
-
             </form>
         </field>
     </record>
@@ -170,7 +171,7 @@ herencia res.users
             <tree string="for.sectores_economicos">
                 <field name="codigo"/>
                 <field name="sector_economico"/>
-
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -190,7 +191,7 @@ herencia res.users
                 <field name="codigo" select="1"/>
                 <field name="area_economica" select="2"/>
                 <field name="sector_id" select="0"/>
-
+                <field name="active" select="0"/>
             </form>
         </field>
     </record>
@@ -203,7 +204,7 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="area_economica"/>
                 <field name="sector_id"/>
-
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -223,7 +224,7 @@ herencia res.users
                 <field name="codigo" select="1"/>
                 <field name="subarea_economica" select="2"/>
                 <field name="area_id" select="0"/>
-
+                <field name="active" select="0"/>
             </form>
         </field>
     </record>
@@ -236,7 +237,7 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="subarea_economica"/>
                 <field name="area_id"/>
-
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -255,8 +256,8 @@ herencia res.users
             <form string="for.tipos_procedencias">
                 <field name="codigo" select="1"/>
                 <field name="tipo_procedencia" select="2"/>
-                <field name="descripcion" select="0"/>
-
+                <field name="descripcion" select="0"/>                
+                <field name="active" select="0"/>
             </form>
         </field>
     </record>
@@ -268,8 +269,8 @@ herencia res.users
             <tree string="for.tipos_procedencias">
                 <field name="codigo"/>
                 <field name="tipo_procedencia"/>
-                <field name="descripcion"/>
-
+                <field name="descripcion"/>    
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -533,6 +534,7 @@ herencia res.users
                 <field name="codigo" select="1"/>
                 <field name="nombre" select="1"/>
                 <field name="descripcion" select="2"/>
+                <field name="active" select="0"/>
             </form>
         </field>
     </record>
@@ -545,6 +547,7 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="nombre"/>
                 <field name="descripcion"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -564,9 +567,10 @@ herencia res.users
         <field name="arch" type="xml">
             <form string="for.pis.sujetos_aprendizaje">
                 <separator string="Datos Básicos" colspan="4"/>
+                <field name="active" select="0"/>  
+                <newline/>              
                 <field name="nombre" select="1"/>
                 <field name="descripcion" select="2"/>
-                                
             </form>
         </field>
     </record>
@@ -578,6 +582,7 @@ herencia res.users
             <tree string="Modalidad">
                 <field name="nombre"/>
                 <field name="descripcion"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -600,7 +605,7 @@ herencia res.users
                 <field name="nombre" select="1"/>
                 <field name="descripcion" select="0"/>
                 <field name="motores_economicos_id" select="0"/>
-                                
+                <field name="active" select="0"/>
             </form>
         </field>
     </record>
@@ -612,6 +617,7 @@ herencia res.users
             <tree string="Áreas Priorizadas">
                 <field name="nombre"/>
                 <field name="descripcion"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -636,6 +642,7 @@ herencia res.users
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.cfs">
+                <field name="active" select="0"/>
                 <field name="codigo" select="1"/>
                 <field name="nombre" select="2"/>
                 <field name="ubicacion" select="0"/>
@@ -644,7 +651,6 @@ herencia res.users
                 <field name="estado_id" select="0"/>
                 <field name="municipio_id" select="0"/>
                 <field name="parroquia_id" select="0"/>
-
             </form>
         </field>
     </record>
@@ -666,6 +672,7 @@ herencia res.users
                 <field name="estado_id"/>
                 <field name="municipio_id"/>
                 <field name="parroquia_id"/>
+                <field name="active"/>
 
             </tree>
         </field>
