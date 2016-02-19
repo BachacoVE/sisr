@@ -171,7 +171,6 @@ herencia res.users
             <tree string="for.sectores_economicos">
                 <field name="codigo"/>
                 <field name="sector_economico"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -204,7 +203,6 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="area_economica"/>
                 <field name="sector_id"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -237,7 +235,6 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="subarea_economica"/>
                 <field name="area_id"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -270,7 +267,6 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="tipo_procedencia"/>
                 <field name="descripcion"/>    
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -547,7 +543,6 @@ herencia res.users
                 <field name="codigo"/>
                 <field name="nombre"/>
                 <field name="descripcion"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -582,7 +577,6 @@ herencia res.users
             <tree string="Modalidad">
                 <field name="nombre"/>
                 <field name="descripcion"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -617,7 +611,6 @@ herencia res.users
             <tree string="Áreas Priorizadas">
                 <field name="nombre"/>
                 <field name="descripcion"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -672,7 +665,6 @@ herencia res.users
                 <field name="estado_id"/>
                 <field name="municipio_id"/>
                 <field name="parroquia_id"/>
-                <field name="active"/>
 
             </tree>
         </field>
@@ -777,7 +769,6 @@ herencia res.users
                 <field name="identificador"/>
                 <field name="denominacion"/>
                 <field name="horas"/>
-                <!--field name="active"/-->
             </tree>
         </field>
     </record>
@@ -828,7 +819,6 @@ herencia res.users
             <tree string="Unidades formativas">
                 <field name="codigo"/>
                 <field name="unidad_formativa"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
