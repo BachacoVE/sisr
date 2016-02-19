@@ -90,6 +90,7 @@ class for_pis_sectores_economicos(osv.osv):
         'sector_economico': fields.char('Sector Económico',size=30,required=True, help='Nombre del Sector Económico'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True} 
 for_pis_sectores_economicos()
 
 class for_pis_areas_economicas(osv.osv):
@@ -102,6 +103,7 @@ class for_pis_areas_economicas(osv.osv):
         'sector_id': fields.many2one('for.pis.sectores_economicos','Sector Económico', help='Sector Económico al cual pertenece el Area Económica'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_areas_economicas()
 
 class for_pis_subareas_economicas(osv.osv):
@@ -114,6 +116,7 @@ class for_pis_subareas_economicas(osv.osv):
         'area_id': fields.many2one('for.pis.areas_economicas','Area', help='Area Económica a la cual corresponde la Sub Area'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_subareas_economicas()
 
 class for_pis_tipos_procedencias(osv.osv):
@@ -126,6 +129,7 @@ class for_pis_tipos_procedencias(osv.osv):
         'descripcion': fields.char('Descripción',size=250,required=True, help='Descripción del Tipo de Procedencia'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_tipos_procedencias()
 
 class for_pis_registro_inicial(osv.osv):
@@ -380,6 +384,7 @@ class for_pis_cfs(osv.osv):
         'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia en la cual está ubicada el Centro de Formación'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_cfs()
 
 #llamado de las tablas que utiliza, los motorores economicos, la modalidad, cadena formativa
@@ -393,6 +398,7 @@ class for_pis_motores_economicos(osv.osv):
         'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_motores_economicos()
 
 class for_pis_modalidad(osv.osv):
@@ -404,6 +410,7 @@ class for_pis_modalidad(osv.osv):
         'descripcion': fields.text('Descripción', help='Descripción de la modalidad'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_modalidad()
 
 class for_matriz_curricular_formacion(osv.osv):
@@ -432,6 +439,7 @@ class for_pis_areas_priorizadas(osv.osv): #for.pis.cadenas_formativas--->for_pis
         'motores_economicos_id':fields.many2one('for.pis.motores_economicos', 'Motor Economico', required=False, help='Motor Económico'),
         'active': fields.boolean('Activo?'),
     }
+    _defaults= {'active':True}
 for_pis_areas_priorizadas()
 
 class for_pis_calendario(osv.osv):
@@ -452,6 +460,7 @@ class for_pis_calendario(osv.osv):
         'domingo': fields.boolean('Domingo', help='Campo de verificación para determinar si el Domingo es Laborable. (True = Sí)'),
         'active': fields.boolean('¿Semana Activa?', help="Campo de Activación o Desactivación de la Semana"),
     }
+    _defaults= {'active':True}
 for_pis_calendario()
 
 class for_pis_opciones_formativas(osv.osv):
@@ -499,3 +508,4 @@ class for_unidades_formativas(osv.osv):
 		'unidad_formativa': fields.char('Unidad formativa',size=50),
 		'active': fields.boolean('activo?')
 	}
+	_defaults= {'active':True}
