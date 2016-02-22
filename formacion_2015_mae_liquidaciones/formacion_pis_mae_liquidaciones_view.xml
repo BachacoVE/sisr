@@ -31,6 +31,7 @@
 						  <field name="total_liquidacion" select="0"/>
 					  <field name="total_asignaciones" readonly="1" select="0"/>
                       <field name="anio_vigencia" select="0" invisible="1"/>
+                      <field name="unidad_formativa_id" select="0" invisible="1"/>
 				<notebook colspan="4">
 						<page string="Datos Personales">
 									<field name="antiguedad_dias" readonly="1" select="0"/>

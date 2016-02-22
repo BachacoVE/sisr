@@ -27,7 +27,8 @@
         "category" : "Formacion",
         "description": """  Módulo Base para la Gestión de Proyectos de Formación Socialista de INCES """,
         "depends" : ['base'],
-        "init_xml" : ['data/modalidades.xml',
+        "init_xml" : [ ],
+        "update_xml" :  ['data/modalidades.xml',
                         'data/motores_desarrollo.xml', 
                         'data/areas_priorizadas.xml', 
                         'data/sectores_economicos.xml', 
@@ -47,9 +48,10 @@
                         'data/for_dependencia_REG.xml', 
                         'sequence_preimpreso.xml',
                         'data/for.pis.calendario.csv',
+                        'data/unidades_formativas.xml',
                         'report/reports.xml'],
         "demo_xml" : [ ],
         #"update_xml" : ['security/for_pis_base.xml', 'security/ir.model.access.csv', 'formacion_pis_base_view.xml','data/modalidades.xml', 'data/motores_desarrollo.xml', 'data/cadenas_formativas.xml'],
-        "update_xml" : [ ],
+         
         "installable": True
 }

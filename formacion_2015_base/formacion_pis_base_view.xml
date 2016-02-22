@@ -8,6 +8,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="for.estados">
+                <field name="codigo" select="2"/>
                 <field name="dependencia" select="1"/>
                 <field name="descripcion" select="2"/>
 
@@ -20,6 +21,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="for.estados">
+                <field name="codigo"/>
                 <field name="dependencia"/>
                 <field name="descripcion"/>
 
@@ -293,6 +295,7 @@ herencia res.users
 				
                 <!--Buscar ubicacion geografica-->
                 <field name="state" required="1" select="0"/>
+                <field name="unidad_formativa_id" select="0" invisible="1"/>
                 <!--
                 <button name="action_proceso" type="object" string="proceso" states="programado"/>
                 <button name="action_finalizado" type="object" string="finalizado" states="proceso"/>

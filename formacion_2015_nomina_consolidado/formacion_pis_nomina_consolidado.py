@@ -86,6 +86,7 @@ class for_pis_mae_consolidado(osv.osv):
         'detalle_ids': fields.one2many('for.pis.mae_consolidado_detalle','consolidado_id','Detalle', help='Detalle del Reporte Consolidado'),
     	'limite_horas': fields.float('limite de horas',size=12, help='limite de horas del consolidado de misiona a generar'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
     }
     _defaults= {'anio_vigencia': date.today().year}
     def on_change_mostrar_fecha(self, cr, uid, ids, campo, dato):
@@ -96,6 +97,11 @@ class for_pis_mae_consolidado(osv.osv):
         elif campo=='semana_hasta_id':
             v['consolidado_hasta']=fecha.final_semana
         return {'value': v}
+    
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_consolidado, self).create(cr,uid, vals, context)
+
 
 for_pis_mae_consolidado()
 
@@ -125,7 +131,13 @@ class for_pis_mae_consolidado_detalle(osv.osv):
         'observaciones': fields.text('Observaciones', help='Observaciones o comentarios adicionales respecto al registro de detalle del reporte consolidado'),
         'asistencias_ids': fields.one2many('for.pis.mae_asistencias','detalle_consolidado_id','Ejecuciones'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
     }
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_consolidado_detalle, self).create(cr,uid, vals, context)
+
 for_pis_mae_consolidado_detalle()
 
 
@@ -143,8 +155,14 @@ class for_pis_mae_consolidado_pagos(osv.osv):
         'misiona01_ids': fields.one2many('for.pis.mae_misiona01','detalle_pagos_id','misiona01',help='Reporte de Misiona01 generado'),
         'misiona05_ids': fields.one2many('for.pis.mae_misiona05','detalle_pagos_id','misiona05',help='Reporte de Misiona05 generado'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
     }
     _defaults= {'anio_vigencia': date.today().year}
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_consolidado_pagos, self).create(cr,uid, vals, context)
+
     def on_change_limite_horas(self, cr, uid, ids, consolidado):
         consolidado=self.pool.get('for.pis.mae_consolidado').browse(cr, uid, consolidado)
         return {'value':{'limite_horas':consolidado.limite_horas}}

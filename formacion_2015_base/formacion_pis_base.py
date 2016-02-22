@@ -25,23 +25,24 @@ from datetime import date, datetime
 from openerp.exceptions import Warning
 
 class for_dependencias(osv.osv):
-	_name='for.dependencias'
-	_rec_name='dependencia'
-	_columns={
-		'dependencia': fields.char('Dependencia', size=30),
-		'descripcion': fields.text('Descripción'),
-	}
+    _name='for.dependencias'
+    _rec_name='dependencia'
+    _columns={
+        'codigo': fields.char('codigo', size=4),
+        'dependencia': fields.char('Dependencia', size=30),
+        'descripcion': fields.text('Descripción'),
+    }
 for_dependencias()
 ###########################################################################################################################################################
 ###########################################################################################################################################################
 ##############                          herencia de res.user                         ######################################################################
 class res_users_extended(osv.osv):
-	_name= 'res.users'
-	_inherit='res.users'
-	_columns={
-		'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
-        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa')
-	}
+    _name= 'res.users'
+    _inherit='res.users'
+    _columns={
+        'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
+    }
 res_users_extended()
 ###########################################################################################################################################################
 ###########################################################################################################################################################
@@ -150,7 +151,7 @@ class for_pis_registro_inicial(osv.osv):
         return v
 
     _columns = {
-    	'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
+        'state': fields.selection([('programado','Programado'),('ejecucion', 'En ejecucion'),('cancelado','Cancelado'),('finalizado','Finalizado'),('certificado','Certificado')], 'Estatus'),
         'nro_preimpreso': fields.char('Nº Preimpreso',size=30,required=False, help='Número de Preimpreso de la Formación'),
         'denominacion_pis_id': fields.many2one('for.pis.opciones_formativas', 'Denominacion',size=240,required=True, help='Denominación que el Colectivo adopto para su Formación'),
         'lapso_ejecucion': fields.related('denominacion_pis_id','horas',type='integer',relation='for.pis.opciones_formativas',string='Lapso de Ejecucion',store=True, readonly=True),
@@ -225,10 +226,14 @@ class for_pis_registro_inicial(osv.osv):
         #campo agregado de 'identificador' de la 'opcion_formativa'
         'identificador_id': fields.related('denominacion_pis_id','identificador', type='char',relation='for.pis.opciones_formativas', string='Código', store=True, readonly=True),
         'matriz_curricular_ids': fields.one2many('for.matriz_curricular_formacion', 'opcion_formativa_id', 'Matriz Curricular', required=False,help='Temas que conforman la Matriz Curricular la Formación'),
-       	'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
-       	'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'dependencia_id': fields.many2one('for.dependencias', 'Dependencia'),
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
 
        }
+       
+    def userid(self,cr,uid,ids):
+        return uid
     _defaults= {'state': 'programado', 'anio_vigencia': date.today().year}
 
     def actualizar_matriz(self, cr, uid, ids, context=None):
@@ -260,7 +265,7 @@ class for_pis_registro_inicial(osv.osv):
         res={'state': 'proceso'}
         self.write(cr, uid, ids, res)
         return True
-	
+    
     def action_finalizado(self, cr, uid, ids, context=None):
         res={'state': 'finalizado'}
         self.write(cr, uid, ids, res)
@@ -282,7 +287,11 @@ class for_pis_registro_inicial(osv.osv):
 
 
     def create(self, cr, uid, vals, context=None):
-        preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, 'registro_inicial_preimpreso')
+        usuario = self.pool.get('res.users').browse(cr,uid, uid)
+        vals['unidad_formativa_id'] = usuario.unidad_formativa_id.id
+        code_seq = 'FORMACION_' + usuario.unidad_formativa_id.codigo + '_' + usuario.dependencia_id.codigo 
+
+        preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, code_seq)
         vals.update({'nro_preimpreso':preimpreso_obj})
         new_id = super(for_pis_registro_inicial, self).create(cr, uid, vals, context=None)
         return new_id
@@ -316,9 +325,9 @@ class for_pis_registro_inicial(osv.osv):
         secuencia_matriz=[]
         if denominacion_pis_id:
             if ids:
-            	var=self.pool.get('for.matriz_curricular_formacion')
-            	opciones_clean=var.search(cr, uid, [('opcion_formativa_id','=',ids)])
-            	clean=var.unlink(cr, uid, opciones_clean)
+                var=self.pool.get('for.matriz_curricular_formacion')
+                opciones_clean=var.search(cr, uid, [('opcion_formativa_id','=',ids)])
+                clean=var.unlink(cr, uid, opciones_clean)
                 #cr.execute('DELETE FROM for_matriz_curricular_formacion WHERE opcion_formativa_id=%s', ids )
             opciones_formativas_ls=self.pool.get('for.estructura_curricular').search(cr, uid,[('opcion_formativa_id','=',denominacion_pis_id)])
             
@@ -343,7 +352,7 @@ class for_pis_registro_inicial(osv.osv):
             
             opciones_formativas_obj=self.pool.get('for.pis.opciones_formativas').browse(cr, uid, denominacion_pis_id)
             #if opciones_formativas_obj.modalidad_id.nombre=='Proyecto Integral Socialista':
-            #	v['estado_id']=opciones_formativas_obj.estado_id.id
+            #   v['estado_id']=opciones_formativas_obj.estado_id.id
             v['modalidad_id']=opciones_formativas_obj.modalidad_id.id
             v['lapso_ejecucion']=opciones_formativas_obj.horas
             v['motores_economicos_id']=opciones_formativas_obj.motores_economicos_id.id
@@ -394,7 +403,7 @@ class for_pis_motores_economicos(osv.osv):
     _name = 'for.pis.motores_economicos'
     _rec_name = 'nombre'
     _columns = {
-    	'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del motor economico'),
+        'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del motor economico'),
         'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Económico'),
         'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
         'active': fields.boolean('Activo?'),
@@ -415,8 +424,8 @@ class for_pis_modalidad(osv.osv):
 for_pis_modalidad()
 
 class for_matriz_curricular_formacion(osv.osv):
-	_name= 'for.matriz_curricular_formacion'
-	_columns = {
+    _name= 'for.matriz_curricular_formacion'
+    _columns = {
         'opcion_formativa_id': fields.many2one('for.pis.registro_inicial', onupdate='cascade', ondelete='cascade', help='Opción Formativa al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=False, help='Tema de la Matriz Curricular del PIS'),
         'ec_horas': fields.integer('Horas', required=False, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
@@ -425,7 +434,7 @@ class for_matriz_curricular_formacion(osv.osv):
         'categoria_id': fields.char('Categoría', size=100, help='Categoría de Contenido en cual se ubica el tema identificado en la Matriz Curricular del PIS'),
     }
 
-for_matriz_curricular_formacion()	
+for_matriz_curricular_formacion()   
 
 #--------------------------------------------------------
 
@@ -503,10 +512,11 @@ class for_pis_opciones_formativas(osv.osv):
 for_pis_opciones_formativas()
 
 class for_unidades_formativas(osv.osv):
-	_name = 'for.unidades.formativas'
-	_columns = {
-		'codigo': fields.char('Codigo', size=3),
-		'unidad_formativa': fields.char('Unidad formativa',size=50),
-		'active': fields.boolean('activo?')
-	}
-	_defaults= {'active':True}
+    _name = 'for.unidades.formativas'
+    _rec_name = 'unidad_formativa'
+    _columns = {
+        'codigo': fields.char('Codigo', size=3),
+        'unidad_formativa': fields.char('Unidad formativa',size=50),
+        'active': fields.boolean('activo?')
+    }
+    _defaults= {'active':True}

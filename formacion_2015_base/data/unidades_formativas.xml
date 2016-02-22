@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+	
+	<record id="uni_for_fp" model="for.unidades.formativas">
+		<field name="unidad_formativa">Formacion Profesional</field>
+		<field name="codigo">FP</field>
+	</record>
+	
+	<record id="uni_for_im" model="for.unidades.formativas">
+		<field name="unidad_formativa">Inces Militar</field>
+		<field name="codigo">IM</field>
+	</record>
+
+
+	</data>
+</openerp>

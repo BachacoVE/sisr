@@ -53,7 +53,6 @@
                 <field name="codigo"/>
                 <field name="unidad_dependencia"/>
                 <field name="componente_id"/>
-                <field name="estado_id"/>
             </tree>
         </field>
     </record>
@@ -127,6 +126,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+
     <record model="ir.ui.view" id="view_for_militar_registro_inicial_inherit_form">
         <field name="name">for.pis.registro_inicial.form</field>
         <field name="model">for.pis.registro_inicial</field>
@@ -134,13 +134,54 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <field name="cantidad_sujetos_enproceso" position="after">
-            <separator string="Datos Militares" colspan="4"/>
                 <field name="militar_proyecto" select="0"/>
-                <field name="militar_componente_id" select="0"/>
-                <field name="militar_unidad_id" select="0"/>
+                <group string="Datos Militares" col="4" colspan="4" attrs="{'invisible':[('militar_proyecto','!=', True)]}"> 
+                    <field name="militar_componente_id" select="0"/>
+                    <field name="militar_unidad_id" select="0"/>
+                </group>
             </field>
         </field>
     </record>
+
+
+    <record model="ir.ui.view" id="view_for_militar_maestros_inherit_form">
+        <field name="name">for.pis.maestros.form</field>
+        <field name="model">for.pis.maestros</field>
+        <field name="inherit_id" ref="formacion_2015_indagacion_maestros.view_for_pis_maestros_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="militar_maestro" select="0"/>
+                 <group string="Datos Militares" col="4" colspan="4"  attrs="{'invisible':[('militar_maestro','!=', True)]}"> 
+                <field name="militar_componente_id" select="0"/>                
+                <field name="militar_categoria_id" select="0"/>
+                <field name="militar_grado_id" select="0"/>
+                <field name="militar_unidad_id" select="0"/>
+            </group>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_for_militar_sujetos_aprendizaje_inherit_form">
+        <field name="name">for.pis.sujetos_aprendizaje.form</field>
+        <field name="model">for.pis.sujetos_aprendizaje</field>
+        <field name="inherit_id" ref="formacion_2015_indagacion.view_for_pis_sujetos_aprendizaje_form"/>
+        <field name="type">form</field>         
+        <field name="arch" type="xml">
+            <field name="active" position="after">                
+                <field name="militar_sujeto" select="0"/>
+                <group string="Datos Militares" col="6" colspan="6"  attrs="{'invisible':[('militar_sujeto','!=', True)]}">             
+                <field name="militar_componente_id" select="0"/>
+                <field name="militar_categoria_id" domain="[('componente_id','=',[militar_componente_id])]" select="0"/>         
+                <field name="militar_grado_id" select="0" domain="[('categoria_id','=',[militar_categoria_id])]"/>
+                <field name="militar_unidad_id" domain="[('componente_id','=',[militar_componente_id])]" select="0"/>
+                </group>           
+            </field>
+        </field>
+    </record>
+<!--
+    
+
     <record model="ir.ui.view" id="view_for_militar_registro_inicial_inherit_tree">
         <field name="name">for.pis.registro_inicial.tree.inherit</field>
         <field name="model">for.pis.registro_inicial</field>
@@ -150,24 +191,6 @@
             <field name="cantidad_sujetos_enproceso" position="after">
                 <field name="militar_proyecto" select="0"/>
                 <field name="militar_componente_id" select="0"/>
-                <field name="militar_unidad_id" select="0"/>
-            </field>
-        </field>
-    </record>
-
-
-    <record model="ir.ui.view" id="view_for_militar_maestros_inherit_form">
-        <field name="name">for.pis.maestros.form</field>
-        <field name="model">for.pis.maestros</field>
-        <field name="inherit_id" ref="formacion_pis_indagacion_maestros.view_for_pis_maestros_form"/>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <field name="cantidad_sujetos_enproceso" position="after">
-            <separator string="Maestro" colspan="4"/>
-                <field name="militar_maestro" select="0"/>
-                <field name="militar_componente_id" select="0"/>                
-                <field name="militar_categoria_id" select="0"/>
-                <field name="militar_grado_id" select="0"/>
                 <field name="militar_unidad_id" select="0"/>
             </field>
         </field>
@@ -187,23 +210,6 @@
             </field>
         </field>
     </record>
-
-    <record model="ir.ui.view" id="view_for_militar_sujetos_aprendizaje_inherit_form">
-        <field name="name">for.pis.sujetos_aprendizaje.form</field>
-        <field name="model">for.pis.sujetos_aprendizaje</field>
-        <field name="inherit_id" ref="formacion_pis_indagacion.view_for_pis_sujetos_aprendizaje_form"/>
-        <field name="type">form</field>         
-        <field name="arch" type="xml">
-            <field name="cantidad_sujetos_enproceso" position="after">
-                <page string="Datos Militares">
-                    <field name="militar_componente_id" select="0"/>
-                    <field name="militar_categoria_id" domain="[('componente_id','=',[militar_componente_id])]" select="0"/>                        
-                    <field name="militar_grado_id" select="0" domain="[('categoria_id','=',[militar_categoria_id])]"/>
-                    <field name="militar_unidad_id" domain="[('componente_id','=',[militar_componente_id])]" select="0"/>
-                </page>
-            </field>
-        </field>
-    </record>
     <record model="ir.ui.view" id="view_for_pis_sujetos_aprendizaje_tree">
         <field name="name">for.pis.sujetos_aprendizaje.tree</field>
         <field name="model">for.pis.sujetos_aprendizaje</field>
@@ -219,4 +225,15 @@
         </field>
     </record>
 
-               
+-->
+    <menuitem name="Militar" id="menu_for_configuracion_militar" parent="formacion_2015_base.menu_for_configuracion"/>   
+    <menuitem name="Componentes" id="menu_for_componentes_militar" action="action_for_militar_componentes" parent="menu_for_configuracion_militar"/>   
+    <menuitem name="Unidades o Dependencias" id="menu_for_unidades_militar" action="action_for_militar_unidades_dependencias" parent="menu_for_configuracion_militar"/>   
+    <menuitem name="Jerarquías" id="menu_for_jerarquias_militar" action="action_for_militar_grados_jerarquias" parent="menu_for_configuracion_militar"/>   
+    <menuitem name="Categorías" id="menu_for_categorias_militar" action="action_for_militar_categorias" parent="menu_for_configuracion_militar"/>   
+
+
+
+
+</data>
+</openerp>

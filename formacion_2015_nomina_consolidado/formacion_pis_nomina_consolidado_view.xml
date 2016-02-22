@@ -93,6 +93,7 @@
 						   <field name="estatus" select="0"/>
 						   <field name="observaciones" colspan="4" nolabel="0" select="0"/>
                            <field name="anio_vigencia" select="0" invisible="1"/>
+                           <field name="unidad_formativa_id" select="0" invisible="1"/>
 					</page>
                 </notebook>
             </form>
@@ -182,6 +183,7 @@
                 <separator string="Ejecuciones asociadas" colspan="4"/>
                 <field name="asistencias_ids" colspan="4" nolabel="1" select="0" readonly="1"/>
                 <field name="anio_vigencia" select="0" invisible="1"/>
+                <field name="unidad_formativa_id" select="0" invisible="1"/>
             </form>
         </field>
     </record>
@@ -276,7 +278,8 @@
                         
                     </tree> 
                 </field> 
-                <field name="anio_vigencia" select="0" invisible="1"/>            
+                <field name="anio_vigencia" select="0" invisible="1"/> 
+                <field name="unidad_formativa_id" select="0" invisible="1"/>           
             </form>
         </field>
     </record>

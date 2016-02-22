@@ -133,10 +133,16 @@ class for_pis_mae_liquidaciones(osv.osv):
         'bono_monto_a_pagar2': fields.float('Monto a Pagar', help='Monto a Pagar'),
         'bono_monto_a_pagar3': fields.float('Monto a Pagar', help='Monto a Pagar'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
 
     }
     _sql_constraints = [('unique_maestro_id', 'unique(maestro_id)', 'No puede generar 2 o mas Liquidaciones para un Facilitador'),]
     _defaults= {'anio_vigencia': date.today().year}
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_liquidaciones, self).create(cr,uid, vals, context)
+    
     def onchange_dependencia(self, cr, uid, ids, maestro):
         dep_maestro= self.pool.get('for.pis.maestros').browse(cr, uid, maestro).dependencia_ids[0].id
         return {'value':{'dependencia_id': dep_maestro}}

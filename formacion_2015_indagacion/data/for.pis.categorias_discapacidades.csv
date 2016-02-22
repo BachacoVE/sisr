@@ -1,4 +1,4 @@
-codigo;categoria_discapacidad
-FIS;Física
-SEN;Sensorial
-INT;Intelectual o Mental
+codigo,categoria_discapacidad
+FIS,Física
+SEN,Sensorial
+INT,Intelectual o Mental

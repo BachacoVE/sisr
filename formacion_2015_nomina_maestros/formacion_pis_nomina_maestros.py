@@ -37,6 +37,7 @@ class for_pis_mae_asistencias(osv.osv):
     _columns = {
     	'total_horas': fields.function(_total_horas_asistencia, method=True, type='integer', string='Total Horas', store=False),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
 ################################################################################################################################################
 ####################estos campos son declarados en una extencion de herencia en formacion_pis_indagacion_maestros###############################
         #'maestro_id': fields.many2one('for.pis.maestros','Facilitador', help='Facilitador con el que guarda parentesco el familiar'),
@@ -199,6 +200,7 @@ class for_pis_mae_asistencias(osv.osv):
     _constraints = [(horas_limitadas, 'La asistencia excede del ĺimite de horas establecido, el limite de horas semanales es 25 ', ['de horas'])]
 
     def create(self, cr, uid, vals, context):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
         repetido= self.pool.get('for.pis.mae_asistencias').search(cr,uid, [('maestro_id','=',vals['maestro_id']),('numero_id','=', vals['numero_id']),('calendario_id','=', vals['calendario_id'])])
         if repetido:
             raise osv.except_osv(('Asistencia repetida'),('Esta asistencia ya ha sido cargada'))
@@ -297,7 +299,12 @@ class for_pis_mae_misiona01(osv.osv):
         'hor_usu': fields.char('hor_usu', size=10, required=False, help='hor_usu : char(10)'),
         'cor_amo': fields.integer('cor_amo', required=False, help='cor_amo : integer'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
     }
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_misiona01, self).create(cr,uid, vals, context)
 for_pis_mae_misiona01()
 
 class for_pis_mae_misiona05(osv.osv):
@@ -323,7 +330,12 @@ class for_pis_mae_misiona05(osv.osv):
         'fec_usu': fields.date('fec_usu', required=False, help='fec_usu : date'),
         'hor_usu': fields.char('hor_usu', size=10, required=False, help='hor_usu : char(10)'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
     }
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_mae_misiona05, self).create(cr,uid, vals, context)
 for_pis_mae_misiona05()
 
 #Contratos Abril

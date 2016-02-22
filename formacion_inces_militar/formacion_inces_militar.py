@@ -14,7 +14,7 @@ class for_militar_componentes(osv.osv):
 for_militar_componentes()
 
 class for_militar_unidades_dependecias(osv.osv):
-    _name = 'for.militar_unidades_dependecias'
+    _name = 'for.militar_unidades_dependencias'
     _rec_name = 'unidad_dependencia'
     _columns = {
         'codigo': fields.char('Código', size=3, required=True, help='Código de la Unidad o Dependencia de las Fuerzas Armadas de la República Bolivariana de Venezuela'),
@@ -44,39 +44,38 @@ class for_militar_categorias(osv.osv):
 for_militar_categorias()
 
 class for_militar_registro_inicial(osv.osv):
-	_name = 'for.pis.registro_inicial'
+    _name = 'for.pis.registro_inicial'
     _inherit = 'for.pis.registro_inicial'
     _columns = {
         'militar_proyecto': fields.boolean('Proyecto INCES Militar?', help='Marque si el Proyecto Integral Socialista es de INCES Militar'),
         'militar_componente_id': fields.many2one('for.militar_componentes', 'Componente', required=False, help='Componente de las FARBV a la cual pertenece'),
-        'militar_unidad_id': fields.many2one('for.militar_unidades_dependecias', 'Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece'),
+        'militar_unidad_id': fields.many2one('for.militar_unidades_dependencias', 'Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece'),
     }    
 for_militar_registro_inicial()
 
-class for_militar_maestros(osv.osv):
+class for_pis_maestros_extended(osv.osv):
     _name = 'for.pis.maestros'
     _inherit = 'for.pis.maestros'
-    #_rec_name = ''
     _columns = {
         'militar_maestro': fields.boolean('Maestro Militar?', help='Marque si el Maestro es Personal de las FARBV'),
         'militar_componente_id': fields.many2one('for.militar_componentes', 'Componente', required=False, help='Componente de las FARBV a la cual pertenece'),
         'militar_categoria_id': fields.many2one('for.militar_categorias', 'Categoria', required=False, help='Categoria de Personal las FARBV a la cual pertenece'),
         'militar_grado_id': fields.many2one('for.militar_grados_jerarquias', 'Grado Militar', required=False, help='Grado o Jerarquia de Personal las FARBV a la cual pertenece'),
-        'militar_unidad_id': fields.many2one('for.militar_unidades_dependecias', 'Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece'),
+        'militar_unidad_id': fields.many2one('for.militar_unidades_dependencias', 'Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece'),
     }
-for_militar_maestros()
+for_pis_maestros_extended()
 
 
-class for_militar_sujetos_aprendizaje(osv.osv):
+class for_pis_sujetos_aprendizaje_extended(osv.osv):
      _name = 'for.pis.sujetos_aprendizaje'
      _inherit = 'for.pis.sujetos_aprendizaje'
-     #_rec_name = ''
      _columns = {
-     'militar_componente_id': fields.many2one('for.militar_componentes','Componente', required=False, help='Nombre del Componente de las Fuerzas Armadas de la República Bolivariana de Venezuela'),
-     'militar_categoria_id': fields.many2one('for.militar_categorias', 'Categoria', required=False, help='Categoria de Personal las FARBV a la cual pertenece'),
-     'militar_grado_id': fields.many2one('for.militar_grados_jerarquias', 'Grado Militar', required=False, help='Grado o Jerarquia de Personal las FARBV a la cual pertenece'),
-     'militar_unidad_id': fields.many2one('for.militar_unidades_dependecias','Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece' ),
+        'militar_sujeto': fields.boolean('Sujeto Militar?', help='Marque si el sujeto de aprendizaje es Personal de las FARBV'),
+        'militar_componente_id': fields.many2one('for.militar_componentes','Componente', required=False, help='Nombre del Componente de las Fuerzas Armadas de la República Bolivariana de Venezuela'),
+        'militar_categoria_id': fields.many2one('for.militar_categorias', 'Categoria', required=False, help='Categoria de Personal las FARBV a la cual pertenece'),
+        'militar_grado_id': fields.many2one('for.militar_grados_jerarquias', 'Grado Militar', required=False, help='Grado o Jerarquia de Personal las FARBV a la cual pertenece'),
+        'militar_unidad_id': fields.many2one('for.militar_unidades_dependencias','Unidad o Dependencia', required=False, help='Unidad o Dependencia de las FARBV a la cual pertenece' ),
      }
-for_militar_sujetos_aprendizaje()
+for_pis_sujetos_aprendizaje_extended()
 
 

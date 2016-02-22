@@ -593,6 +593,7 @@
                 <field name="cfs_id" select="2" readonly="1"/>
                 <field name="genero_id" select="2" readonly="1"/>
                 <field name="anio_vigencia" select="0" invisible="1"/>
+                <field name="unidad_formativa_id" select="0" invisible="1"/>
 
             </form>
         </field>

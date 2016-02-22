@@ -24,137 +24,7 @@ from osv import fields,osv
 from datetime import date, datetime
 from dateutil import parser
 
-class for_pis_sujetos_aprendizaje(osv.osv):
-    """Registro Maestro de Participantes """
-    _name = 'for.pis.sujetos_aprendizaje'
-    _rec_name = 'cedula'
-    _columns = {
-        'cedula': fields.char('Cédula de Identidad', size=12, required=True, help='Número de Cédula de Identidad'),
-        'nombres': fields.char('1º y 2º Nombres', size=120, required=True, help='Nombres del Participante'),
-        'apellidos': fields.char('1º y 2º Apellidos', size=120, required=True, help='Apellidos del Participante'),
-        'nacionalidad': fields.many2one('for.pis.nacionalidades', 'Nacionalidad', help='Nacionalidad'),
-        'fecha_nacimiento': fields.date('Fecha de Nacimiento', required=True, help='Fecha de Nacimiento del Participante'),
-        'edad': fields.integer('Edad (años)', required=False, help='Edad del Participante'),
-        'genero_id': fields.many2one('for.pis.generos', 'Género', required=True, help='Género (Masculino/Femenino)'),
-        'pueblo_indigena_id': fields.many2one('for.pis.pueblos_indigenas', 'Pueblo Indígena', help='Si el Participante pertenece a algún Pueblo Indígena, indique a cuál'),
-        'discapacidad_ids': fields.one2many('for.pis.discapacidades', 'sujeto_id', 'Discapacidades', help='Si el Participante posee alguna Discapacidad, indique cuál(es)'),
-        'estado_civil_id': fields.many2one('for.pis.estados_civiles', 'Estado Civil', required=True, help='Estado Civíl del Participante'),
-        'hijos_ids': fields.one2many('for.pis.familiares', 'sujeto_id', 'Familiares', help='Familiares del Participante'),
-        'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado donde reside'),
-        'municipio_id': fields.many2one('for.pis.municipios', 'Municipio', required=True, help='Municipio donde reside'),
-        'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia donde reside'),
-        'comunidad_id': fields.many2one('for.pis.tipos_comunidades','Comunidad', required=True, help='Tipo de comunidad donde reside'),
-        'direccion_habitacion': fields.char('Dirección Habitación', size=120, required=True, help='Dirección de habitación donde reside'),
-        'telefono_fijo': fields.char('Teléfono Fijo', size=11, required=False, help='Número de teléfono fijo (sólo los números, sin puntos, parentesis, ni caracteres especiales)'),
-        'telefono_celular': fields.char('Teléfono Celular', size=11, required=False, help='Número de teléfono celular (solo los números, sin puntos, parentesis, ni caracteres especiales)'),
-        'correo_electronico': fields.char('Correo Electrónico', size=50, required=False, help='Dirección de correo electrónico'),
-        'redes_sociales_ids': fields.one2many('for.pis.redes_sociales', 'sujeto_id', 'Redes Sociales', help='Nombre(s) de las red(es) social(es) y cuenta(s)'),
-        'deportes_ids': fields.one2many('for.pis.deportes_practicados', 'sujeto_id', 'Deporte(s) que practica', help='Deporte(s) que practica'),
-        'actividades_culturales_ids': fields.one2many('for.pis.actividades_practicadas', 'sujeto_id', 'Actividad(es) Cultural(es) que practica', help='Actividad(es) Cultural(es) que practica'),
-        'organizaciones_ids': fields.one2many('for.pis.organizaciones_milita', 'sujeto_id', 'Organización Socio-Política', help='Organizacion(es) Socio y/o Política(s) en la(s) que milita'),
-        'misiones_ids': fields.one2many('for.pis.misiones_pertenece', 'sujeto_id', 'Mision(es) a la(s) que pertenece', help='Misiones Sociales a las que pertenece'),
-        'formacion_ids': fields.one2many('for.pis.formacion_academica', 'sujeto_id', 'Formación Académica', help='Formación Académica'),
-        'ultimo_cursado': fields.char('Último año cursado', size=60, required=False, help='Último año cursado'),
-        'especialidad_id': fields.many2one('for.pis.especialidades', 'Especialidad', help='Especialidad'),
-        'otras_formaciones': fields.text('Otras formaciones', help='Cursos, Talleres y otras formaciones'),
-        'experiencias_empiricas': fields.one2many('for.pis.experiencias_empiricas', 'sujeto_id', 'Experiencias Empíricas', help='Experiencias Empíricas'),
-        'experiencias_docentes': fields.one2many('for.pis.experiencias_docentes', 'sujeto_id', 'Experiencias Docentes', help='Experiencias Docentes'),
-        'experiencias_laborales': fields.one2many('for.pis.experiencias_laborales', 'sujeto_id', 'Experiencias Laborales', help='Experiencias Laborales'),
-        'condicion_laboral': fields.many2one('for.pis.condiciones_laborales', 'Condición Laboral', help='Condición laboral en la que se encuentra (Fijo, Contratado, otro)'),
-        'trabaja_actualmente': fields.boolean('¿Trabaja actualmente?', help='Indique si trabaja actualmente'),
-        'fecha_ingreso': fields.datetime('Fecha Ingreso', help='Fecha de ingreso al último trabajo'),
-        'tiempo_experiencia': fields.integer('Años experiencia', help='Años de Experiencia en el trabajo'),
-        'casea_conocimientos_ids': fields.one2many('for.pis.casea_conocimientos', 'sujeto_id', 'Areas de Conocimiento para CASEA', help='Areas de Conocimiento para la Certificación y Acreditación de Saberes Empíricos y Académicos'),
-        'pis_participado': fields.one2many('for.pis.participacion_pis', 'sujeto_id', 'En cuántas Formaciones ha participado', help='Relación de las Formaciones en los cuales ha participado'),
-        'frecuencia_colectivos_aprendizaje_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo Participantes', help='Frecuencia de Participación en el Colectivo de Participantes'),
-        'frecuencia_matriz_planificacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Matriz de Planificación', help='Frecuencia de Participación en la Matriz de Planificación del Proceso Formativo, Colectivo, Integral'),
-        'frecuencia_cuaderno_sistematizacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Registra en el cuaderno de Sistematización', help='Frecuencia con la cual registra en el Cuaderno de Sistematización de Experiencias'),
-        'frecuencia_intercambio_saberes_id': fields.many2one('for.pis.frecuencias_participacion', 'Realiza intercambio de saberes', help='Realiza intercambio de sabes con los Participantes para socializar los registros de los cuadernos'),
-        'frecuencia_encuentros_socializacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participa en encuentros', help='¿Ha participado en encuentros o socialización de saberes con otras Formaciones?'),
-        'intereses_formativos_ids': fields.one2many('for.pis.intereses_formativos', 'sujeto_id', 'Intereses Formativos', help='Intereses formativos del Participante'),
-        'tecnologias_ids': fields.one2many('for.pis.tecnologias_utilizadas', 'sujeto_id', 'Tecnologías (TIC) que utiliza', help='Tecnologías de Información y Comunicación que utiliza'),
-        'frecuencia_fase_I': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase I', help='Frecuencia con la que participa en la construcción del trabajo en la Formación. Fase I'),
-        'frecuencia_fase_II': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase II', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase II'),
-        'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase III'),
-        'observaciones': fields.text('Observaciones', help='Observaciones'),
-        'active': fields.boolean('activo?', help='Campo para activar/inactivar facilidores del sistema'),
 
-
-    }
-    def validar_numero(self, cr, uid, ids):
-        for rec in self.browse(cr, uid, ids):
-            digito = rec.cedula
-            if re.match("^[0-9]*$", digito):
-                return True
-        return False
-
-    _defaults = {'active': True}
-    _constraints = [(validar_numero, 'La cedula solo puede contener numeros', ['cedula'])]
-    _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este participante ya ha sido cargado (cedula repetida)')]
-
-  
-##################################################################################################################################################################            
-###             Ejecución del conteo de participantes en una formacion, por medio de los metodos ORM, haciendo uso de campos function                          #####
-###        En la Clase 'for.pis.registro_inicial' existe un campo function, que permite contar la cantidad de participantes relacionados a sí misma en la tabla #####
-###        'for_pis_participacion_pis'. Un campo function se ejecuta cada vez que los Métodos ORM 'create' o 'write' es instanciado sobre el modelo donde se    #####
-###        encuentra. Por lo cual a través de la función que sigue a continuación solo se ejecuta el método write en registro inicial cuando un participante      #####
-###        es creado o editado.                                                                                                                                  #####
-##################################################################################################################################################################
-    def create(self, cr, uid, vals, context=None):
-        new_id = super(for_pis_sujetos_aprendizaje, self).create(cr, uid, vals, context=None)
-        res={}
-        if 'pis_participado' in vals:
-            for registro_formacion in vals['pis_participado']:
-                if registro_formacion[0]==0:
-                    id_formacion=registro_formacion[2]['numero_id']
-                    self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)                    
-        return new_id
-
-    def write(self, cr, uid, ids, vals, context=None):
-        res={}
-        id_formacion=[]
-        if 'pis_participado' in vals:
-            for registro_formacion in vals['pis_participado']:
-                if registro_formacion[0]==0:
-                    id_formacion.append(registro_formacion[2]['numero_id'])
-                elif registro_formacion[0]==2 or registro_formacion[0]==1:
-                    id_formacion.append(self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id)
-        new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
-        self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)
-        return new_id
-
-
-
-    def name_get(self, cr, uid, ids, context={}):
-        if not len(ids):
-            return []
-        
-        res=[]
-        for participante in self.browse(cr, uid, ids,context=context):
-            res.append((participante.id, participante.cedula +' - '+ participante.nombres + ' ' + participante.apellidos))    
-        return res
-
-
-    def onchange_calcular_edad(self, cr, uid, ids, fecha, context=None):
-        born = datetime.strptime(fecha, '%Y-%m-%d')
-        today = date.today()
-        age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-        v = {'value':{}}
-        v['value']['edad'] = age
-        return v
-
-    def on_change_limpiar_campo(self, cr, uid, ids, *args):
-        v = {'value':{}}
-        for campo in args:
-            v['value'][campo] = ''
-        return v
-
-
-#    def unlink(self, cr, uid, ids, context=None):
-#        cr.execute()    
-#        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)
-
-for_pis_sujetos_aprendizaje()
 
 ##########################################################################################################################################################################3
 ##########################################################################################################################################################################3
@@ -229,8 +99,8 @@ class for_pis_categorias_discapacidades(osv.osv):
     _name = 'for.pis.categorias_discapacidades'
     _rec_name = 'categoria_discapacidad'
     _columns = {
-        'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación de la Categoría de Discapacidad'),
         'categoria_discapacidad': fields.char('Discapacidad', size=30, required=True, help='Tabla de Referencia de Discapacidades'),
+        'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación de la Categoría de Discapacidad'),
     }
 for_pis_categorias_discapacidades()
 
@@ -486,6 +356,7 @@ class for_pis_participacion_pis(osv.osv):
     _rec_name = 'numero_id'
     _columns = {
         'anio_vigencia': fields.char('anio de vigencia', size=4),
+        'unidad_formativa_id': fields.many2one('for.unidades.formativas', 'Unidad formativa'),
         'sujeto_id': fields.many2one('for.pis.sujetos_aprendizaje', 'Participante', onupdate='cascade', ondelete='cascade', help='Participante que participa la formación referida'),
         'numero_id': fields.many2one('for.pis.registro_inicial', 'Formación donde participa', onupdate='cascade', ondelete='cascade', help='Formación donde participa o ha participado'),
         'estatus': fields.selection([('registrado', 'Registrado'), ('proceso', 'En proceso'),('retirado', 'Retirado'),('egresado', 'Egresado')], 'Estatus', help='Estatus del participante en la formación'),
@@ -494,6 +365,11 @@ class for_pis_participacion_pis(osv.osv):
         'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
         'genero_id': fields.related('sujeto_id', 'genero_id', type='many2one', relation='for.pis.generos', string='Genero', store=True),
     }
+
+    def create(self, cr,uid, vals, context=None):
+        vals['unidad_formativa_id'] = self.pool.get('res.users').browse(cr,uid, uid).unidad_formativa_id.id
+        return super(for_pis_participacion_pis, self).create(cr,uid, vals, context)
+
     _defaults= {'anio_vigencia': date.today().year, 'estatus': 'registrado'}
     _sql_constraints = [('participante_en_formacion_uniq', 'unique(sujeto_id,numero_id)', 'Este participante ya pertenece a esta formacion')]
 
@@ -600,3 +476,136 @@ class for_pis_condiciones_laborales(osv.osv):
         'condicion_laboral': fields.char('Condición Laboral', size=120, required=True, help='Nombre o Descripción de la Condición Laboral'),
     }
 for_pis_condiciones_laborales()
+
+
+class for_pis_sujetos_aprendizaje(osv.osv):
+    """Registro Maestro de Participantes """
+    _name = 'for.pis.sujetos_aprendizaje'
+    _rec_name = 'cedula'
+    _columns = {
+        'cedula': fields.char('Cédula de Identidad', size=12, required=True, help='Número de Cédula de Identidad'),
+        'nombres': fields.char('1º y 2º Nombres', size=120, required=True, help='Nombres del Participante'),
+        'apellidos': fields.char('1º y 2º Apellidos', size=120, required=True, help='Apellidos del Participante'),
+        'nacionalidad': fields.many2one('for.pis.nacionalidades', 'Nacionalidad', help='Nacionalidad'),
+        'fecha_nacimiento': fields.date('Fecha de Nacimiento', required=True, help='Fecha de Nacimiento del Participante'),
+        'edad': fields.integer('Edad (años)', required=False, help='Edad del Participante'),
+        'genero_id': fields.many2one('for.pis.generos', 'Género', required=True, help='Género (Masculino/Femenino)'),
+        'pueblo_indigena_id': fields.many2one('for.pis.pueblos_indigenas', 'Pueblo Indígena', help='Si el Participante pertenece a algún Pueblo Indígena, indique a cuál'),
+        'discapacidad_ids': fields.one2many('for.pis.discapacidades', 'sujeto_id', 'Discapacidades', help='Si el Participante posee alguna Discapacidad, indique cuál(es)'),
+        'estado_civil_id': fields.many2one('for.pis.estados_civiles', 'Estado Civil', required=True, help='Estado Civíl del Participante'),
+        'hijos_ids': fields.one2many('for.pis.familiares', 'sujeto_id', 'Familiares', help='Familiares del Participante'),
+        'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado donde reside'),
+        'municipio_id': fields.many2one('for.pis.municipios', 'Municipio', required=True, help='Municipio donde reside'),
+        'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia donde reside'),
+        'comunidad_id': fields.many2one('for.pis.tipos_comunidades','Comunidad', required=True, help='Tipo de comunidad donde reside'),
+        'direccion_habitacion': fields.char('Dirección Habitación', size=120, required=True, help='Dirección de habitación donde reside'),
+        'telefono_fijo': fields.char('Teléfono Fijo', size=11, required=False, help='Número de teléfono fijo (sólo los números, sin puntos, parentesis, ni caracteres especiales)'),
+        'telefono_celular': fields.char('Teléfono Celular', size=11, required=False, help='Número de teléfono celular (solo los números, sin puntos, parentesis, ni caracteres especiales)'),
+        'correo_electronico': fields.char('Correo Electrónico', size=50, required=False, help='Dirección de correo electrónico'),
+        'redes_sociales_ids': fields.one2many('for.pis.redes_sociales', 'sujeto_id', 'Redes Sociales', help='Nombre(s) de las red(es) social(es) y cuenta(s)'),
+        'deportes_ids': fields.one2many('for.pis.deportes_practicados', 'sujeto_id', 'Deporte(s) que practica', help='Deporte(s) que practica'),
+        'actividades_culturales_ids': fields.one2many('for.pis.actividades_practicadas', 'sujeto_id', 'Actividad(es) Cultural(es) que practica', help='Actividad(es) Cultural(es) que practica'),
+        'organizaciones_ids': fields.one2many('for.pis.organizaciones_milita', 'sujeto_id', 'Organización Socio-Política', help='Organizacion(es) Socio y/o Política(s) en la(s) que milita'),
+        'misiones_ids': fields.one2many('for.pis.misiones_pertenece', 'sujeto_id', 'Mision(es) a la(s) que pertenece', help='Misiones Sociales a las que pertenece'),
+        'formacion_ids': fields.one2many('for.pis.formacion_academica', 'sujeto_id', 'Formación Académica', help='Formación Académica'),
+        'ultimo_cursado': fields.char('Último año cursado', size=60, required=False, help='Último año cursado'),
+        'especialidad_id': fields.many2one('for.pis.especialidades', 'Especialidad', help='Especialidad'),
+        'otras_formaciones': fields.text('Otras formaciones', help='Cursos, Talleres y otras formaciones'),
+        'experiencias_empiricas': fields.one2many('for.pis.experiencias_empiricas', 'sujeto_id', 'Experiencias Empíricas', help='Experiencias Empíricas'),
+        'experiencias_docentes': fields.one2many('for.pis.experiencias_docentes', 'sujeto_id', 'Experiencias Docentes', help='Experiencias Docentes'),
+        'experiencias_laborales': fields.one2many('for.pis.experiencias_laborales', 'sujeto_id', 'Experiencias Laborales', help='Experiencias Laborales'),
+        'condicion_laboral': fields.many2one('for.pis.condiciones_laborales', 'Condición Laboral', help='Condición laboral en la que se encuentra (Fijo, Contratado, otro)'),
+        'trabaja_actualmente': fields.boolean('¿Trabaja actualmente?', help='Indique si trabaja actualmente'),
+        'fecha_ingreso': fields.datetime('Fecha Ingreso', help='Fecha de ingreso al último trabajo'),
+        'tiempo_experiencia': fields.integer('Años experiencia', help='Años de Experiencia en el trabajo'),
+        'casea_conocimientos_ids': fields.one2many('for.pis.casea_conocimientos', 'sujeto_id', 'Areas de Conocimiento para CASEA', help='Areas de Conocimiento para la Certificación y Acreditación de Saberes Empíricos y Académicos'),
+        'pis_participado': fields.one2many('for.pis.participacion_pis', 'sujeto_id', 'En cuántas Formaciones ha participado', help='Relación de las Formaciones en los cuales ha participado'),
+        'frecuencia_colectivos_aprendizaje_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Colectivo Participantes', help='Frecuencia de Participación en el Colectivo de Participantes'),
+        'frecuencia_matriz_planificacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participación Matriz de Planificación', help='Frecuencia de Participación en la Matriz de Planificación del Proceso Formativo, Colectivo, Integral'),
+        'frecuencia_cuaderno_sistematizacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Registra en el cuaderno de Sistematización', help='Frecuencia con la cual registra en el Cuaderno de Sistematización de Experiencias'),
+        'frecuencia_intercambio_saberes_id': fields.many2one('for.pis.frecuencias_participacion', 'Realiza intercambio de saberes', help='Realiza intercambio de sabes con los Participantes para socializar los registros de los cuadernos'),
+        'frecuencia_encuentros_socializacion_id': fields.many2one('for.pis.frecuencias_participacion', 'Participa en encuentros', help='¿Ha participado en encuentros o socialización de saberes con otras Formaciones?'),
+        'intereses_formativos_ids': fields.one2many('for.pis.intereses_formativos', 'sujeto_id', 'Intereses Formativos', help='Intereses formativos del Participante'),
+        'tecnologias_ids': fields.one2many('for.pis.tecnologias_utilizadas', 'sujeto_id', 'Tecnologías (TIC) que utiliza', help='Tecnologías de Información y Comunicación que utiliza'),
+        'frecuencia_fase_I': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase I', help='Frecuencia con la que participa en la construcción del trabajo en la Formación. Fase I'),
+        'frecuencia_fase_II': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase II', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase II'),
+        'frecuencia_fase_III': fields.many2one('for.pis.frecuencias_participacion', 'Participación Fase III', help='Frecuencia con la que participa en la construcción del trabajo PIS. Fase III'),
+        'observaciones': fields.text('Observaciones', help='Observaciones'),
+        'active': fields.boolean('activo?', help='Campo para activar/inactivar facilidores del sistema'),
+
+
+    }
+    def validar_numero(self, cr, uid, ids):
+        for rec in self.browse(cr, uid, ids):
+            digito = rec.cedula
+            if re.match("^[0-9]*$", digito):
+                return True
+        return False
+
+    _defaults = {'active': True}
+    _constraints = [(validar_numero, 'La cedula solo puede contener numeros', ['cedula'])]
+    _sql_constraints = [('cedula_uniq', 'unique(cedula)', 'Este participante ya ha sido cargado (cedula repetida)')]
+
+  
+##################################################################################################################################################################            
+###             Ejecución del conteo de participantes en una formacion, por medio de los metodos ORM, haciendo uso de campos function                          #####
+###        En la Clase 'for.pis.registro_inicial' existe un campo function, que permite contar la cantidad de participantes relacionados a sí misma en la tabla #####
+###        'for_pis_participacion_pis'. Un campo function se ejecuta cada vez que los Métodos ORM 'create' o 'write' es instanciado sobre el modelo donde se    #####
+###        encuentra. Por lo cual a través de la función que sigue a continuación solo se ejecuta el método write en registro inicial cuando un participante      #####
+###        es creado o editado.                                                                                                                                  #####
+##################################################################################################################################################################
+    def create(self, cr, uid, vals, context=None):
+        new_id = super(for_pis_sujetos_aprendizaje, self).create(cr, uid, vals, context=None)
+        res={}
+        if 'pis_participado' in vals:
+            for registro_formacion in vals['pis_participado']:
+                if registro_formacion[0]==0:
+                    id_formacion=registro_formacion[2]['numero_id']
+                    self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)                    
+        return new_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        res={}
+        id_formacion=[]
+        if 'pis_participado' in vals:
+            for registro_formacion in vals['pis_participado']:
+                if registro_formacion[0]==0:
+                    id_formacion.append(registro_formacion[2]['numero_id'])
+                elif registro_formacion[0]==2 or registro_formacion[0]==1:
+                    id_formacion.append(self.pool.get('for.pis.participacion_pis').browse(cr, uid, registro_formacion[1], context).numero_id.id)
+        new_id = super(for_pis_sujetos_aprendizaje, self).write(cr, uid, ids, vals, context=None)
+        self.pool.get('for.pis.registro_inicial').write(cr, 1, id_formacion, res)
+        return new_id
+
+
+
+    def name_get(self, cr, uid, ids, context={}):
+        if not len(ids):
+            return []
+        
+        res=[]
+        for participante in self.browse(cr, uid, ids,context=context):
+            res.append((participante.id, participante.cedula +' - '+ participante.nombres + ' ' + participante.apellidos))    
+        return res
+
+
+    def onchange_calcular_edad(self, cr, uid, ids, fecha, context=None):
+        born = datetime.strptime(fecha, '%Y-%m-%d')
+        today = date.today()
+        age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+        v = {'value':{}}
+        v['value']['edad'] = age
+        return v
+
+    def on_change_limpiar_campo(self, cr, uid, ids, *args):
+        v = {'value':{}}
+        for campo in args:
+            v['value'][campo] = ''
+        return v
+
+
+#    def unlink(self, cr, uid, ids, context=None):
+#        cr.execute()    
+#        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)
+
+for_pis_sujetos_aprendizaje()

@@ -7,7 +7,7 @@
         "website" : "http://www.inces.gob.ve",
         "category" : "Formacion",
         "description": """  Módulo de extension para la Gestión de Formación de INCES Militar """,
-        "depends" : ['base'],
+        "depends" : ['base', 'formacion_2015_base', 'formacion_2015_indagacion', 'formacion_2015_indagacion_maestros'],
         "init_xml" : [],
         "demo_xml" : [ ],
         "update_xml" : ['formacion_inces_militar_view.xml'],
