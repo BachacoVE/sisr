@@ -289,7 +289,7 @@ class for_pis_registro_inicial(osv.osv):
     def create(self, cr, uid, vals, context=None):
         usuario = self.pool.get('res.users').browse(cr,uid, uid)
         vals['unidad_formativa_id'] = usuario.unidad_formativa_id.id
-        code_seq = 'FORMACION_' + usuario.unidad_formativa_id.codigo + '_' + usuario.dependencia_id.codigo 
+        code_seq = 'FORMACION_' + usuario.unidad_formativa_id.codigo #  + '_' + usuario.dependencia_id.codigo 
 
         preimpreso_obj=self.pool.get('ir.sequence').get(cr, uid, code_seq)
         vals.update({'nro_preimpreso':preimpreso_obj})
