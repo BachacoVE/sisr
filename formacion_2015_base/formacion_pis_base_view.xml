@@ -755,6 +755,7 @@ herencia res.users
                 <field name="horas" select="0" required="True"/>
                 <field name="active" select="0"/>
                 <field name="create_uid" select="0" readonly="True"/>
+                <field name="anio_vigencia" select="0" invisible="0"/>
 
             </form>
         </field>
@@ -773,12 +774,33 @@ herencia res.users
                 <field name="identificador"/>
                 <field name="denominacion"/>
                 <field name="horas"/>
+                <field name="anio_vigencia" invisible="0"/>
             </tree>
         </field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_opciones_formativas_search">
+        <field name="name">for.pis.opciones_formativas.search</field>
+        <field name="model">for.pis.opciones_formativas</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Busqueda Rapida">
+                <field name="estado_id"/>
+                <field name="identificador"/>
+                <field name="denominacion"/>
+                <newline/>
+                <group expand="0" string="Filtrar por...">
+                    <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="action_for_pis_opciones_formativas">
         <field name="name">Opciones Formativa</field>
         <field name="res_model">for.pis.opciones_formativas</field>
+        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>

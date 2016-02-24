@@ -384,10 +384,10 @@ class for_pis_cfs(osv.osv):
     _name = 'for.pis.cfs'
     _rec_name = 'nombre'
     _columns = {
-        'codigo': fields.char('Código',size=9,required=True, help='Código de Identificación del Centro de Formación Socialista'),
+        'codigo': fields.char('Codigo',size=9,required=True, help='Código de Identificación del Centro de Formación Socialista'),
         'nombre': fields.char('CFS',size=60,required=True, help='Nombre del Centro de Formación Socialista'),
-        'ubicacion': fields.char('Ubicación',size=200,required=True, help='Direccion del Centro de Formación Socialista'),
-        'telefono': fields.char('Teléfono',size=30,required=False, help='Número de Contacto Telefónico del Centro de Formación Socialista'),
+        'ubicacion': fields.char('Ubicacion',size=200,required=True, help='Direccion del Centro de Formación Socialista'),
+        'telefono': fields.char('Telefono',size=30,required=False, help='Número de Contacto Telefónico del Centro de Formación Socialista'),
         'observaciones': fields.char('Observaciones',size=300,required=False, help='Observaciones'),
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual está ubicado el Centro de Formación'),
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual está ubicado el Centro de Formación'),
@@ -403,9 +403,9 @@ class for_pis_motores_economicos(osv.osv):
     _name = 'for.pis.motores_economicos'
     _rec_name = 'nombre'
     _columns = {
-        'codigo': fields.char('Código',size=3,required=True, help='Código de Identificación del motor economico'),
-        'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Económico'),
-        'descripcion': fields.text('Descripción', help='Descripción del Motor Económico'),
+        'codigo': fields.char('Codigo',size=3,required=True, help='Código de Identificación del motor economico'),
+        'nombre': fields.char('Nombre', size=200, help='Nombre del Motor Economico'),
+        'descripcion': fields.text('Descripcion', help='Descripción del Motor Economico'),
         'active': fields.boolean('Activo?'),
     }
     _defaults= {'active':True}
@@ -417,7 +417,7 @@ class for_pis_modalidad(osv.osv):
     _rec_name = 'nombre'
     _columns = {
         'nombre': fields.char('Nombre', size=60, help='Nombre de la modalidad Formativa'),
-        'descripcion': fields.text('Descripción', help='Descripción de la modalidad'),
+        'descripcion': fields.text('Descripcion', help='Descripción de la modalidad'),
         'active': fields.boolean('Activo?'),
     }
     _defaults= {'active':True}
@@ -487,12 +487,14 @@ class for_pis_opciones_formativas(osv.osv):
         'horas': fields.integer('Horas',size=6,required=False, help='Horas de duración del Curso'),
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
         'active': fields.boolean('¿activo?', help='¿La Formación se encuentra activa?'),
+        'anio_vigencia': fields.char('anio de vigencia', size=4),
+
     }
-    _defaults= {'active':True}
+    _defaults= {'active':True, 'anio_vigencia': date.today().year}
 
     # cierre de la validacion
 
-    _sql_constraints = [('codigo_uniq', 'unique(identificador)', 'Esta Opcion Formativa ya ha sido cargada (Codigo Repetido)')]
+    _sql_constraints = [('codigo_uniq', 'unique(identificador, anio_vigencia)', 'Esta Opcion Formativa ya ha sido cargada (Codigo Repetido)')]
 
     def on_change_limpiar_campo(self, cr, uid, ids, *args):
         v = {'value':{}}
