@@ -39,7 +39,7 @@ class for_estructura_curricular(osv.osv):
     _rec_name = 'ec_tema'
     _columns = {
         #'proyecto_id': fields.many2one('for.pis.registro_inicial','Formación', help='Formación al cual se asocia la Estructura Curricular'),
-        'opcion_formativa_id': fields.many2one('for.pis.opciones_formativas','Opción Formativa', help='Opción Formativa al cual se asocia la Estructura Curricular'),
+        'opcion_formativa_id': fields.many2one('for.pis.opciones_formativas','Opción Formativa', ondelete='cascade', onupdate='cascade', help='Opción Formativa al cual se asocia la Estructura Curricular'),
         'ec_tema': fields.char('Tema', size=250, required=True, help='Tema de la Matriz Curricular del PIS'),
         'ec_horas': fields.integer('Horas', required=True, help='Horas asignadas al desarrollo del tema identificado en la Matriz Curricular del PIS'),
         'ec_observaciones': fields.text('Observaciones', required=True, help='Observaciones del tema identificado en la Matriz Curricular del PIS'),

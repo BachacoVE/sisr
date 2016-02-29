@@ -46,13 +46,18 @@ herencia res.users
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
             <field name="active" position="after">
-                <field name="dependencia_id" select="1"/>
-                <field name="unidad_formativa_id" select="1"/>
+                <field name="dependencia_id" select="1" required="1"/>
+                <field name="unidad_formativa_id" select="1" required="1"/>
             </field>
         </field>
     </record>
 
-
+    <record model="ir.actions.act_window" id="action_res_users_formacion">
+        <field name="name">Registro de usuarios</field>
+        <field name="res_model">res.users</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
 
     <record model="ir.ui.view" id="view_for_pis_estados_form">
@@ -449,13 +454,15 @@ herencia res.users
 
 <!--group-->
 
-<group expand="0" string="Filtrar por...">
+<group expand="1" string="Filtrar por...">
     <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
-    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+    <filter string="Formacion Profesional" name="unidad_formativa_fp" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'FP')]" context="{}"/>
+    <filter string="Inces Militar" name="unidad_formativa_im" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'IM')]" context="{}"/>
 </group>
 
 <newline/>
 <group expand="1" string="Agrupado por...">
+    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_id'}"/>
     <filter string="Modalidad" icon="terp-folder-violet" domain="[]" context="{'group_by':'modalidad_id'}"/>
     <filter string="CFS" icon="terp-folder-violet" domain="[]" context="{'group_by':'cfs_id'}"/>
@@ -472,7 +479,7 @@ herencia res.users
         <field name="res_model">for.pis.registro_inicial</field>
         <field name="view_type">form</field>
         <field name="domain">[]</field>
-        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
         <field name="view_mode">tree,form,graph</field>
 
     </record>
@@ -755,7 +762,7 @@ herencia res.users
                 <field name="horas" select="0" required="True"/>
                 <field name="active" select="0"/>
                 <field name="create_uid" select="0" readonly="True"/>
-                <field name="anio_vigencia" select="0" invisible="0"/>
+                <field name="anio_vigencia" select="0" invisible="0" readonly="1"/>
 
             </form>
         </field>
@@ -882,6 +889,7 @@ herencia res.users
     <menuitem name="Opciones Formativas" id="menu_for_pis_opciones_formativas" action="action_for_pis_opciones_formativas" parent="menu_for_pis_configuracion" sequence="13"/>
     <menuitem name="Dependencias" id="menu_dependencias_usuarios" action="action_for_dependencias" parent="menu_for_pis_configuracion" sequence="14"/>
     <menuitem name="Unidades formativas" id="menu_unidades_formativas" action="action_for_unidades_formativas" parent="menu_for_pis_configuracion" sequence="15"/>
+    <menuitem name="Usuarios" id="menu_res_users_formacion" action="action_res_users_formacion" parent="menu_for_pis_configuracion" sequence="15"/>
    
 <!--notebook colpsan="4">
  <page string= "Geografica">

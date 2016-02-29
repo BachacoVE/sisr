@@ -1180,12 +1180,14 @@
                 <field name="cfs_id"/>
                 <field name="genero_id"/>
                 <newline/>
-                <group expand="0" string="Filtrar por...">
+                <group expand="1" string="Filtrar por...">
                 <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
-                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                <filter string="Formacion Profesional" name="unidad_formativa_fp" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'FP')]" context="{}"/>
+                <filter string="Inces Militar" name="unidad_formativa_im" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'IM')]" context="{}"/>
                 </group>
                 <newline/>
                 <group expand="1" string="Agrupado por...">
+                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
                     <filter string="Dependencia" icon="terp-folder-violet" domain="[]" context="{'group_by':'dependencia_formacion'}"/>
                     <filter string="Estatus" icon="terp-folder-violet" domain="[]" context="{'group_by':'estatus'}"/>
                     <filter string="Formación" icon="terp-folder-violet" domain="[]" context="{'group_by':'numero_id'}"/>
@@ -1205,7 +1207,7 @@
         <field name="res_model">for.pis.participacion_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,search</field>
-        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
         
     <record model="ir.ui.view" id="view_for_pis_experiencias_empiricas_form">

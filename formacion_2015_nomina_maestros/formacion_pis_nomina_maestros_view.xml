@@ -107,9 +107,14 @@
             <search string="Busqueda Rapida">
                 <field name="maestro_id" string="Cedula"/>
                 <newline/>
-                <group expand="0" string="Filtrar por...">
-                <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
-                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                <group expand="1" string="Filtrar por...">
+                    <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                    <filter string="Formacion Profesional" name="unidad_formativa_fp" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'FP')]" context="{}"/>
+                    <filter string="Inces Militar" name="unidad_formativa_im" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'IM')]" context="{}"/>
+                </group>
+                <newline/>
+                <group expand="1" string="Agrupado por...">
+                    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
                 </group>
 
         </search>
@@ -121,7 +126,7 @@
         <field name="res_model">for.pis.mae_asistencias</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
         
@@ -323,11 +328,15 @@
                 <newline/>
 
 
-                <group expand="0" string="Filtrar por...">
+                <group expand="1" string="Filtrar por...">
                 <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
-                <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                <filter string="Formacion Profesional" name="unidad_formativa_fp" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'FP')]" context="{}"/>
+                <filter string="Inces Militar" name="unidad_formativa_im" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'IM')]" context="{}"/>
                 </group>
-
+                <newline/>
+                <group expand="1" string="Agrupado por...">
+                    <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -337,7 +346,7 @@
         <field name="res_model">for.pis.mae_misiona01</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
         
@@ -407,8 +416,13 @@
                 <newline/>
 
 
-                <group expand="0" string="Filtrar por...">
+                <group expand="1" string="Filtrar por...">
                 <filter string="Año Actual" name="anio_vigencia_filt" icon="terp-folder-violet" domain="[('anio_vigencia','=', datetime.date.today().year)]" context="{}"/>
+                <filter string="Formacion Profesional" name="unidad_formativa_fp" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'FP')]" context="{}"/>
+                <filter string="Inces Militar" name="unidad_formativa_im" icon="terp-folder-violet" domain="[('unidad_formativa_id.codigo', '=', 'IM')]" context="{}"/>
+                </group>
+                <newline/>
+                <group expand="1" string="Agrupado por...">
                 <filter string="Año" name="anio_vigencia_cont" icon="terp-folder-violet" domain="[]" context="{'group_by':'anio_vigencia'}"/>
                 </group>
 
@@ -421,7 +435,7 @@
         <field name="res_model">for.pis.mae_misiona05</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
 <!-- Inicio Contratos Abril -->
