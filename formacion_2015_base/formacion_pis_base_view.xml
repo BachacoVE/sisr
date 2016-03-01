@@ -52,6 +52,30 @@ herencia res.users
         </field>
     </record>
 
+    <record id="view_users_formacion_form" model="ir.ui.view">
+            <field name="name">res.users.formacion.form</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Users">
+                    <group colspan="4" col="6">
+                        <field name="name" select="1"/>
+                        <field name="login" select="1"/>
+                        <field name="id" invisible="1"/>
+                        <field name="new_password" password="True" attrs="{'required': [('id','=',False)]}"/>
+                        <field name="active"/>
+                        <field name="dependencia_id" select="1" required="1"/>
+                        <field name="unidad_formativa_id" select="1" required="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Access Rights">
+                            <field nolabel="1" name="groups_id" domain="[('category_id.name','=', 'Formacion')]"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
     <record model="ir.actions.act_window" id="action_res_users_formacion">
         <field name="name">Registro de usuarios</field>
         <field name="res_model">res.users</field>
