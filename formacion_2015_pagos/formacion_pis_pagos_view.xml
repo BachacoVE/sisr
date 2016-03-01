@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+<!--aca inicia la herencia desde formacion_2015_nomima_consolidado-->
+<!--
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_pagos_form_inherit">
+        <field name="name">for.pis.mae_consolidado_pagos.form.inherit</field>
+        <field name="model">for.pis.mae_consolidado_pagos</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_nomina_consolidado.view_for_pis_mae_consolidado_pagos_form"/>
+        <field name="arch" type="xml">
+            <field name="fecha_fin" position="after">
+                
+               
+
+            </field>
+        </field>
+    </record>
+-->
+
+    <record model="ir.ui.view" id="view_for_pis_mae_consolidado_form_inherit">
+        <field name="name">for.pis.mae_consolidado.form.inherit</field>
+        <field name="model">for.pis.mae_consolidado</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="formacion_2015_nomina_consolidado.view_for_pis_mae_consolidado_form"/>
+        <field name="arch" type="xml">
+            <field name="consolidado_hasta" position="after">
+
+
+            </field>
+        </field>
+    </record>
+
+<!--aca finaliza la herencia desde formacion_2015_nomima_consolidado-->
+
+
+</data>
+</openerp>
