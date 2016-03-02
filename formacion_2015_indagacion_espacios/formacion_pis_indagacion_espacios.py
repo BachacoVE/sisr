@@ -52,7 +52,7 @@ class for_pis_espacios(osv.osv):
     _columns = {
         'codigo': fields.char('Codigo', size=9),
         'nombre_espacio': fields.char('Nombre del Espacio', size=240, required=True, help='Nombre (Único) que Identifique el Espacio de Formación y Autoformación'),
-        'tipo_espacio_id': fields.many2one('for.pis.tipos_espacios', 'Tipo de Espacio', required=True, help='Tipo de Espacio de Formación y Autoformación'),
+        'tipo_espacio_id': fields.many2one('for.pis.tipos_espacios', 'Ambito Formativo', required=True, help='Tipo de Espacio de Formación y Autoformación'),
         'estado_id': fields.many2one('for.pis.estados', 'Estado', required=True, help='Estado del país en el que se ubica el Espacio de Formación y Autoformación'),
         'municipio_id': fields.many2one('for.pis.municipios', 'Municipio', required=True, help='Municipio del país en el que se ubica el Espacio de Formación y Autoformación'),
         'parroquia_id': fields.many2one('for.pis.parroquias', 'Parroquia', required=True, help='Parroquia del país en el que se ubica el Espacio de Formación y Autoformación'),
@@ -77,6 +77,8 @@ class for_pis_espacios(osv.osv):
         'materiales_disponibles': fields.text('Disponibles', size=1200, required=False, help='Materiales, herramientas, equipos, insumos disponibles (en el espacio) para la Formación'),
         'materiales_necesarios': fields.text('Necesarios', size=1200, required=False, help='Materiales, herramientas, equipos, insumos necesarios para la Formación'),
         'observaciones': fields.text('Observaciones', size=1200, required=False, help='Observaciones'),
+        'cfs_id': fields.many2one('for.pis.cfs','CFS responsable', required=False, help='Centro de Formación Socialista responsable del espacio'),
+
     }
 #Aqui funcion para limpiar campos Estado, Municipio y parroquia
     def on_change_limpiar_campo(self, cr, uid, ids, *args):
@@ -98,6 +100,7 @@ class for_pis_registro_inicial_extended(osv.osv):
     _inherit= 'for.pis.registro_inicial'
     _columns = {
     	'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=False, help='Turno en el cual opera el Espacio de Formación y Autoformación'),
+        'espacios_id': fields.many2one('for.pis.espacios', 'Ambiente formativo')
     }
 for_pis_registro_inicial_extended()
 ##########################################################################################################################################################################
@@ -112,6 +115,7 @@ class for_pis_tipos_espacios(osv.osv):
     _columns = {
         'codigo': fields.char('Código', size=3, required=True, help='Código de Identificación del Tipo de Espacio de Formación y Autoformación'),
         'tipo_espacio': fields.char('Tipo de Espacio', size=60, required=True, help='Nombre del Tipo de Espacio de Formación y Autoformación'),
+        'active': fields.boolean('activo')
     }
 for_pis_tipos_espacios()
 

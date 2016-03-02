@@ -189,6 +189,7 @@ class for_pis_registro_inicial(osv.osv):
 #####################################################################################################################################################################################
 #####################el siguiente campo creado en formacion_pis_indagacion_espacios por herencia##################################################################################
 #'turno_id': fields.many2one('for.pis.turnos', 'Turno', required=True, help='Turno en el cual opera el Espacio Socialista Integral'),
+#'espacios_id': fields.many2one('for.pis.espacios', 'Espacio Formativo')
 ########################################################################################################################################################################################
 
 
