@@ -97,11 +97,13 @@
                                 <!--field name="sujeto_id" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/-->
                                 <field name="numero_id" required="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                                 <field name="estatus" required="1"/>
+                                <field name="tipo_sujeto_id" required="1"/>
                             </form>
                             <tree string="Participación">
                                 <!--field name="sujeto_id"/-->
                                 <field name="numero_id" required="1"/>
                                 <field name="estatus" required="1"/>
+                                <field name="tipo_sujeto_id" required="1"/>
                             </tree>
 
 
@@ -198,12 +200,14 @@
                         <form string="Participación">
                             <field name="sujeto_id" select="0" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                             <field name="estatus" select="0" required="1"/>
+                            <field name="tipo_sujeto_id" select="0" required="1"/>
                             <!--<field name="numero_id" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>-->
                         
                         </form>
                         <tree string="Participación">
                             <field name="sujeto_id"/>
                             <field name="estatus" />
+                            <field name="tipo_sujeto_id" />
                             <!--<field name="numero_id"/>-->
                         </tree>
                     </field>
@@ -243,6 +247,41 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.ui.view" id="view_for_pis_tipos_sujeto_form">
+        <field name="name">for.pis.tipos_sujetos.form</field>
+        <field name="model">for.pis.tipos_sujetos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Tipos de sujetos de aprendizaje">
+                <field name="codigo" select="1" required="1"/>
+                <field name="tipo_sujeto" select="1" required="1"/>
+                <field name="active" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_for_pis_tipos_sujeto_tree">
+        <field name="name">for.pis.tipos_sujetos.tree</field>
+        <field name="model">for.pis.tipos_sujetos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de sujetos de aprendizaje">
+                <field name="codigo"/>
+                <field name="tipo_sujeto"/>
+                <field name="active"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_for_pis_tipos_sujeto">
+        <field name="name">Tipos de sujetos de aprendizaje</field>
+        <field name="res_model">for.pis.tipos_sujetos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
         
     <record model="ir.ui.view" id="view_for_pis_tipos_comunidades_form">
         <field name="name">for.pis.tipos_comunidades.form</field>
@@ -1138,6 +1177,7 @@
                 <field name="sujeto_id" select="1" readonly="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="numero_id" select="2" readonly="1" context="{'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}"/>
                 <field name="estatus" select="2" readonly="0" required="1"/>
+                <field name="tipo_sujeto_id" select="1" readonly="0" required="1"/>
                 <field name="dependencia_formacion" select="2" readonly="1"/>
                 <field name="motores_economicos_id" select="2" readonly="1"/>
                 <field name="cfs_id" select="2" readonly="1"/>
@@ -1156,6 +1196,7 @@
                 <field name="sujeto_id"/>
                 <field name="numero_id"/>
                 <field name="estatus"/>
+                <field name="tipo_sujeto_id"/>
                 <field name="dependencia_formacion"/>
                 <field name="motores_economicos_id"/>
                 <field name="cfs_id"/>
@@ -1531,6 +1572,7 @@
     <menuitem name="Estatus Niveles Educativos" id="menu_for_pis_estatus_niveles_educativos" parent="menu_for_pis_conf_indag" action="action_for_pis_estatus_niveles_educativos" sequence="21"/>
     <menuitem name="Tecnologías (TIC)" id="menu_for_pis_tecnologias_tic" parent="menu_for_pis_conf_indag" action="action_for_pis_tecnologias_tic" sequence="22"/>
     <menuitem name="Condiciones Laborales" id="menu_for_pis_condiciones_laborales" parent="menu_for_pis_conf_indag" action="action_for_pis_condiciones_laborales" sequence="23"/>
+    <menuitem name="Tipos de sujetos de aprendizaje" id="menu_for_pis_tipos_sujetos" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_sujeto" sequence="24"/>
 
 </data>
 </openerp>

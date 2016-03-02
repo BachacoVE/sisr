@@ -364,6 +364,7 @@ class for_pis_participacion_pis(osv.osv):
         'motores_economicos_id': fields.related('numero_id', 'motores_economicos_id', type='many2one', relation='for.pis.motores_economicos', string='Motor', store=True, help='Motor economico de donde se registra la formacion'),
         'cfs_id': fields.related('numero_id', 'cfs_id', type='many2one', relation='for.pis.cfs', string='C.F.S.', store=True, help='C.F.S. donde se da la formacion'),
         'genero_id': fields.related('sujeto_id', 'genero_id', type='many2one', relation='for.pis.generos', string='Genero', store=True),
+        'tipo_sujeto_id': fields.many2one('for.pis.tipos_sujetos', 'Tipo de sujeto'),
     }
 
     def create(self, cr,uid, vals, context=None):
@@ -477,6 +478,16 @@ class for_pis_condiciones_laborales(osv.osv):
     }
 for_pis_condiciones_laborales()
 
+class for_pis_tipos_sujetos(osv.osv):
+    _name = 'for.pis.tipos_sujetos'
+    _rec_name = 'tipo_sujeto'
+    _columns = {
+        'codigo': fields.char('Codigo', size=4, help='Defina un codigo que sirva de referencia al tipo de sujeto'),
+        'tipo_sujeto':fields.char('Tipo de sujeto', size=50),
+        'active':fields.boolean('activo?'),
+    }
+    _defaults = {'active': True}
+for_pis_tipos_sujetos()
 
 class for_pis_sujetos_aprendizaje(osv.osv):
     """Registro Maestro de Participantes """
