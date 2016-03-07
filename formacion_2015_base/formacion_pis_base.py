@@ -56,7 +56,7 @@ class for_pis_estados(osv.osv):
     _columns = {
         'codigo': fields.char('Código',size=3,required=True, help='Código del Estado'),
         'estado': fields.char('Estado',size=30,required=True, help='Nombre del Estado'),
-        'opcion_formativa_ids': fields.many2many('for.pis.opciones_formativas' ,'opcion_formativa_estado_id', 'estado_id', 'opcion_formativa_id','Opciones Formativas'),
+        'opcion_formativa_ids': fields.many2many('for.pis.opciones_formativas' ,'opcion_formativa_estado_rel', 'estado_id', 'opcion_formativa_id','Opciones Formativas'),
     }
     
 
@@ -128,7 +128,7 @@ class for_pis_tipos_procedencias(osv.osv):
     _rec_name = 'tipo_procedencia'
     _columns = {
         'codigo': fields.char('Código',size=3,required=True, help='Codigo de Identificación del Tipo de Procedencia'),
-        'tipo_procedencia': fields.char('Tipo de Procedencia',size=30,required=True, help='Nombre del Tipo de Procedencia'),
+        'tipo_procedencia': fields.char('Tipo de Procedencia',size=60,required=True, help='Nombre del Tipo de Procedencia'),
         'descripcion': fields.char('Descripción',size=250,required=True, help='Descripción del Tipo de Procedencia'),
         'active': fields.boolean('Activo?'),
     }
@@ -490,7 +490,7 @@ class for_pis_opciones_formativas(osv.osv):
         'modalidad_id': fields.many2one('for.pis.modalidad', 'Modalidad', required=False, help='Indique la Modalidad: Cursos, PIS, Taller, Diplomado, Seminario'),
         'active': fields.boolean('¿activo?', help='¿La Formación se encuentra activa?'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
-        'estado_ids': fields.many2many('for.pis.estados' ,'opcion_formativa_estado_id', 'opcion_formativa_id', 'estado_id','Estados'),
+        'estado_ids': fields.many2many('for.pis.estados' ,'opcion_formativa_estado_rel', 'opcion_formativa_id', 'estado_id','Estados'),
 
     }
     _defaults= {'active':True, 'anio_vigencia': date.today().year}
