@@ -620,3 +620,33 @@ class for_pis_sujetos_aprendizaje(osv.osv):
 #        return super(for_pis_sujetos_aprendizaje, self).unlink(cr, uid, ids, context=None)
 
 for_pis_sujetos_aprendizaje()
+
+class sond_persona(osv.osv):
+    _name = 'for.pis.sond_persona'
+    _rec_name = 'cedula'
+    _log_access = False
+    _columns ={
+        'fecha_registro': fields.date('Fecha de registro'),
+        'correo': fields.char('Correo electronico', size=100),
+        'nombre': fields.char('Nombre', size=100),
+        'apellido': fields.char('Apellido', size=100),
+        'genero_id': fields.many2one('for.pis.generos', 'Genero'),
+        'nacionalidad': fields.selection([('v', 'Venezolano'),('e', 'Extranjero')], 'Nacionalidad'),
+        'cedula': fields.char('Cedula', size=8),
+        'movil': fields.char('Telefono movil', size=11),
+        'discapacidad_id': fields.many2one('for.pis.sond_discapacidad', 'Discapacidad'),
+        'estado_id': fields.many2one('for.pis.estados', 'Estado'),
+        'opcion_formativa_id': fields.many2one('for.pis.opciones_formativas', 'opciones formativas'),
+        'curso_otro': fields.text('Otra Formacion'),
+    }
+sond_persona()
+
+class sond_discapacidad(osv.osv):
+    _name = 'for.pis.sond_discapacidad'
+    _rec_name = 'cedula'
+    _log_access = False
+    _columns ={
+        'discapacidad': fields.char('Discapacidad', size=100),
+    }
+
+sond_discapacidad()

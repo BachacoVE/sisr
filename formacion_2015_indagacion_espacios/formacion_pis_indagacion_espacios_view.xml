@@ -15,7 +15,8 @@
                 
             </field>
             <field name="cfs_id" position="after">
-                <field name="espacios_id" select="0" domain="[('cfs_id','=',[cfs_id])]" required="0" />
+                <field name="tipo_espacio_id" select="0" domain="" required="1" />
+                <field name="espacios_id" select="0" domain="[('cfs_id','=',[cfs_id]), ('tipo_espacio_id', '=', tipo_espacio_id)]" required="0" />
             </field>
         </field>
     </record>    
