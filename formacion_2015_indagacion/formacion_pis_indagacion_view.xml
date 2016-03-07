@@ -1571,7 +1571,7 @@
         </field>
     </record>
     <record model="ir.actions.act_window" id="action_for_pis_sond_persona">
-        <field name="name">Censo de interes</field>
+        <field name="name">Preinscripcion de participantes</field>
         <field name="res_model">for.pis.sond_persona</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -1657,8 +1657,8 @@
     <menuitem name="Condiciones Laborales" id="menu_for_pis_condiciones_laborales" parent="menu_for_pis_conf_indag" action="action_for_pis_condiciones_laborales" sequence="23"/>
     <menuitem name="Tipos de sujetos de aprendizaje" id="menu_for_pis_tipos_sujetos" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_sujeto" sequence="24"/>
     
+    <menuitem name="Preinscripcion" id="menu_for_pis_indagacion_participantes" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_persona" sequence="24"/>
 <!--
-    <menuitem name="Censo de interes" id="menu_for_pis_indagacion_participantes" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_persona" sequence="24"/>
     <menuitem name="discapacidades censo" id="menu_for_pis_discapacidades_censo" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_discapacidad" sequence="24"/>
 -->
 </data>
