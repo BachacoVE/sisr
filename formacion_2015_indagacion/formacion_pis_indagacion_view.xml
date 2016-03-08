@@ -1658,8 +1658,8 @@
     <menuitem name="Tipos de sujetos de aprendizaje" id="menu_for_pis_tipos_sujetos" parent="menu_for_pis_conf_indag" action="action_for_pis_tipos_sujeto" sequence="24"/>
     
     <menuitem name="Preinscripcion" id="menu_for_pis_indagacion_participantes" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_persona" sequence="24"/>
-<!--
-    <menuitem name="discapacidades censo" id="menu_for_pis_discapacidades_censo" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_discapacidad" sequence="24"/>
--->
+
+    <menuitem name="Discapacidades" id="menu_for_pis_discapacidades_censo" parent="menu_for_pis_conf_indag" action="action_for_pis_sond_discapacidad" sequence="24"/>
+
 </data>
 </openerp>

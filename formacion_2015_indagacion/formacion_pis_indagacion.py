@@ -643,7 +643,7 @@ sond_persona()
 
 class sond_discapacidad(osv.osv):
     _name = 'for.pis.sond_discapacidad'
-    _rec_name = 'cedula'
+    _rec_name = 'discapacidad'
     _log_access = False
     _columns ={
         'discapacidad': fields.char('Discapacidad', size=100),
