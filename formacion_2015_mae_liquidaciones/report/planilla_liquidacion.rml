@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <document filename="test.pdf">
-  <template pageSize="(612.0,936.0)" title="Test" author="Martin Simon" allowSplitting="20">
+  <template showBoundary="0" pageSize="(612.0,900.0)" title="Test" author="Martin Simon" allowSplitting="20">
     <pageTemplate id="first">
-      <frame id="first" x1="49.0" y1="57.0" width="527" height="822"/>
+      <frame id="first" x1="1.5cm" y1="0.5cm" width="527" height="840"/>
 	<pageGraphics>
-	<image file="images/cabecera_inces_web.jpg" x="75" y="870" height="42"/>
+	<image file="images/cabecera_inces_web.jpg" x="63" y="845" height="42"/>
 	</pageGraphics>
     </pageTemplate>
   </template>
@@ -753,32 +753,32 @@
       <paraStyle name="all" alignment="justify"/>
     </initialize>
     <paraStyle name="P1" fontName="Helvetica" fontSize="6.0" leading="8" spaceBefore="12.0" spaceAfter="6.0"/>
-    <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="7.0" leading="9"/>
-    <paraStyle name="P3" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P333" fontName="Helvetica-Bold" fontSize="6.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P4" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="JUSTIFY"/>
-    <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="RIGHT"/>
-    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="LEFT"/>
-    <paraStyle name="P8" fontName="Helvetica" fontSize="7.0" leading="9"/>
-    <paraStyle name="P9" fontName="Helvetica" fontSize="7.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P10" fontName="Helvetica" fontSize="7.0" leading="9" alignment="JUSTIFY"/>
-    <paraStyle name="P11" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
-    <paraStyle name="P12" fontName="Helvetica" fontSize="7.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P13" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
-    <paraStyle name="P14" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
-    <paraStyle name="P15" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="RIGHT"/>
-    <paraStyle name="P16" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="JUSTIFY"/>
-    <paraStyle name="P17" fontName="Helvetica" fontSize="8.0" leading="10" alignment="JUSTIFY"/>
-    <paraStyle name="P18" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="CENTER"/>
-    <paraStyle name="P19" fontName="Helvetica-Bold" fontSize="6.0" leading="8" alignment="CENTER"/>
+    <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="7.0" leading="7"/>
+    <paraStyle name="P3" fontName="Helvetica-Bold" fontSize="7.0" leading="7" alignment="CENTER"/>
+    <paraStyle name="P333" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="CENTER"/>
+    <paraStyle name="P4" fontName="Helvetica-Bold" fontSize="7.0" leading="7" alignment="JUSTIFY"/>
+    <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="7.0" leading="7" alignment="RIGHT"/>
+    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="7.0" leading="6" alignment="CENTER"/>
+    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="7.0" leading="7" alignment="LEFT"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="7.0" leading="7"/>
+    <paraStyle name="P9" fontName="Helvetica" fontSize="7.0" leading="7" alignment="CENTER"/>
+    <paraStyle name="P10" fontName="Helvetica" fontSize="7.0" leading="7" alignment="JUSTIFY"/>
+    <paraStyle name="P11" fontName="Helvetica" fontSize="7.0" leading="7" alignment="RIGHT"/>
+    <paraStyle name="P12" fontName="Helvetica" fontSize="7.0" leading="7" alignment="CENTER"/>
+    <paraStyle name="P13" fontName="Helvetica" fontSize="7.0" leading="7" alignment="LEFT"/>
+    <paraStyle name="P14" fontName="Helvetica" fontSize="7.0" leading="7" alignment="RIGHT"/>
+    <paraStyle name="P15" fontName="Helvetica-Bold" fontSize="8.0" leading="8" alignment="RIGHT"/>
+    <paraStyle name="P16" fontName="Helvetica-Bold" fontSize="8.0" leading="8" alignment="JUSTIFY"/>
+    <paraStyle name="P17" fontName="Helvetica" fontSize="8.0" leading="8" alignment="JUSTIFY"/>
+    <paraStyle name="P18" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="CENTER"/>
+    <paraStyle name="P19" fontName="Helvetica-Bold" fontSize="6.0" leading="6" alignment="CENTER"/>
     <paraStyle name="P20" fontName="Helvetica" fontSize="2.0" leading="3" alignment="JUSTIFY"/>
-    <paraStyle name="P21" fontName="Helvetica" fontSize="7.0" leading="9"/>
-    <paraStyle name="P22" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
-    <paraStyle name="P23" fontName="Helvetica" fontSize="7.0" leading="9"/>
-    <paraStyle name="P24" fontName="Helvetica-Bold" fontSize="7.0" leading="9" alignment="CENTER"/>
-    <paraStyle name="P25" fontName="Helvetica" fontSize="7.0" leading="9"/>
-    <paraStyle name="P26" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER"/>
+    <paraStyle name="P21" fontName="Helvetica" fontSize="7.0" leading="8"/>
+    <paraStyle name="P22" fontName="Helvetica" fontSize="7.0" leading="8" alignment="RIGHT"/>
+    <paraStyle name="P23" fontName="Helvetica" fontSize="7.0" leading="8"/>
+    <paraStyle name="P24" fontName="Helvetica-Bold" fontSize="7.0" leading="8" alignment="CENTER"/>
+    <paraStyle name="P25" fontName="Helvetica" fontSize="7.0" leading="8"/>
+    <paraStyle name="P26" fontName="Helvetica" fontSize="8.0" leading="8" alignment="CENTER"/>
     <paraStyle name="P27" fontName="Helvetica" fontSize="6.0" leading="8"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Header" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
