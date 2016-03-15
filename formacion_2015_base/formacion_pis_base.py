@@ -161,7 +161,7 @@ class for_pis_registro_inicial(osv.osv):
         'cantidad_sujetos_programados': fields.integer('Cantidad de Participantes Programados',required=False, help='Cantidad de Participantes que se programan en  la formación'),
         'cantidad_sujetos_enproceso': fields.function(cantidad_sujetos_func, method=True, type='integer', string='Cantidad de Participantes en Proceso', store=True, help='Cantidad de Participantes que integran la Formación'),
         'cantidad_maestros': fields.integer('Cantidad de Facilitadores(as)',required=False, help='Cantidad de Facilitadoras y/o Facilitadores que atienden la Formación'),
-        'accion_especifica': fields.selection([(1,'ACCIÓN ESPECÍFICA 1 ORDINARIA'),(3,'ACCIÓN ESPECÍFICA 3 CONVENIOS Y ALIANZAS ESTRATÉGICAS')],'Acción Específica',required=True, help='Acción Específica a la cual corresponde la Formación'),
+        'accion_especifica': fields.selection([(1,'ORDINARIA'),(3,'CONVENIOS Y ALIANZAS ESTRATÉGICAS')],'Acción Específica',required=True, help='Acción Específica a la cual corresponde la Formación'),
         'estado_id': fields.many2one('for.pis.estados','Estado', required=True, help='Estado en el cual se desarrolla la Formación'),
         'municipio_id': fields.many2one('for.pis.municipios','Municipio', required=True, help='Municipio en el cual se desarrolla la Formación'),
         'parroquia_id': fields.many2one('for.pis.parroquias','Parroquia', required=True, help='Parroquia en la cual se desarrolla la Formación'),

@@ -155,7 +155,7 @@
         <field name="res_model">for.pis.mae_consolidado</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':0, 'search_default_unidad_formativa_im':0, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
         
@@ -249,7 +249,7 @@
         <field name="res_model">for.pis.mae_consolidado_detalle</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':0, 'search_default_unidad_formativa_im':0, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
 
@@ -337,7 +337,7 @@
         <field name="res_model">for.pis.mae_consolidado_pagos</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':0, 'search_default_unidad_formativa_im':0, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
 
 

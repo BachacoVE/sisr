@@ -1248,7 +1248,7 @@
         <field name="res_model">for.pis.participacion_pis</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,search</field>
-        <field name="context">{'search_default_unidad_formativa_fp':1, 'search_default_unidad_formativa_im':1, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
+        <field name="context">{'search_default_unidad_formativa_fp':0, 'search_default_unidad_formativa_im':0, 'search_default_anio_vigencia_filt':1, 'search_default_anio_vigencia_cont':0}</field>
     </record>
         
     <record model="ir.ui.view" id="view_for_pis_experiencias_empiricas_form">
