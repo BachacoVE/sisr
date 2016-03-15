@@ -53,7 +53,7 @@
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Formadores">
+                <page string="Formadores" attrs="{'invisible':[('state','=', 'programado')]}">
                 <separator string="Formadores en la Formación" colspan="4"/>
                     <field name="pis_maestro_formacion_ids" nolabel="1" colspan="4" select="0" required="True">
                         <form string="Formadores">

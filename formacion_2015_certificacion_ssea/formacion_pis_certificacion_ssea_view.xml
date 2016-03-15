@@ -29,7 +29,7 @@
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Certificados">
+                <page string="Certificados" attrs="{'invisible':[('state','!=', 'certificado')]}">
                 <separator string="Certificados de la formación" colspan="4"/>
                     <field name="certificados_ids" readonly="1" nolabel="1" colspan="4" select="0"/>
                 </page>

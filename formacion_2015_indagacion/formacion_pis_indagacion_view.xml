@@ -194,7 +194,7 @@
         <field name="inherit_id" ref="formacion_2015_base.view_for_pis_registro_inicial_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Participantes">
+                <page string="Participantes" attrs="{'invisible':[('state','=', 'programado')]}">
                 <separator string="Participantes de la Formación" colspan="4"/>
                     <field name="participacion_pis_ids" nolabel="1" colspan="4" select="0">
                         <form string="Participación">
