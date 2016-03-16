@@ -131,6 +131,7 @@ class for_pis_tipos_procedencias(osv.osv):
         'tipo_procedencia': fields.char('Tipo de Procedencia',size=60,required=True, help='Nombre del Tipo de Procedencia'),
         'descripcion': fields.char('Descripción',size=250,required=True, help='Descripción del Tipo de Procedencia'),
         'active': fields.boolean('Activo?'),
+        'opcion_formativa_ids': fields.many2many('for.pis.opciones_formativas', 'tipo_procedencia_opcion_formativa_rel', 'tipo_procedencia_id', 'opcion_formativa_id', 'Opciones formativas'),
     }
     _defaults= {'active':True}
 for_pis_tipos_procedencias()
@@ -491,6 +492,7 @@ class for_pis_opciones_formativas(osv.osv):
         'active': fields.boolean('¿activo?', help='¿La Formación se encuentra activa?'),
         'anio_vigencia': fields.char('anio de vigencia', size=4),
         'estado_ids': fields.many2many('for.pis.estados' ,'opcion_formativa_estado_id', 'opcion_formativa_id', 'estado_id','Estados'),
+        'tipos_procedencias_ids': fields.many2many('for.pis.tipos_procedencias', 'tipo_procedencia_opcion_formativa_rel', 'opcion_formativa_id', 'tipo_procedencia_id', 'Programas de formacion'),
 
     }
     _defaults= {'active':True, 'anio_vigencia': date.today().year}

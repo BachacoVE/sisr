@@ -289,6 +289,7 @@ herencia res.users
                 <field name="tipo_procedencia" select="2" string="Programa de Formacion"/>
                 <field name="descripcion" select="0"/>                
                 <field name="active" select="0"/>
+                <field name="opcion_formativa_ids" select="0" invisible="1"/>
             </form>
         </field>
     </record>
@@ -326,7 +327,7 @@ herencia res.users
 				
                 <!--Buscar ubicacion geografica-->
                 <field name="state" required="1" select="0"/>
-				<field name="tipo_procedencia_id" select="0" required="1" string="Programas de Formacion"/>
+				<field name="tipo_procedencia_id" select="0" required="1" string="Programas de Formacion" on_change="on_change_limpiar_campo('denominacion_pis_id')"/>
                 <field name="unidad_formativa_id" select="0" invisible="1"/>
                 <!--
                 <button name="action_proceso" type="object" string="proceso" states="programado"/>
@@ -347,7 +348,7 @@ herencia res.users
                     <field name="nro_preimpreso" select="1" readonly="True"/>
                     <field name="accion_especifica" select="0" required="1" />
                     <field name="modalidad_id" select="0" />
-                    <field name="denominacion_pis_id" select="1" required="1" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)" domain="[('anio_vigencia','=',datetime.date.today().year)]"/>
+                    <field name="denominacion_pis_id" select="1" required="1" colspan="2" on_change="on_change_modalidad_id(denominacion_pis_id)" domain="[('active','=', True),('anio_vigencia','=',datetime.date.today().year),('tipos_procedencias_ids','in', tipo_procedencia_id)]"/>
                     <field name="identificador_id" select="0"/>
                     <field name="cantidad_sujetos_programados" select="0" required="1" attrs="{'readonly':[('cantidad_sujetos_enproceso','>',0),('cantidad_sujetos_programados','>',0)]}"/>
                     
@@ -789,8 +790,19 @@ herencia res.users
                 <field name="horas" select="0" required="True"/>
                 <field name="active" select="0"/>
                 <group col="4" colspan="4">
-                <separator string="Estados donde se dará la opción formativa" colspan="4"/>
-                <field name="estado_ids" nolabel="1" colspan="4"/>
+                <separator string="Estados donde se dará la opción formativa" colspan="2"/>
+                <separator string="Programas de formacion donde se puede impartir ésta opcion formativa" colspan="2"/>
+                <field name="estado_ids" nolabel="1" colspan="2">
+                    <tree string="Estados">
+                        <field name="estado"/>
+                    </tree>
+                </field>
+                <field name="tipos_procedencias_ids" nolabel="1" colspan="2">
+                    <tree string="Programas de formacion">
+                        <field name="tipo_procedencia"/>
+                    </tree>
+                </field>
+
                 </group>
                 <field name="create_uid" select="0" readonly="True"/>
                 <field name="anio_vigencia" select="0" invisible="0" readonly="1"/>
