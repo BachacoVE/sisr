@@ -19,7 +19,7 @@
                 <field name="unidad_formativa_id" select="0" invisible="1"/>
                 <group col="6" colspan="4">
                 <separator colspan="6" string="Información de la Fecha"/>
-                <field name="calendario_id" select="2" on_change="on_change_calendario_id(calendario_id)"/>
+                <field name="calendario_id" select="2" on_change="on_change_calendario_id(calendario_id)" domain="[('active','=', True),('ano','=',datetime.date.today().year)]"/>
                 <field name="semana_desde" select="0" readonly="1" />
                 <field name="semana_hasta" select="0" readonly="1"/>
                 

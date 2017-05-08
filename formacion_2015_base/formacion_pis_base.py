@@ -235,8 +235,7 @@ class for_pis_registro_inicial(osv.osv):
 
        }
        
-    def userid(self,cr,uid,ids):
-        return uid
+
     _defaults= {'state': 'programado', 'anio_vigencia': date.today().year}
 
     def actualizar_matriz(self, cr, uid, ids, context=None):
